@@ -14,11 +14,13 @@ import {
   REDTC_RESOURCES,
 } from "@/lib/redtc/copy";
 import { EXAM_TRACKS, RSOS_MWA } from "@/lib/redtc/exam-tracks";
+import { pageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta({
   title: "REDTC",
   description: REDTC.description,
-};
+  path: "/redtc",
+});
 
 export default function RedtcPage() {
   const bank = allQuestions().length;

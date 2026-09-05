@@ -5,6 +5,7 @@ import { Blocks } from "@/components/Blocks";
 import { SafetyLibraryPanel } from "@/components/SafetyLibraryPanel";
 import { ProvenName } from "@/components/ProvenMark";
 import { SAFETY, getSafety } from "@/lib/safety";
+import { pageMeta } from "@/lib/seo";
 import { SITE } from "@/lib/site";
 
 type Props = { params: Promise<{ slug: string }> };
@@ -16,11 +17,12 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const section = getSafety(slug);
-  if (!section) return { title: "Proven" };
-  return {
+  if (!section) return pageMeta({ title: "Proven", description: SITE.description, path: "/safety" });
+  return pageMeta({
     title: `${section.num} ${section.title}`,
     description: section.intro,
-  };
+    path: `/safety/${slug}`,
+  });
 }
 
 export default async function SafetySectionPage({ params }: Props) {

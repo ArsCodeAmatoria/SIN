@@ -1,12 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { pageMeta } from "@/lib/seo";
 import { BELIEFS, PRINCIPLES, SITE } from "@/lib/site";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta({
   title: "Philosophy",
   description:
     "No bullshit. Just the standard. How this crane safety information is written.",
-};
+  path: "/philosophy",
+});
 
 export default function PhilosophyPage() {
   return (

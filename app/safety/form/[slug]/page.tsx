@@ -6,6 +6,7 @@ import { SafetyDocFrame } from "@/components/SafetyDocFrame";
 import { FORMS, getForm } from "@/lib/ohs";
 import type { DocLink } from "@/lib/ohs/types";
 import { getTemplate } from "@/lib/form-builder/templates";
+import { pageMeta } from "@/lib/seo";
 
 const TEMPLATE_ALIAS: Record<string, string> = {
   "rigging-inspection-form": "rigging-inspection",
@@ -30,8 +31,12 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const doc = getForm(slug);
-  if (!doc) return { title: "Form" };
-  return { title: `${doc.number} ${doc.title}`, description: doc.summary };
+  if (!doc) return pageMeta({ title: "Form", description: "Safety form.", path: "/safety" });
+  return pageMeta({
+    title: `${doc.number} ${doc.title}`,
+    description: doc.summary,
+    path: `/safety/form/${slug}`,
+  });
 }
 
 function FormCta({ link }: { link: DocLink }) {
@@ -84,7 +89,7 @@ export default async function FormPage({ params }: Props) {
   return (
     <SafetyDocFrame
       kicker={`${doc.group.toUpperCase()} FORM`}
-      num={doc.number.replace("GOSPEL-", "")}
+      num={doc.number.replace(/^(GOSPEL|PROVEN)-/, "")}
       title={doc.title}
       intro={doc.summary}
       backHref="/safety/safety-forms"

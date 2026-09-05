@@ -3,8 +3,8 @@ import type { DocControl, DocLink, DocTable, RoleLine } from "./types";
 export const OHS_META = {
   revision: "01",
   effective: "2026-09-01",
-  owner: "GOSPEL Safety",
-  approvedBy: "GOSPEL",
+  owner: "Proven",
+  approvedBy: "Proven",
   review: "2027-09-01",
 } as const;
 

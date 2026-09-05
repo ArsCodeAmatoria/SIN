@@ -6,12 +6,24 @@ import { ProgressBar } from "@/components/redtc/ProgressBar";
 import { QuestionCard } from "@/components/redtc/QuestionCard";
 import { RedtcNav } from "@/components/redtc/RedtcNav";
 import { allQuestions, REDMC_PROGRESS_KEY, REDMC_SEEN_KEY } from "@/lib/redmc/bank";
-import { MOBILE_EXAM_SHORT, MOBILE_EXAM_TRACKS, mobileTrackAvailable, selectMobileTrackQuestions } from "@/lib/redmc/exam-tracks";
-import type { ExamTrack } from "@/lib/redtc/exam-tracks";
+import { REDMC_CATEGORIES } from "@/lib/redmc/copy";
+import {
+  MOBILE_EXAM_LEVEL_TRACKS,
+  MOBILE_EXAM_SHORT,
+  MOBILE_PRACTICE_MODES,
+  MOBILE_RSOS_MWA,
+  mobilePracticeAvailable,
+  selectMobilePracticeQuestions,
+  type MobilePracticeMode,
+} from "@/lib/redmc/exam-tracks";
 import { recordPractice } from "@/lib/redtc/progress";
 import { useTest } from "@/lib/redtc/use-test";
+import type { ExamId } from "@/lib/redtc/types";
 
 const questions = allQuestions();
+const CATEGORIES_WITH_QUESTIONS = REDMC_CATEGORIES.filter((name) =>
+  questions.some((q) => q.category === name),
+);
 
 function formatTime(ms: number): string {
   const seconds = Math.floor(ms / 1000);
@@ -23,9 +35,16 @@ function formatTime(ms: number): string {
 
 export default function RedmcTestPage() {
   const [hasStarted, setHasStarted] = useState(false);
-  const [selectedTrack, setSelectedTrack] = useState<ExamTrack["id"]>("practice");
-  const track = MOBILE_EXAM_TRACKS.find((t) => t.id === selectedTrack)!;
+  const [mode, setMode] = useState<MobilePracticeMode>("practice");
+  const [exam, setExam] = useState<ExamId>("b");
+  const [category, setCategory] = useState<string>(CATEGORIES_WITH_QUESTIONS[0] || "");
+  const [mwa, setMwa] = useState("A");
   const recorded = useRef(false);
+
+  const selectedMode = MOBILE_PRACTICE_MODES.find((item) => item.id === mode)!;
+  const examTrack = MOBILE_EXAM_LEVEL_TRACKS.find((item) => item.id === exam);
+  const paperOpts = { exam, category, mwa };
+  const paperSize = mobilePracticeAvailable(questions, mode, paperOpts);
 
   const {
     currentQuestion,
@@ -50,8 +69,8 @@ export default function RedmcTestPage() {
     totalTestTime,
     timingStats,
   } = useTest(questions, {
-    questionsPerTest: Math.min(track.questions, Math.max(1, questions.length)),
-    passPercentage: track.passPercent,
+    questionsPerTest: Math.min(10, Math.max(1, questions.length)),
+    passPercentage: 70,
     seenKey: REDMC_SEEN_KEY,
   });
 
@@ -64,40 +83,84 @@ export default function RedmcTestPage() {
 
   const start = () => {
     recorded.current = false;
-    const paper = selectMobileTrackQuestions(questions, selectedTrack);
+    const paper = selectMobilePracticeQuestions(questions, mode, paperOpts);
     if (!paper.length) return;
     initializeTest(paper);
     setHasStarted(true);
   };
 
   if (!hasStarted) {
-    const paperSize = mobileTrackAvailable(questions, selectedTrack);
     return (
       <div className="redtc wrap">
         <header className="page-hero">
           <p className="mono kicker">REDMC — PRACTICE</p>
           <h1 className="display giant">CHOOSE A PAPER.</h1>
           <p className="lede mt-2">
-            BC Provisional, Level 1, Level 2 technical, Level 3, Red Seal IP.
-            Every question is tagged. Empty tracks stay empty until questions exist.
+            Quick, category, exam-level, calculation, and Red Seal MWA practice.
+            Empty papers stay empty until questions exist.
           </p>
           <RedtcNav />
         </header>
         <div className="redtc-tracks">
-          {MOBILE_EXAM_TRACKS.map((item) => (
+          {MOBILE_PRACTICE_MODES.map((item) => (
             <button
               key={item.id}
               type="button"
-              className={`redtc-track${item.id === selectedTrack ? " active" : ""}`}
-              onClick={() => setSelectedTrack(item.id)}
+              className={`redtc-track${item.id === mode ? " active" : ""}`}
+              onClick={() => setMode(item.id)}
             >
-              <span className="mono steel">{item.questions} Q · {item.passPercent}%</span>
+              <span className="mono steel">{item.subtitle}</span>
               <strong className="display">{item.title}</strong>
-              <em>{item.subtitle}</em>
             </button>
           ))}
         </div>
-        <p className="lede mt-2">{track.body}</p>
+        <p className="lede mt-2">{selectedMode.body}</p>
+        {mode === "exam" ? (
+          <div className="redtc-filters">
+            {MOBILE_EXAM_LEVEL_TRACKS.filter((item) => item.id !== "lcr").map((item) => (
+              <button
+                key={item.id}
+                type="button"
+                className={`redtc-chip${exam === item.id ? " active" : ""}`}
+                onClick={() => setExam(item.id as ExamId)}
+              >
+                {item.title}
+              </button>
+            ))}
+          </div>
+        ) : null}
+        {mode === "category" ? (
+          <label className="redtc-select">
+            <span className="mono steel">Category</span>
+            <select
+              value={category}
+              onChange={(e) => setCategory(e.target.value)}
+            >
+              {CATEGORIES_WITH_QUESTIONS.map((name) => (
+                <option key={name} value={name}>
+                  {name} ({questions.filter((q) => q.category === name).length})
+                </option>
+              ))}
+            </select>
+          </label>
+        ) : null}
+        {mode === "mwa" ? (
+          <div className="redtc-filters">
+            {MOBILE_RSOS_MWA.map((block) => (
+              <button
+                key={block.letter}
+                type="button"
+                className={`redtc-chip${mwa === block.letter ? " active" : ""}`}
+                onClick={() => setMwa(block.letter)}
+              >
+                {block.letter} · {block.name}
+              </button>
+            ))}
+          </div>
+        ) : null}
+        {mode === "exam" && examTrack ? (
+          <p className="steel mt">{examTrack.body}</p>
+        ) : null}
         <div className="place mt-2">
           <article>
             <span className="mono steel">THIS PAPER</span>
@@ -105,7 +168,7 @@ export default function RedmcTestPage() {
           </article>
           <article>
             <span className="mono steel">TO PASS</span>
-            <h3 className="display">{track.passPercent}%</h3>
+            <h3 className="display">70%</h3>
           </article>
           <article>
             <span className="mono steel">IN BANK</span>
@@ -114,8 +177,11 @@ export default function RedmcTestPage() {
         </div>
         <div className="inline-cta">
           <button type="button" className="btn btn-solid" onClick={start} disabled={!paperSize}>
-            {paperSize ? `Start ${track.title}` : "No questions tagged yet"}
+            {paperSize ? `Start ${selectedMode.title}` : "No questions tagged yet"}
           </button>
+          <Link className="btn btn-ghost" href="/redmc/test/master">
+            Master exam
+          </Link>
           <Link className="btn btn-ghost" href="/redmc">
             Back to REDMC
           </Link>

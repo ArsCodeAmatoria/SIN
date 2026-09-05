@@ -188,8 +188,8 @@ export default function RedmcMasterPage() {
         </div>
         {sampleSize < MASTER_QUESTIONS ? (
           <p className="lede mt-2">
-            Development bank: {sampleSize} tagged questions. Official sitting is
-            110. Sit the sample paper to test scoring, MWA breakdown, and review.
+            Development bank: {sampleSize} questions. Official sitting is 110.
+            Sit the sample paper to test scoring, MWA breakdown, and review.
             Missing slots are not filled with invented items.
           </p>
         ) : null}

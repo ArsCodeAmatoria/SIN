@@ -236,7 +236,7 @@ export function BinderWizard({ binder }: { binder: BinderDef }) {
       {busy ? <p className="fb-warn">{busy}</p> : null}
       <p className="mono steel doc-colophon">
         Saved on this device. Not sent to a server. Official BC Crane Safety
-        checklist and WorkSafeBC forms are linked — they are not GOSPEL forms.
+        checklist and WorkSafeBC forms are linked — they are not Proven forms.
       </p>
     </article>
   );

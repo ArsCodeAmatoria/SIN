@@ -12,9 +12,9 @@ export async function POST(request: Request) {
   const data = body as Record<string, unknown>;
   const to = String(data.to ?? "").trim();
   const cc = String(data.cc ?? "").trim();
-  const subject = String(data.subject ?? "GOSPEL safety form").trim();
+  const subject = String(data.subject ?? "sin() safety form").trim();
   const message = String(data.message ?? "").trim();
-  const filename = String(data.filename ?? "GOSPEL-form.pdf").replace(
+  const filename = String(data.filename ?? "sin-form.pdf").replace(
     /[^\w.\-]+/g,
     "_"
   );
@@ -27,7 +27,7 @@ export async function POST(request: Request) {
   }
 
   const key = process.env.RESEND_API_KEY;
-  const from = process.env.WHOOP_FORM_FROM || "GOSPEL <noreply@whoop.ca>";
+  const from = process.env.PROVEN_FORM_FROM || process.env.WHOOP_FORM_FROM || "sin() <noreply@sin.ae.org>";
   if (!key) {
     return NextResponse.json({ ok: false, reason: "email-not-configured" });
   }
@@ -43,7 +43,7 @@ export async function POST(request: Request) {
       to: [to],
       cc: cc ? [cc] : undefined,
       subject,
-      text: message || "GOSPEL completed safety form attached.",
+      text: message || "Proven completed safety form attached.",
       attachments: [{ filename, content: pdfBase64 }],
     }),
   });

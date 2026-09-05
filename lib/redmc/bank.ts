@@ -1,6 +1,8 @@
-import questionsData from "./questions.json";
 import type { LoadChart } from "@/lib/redtc/bank";
 import type { Question } from "@/lib/redtc/types";
+import { MOBILE_QUESTIONS } from "./questions/index";
+import { toQuizQuestion } from "./to-quiz";
+import type { MobileQuestion } from "./types";
 
 export type ComingSoonMaker = {
   id: string;
@@ -19,8 +21,12 @@ export const CHART_MAKERS: ComingSoonMaker[] = [
   { id: "manitowoc", name: "Manitowoc", note: "Coming soon." },
 ];
 
+export function mobileSourceQuestions(): MobileQuestion[] {
+  return MOBILE_QUESTIONS;
+}
+
 export function theoryQuestions(): Question[] {
-  return questionsData as Question[];
+  return MOBILE_QUESTIONS.map(toQuizQuestion);
 }
 
 export function chartQuestions(offset = 30000): Question[] {

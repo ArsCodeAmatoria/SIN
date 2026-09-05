@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { SafetyControlStamp } from "@/components/SafetyControl";
 import { SafetyDocFrame } from "@/components/SafetyDocFrame";
 import { POLICIES, getPolicy } from "@/lib/ohs";
+import { pageMeta } from "@/lib/seo";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -13,8 +14,12 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const doc = getPolicy(slug);
-  if (!doc) return { title: "Policy" };
-  return { title: `${doc.number} ${doc.title}`, description: doc.summary };
+  if (!doc) return pageMeta({ title: "Policy", description: "OH&S policy.", path: "/safety" });
+  return pageMeta({
+    title: `${doc.number} ${doc.title}`,
+    description: doc.summary,
+    path: `/safety/policy/${slug}`,
+  });
 }
 
 export default async function PolicyPage({ params }: Props) {

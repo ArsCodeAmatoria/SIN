@@ -51,6 +51,13 @@ export interface Question {
   ohs?: string;
   /** Human-readable source: exam + section + regulation */
   src?: string;
+  /** Public stable code (e.g. MC-0001). Numeric `id` is used by the quiz engine. */
+  code?: string;
+  calculation?: boolean;
+  sourceVerified?: boolean;
+  tags?: string[];
+  sourceName?: string;
+  sourceUrl?: string;
 }
 
 export interface TestState {

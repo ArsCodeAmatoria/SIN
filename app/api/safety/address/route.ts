@@ -96,7 +96,7 @@ async function fromPhoton(q: string): Promise<AddressHit[]> {
   url.searchParams.set("lat", "49.28");
   url.searchParams.set("lon", "-123.12");
   const res = await fetch(url, {
-    headers: { "User-Agent": "GOSPEL-Safety/1.0 (https://whoop.ca)" },
+    headers: { "User-Agent": "sin()/1.0 (https://sin.ae.org)" },
     next: { revalidate: 0 },
   });
   if (!res.ok) throw new Error("photon");

@@ -10,7 +10,7 @@
 
 [![Next.js](https://img.shields.io/badge/Next.js-15-111111?logo=nextdotjs&logoColor=white)](https://whoop.ca)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
-[![COR®](https://img.shields.io/badge/COR®-Certified-c1121f)](https://www.bccsa.ca/)
+[![COR®](https://img.shields.io/badge/COR®-Certified-ffd500)](https://www.bccsa.ca/)
 [![WorkSafeBC](https://img.shields.io/badge/WorkSafeBC-Part_14-111111)](https://www.worksafebc.com/)
 [![BC Crane Safety](https://img.shields.io/badge/BC_Crane_Safety-Ticket-6c6861)](https://bccranesafety.ca/)
 [![British Columbia](https://img.shields.io/badge/British_Columbia-Canada-111111)](https://whoop.ca)
@@ -58,7 +58,7 @@ Working documents, not a poster:
   ![LOW](https://img.shields.io/badge/LOW-6c6861)
   ![MODERATE](https://img.shields.io/badge/MODERATE-2c2a27)
   ![HIGH](https://img.shields.io/badge/HIGH-111111)
-  ![EXTREME](https://img.shields.io/badge/EXTREME-c1121f)
+  ![EXTREME](https://img.shields.io/badge/EXTREME-ffd500)
 
   Extreme is the no-recovery killer (people under the load, MAD, overturn, a table over the edge). High is serious injury. Moderate is lost time or a failed plan. Low is first aid.
 - **SJP library** — this lift, this site, this day. The SWP is the method. The SJP is the instance. Flytable cycles first — fill [GOSPEL-FRM-052](https://whoop.ca/safety/builder/flytable-cycle-sjp) before drop.

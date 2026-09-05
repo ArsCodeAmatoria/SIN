@@ -2,14 +2,16 @@
 
 import Link from "next/link";
 import { useMemo, useState } from "react";
+import { MobileBankOverview } from "@/components/redmc/MobileBankOverview";
 import { QuestionCard } from "@/components/redtc/QuestionCard";
 import { RedtcNav } from "@/components/redtc/RedtcNav";
-import { allQuestions } from "@/lib/redmc/bank";
+import { allQuestions, mobileSourceQuestions } from "@/lib/redmc/bank";
 import { REDMC_CATEGORIES } from "@/lib/redmc/copy";
 import { MOBILE_EXAM_LABELS, MOBILE_EXAM_SHORT } from "@/lib/redmc/exam-tracks";
 import type { ExamId } from "@/lib/redtc/types";
 
 const questions = allQuestions();
+const source = mobileSourceQuestions();
 
 const CATEGORIES = [
   "All Questions",
@@ -29,9 +31,9 @@ const EXAM_FILTERS: { id: "all" | ExamId; label: string }[] = [
 
 const DIFFICULTY: { id: "all" | "easy" | "medium" | "hard"; label: string }[] = [
   { id: "all", label: "All difficulty" },
-  { id: "easy", label: "Easy" },
-  { id: "medium", label: "Medium" },
-  { id: "hard", label: "Hard" },
+  { id: "easy", label: "Basic" },
+  { id: "medium", label: "Intermediate" },
+  { id: "hard", label: "Advanced" },
 ];
 
 const REGULATIONS = [
@@ -79,11 +81,16 @@ export default function RedmcReviewPage() {
         <p className="mono kicker">REDMC — BANK</p>
         <h1 className="display giant">REVIEW.</h1>
         <p className="lede mt-2">
-          {filtered.length} questions. Answers shown. Filter by exam, topic,
-          difficulty, regulation, and major work activity.
+          {source.length.toLocaleString("en-CA")} Mobile Crane Questions in the
+          bank. {filtered.length} match this filter. Answers shown.
         </p>
         <RedtcNav />
       </header>
+      <MobileBankOverview
+        items={source}
+        compact
+        showSourceSplit={process.env.NODE_ENV !== "production"}
+      />
       <div className="redtc-filters">
         {EXAM_FILTERS.map((item) => (
           <button

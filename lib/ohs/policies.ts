@@ -72,7 +72,7 @@ export const POLICIES: Policy[] = [
       },
       {
         title: "Young or new worker",
-        body: "A young worker is under 25. A new worker is new to that workplace, returning to changed hazards, or relocated to different hazards. 3.22. Before they begin, they get the orientation topics in 3.23 — supervisor name, rights including refusal, rules, hazards, working alone, violence, PPE, first aid, emergency, the task, this program, WHMIS as it applies, committee or worker-rep contact. Extra orientation if they cannot do the work safely or they ask. 3.24. Record it. 3.25. GOSPEL-FRM-015.",
+        body: "A young worker is under 25. A new worker is new to that workplace, returning to changed hazards, or relocated to different hazards. 3.22. Before they begin, they get the orientation topics in 3.23 — supervisor name, rights including refusal, rules, hazards, working alone, violence, PPE, first aid, emergency, the task, this program, WHMIS as it applies, committee or worker-rep contact. Extra orientation if they cannot do the work safely or they ask. 3.24. Record it. 3.25. PROVEN-FRM-015.",
       },
       {
         title: "Site orientation",
@@ -243,7 +243,7 @@ export const POLICIES: Policy[] = [
       },
       {
         title: "Issue and replace",
-        body: "The employer or the supervisor issues or confirms required PPE for the lift. Failed PPE is replaced or the worker does not start. Record issue and replacement on GOSPEL-FRM-018. Workers do not start the lift waiting on a hat.",
+        body: "The employer or the supervisor issues or confirms required PPE for the lift. Failed PPE is replaced or the worker does not start. Record issue and replacement on PROVEN-FRM-018. Workers do not start the lift waiting on a hat.",
       },
       {
         title: "Instruction",
@@ -302,7 +302,7 @@ export const POLICIES: Policy[] = [
     statements: [
       {
         title: "Crane",
-        body: "Operator inspection each shift as the manufacturer, the named 14.2 standard, and Part 14 require. Defects that affect lifting keep the crane down. Tower, hammerhead, luffing jib and self-erecting machines: see Inspections — OEM charts and GOSPEL-FRM-027 through 031.",
+        body: "Operator inspection each shift as the manufacturer, the named 14.2 standard, and Part 14 require. Defects that affect lifting keep the crane down. Tower, hammerhead, luffing jib and self-erecting machines: see Inspections — OEM charts and PROVEN-FRM-027 through 031.",
       },
       {
         title: "Rigging",
@@ -421,7 +421,7 @@ export const POLICIES: Policy[] = [
       },
       {
         title: "Management review",
-        body: "This program requires a periodic management OHS meeting to review safety activities and incident trends and to decide what changes. 3.3(d). At least quarterly, and after a serious incident. Agenda: incidents, inspections, outstanding corrective actions, training, worker concerns and refusals, COR / audit results, objectives. GOSPEL-FRM-032.",
+        body: "This program requires a periodic management OHS meeting to review safety activities and incident trends and to decide what changes. 3.3(d). At least quarterly, and after a serious incident. Agenda: incidents, inspections, outstanding corrective actions, training, worker concerns and refusals, COR / audit results, objectives. PROVEN-FRM-032.",
       },
       {
         title: "Records and statistics",
@@ -474,11 +474,11 @@ export const POLICIES: Policy[] = [
       },
       {
         title: "How to report",
-        body: "Report as soon as you can. Tell the supervisor or the employer at the workplace. Email safety@gospel.im with the subject BULLYING AND HARASSMENT, or use Report Bullying or Harassment under Incident Reporting. Say who, when, where, what was said or done, and who saw it. You do not need a form if a call is faster.",
+        body: "Report as soon as you can. Tell the supervisor or the employer at the workplace. Email info@sin.ae.org with the subject BULLYING AND HARASSMENT, or use Report Bullying or Harassment under Incident Reporting. Say who, when, where, what was said or done, and who saw it. You do not need a form if a call is faster.",
       },
       {
         title: "If the alleged person is the supervisor or the employer",
-        body: "If the alleged bully is your supervisor or a person acting for the employer, do not report only to that person. Report to the employer at the workplace, or email safety@gospel.im. If the alleged person is the employer itself and you cannot use the internal route, call the WorkSafeBC Prevention Information Line: 1 888 621 7233.",
+        body: "If the alleged bully is your supervisor or a person acting for the employer, do not report only to that person. Report to the employer at the workplace, or email info@sin.ae.org. If the alleged person is the employer itself and you cannot use the internal route, call the WorkSafeBC Prevention Information Line: 1 888 621 7233.",
       },
       {
         title: "How it is dealt with",
@@ -632,7 +632,7 @@ export const POLICIES: Policy[] = [
       },
       {
         title: "Report",
-        body: "Injuries are reported the same shift — including what someone calls nothing. First aid report GOSPEL-FRM-012. Incident report as required. WorkSafeBC is notified as the law requires. Hiding an injury to finish a pick is how it becomes a worse injury.",
+        body: "Injuries are reported the same shift — including what someone calls nothing. First aid report PROVEN-FRM-012. Incident report as required. WorkSafeBC is notified as the law requires. Hiding an injury to finish a pick is how it becomes a worse injury.",
       },
       {
         title: "Stay at work",
@@ -653,7 +653,7 @@ export const POLICIES: Policy[] = [
     statements: [
       {
         title: "Suitable work",
-        body: "Return-to-work is work the person can do within named restrictions. An operator, rigger or signalperson is not put into a role that violates those restrictions. The form is GOSPEL-FRM-RTW.",
+        body: "Return-to-work is work the person can do within named restrictions. An operator, rigger or signalperson is not put into a role that violates those restrictions. The form is PROVEN-FRM-RTW.",
       },
       {
         title: "Plan",
@@ -690,7 +690,7 @@ export const POLICIES: Policy[] = [
       },
       {
         title: "Report",
-        body: "Report to the supervisor or the employer at the workplace, or email safety@gospel.im. If the alleged person is the supervisor or the employer, use that route anyway and name it. A complaint may also be filed with the BC Human Rights Tribunal. Bullying and harassment under WorkSafeBC is a separate file — GOSPEL-POL-017 — and both can apply.",
+        body: "Report to the supervisor or the employer at the workplace, or email info@sin.ae.org. If the alleged person is the supervisor or the employer, use that route anyway and name it. A complaint may also be filed with the BC Human Rights Tribunal. Bullying and harassment under WorkSafeBC is a separate file — GOSPEL-POL-017 — and both can apply.",
       },
     ],
   },
@@ -707,7 +707,7 @@ export const POLICIES: Policy[] = [
       },
       {
         title: "Client / host site",
-        body: "On a host construction or industrial site, first aid is the host’s or the prime contractor’s. Before work, the crew knows where it is, who the attendant is, and how to summon it. That goes on the FLHA. GOSPEL-FRM-012 is still completed for a worker on the lift.",
+        body: "On a host construction or industrial site, first aid is the host’s or the prime contractor’s. Before work, the crew knows where it is, who the attendant is, and how to summon it. That goes on the FLHA. PROVEN-FRM-012 is still completed for a worker on the lift.",
       },
       {
         title: "Workplace the employer controls",
@@ -740,7 +740,7 @@ export const POLICIES: Policy[] = [
       },
       {
         title: "Below the threshold",
-        body: "If an employer-controlled workplace is below the committee and representative thresholds, 3.2 still requires regular monthly meetings with workers on health and safety, and a record of what was discussed. GOSPEL-FRM-033.",
+        body: "If an employer-controlled workplace is below the committee and representative thresholds, 3.2 still requires regular monthly meetings with workers on health and safety, and a record of what was discussed. PROVEN-FRM-033.",
       },
       {
         title: "Recommendations",

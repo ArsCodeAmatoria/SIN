@@ -35,19 +35,19 @@ export function QuestionCard({
       <div className="redtc-card-meta">
         <p className="mono kicker">
           Question {questionNumber} / {totalQuestions}
+          {question.code ? ` · ${question.code}` : ""}
         </p>
         {question.category && !hideMeta ? (
           <p className="mono steel">{question.category}</p>
         ) : null}
       </div>
-      {!hideMeta && (question.exams?.length || question.src) ? (
+      {!hideMeta && question.exams?.length ? (
         <div className="redtc-tags">
-          {question.exams?.map((exam) => (
+          {question.exams.map((exam) => (
             <span key={exam} className="redtc-badge">
               {examShort[exam]}
             </span>
           ))}
-          {question.src ? <p className="steel">{question.src}</p> : null}
         </div>
       ) : null}
       {question.chartPdf ? (

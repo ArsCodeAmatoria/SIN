@@ -178,7 +178,7 @@ export function safetyCatalog(): CatalogHit[] {
     })),
     {
       href: "/safety/builder",
-      number: "GOSPEL-FRM",
+      number: "PROVEN-FRM",
       title: "FORM BUILDER",
       summary: "Assemble, fill, PDF.",
       kind: "FORM",

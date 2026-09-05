@@ -1,5 +1,6 @@
 import type { ExamId, Question } from "@/lib/redtc/types";
 import type { ExamTrack } from "@/lib/redtc/exam-tracks";
+import { shufflePaper } from "./to-quiz";
 
 export const MOBILE_EXAM_LABELS: Record<ExamId, string> = {
   b: "BC Provisional",
@@ -84,6 +85,55 @@ export const MOBILE_EXAM_TRACKS: ExamTrack[] = [
     body: "Chart sets are coming soon. This track stays empty until a manufacturer PDF and questions are supplied — capacities are not invented here.",
   },
 ];
+
+export type MobilePracticeMode =
+  | "practice"
+  | "category"
+  | "exam"
+  | "calculation"
+  | "mwa";
+
+export const MOBILE_PRACTICE_MODES: {
+  id: MobilePracticeMode;
+  title: string;
+  subtitle: string;
+  body: string;
+}[] = [
+  {
+    id: "practice",
+    title: "Quick Practice",
+    subtitle: "10 mixed questions",
+    body: "10 random questions from the Mobile Crane bank.",
+  },
+  {
+    id: "category",
+    title: "Category Practice",
+    subtitle: "Choose a topic",
+    body: "Practice one Mobile Crane category. Paper size is the questions in that category, up to 10.",
+  },
+  {
+    id: "exam",
+    title: "Exam-Level Practice",
+    subtitle: "Provisional through Red Seal",
+    body: "Sit a paper tagged to BC Provisional, Level 1, Level 2, Level 3, or Red Seal.",
+  },
+  {
+    id: "calculation",
+    title: "Calculation Practice",
+    subtitle: "Working numbers",
+    body: "Only questions tagged as calculations. Formula, values, working, and the limiting reminder are in the explanation.",
+  },
+  {
+    id: "mwa",
+    title: "Red Seal MWA Practice",
+    subtitle: "Major Work Activities A–G",
+    body: "Practice one 2021 RSOS Major Work Activity.",
+  },
+];
+
+export const MOBILE_EXAM_LEVEL_TRACKS = MOBILE_EXAM_TRACKS.filter(
+  (item) => item.id !== "practice",
+);
 
 /** Official 2021 RSOS Interprovincial breakdown (110 questions). */
 export const MOBILE_RSOS_MWA: {
@@ -195,7 +245,7 @@ export function selectMobileIpPaper(all: Question[]): Question[] {
     picked.push(...takeFrom(all, MASTER_QUESTIONS - picked.length, used));
   }
 
-  return shuffle(picked).slice(0, MASTER_QUESTIONS);
+  return shufflePaper(picked).slice(0, MASTER_QUESTIONS);
 }
 
 export function scoreMobileByMwa(
@@ -227,17 +277,64 @@ export function mobileTrackAvailable(
   return Math.min(size, tagged.length);
 }
 
+export function mobilePracticeAvailable(
+  all: Question[],
+  mode: MobilePracticeMode,
+  opts?: { exam?: ExamId; category?: string; mwa?: string },
+): number {
+  if (mode === "practice") return Math.min(10, all.length);
+  if (mode === "calculation") {
+    return Math.min(10, all.filter((q) => q.calculation).length);
+  }
+  if (mode === "category") {
+    if (!opts?.category) return 0;
+    return Math.min(10, all.filter((q) => q.category === opts.category).length);
+  }
+  if (mode === "mwa") {
+    if (!opts?.mwa) return 0;
+    return Math.min(
+      10,
+      all.filter((q) => q.mwa === opts.mwa || q.rsos?.startsWith(`${opts.mwa}-`)).length,
+    );
+  }
+  if (!opts?.exam) return 0;
+  return mobileTrackAvailable(all, opts.exam);
+}
+
 export function selectMobileTrackQuestions(
   all: Question[],
   trackId: ExamTrack["id"],
 ): Question[] {
-  if (trackId === "practice") return shuffle(all).slice(0, Math.min(10, all.length));
-  if (trackId === "ip") return selectMobileIpPaper(all);
+  if (trackId === "practice") return shufflePaper(all.slice()).slice(0, Math.min(10, all.length));
+  if (trackId === "ip") return shufflePaper(selectMobileIpPaper(all));
   if (trackId === "lcr") {
-    return shuffle(all.filter((q) => q.chartPdf)).slice(0, 10);
+    return shufflePaper(all.filter((q) => q.chartPdf)).slice(0, 10);
   }
   const exam = trackId as ExamId;
   const tagged = all.filter((q) => q.exams?.includes(exam));
   const size = MOBILE_EXAM_TRACKS.find((t) => t.id === trackId)?.questions || 50;
-  return shuffle(tagged).slice(0, Math.min(size, tagged.length));
+  return shufflePaper(tagged).slice(0, Math.min(size, tagged.length));
+}
+
+export function selectMobilePracticeQuestions(
+  all: Question[],
+  mode: MobilePracticeMode,
+  opts?: { exam?: ExamId; category?: string; mwa?: string },
+): Question[] {
+  if (mode === "practice") return selectMobileTrackQuestions(all, "practice");
+  if (mode === "calculation") {
+    return shufflePaper(all.filter((q) => q.calculation)).slice(0, 10);
+  }
+  if (mode === "category" && opts?.category) {
+    return shufflePaper(all.filter((q) => q.category === opts.category)).slice(0, 10);
+  }
+  if (mode === "mwa" && opts?.mwa) {
+    return shufflePaper(
+      all.filter((q) => q.mwa === opts.mwa || q.rsos?.startsWith(`${opts.mwa}-`)),
+    ).slice(0, 10);
+  }
+  if (mode === "exam" && opts?.exam) {
+    return selectMobileTrackQuestions(all, opts.exam);
+  }
+  return [];
 }

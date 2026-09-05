@@ -1,6 +1,17 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import {
+  CheckIcon,
+  CopyIcon,
+  FacebookIcon,
+  LinkedinIcon,
+  MailIcon,
+  ShareIcon,
+  TwitterIcon,
+} from "@/components/icons/social";
+
+const ICON = 22;
 
 export function WireShare({ title, url }: { title: string; url: string }) {
   const [copied, setCopied] = useState(false);
@@ -8,6 +19,7 @@ export function WireShare({ title, url }: { title: string; url: string }) {
   const encoded = encodeURIComponent(url);
   const text = encodeURIComponent(title);
   const linkedin = `https://www.linkedin.com/sharing/share-offsite/?url=${encoded}`;
+  const facebook = `https://www.facebook.com/sharer/sharer.php?u=${encoded}`;
   const x = `https://x.com/intent/tweet?text=${text}&url=${encoded}`;
   const email = `mailto:?subject=${text}&body=${encoded}`;
 
@@ -37,20 +49,25 @@ export function WireShare({ title, url }: { title: string; url: string }) {
   return (
     <div className="wire-share">
       <p className="mono steel">SHARE</p>
-      <nav className="wire-share-links mono" aria-label="Share this story">
-        <a href={linkedin} rel="noreferrer" target="_blank">
-          LINKEDIN
+      <nav className="wire-share-links" aria-label="Share this story">
+        <a href={linkedin} rel="noreferrer" target="_blank" aria-label="LinkedIn">
+          <LinkedinIcon size={ICON} />
         </a>
-        <a href={x} rel="noreferrer" target="_blank">
-          X
+        <a href={facebook} rel="noreferrer" target="_blank" aria-label="Facebook">
+          <FacebookIcon size={ICON} />
         </a>
-        <a href={email}>EMAIL</a>
-        <button type="button" onClick={copy}>
-          {copied ? "COPIED" : "COPY LINK"}
+        <a href={x} rel="noreferrer" target="_blank" aria-label="X">
+          <TwitterIcon size={ICON} />
+        </a>
+        <a href={email} aria-label="Email">
+          <MailIcon size={ICON} />
+        </a>
+        <button type="button" onClick={copy} aria-label={copied ? "Copied" : "Copy link"}>
+          {copied ? <CheckIcon size={ICON} /> : <CopyIcon size={ICON} />}
         </button>
         {canShare ? (
-          <button type="button" onClick={nativeShare}>
-            SHARE
+          <button type="button" onClick={nativeShare} aria-label="Share">
+            <ShareIcon size={ICON} />
           </button>
         ) : null}
       </nav>

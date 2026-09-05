@@ -434,7 +434,7 @@ export const REFUSAL_ITEMS = [
   "Work stopped",
   "Reason stated — specific",
   "Site told",
-  "GOSPEL told",
+  "Employer told",
   "Danger investigated",
   "Work still stopped until controlled",
   "No replacement sent to do the same unsafe work",

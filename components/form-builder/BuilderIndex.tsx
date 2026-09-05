@@ -11,12 +11,13 @@ import {
   listLocalForms,
   saveLocalForm,
 } from "@/lib/form-builder";
-import type { WhoopFormDef } from "@/lib/form-builder/types";
+import type { FormDef } from "@/lib/form-builder/types";
+import { ProvenName } from "@/components/ProvenMark";
 import { useRouter } from "next/navigation";
 
 export function BuilderIndex() {
   const router = useRouter();
-  const [local, setLocal] = useState<WhoopFormDef[]>([]);
+  const [local, setLocal] = useState<FormDef[]>([]);
 
   useEffect(() => {
     setLocal(listLocalForms());
@@ -27,7 +28,7 @@ export function BuilderIndex() {
     router.push(`/safety/builder/${form.id}`);
   }
 
-  function copyTemplate(t: WhoopFormDef) {
+  function copyTemplate(t: FormDef) {
     const form = saveLocalForm(cloneForm(t, t.title));
     router.push(`/safety/builder/${form.id}`);
   }
@@ -35,10 +36,12 @@ export function BuilderIndex() {
   return (
     <article className="doc-body">
       <header className="doc-title">
-        <p className="mono steel">SAFETY FORMS</p>
+        <p className="mono steel">
+          <ProvenName /> FORMS
+        </p>
         <h1 className="display">FORM BUILDER</h1>
         <p className="lede mt">
-          GOSPEL forms are assembled from reusable Safety Blocks. Pick a
+          <ProvenName /> forms are assembled from reusable Safety Blocks. Pick a
           controlled template, or start from scratch. Fill it out on this
           device. Download a PDF. Nothing is kept on a server.
         </p>

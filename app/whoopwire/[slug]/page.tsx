@@ -9,6 +9,7 @@ import { WireStoryLink } from "@/components/WireStoryLink";
 import { WireSubscribe } from "@/components/WireSubscribe";
 import { ProvenName } from "@/components/ProvenMark";
 import { getSafety } from "@/lib/safety";
+import { absUrl, pageMeta } from "@/lib/seo";
 import { SITE } from "@/lib/site";
 import {
   WIRE,
@@ -30,31 +31,27 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const article = getArticle(slug);
-  if (!article) return { title: WIRE.name };
-  const url = `/whoopwire/${article.slug}`;
-  return {
+  if (!article) {
+    return pageMeta({
+      title: WIRE.name,
+      description: WIRE.dek,
+      path: "/whoopwire",
+    });
+  }
+  const path = `/whoopwire/${article.slug}`;
+  return pageMeta({
     title: article.seoTitle,
     description: article.seoDescription,
-    alternates: { canonical: url },
-    openGraph: {
-      type: "article",
-      title: article.seoTitle,
-      description: article.seoDescription,
-      url,
-      publishedTime: article.published,
-      modifiedTime: article.updated ?? article.published,
-      authors: [article.author],
-      section: article.category,
-      images: article.image
-        ? [{ url: article.image, alt: article.imageAlt ?? article.title }]
-        : undefined,
-    },
-    twitter: {
-      card: article.image ? "summary_large_image" : "summary",
-      title: article.seoTitle,
-      description: article.seoDescription,
-    },
-  };
+    path,
+    type: "article",
+    publishedTime: article.published,
+    modifiedTime: article.updated ?? article.published,
+    authors: [SITE.name],
+    section: article.category,
+    images: article.image
+      ? [{ url: article.image, alt: article.imageAlt ?? article.title }]
+      : undefined,
+  });
 }
 
 export default async function WireArticlePage({ params }: Props) {
@@ -67,7 +64,7 @@ export default async function WireArticlePage({ params }: Props) {
   const safety = article.safety
     .map((item) => getSafety(item))
     .filter((item): item is NonNullable<ReturnType<typeof getSafety>> => Boolean(item));
-  const url = `https://whoop.ca/whoopwire/${article.slug}`;
+  const url = absUrl(`/whoopwire/${article.slug}`);
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -76,15 +73,15 @@ export default async function WireArticlePage({ params }: Props) {
     description: article.seoDescription,
     datePublished: article.published,
     dateModified: article.updated ?? article.published,
-    author: { "@type": "Organization", name: article.author },
+    author: { "@type": "Organization", name: SITE.name },
     publisher: {
       "@type": "Organization",
-      name: "GOSPEL",
-      url: "https://whoop.ca",
+      name: SITE.name,
+      url: absUrl("/"),
     },
     mainEntityOfPage: url,
     articleSection: article.category,
-    image: article.image ? `https://whoop.ca${article.image}` : undefined,
+    image: article.image ? absUrl(article.image) : undefined,
     wordCount: wordCount(article),
   };
 

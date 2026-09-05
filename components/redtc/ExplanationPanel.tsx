@@ -13,6 +13,9 @@ export function ExplanationPanel({
   if (!isVisible) return null;
   const correct = question.options.find((opt) => opt.id === question.correctAnswer);
 
+  const wrong = question.options.filter((opt) => opt.id !== question.correctAnswer);
+  const wrongExplained = wrong.filter((opt) => opt.explanation);
+
   return (
     <div className="redtc-explain">
       <p className="mono kicker">Explanation</p>
@@ -20,19 +23,27 @@ export function ExplanationPanel({
         <strong>{correct?.text}</strong>
         {correct?.explanation ? ` — ${correct.explanation}` : ""}
       </p>
-      <p className="mono steel mt">Why the others are wrong</p>
-      {question.options
-        .filter((opt) => opt.id !== question.correctAnswer)
-        .map((opt) => (
-          <p key={opt.id}>
-            <strong>{opt.text}</strong>
-            {opt.explanation ? ` — ${opt.explanation}` : ""}
-          </p>
-        ))}
+      {wrongExplained.length > 0 ? (
+        <>
+          <p className="mono steel mt">Why the others are wrong</p>
+          {wrongExplained.map((opt) => (
+            <p key={opt.id}>
+              <strong>{opt.text}</strong>
+              {opt.explanation ? ` — ${opt.explanation}` : ""}
+            </p>
+          ))}
+        </>
+      ) : null}
       {question.src ? (
         <p className="steel mt">
-          <strong>Source. </strong>
-          {question.src}
+          <strong>Source: </strong>
+          {question.sourceUrl ? (
+            <a href={question.sourceUrl} rel="noreferrer" target="_blank">
+              {question.src}
+            </a>
+          ) : (
+            question.src
+          )}
         </p>
       ) : null}
     </div>

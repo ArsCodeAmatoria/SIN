@@ -9,7 +9,7 @@ import { itemState } from "./binder-store";
 
 const INK = rgb(16 / 255, 16 / 255, 16 / 255);
 const STEEL = rgb(108 / 255, 104 / 255, 97 / 255);
-const CROWN = rgb(193 / 255, 18 / 255, 31 / 255);
+const CROWN = rgb(255 / 255, 213 / 255, 0 / 255);
 const LINE = rgb(0.75, 0.75, 0.75);
 const W = 612;
 const H = 792;

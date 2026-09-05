@@ -1,18 +1,15 @@
 import type { Metadata } from "next";
-import { WhoopwireIndex } from "@/components/WhoopwireIndex";
+import { WireIndex } from "@/components/WhoopwireIndex";
+import { pageMeta } from "@/lib/seo";
 import { WIRE, getSummaries } from "@/lib/whoopwire";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta({
   title: WIRE.name,
   description: WIRE.dek,
-  openGraph: {
-    title: WIRE.name,
-    description: WIRE.dek,
-    type: "website",
-  },
-};
+  path: "/whoopwire",
+});
 
-export default function WhoopwirePage() {
+export default function WirePage() {
   return (
     <>
       <header className="page-hero wrap">
@@ -21,7 +18,7 @@ export default function WhoopwirePage() {
         <p className="mono mt">{WIRE.descriptor}</p>
         <p className="lede mt-2">{WIRE.dek}</p>
       </header>
-      <WhoopwireIndex stories={getSummaries()} />
+      <WireIndex stories={getSummaries()} />
     </>
   );
 }

@@ -1,33 +1,29 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { MobileBankOverview } from "@/components/redmc/MobileBankOverview";
 import { MobileProgress } from "@/components/redmc/MobileProgress";
 import { RedtcNav } from "@/components/redtc/RedtcNav";
-import { allQuestions, CHARTS, REDMC, theoryQuestions } from "@/lib/redmc/bank";
+import { allQuestions, CHARTS, REDMC, mobileSourceQuestions } from "@/lib/redmc/bank";
 import {
   REDMC_AUTHORITIES,
-  REDMC_CATEGORIES,
   REDMC_COVERS,
   REDMC_FEATURES,
   REDMC_PATH,
   REDMC_RESOURCES,
 } from "@/lib/redmc/copy";
 import { MOBILE_EXAM_TRACKS, MOBILE_RSOS_MWA } from "@/lib/redmc/exam-tracks";
+import { pageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta({
   title: "REDMC",
   description: REDMC.description,
-};
+  path: "/redmc",
+});
 
 export default function RedmcPage() {
   const bank = allQuestions().length;
-  const theory = theoryQuestions().length;
-  const countLabel = bank.toLocaleString("en-CA");
-  const byCategory = Object.fromEntries(
-    REDMC_CATEGORIES.map((name) => [
-      name,
-      theoryQuestions().filter((q) => q.category === name).length,
-    ]),
-  );
+  const source = mobileSourceQuestions();
+  const countLabel = `${bank.toLocaleString("en-CA")} Mobile Crane Questions`;
 
   return (
     <>
@@ -49,7 +45,7 @@ export default function RedmcPage() {
         <div className="place mt-2">
           <article>
             <span className="mono steel">Questions</span>
-            <h3 className="display">{countLabel}</h3>
+            <h3 className="display">{bank.toLocaleString("en-CA")}</h3>
           </article>
           <article>
             <span className="mono steel">Pass mark</span>
@@ -74,9 +70,8 @@ export default function RedmcPage() {
           </Link>
         </div>
         <p className="steel mt">
-          {theory.toLocaleString("en-CA")} tagged development questions in the bank
-          now. Official sitting is 110. Counts only real items — not placeholders.
-          Tower Crane stays at REDTC.
+          {countLabel} in the bank now. Official sitting is 110. Counts only real
+          items — not placeholders. Tower Crane stays at REDTC.
         </p>
       </header>
 
@@ -90,7 +85,7 @@ export default function RedmcPage() {
               <span className="mono steel">{item.label}</span>
               <h3 className="display">
                 {item.label === "Practice"
-                  ? `${countLabel} exam questions tagged to B.C. papers`
+                  ? countLabel
                   : item.title}
               </h3>
               <p>{item.body}</p>
@@ -146,25 +141,18 @@ export default function RedmcPage() {
       </section>
 
       <section className="section wrap">
-        <p className="mono kicker">Study categories</p>
-        <h2 className="display giant">MOBILE CRANE TOPICS</h2>
+        <p className="mono kicker">Question bank</p>
+        <h2 className="display giant">{countLabel.toUpperCase()}</h2>
         <p className="lede mt-2">
-          Same card system as Tower Crane. Counts are live from the bank. Empty
-          categories are ready for questions — they are not filled with fakes.
+          Same quiz engine as Tower Crane. Empty categories are ready for the
+          next pack — they are not filled with fakes.
         </p>
-        <ul className="std-list mt-2">
-          {REDMC_CATEGORIES.map((name, i) => (
-            <li key={name}>
-              <p className="mono steel">{String(i + 1).padStart(2, "0")}</p>
-              <h3 className="display">{name}</h3>
-              <p>
-                {byCategory[name]
-                  ? `${byCategory[name]} question${byCategory[name] === 1 ? "" : "s"}`
-                  : "Ready for questions"}
-              </p>
-            </li>
-          ))}
-        </ul>
+        <MobileBankOverview items={source} />
+        <div className="inline-cta">
+          <Link className="btn btn-ghost" href="/redmc/test/review">
+            Review the bank
+          </Link>
+        </div>
       </section>
 
       <section className="section wrap">

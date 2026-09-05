@@ -1,12 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { BINDERS, BINDER_OFFICIAL } from "@/lib/ohs/binders";
+import { pageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta({
   title: "Crane Binder Wizard",
   description:
     "Build a Tower or Self-Erect site binder. Numbered to the BC Crane Safety checklists used with the WorkSafeBC NOP-TC.",
-};
+  path: "/safety/binder",
+});
 
 export default function BinderIndexPage() {
   return (

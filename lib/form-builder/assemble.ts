@@ -1,5 +1,5 @@
 import { cloneBlock, createBlock } from "./blocks";
-import { FORM_CONTROL, nid, type BlockType, type FormGroup, type WhoopFormDef } from "./types";
+import { FORM_CONTROL, nid, type BlockType, type FormGroup, type FormDef } from "./types";
 
 export function assembleForm(opts: {
   id: string;
@@ -8,7 +8,7 @@ export function assembleForm(opts: {
   description?: string;
   group?: FormGroup;
   blocks: { type: BlockType; inspectionItems?: string[] }[];
-}): WhoopFormDef {
+}): FormDef {
   return {
     id: opts.id,
     title: opts.title,
@@ -27,17 +27,17 @@ export function assembleForm(opts: {
   };
 }
 
-export function blankForm(): WhoopFormDef {
+export function blankForm(): FormDef {
   return assembleForm({
     id: nid("form"),
     title: "UNTITLED FORM",
-    number: "GOSPEL-FRM-DRAFT",
-    description: "Assembled from GOSPEL Safety Blocks.",
+    number: "PROVEN-FRM-DRAFT",
+    description: "Assembled from Proven Safety Blocks.",
     blocks: [{ type: "worker" }, { type: "project" }, { type: "signature" }],
   });
 }
 
-export function cloneForm(form: WhoopFormDef, title?: string): WhoopFormDef {
+export function cloneForm(form: FormDef, title?: string): FormDef {
   return {
     ...form,
     id: nid("form"),
@@ -49,7 +49,7 @@ export function cloneForm(form: WhoopFormDef, title?: string): WhoopFormDef {
 }
 
 /** Rebuild field ids after a block id change so fill-out keys stay unique. */
-export function retargetBlock(block: WhoopFormDef["blocks"][number]) {
+export function retargetBlock(block: FormDef["blocks"][number]) {
   const id = nid(block.type);
   return {
     ...block,

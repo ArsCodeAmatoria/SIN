@@ -95,7 +95,7 @@ export const SWPS: Swp[] = [
     competency: ["Operator for this class", "Knows this machine’s inspection points"],
     hazards: ["Hidden damage", "Inoperative LMI / RCI", "Failed brakes", "Wire rope defects", "Leaks", "Missing pins"],
     controls: ["Walkaround", "Function tests", "Record defects", "Crane stays down until lifting defects are remedied"],
-    equipment: ["Manufacturer inspection list", "This SWP", "Inspection form GOSPEL-FRM-002"],
+    equipment: ["Manufacturer inspection list", "This SWP", "Inspection form PROVEN-FRM-002"],
     procedure: [
       { n: "01", title: "IDENTITY", body: "This is the crane on this lift. Configuration matches the chart you will use." },
       { n: "02", title: "WALKAROUND", body: "Structure, welds, pins, tires or tracks, outriggers, leaks, rope, hook and latch, sheaves." },
@@ -105,7 +105,7 @@ export const SWPS: Swp[] = [
       { n: "06", title: "DO NOT START", body: "If a safety device is bypassed or inoperative, the crane does not lift." },
     ],
     prohibited: ["Signing an inspection you did not do", "Bypassing LMI / RCI or anti-two-block to “get the day going”", "Lifting with a known lifting defect"],
-    documentation: ["GOSPEL-FRM-002", "Machine log if the site requires it"],
+    documentation: ["PROVEN-FRM-002", "Machine log if the site requires it"],
   }),
   swp("GOSPEL-SWP-003", "crane-operation", "CRANE OPERATION", "The chart is the law of the machine.", {
     purpose: "Operate the crane to the chart, with a crew you can hear, on a lift you can account for.",
@@ -211,7 +211,7 @@ export const SWPS: Swp[] = [
     competency: ["Rigger who can apply rejection criteria", "Does not need a supervisor to recognize a cut"],
     hazards: ["Unidentified gear", "Cuts, birdcaging, stretch", "Opened hooks", "Wrong pins", "Heat and chemical damage"],
     controls: ["Inspect before use", "Tag and isolate failures", "Report", "No one-more-lift"],
-    equipment: ["The gear", "Rejection criteria", "Out-of-service tags", "GOSPEL-FRM-003"],
+    equipment: ["The gear", "Rejection criteria", "Out-of-service tags", "PROVEN-FRM-003"],
     procedure: [
       { n: "01", title: "IDENTIFY", body: "Type, WLL, hitch and environment (heat, chemicals, sharp edges)." },
       { n: "02", title: "IDENTIFICATION", body: "Missing tags, illegible ratings, homemade modifications — out of service." },
@@ -220,7 +220,7 @@ export const SWPS: Swp[] = [
       { n: "05", title: "REMOVE OR USE", body: "Fail: tag, isolate, report on GOSPEL-RPT-004. Do not leave failed gear on the pile." },
     ],
     prohibited: ["Using gear you have not inspected", "“It will be fine for this one”", "Replacing a shackle pin with a bolt from the truck"],
-    documentation: ["GOSPEL-FRM-003", "Damaged rigging report if it fails"],
+    documentation: ["PROVEN-FRM-003", "Damaged rigging report if it fails"],
   }),
   swp("GOSPEL-SWP-010", "sling-selection", "SLING SELECTION", "The hitch chooses the sling. The leftover in the truck does not.", {
     purpose: "Pick a sling that can take the tension at this angle, in this hitch, on this edge, in this environment.",
@@ -354,7 +354,7 @@ export const SWPS: Swp[] = [
     competency: ["Operator and supervisor who can name the MAD for this voltage", "Spotter when the boom or load can encroach"],
     hazards: ["Contact", "Arc across a gap", "Step potential", "Unknown voltage", "Lines that look dead", "Tag line as a conductor"],
     controls: ["Identify", "Voltage from the utility — not a guess", "MAD as a hard wall", "Spotter", "Zone-limiting device if practicable (19.24.1(2))", "30M33 if the lift cannot keep clearance"],
-    equipment: ["Spotter", "Range / zone limiting if fitted and used", "GOSPEL-FRM-037", "Coded 30M33 if MAD cannot be held"],
+    equipment: ["Spotter", "Range / zone limiting if fitted and used", "PROVEN-FRM-037", "Coded 30M33 if MAD cannot be held"],
     procedure: [
       { n: "01", title: "FIND THE LINES", body: "Look up. Look down. Ask the site. Do not trust a single drawing. Service drops, distribution, transmission — all of them." },
       { n: "02", title: "VOLTAGE AND MAD", body: "Voltage from BC Hydro or the owner — Express Connect 1 877 520 1355. Table 19-1A is the wall: 1 m under 750 V, 3 m to 75 kV, 4.5 m to 250 kV, 6 m to 550 kV. Unknown: 3 m off distribution, 6 m off transmission, until they verify. If you cannot keep MAD, it is not a crane job until 30M33 is signed." },
@@ -371,11 +371,11 @@ export const SWPS: Swp[] = [
     ],
     emergency:
       "Do not touch the crane or the load. People back 10 m — 33 m if it is transmission or a manhole. Call 911 and BC Hydro. Operator stays on unless fire or shock. The supervisor and the employer at the workplace are notified immediately.",
-    documentation: ["FLHA", "GOSPEL-FRM-037", "Coded 30M33 if issued", "This SWP number and revision"],
+    documentation: ["FLHA", "PROVEN-FRM-037", "Coded 30M33 if issued", "This SWP number and revision"],
     references: MAD_REFS,
     links: [
       { href: "/safety/jha/working-near-powerlines", label: "JHA — WORKING NEAR POWERLINES — GOSPEL-JHA-013 →" },
-      { href: "/safety/form/powerline-30m33", label: "POWERLINE RECORD — GOSPEL-FRM-037 →" },
+      { href: "/safety/form/powerline-30m33", label: "POWERLINE RECORD — PROVEN-FRM-037 →" },
       ...MAD_LINKS,
     ],
     tables: MAD_TABLES,
@@ -386,7 +386,7 @@ export const SWPS: Swp[] = [
     competency: ["Named supervisor", "Crew that can repeat the abort", "Engineer when required"],
     hazards: ["Overconfidence", "Skipped hold points", "Unclear roles", "Tandem mismatch"],
     controls: ["Written critical lift plan", "Pre-lift meeting", "Hold points", "Named people"],
-    equipment: ["GOSPEL-FRM-007", "Radios", "The crane and rigging in the plan"],
+    equipment: ["PROVEN-FRM-007", "Radios", "The crane and rigging in the plan"],
     procedure: [
       { n: "01", title: "DECLARE IT", body: "Why it is critical — said in the brief, written on the plan." },
       { n: "02", title: "PLAN", body: "Sequence, weights, radii, rigging, holds, abort, rescue. At the lift." },
@@ -397,8 +397,8 @@ export const SWPS: Swp[] = [
     ],
     prohibited: ["Calling it critical and then running it like a grocery pick", "Tandem lifts without a plan and a single lead"],
     documentation: [
-      "GOSPEL-FRM-007",
-      "GOSPEL-FRM-009",
+      "PROVEN-FRM-007",
+      "PROVEN-FRM-009",
       "SJP if required",
       "Flytables: GOSPEL-SWP-028 and GOSPEL-SJP-001",
       "Loading platforms: GOSPEL-SWP-030 and GOSPEL-SJP-003",
@@ -410,7 +410,7 @@ export const SWPS: Swp[] = [
     competency: ["Supervisor or designated planner", "Operator who will refuse a plan they cannot run"],
     hazards: ["Unknown weight", "Chart fiction", "Path not walked", "Roles implied"],
     controls: ["Facts before ink", "Walk the path", "Named crew", "Hard limits"],
-    equipment: ["GOSPEL-FRM-006", "Drawings and shipping data", "Chart"],
+    equipment: ["PROVEN-FRM-006", "Drawings and shipping data", "Chart"],
     procedure: [
       { n: "01", title: "COLLECT FACTS", body: "Load data, drawings, crane, ground, energy, other work." },
       { n: "02", title: "CHART IT", body: "Configuration, radius, deductions, rigging weight. If it does not fit, change the method — not the numbers." },
@@ -420,7 +420,7 @@ export const SWPS: Swp[] = [
       { n: "06", title: "BRIEF AND KEEP IT", body: "The plan stays at the lift. Drift = stop and rewrite." },
     ],
     prohibited: ["Planning in the cab after the load is hooked", "Using last week’s plan because the steel “looks the same”"],
-    documentation: ["GOSPEL-FRM-006", "FLHA", "Rigging plan if used"],
+    documentation: ["PROVEN-FRM-006", "FLHA", "Rigging plan if used"],
   }),
   swp("GOSPEL-SWP-021", "outrigger-setup", "OUTRIGGER SETUP", "Fully extended unless the chart for short-rig is in the cab and in use.", {
     purpose: "Put the pads where the manufacturer said the reactions go.",
@@ -545,7 +545,7 @@ export const SWPS: Swp[] = [
       { n: "05", title: "CALL AND HOLD", body: "Site emergency method. Utility if lines. Supervisor and the employer at the workplace. Scene held for investigation." },
     ],
     prohibited: ["Restarting to “see if it does it again”", "Crowd around a crane in contact with a line", "Moving a seriously injured person except from immediate danger"],
-    documentation: ["Incident report GOSPEL-FRM-010", "Machine log"],
+    documentation: ["Incident report PROVEN-FRM-010", "Machine log"],
   }),
   swp("GOSPEL-SWP-025", "removal-of-damaged-rigging", "REMOVAL OF DAMAGED RIGGING FROM SERVICE", "Tag it. Isolate it. Tell someone. No one more lift.", {
     purpose: "Make sure failed gear cannot be picked up by the next rigger.",
@@ -562,7 +562,7 @@ export const SWPS: Swp[] = [
       { n: "05", title: "DO NOT REPAIR IN THE FIELD", body: "No wrapping tape as a WLL. No welding a hook. Destroy or return through the owner or the supervisor." },
     ],
     prohibited: ["Leaving a cut sling “so nobody trips on it” on the pile", "Cutting the tag off because the sling is “still good in the middle”"],
-    documentation: ["GOSPEL-FRM-003", "GOSPEL-RPT-004"],
+    documentation: ["PROVEN-FRM-003", "GOSPEL-RPT-004"],
   }),
   swp("GOSPEL-SWP-026", "lockout", "LOCKOUT / ISOLATION", "If you are not operating it, the energy is isolated. Part 10.", {
     purpose: "Keep a person off stored energy — hoist, slew, luff, travel, hydraulics, electrical — when the work is service, inspection beyond pre-use, rescue, or anything that puts a body in the machine.",
@@ -579,7 +579,7 @@ export const SWPS: Swp[] = [
       { n: "05", title: "WORK, THEN REMOVE YOUR LOCK", body: "Do the work. Remove only your lock. If the job runs past a shift, the handover of locks is a procedure — not a text message." },
     ],
     prohibited: ["Reaching into a machine that can still hoist", "Sharing a lock because ‘we’re both on it’", "Bypassing a limit to ‘just inch it’ during service"],
-    documentation: ["Owner lockout for this serial", "GOSPEL-FRM-002 / 027 if the machine was down for a defect"],
+    documentation: ["Owner lockout for this serial", "PROVEN-FRM-002 / 027 if the machine was down for a defect"],
     emergency: "If energy appears during the work: get clear. Re-isolate. Do not finish the job on a live machine.",
   }),
   swp("GOSPEL-SWP-027", "tower-erection-climbing", "TOWER ERECTION, CLIMBING AND DISMANTLING", "Not a routine operator shift. Qualified supervisor. Notice of Project. 14.73.2.", {
@@ -634,7 +634,7 @@ export const SWPS: Swp[] = [
       "Rigging named on the drawing — slings, shackles, OEM lifting adapters / truss picks / Safety Pin-Bolts",
       "Radios on the named channel",
       "Tag lines",
-      "GOSPEL-FRM-007, GOSPEL-FRM-009, GOSPEL-FRM-052",
+      "PROVEN-FRM-007, PROVEN-FRM-009, PROVEN-FRM-052",
     ],
     procedure: [
       {
@@ -681,8 +681,8 @@ export const SWPS: Swp[] = [
       "Table hung up, rolling toward the edge, dropped object, person in the zone, wind pickup, lost radio — stop. Land if it can be done without a second incident. Do not pull. First aid. Notify the site and the employer. Hold the scene.",
     documentation: [
       "GOSPEL-SJP-001 / FRM-052 for this cycle",
-      "GOSPEL-FRM-007 critical lift plan",
-      "GOSPEL-FRM-009 pre-lift meeting",
+      "PROVEN-FRM-007 critical lift plan",
+      "PROVEN-FRM-009 pre-lift meeting",
       "Engineered drawing revision for this table",
       "Manufacturer cycle at the lift",
       "FLHA",
@@ -791,7 +791,7 @@ export const SWPS: Swp[] = [
       "4-leg chain and hardware as the OEM — Doka 4-part 3.20 m, β ≤ 30° if that is this serial",
       "Tag lines",
       "Radios on the named channel",
-      "GOSPEL-FRM-007, GOSPEL-FRM-009, GOSPEL-FRM-053",
+      "PROVEN-FRM-007, PROVEN-FRM-009, PROVEN-FRM-053",
     ],
     procedure: [
       {
@@ -848,8 +848,8 @@ export const SWPS: Swp[] = [
       "Deck hung up, dumped at the edge, dropped object, person in the zone, wind pickup, lost radio — stop. Land if it can be done without a second incident. Do not pull. First aid. Notify the site and the employer. Hold the scene.",
     documentation: [
       "GOSPEL-SJP-003 / FRM-053 for this deck",
-      "GOSPEL-FRM-007 critical lift plan",
-      "GOSPEL-FRM-009 pre-lift meeting",
+      "PROVEN-FRM-007 critical lift plan",
+      "PROVEN-FRM-009 pre-lift meeting",
       "OEM user information for this serial",
       "Type plate / WLL",
       "FLHA",

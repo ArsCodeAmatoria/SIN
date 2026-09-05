@@ -4,12 +4,12 @@ import type {
   FormValues,
   InspectionRow,
   SafetyBlock,
-  WhoopFormDef,
+  FormDef,
 } from "./types";
 
 const INK = rgb(16 / 255, 16 / 255, 16 / 255);
 const STEEL = rgb(108 / 255, 104 / 255, 97 / 255);
-const CROWN = rgb(193 / 255, 18 / 255, 31 / 255);
+const CROWN = rgb(255 / 255, 213 / 255, 0 / 255);
 const LINE = rgb(0.75, 0.75, 0.75);
 const W = 612;
 const H = 792;
@@ -60,17 +60,17 @@ function wrap(font: PDFFont, text: string, size: number, width: number) {
   return lines;
 }
 
-function drawHeader(ctx: Ctx, form: WhoopFormDef, completedBy: string) {
+function drawHeader(ctx: Ctx, form: FormDef, completedBy: string) {
   const { page, bold, font } = ctx;
-  page.drawText(SITE.name, {
+  page.drawText(SITE.system, {
     x: M,
     y: H - 36,
-    size: 18,
+    size: 14,
     font: bold,
     color: INK,
   });
-  page.drawText(SITE.descriptor, {
-    x: M + bold.widthOfTextAtSize(SITE.name, 18) + 10,
+  page.drawText("FORM", {
+    x: M + bold.widthOfTextAtSize(SITE.system, 14) + 8,
     y: H - 34,
     size: 7,
     font,
@@ -115,7 +115,7 @@ function drawFooter(page: PDFPage, font: PDFFont, i: number, n: number) {
     thickness: 0.6,
     color: LINE,
   });
-  page.drawText("PROVEN  ·  Printed copy uncontrolled  ·  Check revision on whoop.ca", {
+  page.drawText("PROVEN  ·  Printed copy uncontrolled  ·  Check revision on sin.ae.org", {
     x: M,
     y: 24,
     size: 7,
@@ -287,7 +287,7 @@ async function drawBlock(
 }
 
 export async function formToPdf(
-  form: WhoopFormDef,
+  form: FormDef,
   values: FormValues
 ): Promise<Uint8Array> {
   const doc = await PDFDocument.create();
@@ -332,8 +332,8 @@ export function downloadPdf(bytes: Uint8Array, filename: string) {
   URL.revokeObjectURL(url);
 }
 
-export function pdfFilename(form: WhoopFormDef) {
+export function pdfFilename(form: FormDef) {
   const day = new Date().toISOString().slice(0, 10);
   const slug = form.title.replace(/[^A-Z0-9]+/gi, "-").replace(/^-|-$/g, "");
-  return `${SITE.name}-${slug}-${day}.pdf`;
+  return `PROVEN-${slug}-${day}.pdf`;
 }

@@ -129,15 +129,15 @@ export const CRANES: Crane[] = [
       "OEM lubrication chart for this serial",
     ],
     forms: [
-      { href: "/safety/form/tower-pre-use", label: "TOWER PRE-USE — GOSPEL-FRM-027 →" },
+      { href: "/safety/form/tower-pre-use", label: "TOWER PRE-USE — PROVEN-FRM-027 →" },
       { href: "/safety/builder/tower-pre-use", label: "FILL TOWER PRE-USE →" },
       {
         href: "/safety/form/tower-weekly-maintenance",
-        label: "TOWER WEEKLY MAINTENANCE — GOSPEL-FRM-030 →",
+        label: "TOWER WEEKLY MAINTENANCE — PROVEN-FRM-030 →",
       },
       {
         href: "/safety/form/tower-monthly-maintenance",
-        label: "TOWER MONTHLY MAINTENANCE — GOSPEL-FRM-031 →",
+        label: "TOWER MONTHLY MAINTENANCE — PROVEN-FRM-031 →",
       },
     ],
   },
@@ -220,17 +220,17 @@ export const CRANES: Crane[] = [
     forms: [
       {
         href: "/safety/form/luffing-jib-inspection",
-        label: "LUFFING JIB INSPECTION — GOSPEL-FRM-028 →",
+        label: "LUFFING JIB INSPECTION — PROVEN-FRM-028 →",
       },
       { href: "/safety/builder/luffing-jib-inspection", label: "FILL LUFFING JIB INSPECTION →" },
-      { href: "/safety/form/tower-pre-use", label: "TOWER PRE-USE — GOSPEL-FRM-027 →" },
+      { href: "/safety/form/tower-pre-use", label: "TOWER PRE-USE — PROVEN-FRM-027 →" },
       {
         href: "/safety/form/tower-weekly-maintenance",
-        label: "TOWER WEEKLY MAINTENANCE — GOSPEL-FRM-030 →",
+        label: "TOWER WEEKLY MAINTENANCE — PROVEN-FRM-030 →",
       },
       {
         href: "/safety/form/tower-monthly-maintenance",
-        label: "TOWER MONTHLY MAINTENANCE — GOSPEL-FRM-031 →",
+        label: "TOWER MONTHLY MAINTENANCE — PROVEN-FRM-031 →",
       },
     ],
   },
@@ -316,16 +316,16 @@ export const CRANES: Crane[] = [
     forms: [
       {
         href: "/safety/form/luffing-jib-inspection",
-        label: "LUFFING JIB INSPECTION — GOSPEL-FRM-028 →",
+        label: "LUFFING JIB INSPECTION — PROVEN-FRM-028 →",
       },
       { href: "/safety/builder/luffing-jib-inspection", label: "FILL LUFFING JIB INSPECTION →" },
       {
         href: "/safety/form/tower-weekly-maintenance",
-        label: "TOWER WEEKLY MAINTENANCE — GOSPEL-FRM-030 →",
+        label: "TOWER WEEKLY MAINTENANCE — PROVEN-FRM-030 →",
       },
       {
         href: "/safety/form/tower-monthly-maintenance",
-        label: "TOWER MONTHLY MAINTENANCE — GOSPEL-FRM-031 →",
+        label: "TOWER MONTHLY MAINTENANCE — PROVEN-FRM-031 →",
       },
     ],
   },
@@ -442,17 +442,17 @@ export const CRANES: Crane[] = [
     forms: [
       {
         href: "/safety/form/self-erect-inspection",
-        label: "SELF-ERECT INSPECTION — GOSPEL-FRM-029 →",
+        label: "SELF-ERECT INSPECTION — PROVEN-FRM-029 →",
       },
       { href: "/safety/builder/self-erect-inspection", label: "FILL SELF-ERECT INSPECTION →" },
-      { href: "/safety/form/tower-pre-use", label: "TOWER PRE-USE — GOSPEL-FRM-027 →" },
+      { href: "/safety/form/tower-pre-use", label: "TOWER PRE-USE — PROVEN-FRM-027 →" },
       {
         href: "/safety/form/tower-weekly-maintenance",
-        label: "TOWER WEEKLY MAINTENANCE — GOSPEL-FRM-030 →",
+        label: "TOWER WEEKLY MAINTENANCE — PROVEN-FRM-030 →",
       },
       {
         href: "/safety/form/tower-monthly-maintenance",
-        label: "TOWER MONTHLY MAINTENANCE — GOSPEL-FRM-031 →",
+        label: "TOWER MONTHLY MAINTENANCE — PROVEN-FRM-031 →",
       },
     ],
   },
@@ -554,15 +554,15 @@ export const CRANES: Crane[] = [
       "OEM lubrication chart for this serial",
     ],
     forms: [
-      { href: "/safety/form/tower-pre-use", label: "TOWER PRE-USE — GOSPEL-FRM-027 →" },
+      { href: "/safety/form/tower-pre-use", label: "TOWER PRE-USE — PROVEN-FRM-027 →" },
       { href: "/safety/builder/tower-pre-use", label: "FILL TOWER PRE-USE →" },
       {
         href: "/safety/form/tower-weekly-maintenance",
-        label: "TOWER WEEKLY MAINTENANCE — GOSPEL-FRM-030 →",
+        label: "TOWER WEEKLY MAINTENANCE — PROVEN-FRM-030 →",
       },
       {
         href: "/safety/form/tower-monthly-maintenance",
-        label: "TOWER MONTHLY MAINTENANCE — GOSPEL-FRM-031 →",
+        label: "TOWER MONTHLY MAINTENANCE — PROVEN-FRM-031 →",
       },
     ],
   },
@@ -649,15 +649,15 @@ export const CRANES: Crane[] = [
       "OEM lubrication chart for this serial",
     ],
     forms: [
-      { href: "/safety/form/tower-pre-use", label: "TOWER PRE-USE — GOSPEL-FRM-027 →" },
+      { href: "/safety/form/tower-pre-use", label: "TOWER PRE-USE — PROVEN-FRM-027 →" },
       { href: "/safety/builder/tower-pre-use", label: "FILL TOWER PRE-USE →" },
       {
         href: "/safety/form/tower-weekly-maintenance",
-        label: "TOWER WEEKLY MAINTENANCE — GOSPEL-FRM-030 →",
+        label: "TOWER WEEKLY MAINTENANCE — PROVEN-FRM-030 →",
       },
       {
         href: "/safety/form/tower-monthly-maintenance",
-        label: "TOWER MONTHLY MAINTENANCE — GOSPEL-FRM-031 →",
+        label: "TOWER MONTHLY MAINTENANCE — PROVEN-FRM-031 →",
       },
     ],
   },
@@ -740,17 +740,17 @@ export const CRANES: Crane[] = [
     forms: [
       {
         href: "/safety/form/luffing-jib-inspection",
-        label: "LUFFING JIB INSPECTION — GOSPEL-FRM-028 →",
+        label: "LUFFING JIB INSPECTION — PROVEN-FRM-028 →",
       },
       { href: "/safety/builder/luffing-jib-inspection", label: "FILL LUFFING JIB INSPECTION →" },
-      { href: "/safety/form/tower-pre-use", label: "TOWER PRE-USE — GOSPEL-FRM-027 →" },
+      { href: "/safety/form/tower-pre-use", label: "TOWER PRE-USE — PROVEN-FRM-027 →" },
       {
         href: "/safety/form/tower-weekly-maintenance",
-        label: "TOWER WEEKLY MAINTENANCE — GOSPEL-FRM-030 →",
+        label: "TOWER WEEKLY MAINTENANCE — PROVEN-FRM-030 →",
       },
       {
         href: "/safety/form/tower-monthly-maintenance",
-        label: "TOWER MONTHLY MAINTENANCE — GOSPEL-FRM-031 →",
+        label: "TOWER MONTHLY MAINTENANCE — PROVEN-FRM-031 →",
       },
     ],
   },
@@ -864,16 +864,16 @@ export const CRANES: Crane[] = [
     forms: [
       {
         href: "/safety/form/luffing-jib-inspection",
-        label: "LUFFING JIB INSPECTION — GOSPEL-FRM-028 →",
+        label: "LUFFING JIB INSPECTION — PROVEN-FRM-028 →",
       },
       { href: "/safety/builder/luffing-jib-inspection", label: "FILL LUFFING JIB INSPECTION →" },
       {
         href: "/safety/form/tower-weekly-maintenance",
-        label: "TOWER WEEKLY MAINTENANCE — GOSPEL-FRM-030 →",
+        label: "TOWER WEEKLY MAINTENANCE — PROVEN-FRM-030 →",
       },
       {
         href: "/safety/form/tower-monthly-maintenance",
-        label: "TOWER MONTHLY MAINTENANCE — GOSPEL-FRM-031 →",
+        label: "TOWER MONTHLY MAINTENANCE — PROVEN-FRM-031 →",
       },
     ],
   },
@@ -963,15 +963,15 @@ export const CRANES: Crane[] = [
       "OEM lubrication chart for this serial",
     ],
     forms: [
-      { href: "/safety/form/tower-pre-use", label: "TOWER PRE-USE — GOSPEL-FRM-027 →" },
+      { href: "/safety/form/tower-pre-use", label: "TOWER PRE-USE — PROVEN-FRM-027 →" },
       { href: "/safety/builder/tower-pre-use", label: "FILL TOWER PRE-USE →" },
       {
         href: "/safety/form/tower-weekly-maintenance",
-        label: "TOWER WEEKLY MAINTENANCE — GOSPEL-FRM-030 →",
+        label: "TOWER WEEKLY MAINTENANCE — PROVEN-FRM-030 →",
       },
       {
         href: "/safety/form/tower-monthly-maintenance",
-        label: "TOWER MONTHLY MAINTENANCE — GOSPEL-FRM-031 →",
+        label: "TOWER MONTHLY MAINTENANCE — PROVEN-FRM-031 →",
       },
     ],
   },
@@ -1078,17 +1078,17 @@ export const CRANES: Crane[] = [
     forms: [
       {
         href: "/safety/form/luffing-jib-inspection",
-        label: "LUFFING JIB INSPECTION — GOSPEL-FRM-028 →",
+        label: "LUFFING JIB INSPECTION — PROVEN-FRM-028 →",
       },
       { href: "/safety/builder/luffing-jib-inspection", label: "FILL LUFFING JIB INSPECTION →" },
-      { href: "/safety/form/tower-pre-use", label: "TOWER PRE-USE — GOSPEL-FRM-027 →" },
+      { href: "/safety/form/tower-pre-use", label: "TOWER PRE-USE — PROVEN-FRM-027 →" },
       {
         href: "/safety/form/tower-weekly-maintenance",
-        label: "TOWER WEEKLY MAINTENANCE — GOSPEL-FRM-030 →",
+        label: "TOWER WEEKLY MAINTENANCE — PROVEN-FRM-030 →",
       },
       {
         href: "/safety/form/tower-monthly-maintenance",
-        label: "TOWER MONTHLY MAINTENANCE — GOSPEL-FRM-031 →",
+        label: "TOWER MONTHLY MAINTENANCE — PROVEN-FRM-031 →",
       },
     ],
   },
@@ -1191,17 +1191,17 @@ export const CRANES: Crane[] = [
     forms: [
       {
         href: "/safety/form/self-erect-inspection",
-        label: "SELF-ERECT INSPECTION — GOSPEL-FRM-029 →",
+        label: "SELF-ERECT INSPECTION — PROVEN-FRM-029 →",
       },
       { href: "/safety/builder/self-erect-inspection", label: "FILL SELF-ERECT INSPECTION →" },
-      { href: "/safety/form/tower-pre-use", label: "TOWER PRE-USE — GOSPEL-FRM-027 →" },
+      { href: "/safety/form/tower-pre-use", label: "TOWER PRE-USE — PROVEN-FRM-027 →" },
       {
         href: "/safety/form/tower-weekly-maintenance",
-        label: "TOWER WEEKLY MAINTENANCE — GOSPEL-FRM-030 →",
+        label: "TOWER WEEKLY MAINTENANCE — PROVEN-FRM-030 →",
       },
       {
         href: "/safety/form/tower-monthly-maintenance",
-        label: "TOWER MONTHLY MAINTENANCE — GOSPEL-FRM-031 →",
+        label: "TOWER MONTHLY MAINTENANCE — PROVEN-FRM-031 →",
       },
     ],
   },
@@ -1303,15 +1303,15 @@ export const CRANES: Crane[] = [
       "OEM lubrication chart for this serial",
     ],
     forms: [
-      { href: "/safety/form/tower-pre-use", label: "TOWER PRE-USE — GOSPEL-FRM-027 →" },
+      { href: "/safety/form/tower-pre-use", label: "TOWER PRE-USE — PROVEN-FRM-027 →" },
       { href: "/safety/builder/tower-pre-use", label: "FILL TOWER PRE-USE →" },
       {
         href: "/safety/form/tower-weekly-maintenance",
-        label: "TOWER WEEKLY MAINTENANCE — GOSPEL-FRM-030 →",
+        label: "TOWER WEEKLY MAINTENANCE — PROVEN-FRM-030 →",
       },
       {
         href: "/safety/form/tower-monthly-maintenance",
-        label: "TOWER MONTHLY MAINTENANCE — GOSPEL-FRM-031 →",
+        label: "TOWER MONTHLY MAINTENANCE — PROVEN-FRM-031 →",
       },
     ],
   },
@@ -1394,17 +1394,17 @@ export const CRANES: Crane[] = [
     forms: [
       {
         href: "/safety/form/luffing-jib-inspection",
-        label: "LUFFING JIB INSPECTION — GOSPEL-FRM-028 →",
+        label: "LUFFING JIB INSPECTION — PROVEN-FRM-028 →",
       },
       { href: "/safety/builder/luffing-jib-inspection", label: "FILL LUFFING JIB INSPECTION →" },
-      { href: "/safety/form/tower-pre-use", label: "TOWER PRE-USE — GOSPEL-FRM-027 →" },
+      { href: "/safety/form/tower-pre-use", label: "TOWER PRE-USE — PROVEN-FRM-027 →" },
       {
         href: "/safety/form/tower-weekly-maintenance",
-        label: "TOWER WEEKLY MAINTENANCE — GOSPEL-FRM-030 →",
+        label: "TOWER WEEKLY MAINTENANCE — PROVEN-FRM-030 →",
       },
       {
         href: "/safety/form/tower-monthly-maintenance",
-        label: "TOWER MONTHLY MAINTENANCE — GOSPEL-FRM-031 →",
+        label: "TOWER MONTHLY MAINTENANCE — PROVEN-FRM-031 →",
       },
     ],
   },
@@ -1491,16 +1491,16 @@ export const CRANES: Crane[] = [
     forms: [
       {
         href: "/safety/form/luffing-jib-inspection",
-        label: "LUFFING JIB INSPECTION — GOSPEL-FRM-028 →",
+        label: "LUFFING JIB INSPECTION — PROVEN-FRM-028 →",
       },
       { href: "/safety/builder/luffing-jib-inspection", label: "FILL LUFFING JIB INSPECTION →" },
       {
         href: "/safety/form/tower-weekly-maintenance",
-        label: "TOWER WEEKLY MAINTENANCE — GOSPEL-FRM-030 →",
+        label: "TOWER WEEKLY MAINTENANCE — PROVEN-FRM-030 →",
       },
       {
         href: "/safety/form/tower-monthly-maintenance",
-        label: "TOWER MONTHLY MAINTENANCE — GOSPEL-FRM-031 →",
+        label: "TOWER MONTHLY MAINTENANCE — PROVEN-FRM-031 →",
       },
     ],
   },
@@ -1583,15 +1583,15 @@ export const CRANES: Crane[] = [
       "OEM lubrication chart for this serial",
     ],
     forms: [
-      { href: "/safety/form/tower-pre-use", label: "TOWER PRE-USE — GOSPEL-FRM-027 →" },
+      { href: "/safety/form/tower-pre-use", label: "TOWER PRE-USE — PROVEN-FRM-027 →" },
       { href: "/safety/builder/tower-pre-use", label: "FILL TOWER PRE-USE →" },
       {
         href: "/safety/form/tower-weekly-maintenance",
-        label: "TOWER WEEKLY MAINTENANCE — GOSPEL-FRM-030 →",
+        label: "TOWER WEEKLY MAINTENANCE — PROVEN-FRM-030 →",
       },
       {
         href: "/safety/form/tower-monthly-maintenance",
-        label: "TOWER MONTHLY MAINTENANCE — GOSPEL-FRM-031 →",
+        label: "TOWER MONTHLY MAINTENANCE — PROVEN-FRM-031 →",
       },
     ],
   },
@@ -1671,17 +1671,17 @@ export const CRANES: Crane[] = [
     forms: [
       {
         href: "/safety/form/luffing-jib-inspection",
-        label: "LUFFING JIB INSPECTION — GOSPEL-FRM-028 →",
+        label: "LUFFING JIB INSPECTION — PROVEN-FRM-028 →",
       },
       { href: "/safety/builder/luffing-jib-inspection", label: "FILL LUFFING JIB INSPECTION →" },
-      { href: "/safety/form/tower-pre-use", label: "TOWER PRE-USE — GOSPEL-FRM-027 →" },
+      { href: "/safety/form/tower-pre-use", label: "TOWER PRE-USE — PROVEN-FRM-027 →" },
       {
         href: "/safety/form/tower-weekly-maintenance",
-        label: "TOWER WEEKLY MAINTENANCE — GOSPEL-FRM-030 →",
+        label: "TOWER WEEKLY MAINTENANCE — PROVEN-FRM-030 →",
       },
       {
         href: "/safety/form/tower-monthly-maintenance",
-        label: "TOWER MONTHLY MAINTENANCE — GOSPEL-FRM-031 →",
+        label: "TOWER MONTHLY MAINTENANCE — PROVEN-FRM-031 →",
       },
     ],
   },
@@ -1770,15 +1770,15 @@ export const CRANES: Crane[] = [
       "OEM lubrication chart for this serial",
     ],
     forms: [
-      { href: "/safety/form/tower-pre-use", label: "TOWER PRE-USE — GOSPEL-FRM-027 →" },
+      { href: "/safety/form/tower-pre-use", label: "TOWER PRE-USE — PROVEN-FRM-027 →" },
       { href: "/safety/builder/tower-pre-use", label: "FILL TOWER PRE-USE →" },
       {
         href: "/safety/form/tower-weekly-maintenance",
-        label: "TOWER WEEKLY MAINTENANCE — GOSPEL-FRM-030 →",
+        label: "TOWER WEEKLY MAINTENANCE — PROVEN-FRM-030 →",
       },
       {
         href: "/safety/form/tower-monthly-maintenance",
-        label: "TOWER MONTHLY MAINTENANCE — GOSPEL-FRM-031 →",
+        label: "TOWER MONTHLY MAINTENANCE — PROVEN-FRM-031 →",
       },
     ],
   },
@@ -1863,17 +1863,17 @@ export const CRANES: Crane[] = [
     forms: [
       {
         href: "/safety/form/luffing-jib-inspection",
-        label: "LUFFING JIB INSPECTION — GOSPEL-FRM-028 →",
+        label: "LUFFING JIB INSPECTION — PROVEN-FRM-028 →",
       },
       { href: "/safety/builder/luffing-jib-inspection", label: "FILL LUFFING JIB INSPECTION →" },
-      { href: "/safety/form/tower-pre-use", label: "TOWER PRE-USE — GOSPEL-FRM-027 →" },
+      { href: "/safety/form/tower-pre-use", label: "TOWER PRE-USE — PROVEN-FRM-027 →" },
       {
         href: "/safety/form/tower-weekly-maintenance",
-        label: "TOWER WEEKLY MAINTENANCE — GOSPEL-FRM-030 →",
+        label: "TOWER WEEKLY MAINTENANCE — PROVEN-FRM-030 →",
       },
       {
         href: "/safety/form/tower-monthly-maintenance",
-        label: "TOWER MONTHLY MAINTENANCE — GOSPEL-FRM-031 →",
+        label: "TOWER MONTHLY MAINTENANCE — PROVEN-FRM-031 →",
       },
     ],
   },
@@ -1956,17 +1956,17 @@ export const CRANES: Crane[] = [
     forms: [
       {
         href: "/safety/form/self-erect-inspection",
-        label: "SELF-ERECT INSPECTION — GOSPEL-FRM-029 →",
+        label: "SELF-ERECT INSPECTION — PROVEN-FRM-029 →",
       },
       { href: "/safety/builder/self-erect-inspection", label: "FILL SELF-ERECT INSPECTION →" },
-      { href: "/safety/form/tower-pre-use", label: "TOWER PRE-USE — GOSPEL-FRM-027 →" },
+      { href: "/safety/form/tower-pre-use", label: "TOWER PRE-USE — PROVEN-FRM-027 →" },
       {
         href: "/safety/form/tower-weekly-maintenance",
-        label: "TOWER WEEKLY MAINTENANCE — GOSPEL-FRM-030 →",
+        label: "TOWER WEEKLY MAINTENANCE — PROVEN-FRM-030 →",
       },
       {
         href: "/safety/form/tower-monthly-maintenance",
-        label: "TOWER MONTHLY MAINTENANCE — GOSPEL-FRM-031 →",
+        label: "TOWER MONTHLY MAINTENANCE — PROVEN-FRM-031 →",
       },
     ],
   },
@@ -2053,15 +2053,15 @@ export const CRANES: Crane[] = [
       "OEM lubrication chart for this serial",
     ],
     forms: [
-      { href: "/safety/form/tower-pre-use", label: "TOWER PRE-USE — GOSPEL-FRM-027 →" },
+      { href: "/safety/form/tower-pre-use", label: "TOWER PRE-USE — PROVEN-FRM-027 →" },
       { href: "/safety/builder/tower-pre-use", label: "FILL TOWER PRE-USE →" },
       {
         href: "/safety/form/tower-weekly-maintenance",
-        label: "TOWER WEEKLY MAINTENANCE — GOSPEL-FRM-030 →",
+        label: "TOWER WEEKLY MAINTENANCE — PROVEN-FRM-030 →",
       },
       {
         href: "/safety/form/tower-monthly-maintenance",
-        label: "TOWER MONTHLY MAINTENANCE — GOSPEL-FRM-031 →",
+        label: "TOWER MONTHLY MAINTENANCE — PROVEN-FRM-031 →",
       },
     ],
   },
@@ -2145,17 +2145,17 @@ export const CRANES: Crane[] = [
     forms: [
       {
         href: "/safety/form/luffing-jib-inspection",
-        label: "LUFFING JIB INSPECTION — GOSPEL-FRM-028 →",
+        label: "LUFFING JIB INSPECTION — PROVEN-FRM-028 →",
       },
       { href: "/safety/builder/luffing-jib-inspection", label: "FILL LUFFING JIB INSPECTION →" },
-      { href: "/safety/form/tower-pre-use", label: "TOWER PRE-USE — GOSPEL-FRM-027 →" },
+      { href: "/safety/form/tower-pre-use", label: "TOWER PRE-USE — PROVEN-FRM-027 →" },
       {
         href: "/safety/form/tower-weekly-maintenance",
-        label: "TOWER WEEKLY MAINTENANCE — GOSPEL-FRM-030 →",
+        label: "TOWER WEEKLY MAINTENANCE — PROVEN-FRM-030 →",
       },
       {
         href: "/safety/form/tower-monthly-maintenance",
-        label: "TOWER MONTHLY MAINTENANCE — GOSPEL-FRM-031 →",
+        label: "TOWER MONTHLY MAINTENANCE — PROVEN-FRM-031 →",
       },
     ],
   },
@@ -2241,16 +2241,16 @@ export const CRANES: Crane[] = [
     forms: [
       {
         href: "/safety/form/luffing-jib-inspection",
-        label: "LUFFING JIB INSPECTION — GOSPEL-FRM-028 →",
+        label: "LUFFING JIB INSPECTION — PROVEN-FRM-028 →",
       },
       { href: "/safety/builder/luffing-jib-inspection", label: "FILL LUFFING JIB INSPECTION →" },
       {
         href: "/safety/form/tower-weekly-maintenance",
-        label: "TOWER WEEKLY MAINTENANCE — GOSPEL-FRM-030 →",
+        label: "TOWER WEEKLY MAINTENANCE — PROVEN-FRM-030 →",
       },
       {
         href: "/safety/form/tower-monthly-maintenance",
-        label: "TOWER MONTHLY MAINTENANCE — GOSPEL-FRM-031 →",
+        label: "TOWER MONTHLY MAINTENANCE — PROVEN-FRM-031 →",
       },
     ],
   },
@@ -2340,15 +2340,15 @@ export const CRANES: Crane[] = [
       "OEM lubrication chart for this serial",
     ],
     forms: [
-      { href: "/safety/form/tower-pre-use", label: "TOWER PRE-USE — GOSPEL-FRM-027 →" },
+      { href: "/safety/form/tower-pre-use", label: "TOWER PRE-USE — PROVEN-FRM-027 →" },
       { href: "/safety/builder/tower-pre-use", label: "FILL TOWER PRE-USE →" },
       {
         href: "/safety/form/tower-weekly-maintenance",
-        label: "TOWER WEEKLY MAINTENANCE — GOSPEL-FRM-030 →",
+        label: "TOWER WEEKLY MAINTENANCE — PROVEN-FRM-030 →",
       },
       {
         href: "/safety/form/tower-monthly-maintenance",
-        label: "TOWER MONTHLY MAINTENANCE — GOSPEL-FRM-031 →",
+        label: "TOWER MONTHLY MAINTENANCE — PROVEN-FRM-031 →",
       },
     ],
   },
@@ -2423,17 +2423,17 @@ export const CRANES: Crane[] = [
     forms: [
       {
         href: "/safety/form/luffing-jib-inspection",
-        label: "LUFFING JIB INSPECTION — GOSPEL-FRM-028 →",
+        label: "LUFFING JIB INSPECTION — PROVEN-FRM-028 →",
       },
       { href: "/safety/builder/luffing-jib-inspection", label: "FILL LUFFING JIB INSPECTION →" },
-      { href: "/safety/form/tower-pre-use", label: "TOWER PRE-USE — GOSPEL-FRM-027 →" },
+      { href: "/safety/form/tower-pre-use", label: "TOWER PRE-USE — PROVEN-FRM-027 →" },
       {
         href: "/safety/form/tower-weekly-maintenance",
-        label: "TOWER WEEKLY MAINTENANCE — GOSPEL-FRM-030 →",
+        label: "TOWER WEEKLY MAINTENANCE — PROVEN-FRM-030 →",
       },
       {
         href: "/safety/form/tower-monthly-maintenance",
-        label: "TOWER MONTHLY MAINTENANCE — GOSPEL-FRM-031 →",
+        label: "TOWER MONTHLY MAINTENANCE — PROVEN-FRM-031 →",
       },
     ],
   },

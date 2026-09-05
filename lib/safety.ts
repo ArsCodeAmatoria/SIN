@@ -431,12 +431,12 @@ export const SAFETY: SafetySection[] = [
       {
         type: "cta",
         href: "/safety/builder/flytable-cycle-sjp",
-        label: "FILL THIS CYCLE — GOSPEL-FRM-052 →",
+        label: "FILL THIS CYCLE — PROVEN-FRM-052 →",
       },
       {
         type: "cta",
         href: "/safety/builder/loading-platform-sjp",
-        label: "FILL THIS DECK — GOSPEL-FRM-053 →",
+        label: "FILL THIS DECK — PROVEN-FRM-053 →",
       },
       {
         type: "cta",
@@ -843,19 +843,19 @@ export const SAFETY: SafetySection[] = [
           {
             n: "06",
             title: "LEARN AND CHANGE",
-            body: "Events involving the crew are investigated. Collect facts, photographs, gear, witness names. Name causes and contributing factors — not a defence brief. Corrective actions get owners and dates. Close them. The program is updated when the lesson is real. GOSPEL-FRM-013.",
+            body: "Events involving the crew are investigated. Collect facts, photographs, gear, witness names. Name causes and contributing factors — not a defence brief. Corrective actions get owners and dates. Close them. The program is updated when the lesson is real. PROVEN-FRM-013.",
           },
         ],
       },
       {
         type: "cta",
         href: "/safety/form/investigation",
-        label: "INVESTIGATION — GOSPEL-FRM-013 →",
+        label: "INVESTIGATION — PROVEN-FRM-013 →",
       },
       {
         type: "cta",
         href: "/safety/form/refuse-unsafe-work",
-        label: "REFUSAL OF UNSAFE WORK — GOSPEL-FRM-035 →",
+        label: "REFUSAL OF UNSAFE WORK — PROVEN-FRM-035 →",
       },
       {
         type: "quote",
@@ -927,12 +927,12 @@ export const SAFETY: SafetySection[] = [
       },
       {
         type: "p",
-        text: "First aid on a host site is the host’s. First aid on a workplace the employer controls is the employer’s assessment under Part 3 Division 4. GOSPEL-POL-025. Drills are recorded where the employer controls that workplace. GOSPEL-FRM-034.",
+        text: "First aid on a host site is the host’s. First aid on a workplace the employer controls is the employer’s assessment under Part 3 Division 4. GOSPEL-POL-025. Drills are recorded where the employer controls that workplace. PROVEN-FRM-034.",
       },
       {
         type: "cta",
         href: "/safety/form/emergency-drill",
-        label: "EMERGENCY DRILL — GOSPEL-FRM-034 →",
+        label: "EMERGENCY DRILL — PROVEN-FRM-034 →",
       },
       {
         type: "cta",
@@ -1144,12 +1144,12 @@ export const SAFETY: SafetySection[] = [
       },
       {
         type: "p",
-        text: "A young worker is under 25. A new worker is new to that workplace, returning to changed hazards, or relocated to different hazards. 3.22. Before they begin, they get the orientation in 3.23 — recorded on GOSPEL-FRM-015. Extra orientation if they cannot do the work safely or they ask. 3.24. Keep the record. 3.25.",
+        text: "A young worker is under 25. A new worker is new to that workplace, returning to changed hazards, or relocated to different hazards. 3.22. Before they begin, they get the orientation in 3.23 — recorded on PROVEN-FRM-015. Extra orientation if they cannot do the work safely or they ask. 3.24. Keep the record. 3.25.",
       },
       {
         type: "cta",
         href: "/safety/form/orientation",
-        label: "ORIENTATION — GOSPEL-FRM-015 →",
+        label: "ORIENTATION — PROVEN-FRM-015 →",
       },
       {
         type: "h",
@@ -1297,7 +1297,7 @@ export const SAFETY: SafetySection[] = [
       {
         type: "cta",
         href: "/safety/form/refuse-unsafe-work",
-        label: "REFUSAL OF UNSAFE WORK — GOSPEL-FRM-035 →",
+        label: "REFUSAL OF UNSAFE WORK — PROVEN-FRM-035 →",
       },
       {
         type: "h",
@@ -1408,12 +1408,12 @@ export const SAFETY: SafetySection[] = [
       {
         type: "cta",
         href: "/safety/builder/flytable-cycle-sjp",
-        label: "FILL THIS CYCLE — GOSPEL-FRM-052 →",
+        label: "FILL THIS CYCLE — PROVEN-FRM-052 →",
       },
       {
         type: "cta",
         href: "/safety/builder/loading-platform-sjp",
-        label: "FILL THIS DECK — GOSPEL-FRM-053 →",
+        label: "FILL THIS DECK — PROVEN-FRM-053 →",
       },
       {
         type: "cta",
@@ -1682,27 +1682,27 @@ export const SAFETY: SafetySection[] = [
       {
         type: "cta",
         href: "/safety/form/tower-pre-use",
-        label: "TOWER PRE-USE — GOSPEL-FRM-027 →",
+        label: "TOWER PRE-USE — PROVEN-FRM-027 →",
       },
       {
         type: "cta",
         href: "/safety/form/luffing-jib-inspection",
-        label: "LUFFING JIB INSPECTION — GOSPEL-FRM-028 →",
+        label: "LUFFING JIB INSPECTION — PROVEN-FRM-028 →",
       },
       {
         type: "cta",
         href: "/safety/form/self-erect-inspection",
-        label: "SELF-ERECT INSPECTION — GOSPEL-FRM-029 →",
+        label: "SELF-ERECT INSPECTION — PROVEN-FRM-029 →",
       },
       {
         type: "cta",
         href: "/safety/form/tower-weekly-maintenance",
-        label: "TOWER WEEKLY MAINTENANCE — GOSPEL-FRM-030 →",
+        label: "TOWER WEEKLY MAINTENANCE — PROVEN-FRM-030 →",
       },
       {
         type: "cta",
         href: "/safety/form/tower-monthly-maintenance",
-        label: "TOWER MONTHLY MAINTENANCE — GOSPEL-FRM-031 →",
+        label: "TOWER MONTHLY MAINTENANCE — PROVEN-FRM-031 →",
       },
       {
         type: "h",
@@ -1749,7 +1749,7 @@ export const SAFETY: SafetySection[] = [
           "GOSPEL-SWP — safe work procedures",
           "GOSPEL-JHA — job hazard analyses",
           "GOSPEL-SJP — this lift, this site, this day",
-          "GOSPEL-FRM — forms",
+          "PROVEN-FRM — forms",
           "GOSPEL-BND — crane site binders",
           "GOSPEL-SDS — safety data sheets in this library",
           "GOSPEL-CRN — crane charts and inspection packs",
@@ -1807,7 +1807,7 @@ export const SAFETY: SafetySection[] = [
       },
       {
         type: "p",
-        text: "OHS Regulation 3.1: a 3.3 program is required if the employer has 20 or more workers and at least one workplace with a moderate or high hazard rating under Schedule 3-A, or 50 or more workers. An officer can also require one. Crane and rigging work is high-hazard work. This written program exists because the work requires it. The COR® table below is a document map for that framework. If a workplace the employer controls is below the 3.1 threshold, 3.2 still requires monthly meetings with workers and a record of what was discussed — GOSPEL-FRM-033. This program is not an excuse to skip that.",
+        text: "OHS Regulation 3.1: a 3.3 program is required if the employer has 20 or more workers and at least one workplace with a moderate or high hazard rating under Schedule 3-A, or 50 or more workers. An officer can also require one. Crane and rigging work is high-hazard work. This written program exists because the work requires it. The COR® table below is a document map for that framework. If a workplace the employer controls is below the 3.1 threshold, 3.2 still requires monthly meetings with workers and a record of what was discussed — PROVEN-FRM-033. This program is not an excuse to skip that.",
       },
       {
         type: "h",
@@ -1861,13 +1861,13 @@ export const SAFETY: SafetySection[] = [
           "Joint committee or worker representative — Act Part 2 Division 5, per workplace. GOSPEL-POL-026.",
           "First aid — Part 3 Division 4 and Schedule 3-A, per workplace. Host site: host’s first aid. Employer-controlled workplace: the employer’s assessment. GOSPEL-POL-025.",
           "Prime contractor — multiple-employer workplaces as the Act requires. GOSPEL-POL-027.",
-          "Young or new worker orientation — 3.23 before they begin, every workplace. GOSPEL-FRM-015.",
+          "Young or new worker orientation — 3.23 before they begin, every workplace. PROVEN-FRM-015.",
         ],
       },
       {
         type: "cta",
         href: "/safety/form/management-review",
-        label: "MANAGEMENT OHS REVIEW — GOSPEL-FRM-032 →",
+        label: "MANAGEMENT OHS REVIEW — PROVEN-FRM-032 →",
       },
       {
         type: "cta",
@@ -1936,7 +1936,7 @@ export const SAFETY: SafetySection[] = [
       {
         type: "cta",
         href: "/safety/form/nop-tc-notice",
-        label: "NOP-TC POSTING NOTICE — GOSPEL-FRM-039 →",
+        label: "NOP-TC POSTING NOTICE — PROVEN-FRM-039 →",
       },
       {
         type: "h",
@@ -1949,17 +1949,17 @@ export const SAFETY: SafetySection[] = [
       {
         type: "cta",
         href: "/safety/form/powerline-30m33",
-        label: "30M33 / POWERLINE RECORD — GOSPEL-FRM-037 →",
+        label: "30M33 / POWERLINE RECORD — PROVEN-FRM-037 →",
       },
       {
         type: "cta",
         href: "/safety/form/radio-frequency",
-        label: "RADIO FREQUENCY — GOSPEL-FRM-038 →",
+        label: "RADIO FREQUENCY — PROVEN-FRM-038 →",
       },
       {
         type: "cta",
         href: "/safety/form/tower-crane-report",
-        label: "TOWER CRANE REPORT — GOSPEL-FRM-041 →",
+        label: "TOWER CRANE REPORT — PROVEN-FRM-041 →",
       },
       {
         type: "h",

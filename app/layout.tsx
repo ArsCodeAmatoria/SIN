@@ -7,6 +7,7 @@ import {
 } from "next/font/google";
 import { Header } from "@/components/Header";
 import { SiteFooter } from "@/components/SiteFooter";
+import { ORIGIN, pageMeta } from "@/lib/seo";
 import { SITE } from "@/lib/site";
 import "./globals.css";
 
@@ -40,17 +41,38 @@ export const viewport: Viewport = {
   viewportFit: "cover",
 };
 
+const share = pageMeta({
+  title: SITE.title,
+  description: SITE.description,
+  path: "/",
+});
+
 export const metadata: Metadata = {
+  ...share,
   title: {
-    default: `${SITE.name} — Crane Safety`,
+    default: SITE.title,
     template: `%s — ${SITE.name}`,
   },
-  description: SITE.description,
-  metadataBase: new URL("https://whoop.ca"),
-  openGraph: {
-    title: `${SITE.name} — Crane Safety`,
-    description: SITE.description,
-    type: "website",
+  metadataBase: new URL(ORIGIN),
+  applicationName: SITE.name,
+  authors: [{ name: SITE.name, url: ORIGIN }],
+  creator: SITE.name,
+  publisher: SITE.name,
+  category: "Education",
+  keywords: [
+    "crane safety",
+    "British Columbia",
+    "Red Seal",
+    "tower crane",
+    "mobile crane",
+    "WorkSafeBC",
+    "Proven",
+  ],
+  robots: { index: true, follow: true },
+  icons: { icon: "/icon.svg" },
+  appleWebApp: {
+    title: SITE.name,
+    statusBarStyle: "black-translucent",
   },
 };
 
@@ -60,15 +82,43 @@ export default function RootLayout({
   return (
     <html lang="en-CA" data-theme="light" suppressHydrationWarning>
       <head>
+        <link rel="image_src" href={`${ORIGIN}/og.png`} />
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){try{var t=localStorage.getItem("whoop-theme");if(t!=="light"&&t!=="dark"){t=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"}document.documentElement.setAttribute("data-theme",t)}catch(e){document.documentElement.setAttribute("data-theme","light")}})();`,
+            __html: `(function(){try{var t=localStorage.getItem("wire-theme")||localStorage.getItem("whoop-theme");if(t!=="light"&&t!=="dark"){t=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"}document.documentElement.setAttribute("data-theme",t)}catch(e){document.documentElement.setAttribute("data-theme","light")}})();`,
           }}
         />
       </head>
       <body
         className={`${display.variable} ${brand.variable} ${sans.variable} ${mono.variable}`}
       >
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@graph": [
+                {
+                  "@type": "WebSite",
+                  name: SITE.name,
+                  url: ORIGIN,
+                  description: SITE.description,
+                  inLanguage: "en-CA",
+                },
+                {
+                  "@type": "Organization",
+                  name: SITE.name,
+                  legalName: SITE.legalName,
+                  description: SITE.descriptionLong,
+                  url: ORIGIN,
+                  email: SITE.email,
+                  telephone: SITE.phone,
+                  areaServed: SITE.location,
+                },
+              ],
+            }),
+          }}
+        />
         <div className="grain" aria-hidden />
         <Header />
         <main id="content" className="main">

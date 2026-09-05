@@ -9,13 +9,825 @@ import type { WireArticle } from "@/lib/whoopwire";
  */
 export const ARTICLES: WireArticle[] = [
   {
+    slug: "the-hardest-questions-on-the-tower-crane-red-seal-exam",
+    title: "THE HARDEST RED SEAL QUESTIONS.",
+    titleLines: ["THE HARDEST", "RED SEAL", "QUESTIONS."],
+    category: "CRANES",
+    excerpt:
+      "Memorizing definitions is not enough. The difficult Tower Crane Red Seal questions give you several answers that appear correct — and ask you to find the limiting factor.",
+    author: "sin()",
+    published: "2026-09-05",
+    seoTitle: "The Hardest Questions on the Tower Crane Red Seal Exam",
+    seoDescription:
+      "The hardest Tower Crane Red Seal questions aren’t math. Several answers look right. The exam tests whether you can find the limiting factor — capacity, configuration, rigging, conditions and procedure.",
+    related: [
+      "tower-crane-climbing-sequence",
+      "six-things-to-check-before-you-take-the-load",
+      "sling-tension-is-sin",
+    ],
+    safety: ["crane-operations", "rigging", "training-competency"],
+    blocks: [
+      {
+        type: "p",
+        text: "If you are preparing for the Tower Crane Operator Red Seal exam, memorizing definitions is not enough.",
+      },
+      {
+        type: "p",
+        text: "The difficult questions are the ones that give you several answers that appear correct and require you to determine which is best based on crane capacity, configuration, rigging, operating conditions, manufacturer requirements and safe operating procedure.",
+      },
+      {
+        type: "p",
+        text: "The actual Red Seal examination questions are confidential. However, the Red Seal Occupational Standard tells us the competencies candidates are expected to know.",
+      },
+      {
+        type: "p",
+        text: "Based on those competencies, these are some of the areas where candidates should expect the greatest challenge.",
+      },
+      {
+        type: "h",
+        text: "1. LOAD CHARTS AND CRANE CAPACITY",
+      },
+      {
+        type: "p",
+        text: "Reading a capacity directly from a load chart is the easy part.",
+      },
+      {
+        type: "p",
+        text: "The harder questions require you to determine whether that capacity actually applies.",
+      },
+      {
+        type: "p",
+        text: "You may need to consider:",
+      },
+      {
+        type: "list",
+        items: [
+          "Actual operating radius",
+          "Jib length and crane configuration",
+          "Parts of line",
+          "Maximum permissible line pull",
+          "Gross versus net capacity",
+          "Hook block and rigging weight",
+          "Load-line weight",
+          "Structural limitations",
+          "Hoist limitations",
+          "Crane deflection",
+          "Changing radius after the load is picked",
+        ],
+      },
+      {
+        type: "p",
+        text: "A crane may have enough structural capacity at a particular radius while another limitation prevents the lift.",
+      },
+      {
+        type: "p",
+        text: "That is an important Red Seal concept:",
+      },
+      {
+        type: "quote",
+        text: "The biggest number on the chart is not necessarily the amount you can lift.",
+      },
+      {
+        type: "p",
+        text: "The candidate has to identify the limiting factor.",
+      },
+      {
+        type: "h",
+        text: "2. RADIUS AND CRANE DEFLECTION",
+      },
+      {
+        type: "p",
+        text: "Tower cranes are not perfectly rigid structures.",
+      },
+      {
+        type: "p",
+        text: "When a heavy load is taken, the crane structure can deflect. This can cause the hook to move outward and increase the operating radius.",
+      },
+      {
+        type: "p",
+        text: "That matters because tower-crane capacity generally decreases as radius increases.",
+      },
+      {
+        type: "p",
+        text: "A difficult exam question may therefore give you a load that appears acceptable at the original radius but then ask what happens as the crane takes the load.",
+      },
+      {
+        type: "p",
+        text: "The operator needs to understand the relationship between:",
+      },
+      {
+        type: "quote",
+        text: "LOAD → DEFLECTION → INCREASED RADIUS → REDUCED CAPACITY",
+      },
+      {
+        type: "p",
+        text: "The Red Seal standard also expects operators to understand compensating for deflection while controlling the load.",
+      },
+      {
+        type: "p",
+        text: "This is crane physics, not simply chart reading.",
+      },
+      {
+        type: "h",
+        text: "3. MAXIMUM LINE PULL AND REEVING",
+      },
+      {
+        type: "p",
+        text: "Another difficult area is understanding the difference between what the crane structure can support and what the hoisting system can actually lift.",
+      },
+      {
+        type: "p",
+        text: "Imagine the load chart indicates sufficient structural capacity.",
+      },
+      {
+        type: "p",
+        text: "Can you automatically make the lift?",
+      },
+      {
+        type: "p",
+        text: "No.",
+      },
+      {
+        type: "p",
+        text: "The current reeving, parts of line, hoist configuration and permissible line pull must also support the load.",
+      },
+      {
+        type: "p",
+        text: "A question might deliberately provide enough structural capacity while exceeding another limitation.",
+      },
+      {
+        type: "quote",
+        text: "The correct answer is determined by the most restrictive applicable limit.",
+      },
+      {
+        type: "h",
+        text: "4. RIGGING AND CENTRE OF GRAVITY",
+      },
+      {
+        type: "p",
+        text: "Rigging questions become considerably harder when the load is not symmetrical.",
+      },
+      {
+        type: "p",
+        text: "Two sling legs do not automatically mean that each leg carries 50% of the load.",
+      },
+      {
+        type: "p",
+        text: "Candidates should understand:",
+      },
+      {
+        type: "list",
+        items: [
+          "Centre of gravity",
+          "Load distribution",
+          "Sling angles",
+          "Hitch configurations",
+          "Sling capacity",
+          "Hardware capacity",
+          "Unequal loading",
+          "Pick-point location",
+          "Effect of sling angle on tension",
+        ],
+      },
+      {
+        type: "p",
+        text: "If the centre of gravity is closer to one pick point, the load carried by the sling legs can be unequal.",
+      },
+      {
+        type: "p",
+        text: "Then sling angle can increase the tension even further.",
+      },
+      {
+        type: "p",
+        text: "A Red Seal candidate needs to understand the forces involved, not just memorize sling capacities.",
+      },
+      {
+        type: "h",
+        text: "5. GROSS CAPACITY VS. NET LOAD",
+      },
+      {
+        type: "p",
+        text: "This is one of the easiest places to make a mistake.",
+      },
+      {
+        type: "p",
+        text: "Suppose a chart indicates that the crane can lift 5,000 kg at the required radius.",
+      },
+      {
+        type: "p",
+        text: "That does not necessarily mean you can pick up a 5,000 kg object.",
+      },
+      {
+        type: "p",
+        text: "Depending on the manufacturer's load-chart instructions and configuration, deductions may be required for items such as:",
+      },
+      {
+        type: "list",
+        items: [
+          "Hook block",
+          "Slings",
+          "Shackles",
+          "Lifting beams",
+          "Spreader bars",
+          "Specialized lifting devices",
+          "Other suspended equipment",
+        ],
+      },
+      {
+        type: "p",
+        text: "The question may give you a capacity that looks adequate until all applicable deductions are considered.",
+      },
+      {
+        type: "p",
+        text: "The exam is testing whether you understand what the chart number actually represents.",
+      },
+      {
+        type: "h",
+        text: "6. CLIMBING AND RECONFIGURATION",
+      },
+      {
+        type: "p",
+        text: "Climbing questions can be difficult because they combine structural knowledge, procedures, communication, weather, configuration and manufacturer requirements.",
+      },
+      {
+        type: "p",
+        text: "Candidates should understand both:",
+      },
+      {
+        type: "list",
+        items: ["Top climbing", "Bottom climbing"],
+      },
+      {
+        type: "p",
+        text: "They should also understand the principles surrounding crane reconfiguration.",
+      },
+      {
+        type: "p",
+        text: "Important subjects include:",
+      },
+      {
+        type: "list",
+        items: [
+          "Manufacturer climbing procedures",
+          "Required documentation",
+          "Climbing components",
+          "Crane balance",
+          "Trolley/load position",
+          "Structural connections",
+          "Supports and collars",
+          "Hydraulic climbing systems",
+          "Communication",
+          "Weather limitations",
+          "Tower-section installation",
+          "Configuration changes",
+          "Required inspections",
+          "Safety and limiting systems",
+          "Return-to-service requirements",
+        ],
+      },
+      {
+        type: "p",
+        text: "The most important principle is simple:",
+      },
+      {
+        type: "quote",
+        text: "Do not improvise a climbing procedure.",
+      },
+      {
+        type: "p",
+        text: "If the manufacturer's required climbing condition cannot be achieved, the answer is not to find a field shortcut.",
+      },
+      {
+        type: "p",
+        text: "Stop and determine why.",
+      },
+      {
+        type: "h",
+        text: "7. LIMITS AFTER RECONFIGURATION",
+      },
+      {
+        type: "p",
+        text: "Changing the physical crane can also change the information the crane's systems need.",
+      },
+      {
+        type: "p",
+        text: "After certain configuration changes, applicable systems may need to be correctly configured, adjusted, verified or tested before the crane returns to normal operation.",
+      },
+      {
+        type: "p",
+        text: "A difficult question might tell you:",
+      },
+      {
+        type: "p",
+        text: "The crane has been successfully climbed. Everything physically appears correct. But the crane's configured information or limiting system does not correspond with the new configuration.",
+      },
+      {
+        type: "p",
+        text: "Can you operate at reduced capacity?",
+      },
+      {
+        type: "p",
+        text: "The safe answer is not simply:",
+      },
+      {
+        type: "quote",
+        text: "Stay under 50%.",
+      },
+      {
+        type: "p",
+        text: "An arbitrary reduction does not correct an incorrectly configured safety or limiting system.",
+      },
+      {
+        type: "p",
+        text: "The discrepancy needs to be addressed and the required verification completed before normal operation resumes.",
+      },
+      {
+        type: "h",
+        text: "8. INSPECTION AND TROUBLESHOOTING",
+      },
+      {
+        type: "p",
+        text: "Red Seal questions do not necessarily ask:",
+      },
+      {
+        type: "quote",
+        text: "What is a sheave?",
+      },
+      {
+        type: "p",
+        text: "A harder question gives you a condition involving the sheave and asks what it means.",
+      },
+      {
+        type: "p",
+        text: "Candidates need to understand inspection of:",
+      },
+      {
+        type: "list",
+        items: [
+          "Wire rope",
+          "Sheaves",
+          "Drums",
+          "Brakes",
+          "Pins and connections",
+          "Structural members",
+          "Hydraulic systems",
+          "Electrical systems",
+          "Supports",
+          "Access systems",
+          "Safety devices",
+        ],
+      },
+      {
+        type: "p",
+        text: "Then comes the difficult part:",
+      },
+      {
+        type: "quote",
+        text: "What do you do when something is wrong?",
+      },
+      {
+        type: "p",
+        text: "Continue operating? Monitor it? Report it? Adjust it? Remove the equipment from service? Stop the crane?",
+      },
+      {
+        type: "p",
+        text: "The ability to make that decision is much more important than simply knowing the name of the component.",
+      },
+      {
+        type: "h",
+        text: "9. WIND AND CHANGING SITE CONDITIONS",
+      },
+      {
+        type: "p",
+        text: "Wind questions can also be deceptive.",
+      },
+      {
+        type: "p",
+        text: "The answer is not always one universal wind-speed number.",
+      },
+      {
+        type: "p",
+        text: "The applicable limitation can depend on:",
+      },
+      {
+        type: "list",
+        items: [
+          "Manufacturer requirements",
+          "Crane configuration",
+          "Type of operation",
+          "Load characteristics",
+          "Wind direction",
+          "Gusts",
+          "Sail area",
+          "Site conditions",
+        ],
+      },
+      {
+        type: "p",
+        text: "A large lightweight panel can behave very differently from a compact load of the same weight.",
+      },
+      {
+        type: "p",
+        text: "Candidates should understand that staying below a numerical wind limit does not eliminate the operator's responsibility to assess whether the load can actually be controlled safely.",
+      },
+      {
+        type: "h",
+        text: "10. MULTI-CRANE AND SPECIALTY OPERATIONS",
+      },
+      {
+        type: "p",
+        text: "The Red Seal standard also includes specialty tower-crane operations.",
+      },
+      {
+        type: "p",
+        text: "These can include:",
+      },
+      {
+        type: "list",
+        items: [
+          "Multi-crane lifts",
+          "Operating on multi-crane sites",
+          "Personnel hoisting",
+        ],
+      },
+      {
+        type: "p",
+        text: "These operations introduce additional planning, communication and coordination requirements.",
+      },
+      {
+        type: "p",
+        text: "Questions in this area are likely to test whether the candidate recognizes when an operation requires additional controls rather than treating it as an ordinary lift.",
+      },
+      {
+        type: "h",
+        text: "WHAT MAKES A RED SEAL QUESTION DIFFICULT?",
+      },
+      {
+        type: "p",
+        text: "The hardest questions usually aren't difficult because of complicated mathematics.",
+      },
+      {
+        type: "p",
+        text: "They are difficult because several facts must be considered at the same time.",
+      },
+      {
+        type: "p",
+        text: "A question might give you:",
+      },
+      {
+        type: "quote",
+        text: "Load weight + radius + rigging weight + crane configuration + line pull + changing conditions",
+      },
+      {
+        type: "p",
+        text: "Every individual number may look acceptable.",
+      },
+      {
+        type: "p",
+        text: "But one condition makes the lift unacceptable.",
+      },
+      {
+        type: "p",
+        text: "Your job is to find it.",
+      },
+      {
+        type: "p",
+        text: "That is the mindset to develop when studying for the Tower Crane Red Seal examination.",
+      },
+      {
+        type: "p",
+        text: "Don't only ask:",
+      },
+      {
+        type: "quote",
+        text: "What is the answer?",
+      },
+      {
+        type: "p",
+        text: "Ask:",
+      },
+      {
+        type: "quote",
+        text: "What is the limiting factor?",
+      },
+      {
+        type: "p",
+        text: "And when two answers both seem reasonable, go back to the fundamentals:",
+      },
+      {
+        type: "list",
+        items: [
+          "Manufacturer requirements",
+          "Actual crane configuration",
+          "Actual operating radius",
+          "Capacity limitations",
+          "Rigging forces",
+          "Site conditions",
+          "Required procedures",
+        ],
+      },
+      {
+        type: "p",
+        text: "The Red Seal exam is ultimately testing whether you can take technical knowledge and apply it to the decisions a competent Tower Crane Operator is expected to make.",
+      },
+      {
+        type: "p",
+        text: "That is why the best preparation isn't memorizing hundreds of answers.",
+      },
+      {
+        type: "quote",
+        text: "Learn how the crane works, learn how to read the information you're given, and learn how to identify what controls the operation.",
+      },
+      {
+        type: "cta",
+        href: "/redtc",
+        label: "PRACTICE THE TOWER CRANE BANK →",
+      },
+      {
+        type: "cta",
+        href: "/redtc/load-charts",
+        label: "LOAD CHARTS →",
+      },
+      {
+        type: "cta",
+        href: "/whoopwire/tower-crane-climbing-sequence",
+        label: "PREPARE. INSPECT. BRIEF. BALANCE. CLIMB. →",
+      },
+      {
+        type: "cta",
+        href: "/safety/crane-operations",
+        label: "07 — CRANE OPERATIONS →",
+      },
+    ],
+  },
+  {
+    slug: "tower-crane-climbing-sequence",
+    title: "PREPARE. INSPECT. BRIEF. BALANCE. CLIMB.",
+    titleLines: ["PREPARE.", "INSPECT.", "BRIEF.", "BALANCE.", "CLIMB."],
+    category: "CRANES",
+    excerpt:
+      "Climbing is not adding another tower section. It temporarily changes the crane. Prepare, inspect, brief, balance, climb, then verify before the hook moves again.",
+    author: "sin()",
+    published: "2026-09-05",
+    seoTitle:
+      "Tower Crane Climbing Sequence: Prepare, Inspect, Brief, Balance, Climb",
+    seoDescription:
+      "Tower crane climbing is not adding another section. Prepare, inspect, brief, balance, climb, then verify. The manufacturer’s sequence is the sequence. Do not improvise the climb.",
+    related: [
+      "what-part-14-actually-names",
+      "six-things-to-check-before-you-take-the-load",
+      "what-your-crane-crew-should-know-before-they-arrive",
+    ],
+    safety: ["crane-operations", "safe-work-procedures", "inspections"],
+    blocks: [
+      {
+        type: "p",
+        text: "Tower crane climbing is one of the most specialized operations performed during the life of a tower crane.",
+      },
+      {
+        type: "p",
+        text: "Unlike normal lifting, climbing temporarily changes the crane’s structural configuration while tower sections are added, removed or repositioned. The climbing system, the crane structure, the supporting structure, the crew, the weather and the sequence of operations all have to work together exactly as intended.",
+      },
+      {
+        type: "p",
+        text: "For that reason, climbing should never be treated as simply “adding another tower section.”",
+      },
+      {
+        type: "quote",
+        text: "PREPARE → INSPECT → BRIEF → BALANCE → CLIMB → VERIFY",
+      },
+      {
+        type: "p",
+        text: "The exact procedure, limits and sequence must always come from the crane manufacturer’s instructions, applicable engineering documentation and the requirements governing the specific installation.",
+      },
+      {
+        type: "h",
+        text: "1. PREPARE",
+      },
+      {
+        type: "p",
+        text: "A successful climb begins before anyone operates the climbing system.",
+      },
+      {
+        type: "p",
+        text: "The climbing configuration and required documentation should be established in advance. The crew needs to know what configuration is being created, which tower sections and climbing components are being used, what supporting or shoring arrangements are required, and what limitations apply.",
+      },
+      {
+        type: "p",
+        text: "Preparation should include confirming that the required manufacturer information, engineering documentation, climbing equipment, tools, communications and qualified personnel are available.",
+      },
+      {
+        type: "p",
+        text: "Weather is also part of the planning. Climbing must be performed within the manufacturer’s specified environmental and wind limitations. Gusting winds, lightning, freezing rain, snow, ice, poor visibility or extreme temperatures may make a climb unsafe even when other preparations are complete.",
+      },
+      {
+        type: "quote",
+        text: "If the required procedure, configuration or limitations cannot be verified, the climbing operation should not begin.",
+      },
+      {
+        type: "h",
+        text: "2. INSPECT",
+      },
+      {
+        type: "p",
+        text: "The crane and climbing system must be inspected before climbing begins.",
+      },
+      {
+        type: "p",
+        text: "This is more than a general crane inspection. Components directly involved in the climbing operation need particular attention, including the climbing frame or cage, hydraulic equipment, structural connections, tower sections, pins, bolts, supports and other components identified by the manufacturer.",
+      },
+      {
+        type: "p",
+        text: "The intended climbing path and supporting structure must also be ready. A component that is damaged, incorrectly installed, incompatible with the intended configuration or otherwise questionable should be resolved before the climb proceeds.",
+      },
+      {
+        type: "p",
+        text: "Climbing is not the time to discover that a required component does not fit, or that the actual installation differs from the approved arrangement.",
+      },
+      {
+        type: "h",
+        text: "3. BRIEF",
+      },
+      {
+        type: "p",
+        text: "Everyone involved in the climb needs to understand the plan before movement begins.",
+      },
+      {
+        type: "p",
+        text: "The climbing supervisor should conduct a pre-climb briefing covering the intended sequence, individual responsibilities, communication method, weather limitations, stop-work conditions and emergency considerations.",
+      },
+      {
+        type: "p",
+        text: "Communication is particularly important. Depending on the crane and climbing system, crew members may be positioned where they cannot all maintain direct visual contact. The required communication system must remain reliable throughout the operation.",
+      },
+      {
+        type: "p",
+        text: "If required communication is lost, the climbing operation should be brought to a safe stop until communication is restored.",
+      },
+      {
+        type: "quote",
+        text: "If something does not look, sound or feel right, stop.",
+      },
+      {
+        type: "p",
+        text: "Climbing operations should not continue simply because the crew has already started the sequence.",
+      },
+      {
+        type: "h",
+        text: "4. BALANCE",
+      },
+      {
+        type: "p",
+        text: "Balance is one of the most critical parts of many tower crane climbing procedures.",
+      },
+      {
+        type: "p",
+        text: "The crane must be placed in the condition specified by the manufacturer before the climbing movement is performed. Depending on the crane design, this can involve a specified trolley position, load, hook condition, jib orientation or other manufacturer-defined arrangement.",
+      },
+      {
+        type: "p",
+        text: "The purpose is to establish the required forces and alignment through the climbing system and tower structure.",
+      },
+      {
+        type: "p",
+        text: "Balance should never be based on guesswork, or on a position that “worked on the last crane.” Different models, jib configurations, counterweights, tower arrangements and climbing systems can require different procedures.",
+      },
+      {
+        type: "quote",
+        text: "The manufacturer’s balancing procedure controls.",
+      },
+      {
+        type: "p",
+        text: "If the crane cannot be placed into the required balanced condition, the crew should stop and determine why rather than attempting to compensate by improvising the climbing sequence.",
+      },
+      {
+        type: "h",
+        text: "5. CLIMB",
+      },
+      {
+        type: "p",
+        text: "Only after preparation, inspection, briefing and balancing are complete should the physical climbing sequence proceed.",
+      },
+      {
+        type: "p",
+        text: "The crew must follow the manufacturer’s specified sequence and remain under the direction of the qualified person responsible for the climbing operation.",
+      },
+      {
+        type: "p",
+        text: "During the climb, attention should remain on alignment, structural connections, climbing equipment, hydraulic behaviour, communication and changing environmental conditions.",
+      },
+      {
+        type: "p",
+        text: "Unexpected resistance, movement, misalignment, hydraulic problems, abnormal sounds, an unverified connection or any other departure from the expected sequence is a reason to stop and assess the situation.",
+      },
+      {
+        type: "p",
+        text: "A climbing sequence should not be changed simply to make the operation faster or easier. If the manufacturer’s procedure does not address the actual condition encountered, the solution may require consultation with the manufacturer or a professional engineer rather than a field modification to the sequence.",
+      },
+      {
+        type: "h",
+        text: "6. VERIFY BEFORE RETURNING THE CRANE TO SERVICE",
+      },
+      {
+        type: "p",
+        text: "The climbing movement being finished does not automatically mean the crane is ready to resume lifting.",
+      },
+      {
+        type: "p",
+        text: "After the climb, the completed crane configuration must be verified. Required structural connections, tower components, climbing equipment and other affected systems should be inspected and confirmed in accordance with the applicable procedure.",
+      },
+      {
+        type: "p",
+        text: "Systems affected by the change in crane configuration may also require adjustment, configuration or testing. This can include the crane’s load moment or rated capacity system, operational limiting devices, anti-collision or zoning equipment where applicable, and other safety systems affected by the new crane configuration.",
+      },
+      {
+        type: "p",
+        text: "Required inspections, certifications and documentation must also be completed. Only after the required post-climb verification has been completed should the crane be returned to normal lifting operations.",
+      },
+      {
+        type: "h",
+        text: "THE SEQUENCE IS DELIBERATE",
+      },
+      {
+        type: "steps",
+        items: [
+          {
+            n: "01",
+            title: "PREPARE",
+            body: "Configuration, documentation, equipment, qualified people and weather limits named before anyone operates the climbing system.",
+          },
+          {
+            n: "02",
+            title: "INSPECT",
+            body: "Climbing frame, hydraulics, connections, tower sections, pins, bolts, supports and the path. Resolve what does not fit before you start.",
+          },
+          {
+            n: "03",
+            title: "BRIEF",
+            body: "Sequence, responsibilities, communication, weather, stop-work and emergency. If communication is lost, stop.",
+          },
+          {
+            n: "04",
+            title: "BALANCE",
+            body: "The manufacturer’s balancing procedure. Not the last crane. Not a guess.",
+          },
+          {
+            n: "05",
+            title: "CLIMB",
+            body: "The specified sequence, under the qualified person. Unexpected resistance, misalignment or an unverified connection is a stop.",
+          },
+          {
+            n: "06",
+            title: "VERIFY",
+            body: "Configuration, connections, LMI / rated-capacity system, limits, zoning and the paperwork. Then the crane may lift.",
+          },
+        ],
+      },
+      {
+        type: "p",
+        text: "Tower crane climbing is not a procedure that should be learned from a generic checklist or performed from memory alone. Different manufacturers and crane models use different climbing systems, configurations, sequences and limitations.",
+      },
+      {
+        type: "p",
+        text: "The manufacturer’s instructions and the engineering requirements for the specific crane installation remain the controlling documents.",
+      },
+      {
+        type: "quote",
+        text: "Do not improvise the climb.",
+      },
+      {
+        type: "p",
+        text: "If the configuration, procedure, balance condition, structural connection, communication system, weather limitation or post-climb requirement cannot be verified, stop the operation until it can be.",
+      },
+      {
+        type: "p",
+        text: "That discipline is what turns a climbing sequence from a series of movements into a controlled crane operation.",
+      },
+      {
+        type: "cta",
+        href: "/safety/swp/tower-erection-climbing",
+        label: "TOWER ERECTION, CLIMBING AND DISMANTLING — GOSPEL-SWP-027 →",
+      },
+      {
+        type: "cta",
+        href: "/safety/crane-operations",
+        label: "07 — CRANE OPERATIONS →",
+      },
+      {
+        type: "cta",
+        href: "/safety/binder/tower",
+        label: "TOWER CRANE BINDER →",
+      },
+    ],
+  },
+  {
     slug: "height-over-length-is-the-angle",
     title: "HEIGHT OVER LENGTH IS THE ANGLE.",
     titleLines: ["HEIGHT OVER", "LENGTH IS", "THE ANGLE."],
     category: "RIGGING",
     excerpt:
       "You do not need a protractor on the hook. Measure sling length and vertical height. sin θ = H / L. Then you can use the tension formula.",
-    author: "GOSPEL",
+    author: "sin()",
     published: "2026-08-18",
     image: "/whoopwire/rigging-triangle.jpg",
     imageAlt:
@@ -188,7 +1000,7 @@ export const ARTICLES: WireArticle[] = [
     category: "SAFETY",
     excerpt:
       "In B.C., WorkSafeBC enforces the Regulation — not a vibe called CSA, and not ASME B30 as one book. Mobile is Z150. Tower is Z248. B30 is a series, and only the volumes written into the Regulation are law.",
-    author: "GOSPEL",
+    author: "sin()",
     published: "2026-08-15",
     seoTitle: "What WorkSafeBC Part 14 Actually Names — Z150, Z248, ASME B30",
     seoDescription:
@@ -378,7 +1190,7 @@ export const ARTICLES: WireArticle[] = [
     category: "CRANES",
     excerpt:
       "A mobile crane boom is a right triangle. Height is L × sin θ. Radius from the pin is L × cos θ. That is boom geometry — not a load chart.",
-    author: "GOSPEL",
+    author: "sin()",
     published: "2026-08-15",
     seoTitle: "Sin the Height. Cos the Radius. — Boom Geometry",
     seoDescription:
@@ -564,7 +1376,7 @@ export const ARTICLES: WireArticle[] = [
     category: "RIGGING",
     excerpt:
       "Sling tension is not a feeling. For a two-leg bridle, T = W / (2 × sin θ). If you cannot do that, you cannot claim the angle is safe.",
-    author: "GOSPEL",
+    author: "sin()",
     published: "2026-08-15",
     seoTitle: "Sling Tension Is Sin() — Rigging Math",
     seoDescription:
@@ -735,7 +1547,7 @@ export const ARTICLES: WireArticle[] = [
     category: "RIGGING",
     excerpt:
       "A qualification tells you what someone has been trained to do. Competency tells you whether they can actually do it.",
-    author: "GOSPEL",
+    author: "sin()",
     published: "2026-08-06",
     featured: true,
     seoTitle: "A Ticket Isn't Competency",
@@ -825,7 +1637,7 @@ export const ARTICLES: WireArticle[] = [
     category: "SAFETY",
     excerpt:
       "If people have to ask permission to see how you expect the work to be done, you do not have a safety program. You have a filing cabinet.",
-    author: "GOSPEL",
+    author: "sin()",
     published: "2026-08-13",
     seoTitle: "Why Proven Is Public",
     seoDescription:
@@ -900,7 +1712,7 @@ export const ARTICLES: WireArticle[] = [
     category: "RIGGING",
     excerpt:
       "It is not the loudest person on the steel. It is the one who finds the centre of gravity before anyone finds the radio.",
-    author: "GOSPEL",
+    author: "sin()",
     published: "2026-05-20",
     seoTitle: "What a Good Rigger Actually Looks Like",
     seoDescription:
@@ -964,7 +1776,7 @@ export const ARTICLES: WireArticle[] = [
     category: "CRANES",
     excerpt:
       "The lifts that go badly are often the ones nobody bothered to treat as a lift. Small, familiar, 'we've done this.'",
-    author: "GOSPEL",
+    author: "sin()",
     published: "2026-06-25",
     seoTitle: "The Lift Looked Simple. It Wasn't.",
     seoDescription:
@@ -1025,7 +1837,7 @@ export const ARTICLES: WireArticle[] = [
     category: "SAFETY",
     excerpt:
       "Not a poster. Six things that, if they are wrong, the hook should not leave the ground.",
-    author: "GOSPEL",
+    author: "sin()",
     published: "2026-07-08",
     seoTitle: "Six Things to Check Before You Take the Load",
     seoDescription:
@@ -1103,7 +1915,7 @@ export const ARTICLES: WireArticle[] = [
     category: "SAFETY",
     excerpt:
       "A safe work procedure that cannot be used on the day is theatre. It exists to be shown, not followed.",
-    author: "GOSPEL",
+    author: "sin()",
     published: "2026-06-10",
     seoTitle: "When a SWP Isn't Really a SWP",
     seoDescription:
@@ -1166,7 +1978,7 @@ export const ARTICLES: WireArticle[] = [
     category: "INDUSTRY",
     excerpt:
       "A procedure nobody can find at 6:40 a.m. does not exist. Access is part of the control.",
-    author: "GOSPEL",
+    author: "sin()",
     published: "2026-04-08",
     seoTitle: "Why Documentation Should Be Easy to Find",
     seoDescription:
@@ -1219,7 +2031,7 @@ export const ARTICLES: WireArticle[] = [
     category: "PEOPLE",
     excerpt:
       "A crew shares a brief, a standard and a way of stopping the work. A bunch of people share a start time.",
-    author: "GOSPEL",
+    author: "sin()",
     published: "2026-04-29",
     seoTitle: "The Difference Between a Crew and a Bunch of People",
     seoDescription:
@@ -1277,12 +2089,13 @@ export const ARTICLES: WireArticle[] = [
     category: "CRANES",
     excerpt:
       "If the first time they see the machine, the load and the site is when they park, you have already spent the briefing.",
-    author: "GOSPEL",
+    author: "sin()",
     published: "2026-08-04",
     seoTitle: "What Your Crane Crew Should Know Before They Arrive",
     seoDescription:
       "Brief a crane crew before they arrive: machine, load, site, signals, exclusions, and what will stop the lift.",
     related: [
+      "tower-crane-climbing-sequence",
       "the-difference-between-a-crew-and-a-bunch-of-people",
       "the-lift-looked-simple-it-wasnt",
     ],

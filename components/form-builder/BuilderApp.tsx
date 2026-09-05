@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { SafetyControl } from "@/components/SafetyControl";
+import { ProvenName } from "@/components/ProvenMark";
 import { EmailPdf } from "@/components/form-builder/EmailPdf";
 import { FormRenderer, missingRequired } from "@/components/form-builder/FormRenderer";
 import {
@@ -22,7 +23,7 @@ import {
   type FormField,
   type FormValues,
   type SafetyBlock,
-  type WhoopFormDef,
+  type FormDef,
 } from "@/lib/form-builder/types";
 
 type Mode = "edit" | "preview" | "fill";
@@ -38,7 +39,7 @@ const FIELD_TYPES: FormField["type"][] = [
   "address",
 ];
 
-export function BuilderApp({ initial }: { initial: WhoopFormDef }) {
+export function BuilderApp({ initial }: { initial: FormDef }) {
   const router = useRouter();
   const [form, setForm] = useState(initial);
   const [mode, setMode] = useState<Mode>("edit");
@@ -123,7 +124,9 @@ export function BuilderApp({ initial }: { initial: WhoopFormDef }) {
   return (
     <article className="doc-body fb-app">
       <header className="doc-title">
-        <p className="mono steel">FORM BUILDER</p>
+        <p className="mono steel">
+          <ProvenName /> FORM
+        </p>
         <h1 className="display">{form.title}</h1>
         <p className="lede mt">
           Assemble approved Safety Blocks. Preview. Fill. PDF. Nothing is stored

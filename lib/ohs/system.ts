@@ -226,7 +226,7 @@ export const PROGRAM_HIERARCHY = [
   { title: "POLICIES", body: "GOSPEL-POL. The rules. Library 13." },
   { title: "PROCEDURES", body: "Numbered methods in the sections and the SWP library." },
   { title: "SWPs / PRACTICES", body: "SWPs are steps. Practices are the standing rules in 01, 06, 07 and 12. SJPs are this lift." },
-  { title: "FORMS", body: "GOSPEL-FRM. How evidence is collected. Library 16 and the form builder." },
+  { title: "FORMS", body: "PROVEN-FRM. How evidence is collected. Library 16 and the form builder." },
   { title: "RECORDS", body: "Completed forms, reports, logs, minutes. Proof the system ran." },
   { title: "REVIEW / CORRECTIVE ACTION", body: "FRM-014. Finding → owner → date → done → verified." },
   { title: "CONTINUOUS IMPROVEMENT", body: "POL-016. Management review. COR audit. This program revised when the lesson is real." },

@@ -4,6 +4,17 @@ import path from "path";
 const nextConfig: NextConfig = {
   reactStrictMode: true,
   outputFileTracingRoot: path.join(__dirname),
+  async headers() {
+    return [
+      {
+        source: "/og.png",
+        headers: [
+          { key: "Cache-Control", value: "public, max-age=86400, immutable" },
+          { key: "Content-Type", value: "image/png" },
+        ],
+      },
+    ];
+  },
   async redirects() {
     return [
       {

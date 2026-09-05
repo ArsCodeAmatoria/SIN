@@ -18,17 +18,24 @@ import {
   type WirePost,
 } from "@/lib/wire-comments";
 
-const PERSON_KEY = "whoop-wire-person";
-const LIKED_KEY = "whoop-wire-liked";
+const PERSON_KEY = "wire-person";
+const LIKED_KEY = "wire-liked";
+const LEGACY_PERSON_KEY = "whoop-wire-person";
+const LEGACY_LIKED_KEY = "whoop-wire-liked";
 
 type Person = { name: string; handle: string };
 
 function readPerson(): Person {
   try {
-    const raw = localStorage.getItem(PERSON_KEY);
+    const raw =
+      localStorage.getItem(PERSON_KEY) || localStorage.getItem(LEGACY_PERSON_KEY);
     if (raw) {
       const parsed = JSON.parse(raw) as Person;
-      if (parsed.name && parsed.handle) return parsed;
+      if (parsed.name && parsed.handle) {
+        localStorage.setItem(PERSON_KEY, JSON.stringify(parsed));
+        localStorage.removeItem(LEGACY_PERSON_KEY);
+        return parsed;
+      }
     }
   } catch {
     /* ignore */
@@ -38,8 +45,14 @@ function readPerson(): Person {
 
 function readLiked(): Set<string> {
   try {
-    const raw = localStorage.getItem(LIKED_KEY);
-    if (raw) return new Set(JSON.parse(raw) as string[]);
+    const raw =
+      localStorage.getItem(LIKED_KEY) || localStorage.getItem(LEGACY_LIKED_KEY);
+    if (raw) {
+      const ids = JSON.parse(raw) as string[];
+      localStorage.setItem(LIKED_KEY, JSON.stringify(ids));
+      localStorage.removeItem(LEGACY_LIKED_KEY);
+      return new Set(ids);
+    }
   } catch {
     /* ignore */
   }
@@ -276,12 +289,12 @@ function Composer({
   onSubmit: (e: FormEvent<HTMLFormElement>) => void;
 }) {
   const left = WIRE_POST_MAX - body.length;
-  const tone = avatarTone(person.handle || person.name || "whoop");
+  const tone = avatarTone(person.handle || person.name || "wire");
 
   return (
     <form className={`wire-compose${compact ? " is-compact" : ""}`} onSubmit={onSubmit}>
       <span className={`wire-ava tone-${tone}`} aria-hidden>
-        {initials(person.name || "GOSPEL")}
+        {initials(person.name || "WIRE")}
       </span>
       <div className="wire-compose-main">
         <div className="wire-id">

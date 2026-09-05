@@ -4,7 +4,7 @@ export type {
   FormGroup,
   FormValues,
   SafetyBlock,
-  WhoopFormDef,
+  FormDef,
 } from "./types";
 export { emptyValues, FORM_GROUPS, nid } from "./types";
 export {

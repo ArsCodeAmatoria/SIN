@@ -1,11 +1,12 @@
 export const SITE = {
   name: "sin()",
-  legalName: "GOSPEL",
+  legalName: "sin()",
+  url: "https://sin.ae.org",
   descriptor: "CRANE SAFETY",
   phone: "1 604 431 2000",
   phoneHref: "tel:+16044312000",
-  email: "safety@gospel.im",
-  emailHref: "mailto:safety@gospel.im",
+  email: "info@sin.ae.org",
+  emailHref: "mailto:info@sin.ae.org",
   location: "British Columbia, Canada",
   tagline: "CRANE SAFETY SYSTEMS.",
   sub: "OPEN. USABLE. ACCOUNTABLE.",
@@ -17,8 +18,11 @@ export const SITE = {
     "Proven is the occupational health and safety management system. Written the way the work actually happens. Public so anyone on the lift can read it before the hook is loaded.",
   close:
     "If a procedure cannot be followed on a jobsite, it is not a procedure. It is theatre.",
+  title: "sin() — Crane Safety Information for British Columbia",
   description:
-    "Public crane safety information for lifting work in British Columbia. Red Seal practice tests, a written safety program, and The Wire.",
+    "Tower and mobile crane Red Seal practice, Proven procedures you can use on site, and writing about the work.",
+  descriptionLong:
+    "sin() is public crane safety information for lifting work in British Columbia.\n\nREDTC and REDMC are Tower Crane and Mobile Crane exam practice — Fulford, SkilledTradesBC, and the Interprovincial Red Seal. Tagged questions. Explanations after you answer. 70% to pass, same as the sitting.\n\nProven is the occupational health and safety program: policies, safe work procedures, hazard assessments, forms and crane binders. Written the way the work actually happens. Public so anyone on the lift can read it before the hook is loaded. No portal. No request form. No expiry date.\n\nThe Wire is writing about safety, rigging, cranes and people.\n\nWork is done to CSA Z150 / Z248, WorkSafeBC, BC Crane Safety, Technical Safety BC, ASME B30, manufacturer requirements and site policies. The stricter applicable requirement wins. Law always wins.\n\nIf a procedure cannot be followed on a jobsite, it is not a procedure. It is theatre.",
   system: "PROVEN",
 } as const;
 

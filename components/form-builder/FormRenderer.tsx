@@ -5,10 +5,10 @@ import type {
   FormValues,
   InspectionRow,
   SafetyBlock,
-  WhoopFormDef,
+  FormDef,
 } from "@/lib/form-builder/types";
 import { isAddressField, nid } from "@/lib/form-builder/types";
-import { SITE } from "@/lib/site";
+import { ProvenName } from "@/components/ProvenMark";
 import { AddressFinder } from "./AddressFinder";
 import { SignatureField } from "./SignatureField";
 
@@ -24,7 +24,7 @@ function asList(v: string | string[] | undefined) {
 }
 
 export function missingRequired(
-  form: WhoopFormDef,
+  form: FormDef,
   values: FormValues
 ): string[] {
   const miss: string[] = [];
@@ -285,7 +285,7 @@ export function FormRenderer({
   onChange,
   onEditField,
 }: {
-  form: WhoopFormDef;
+  form: FormDef;
   values: FormValues;
   mode: RenderMode;
   missing?: string[];
@@ -301,7 +301,9 @@ export function FormRenderer({
   return (
     <div className={`fb-doc${mode === "preview" ? " is-preview" : ""}`}>
       <header className="fb-doc-head">
-        <p className="brand">{SITE.name}</p>
+        <p className="brand">
+          <ProvenName />
+        </p>
         <div className="fb-doc-meta">
           <span className="mono">{form.number}</span>
           <span className="mono">REV {form.revision}</span>

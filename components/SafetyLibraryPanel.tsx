@@ -95,7 +95,7 @@ export function SafetyLibraryPanel({ kind }: { kind: SafetyLibraryKind }) {
         items={[
           {
             href: "/safety/builder",
-            number: "GOSPEL-FRM",
+            number: "PROVEN-FRM",
             title: "FORM BUILDER",
             summary:
               "Assemble approved Safety Blocks. Fill on this device. Download or email a PDF.",

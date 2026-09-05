@@ -733,7 +733,7 @@ export const JHAS: Jha[] = [
           level: "extreme",
           hazard: "Entering the limits without assurance in writing",
           risk: "Unplanned contact. No utility control of the line.",
-          control: "Stop. Coded 30M33 signed by the power-system owner. GOSPEL-FRM-037 is the schematic, not the assurance.",
+          control: "Stop. Coded 30M33 signed by the power-system owner. PROVEN-FRM-037 is the schematic, not the assurance.",
         },
         {
           task: "Contact",

@@ -2,13 +2,13 @@
 
 import { useState } from "react";
 import { downloadPdf, formToPdf, pdfFilename } from "@/lib/form-builder/pdf";
-import type { FormValues, WhoopFormDef } from "@/lib/form-builder/types";
+import type { FormValues, FormDef } from "@/lib/form-builder/types";
 
 export function EmailPdf({
   form,
   values,
 }: {
-  form: WhoopFormDef;
+  form: FormDef;
   values: FormValues;
 }) {
   const [open, setOpen] = useState(false);
@@ -16,7 +16,7 @@ export function EmailPdf({
   const [cc, setCc] = useState("");
   const [subject, setSubject] = useState(`${form.number} ${form.title}`);
   const [message, setMessage] = useState(
-    "GOSPEL completed safety form attached."
+    "Proven completed safety form attached.",
   );
   const [status, setStatus] = useState("");
   const [busy, setBusy] = useState(false);

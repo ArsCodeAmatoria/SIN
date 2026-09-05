@@ -4,11 +4,13 @@ import { RedtcNav } from "@/components/redtc/RedtcNav";
 import { CHARTS, chartPdfHref, REDTC } from "@/lib/redtc/bank";
 import type { LoadChart } from "@/lib/redtc/bank";
 import { REDTC_SKILLS } from "@/lib/redtc/copy";
+import { pageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta({
   title: "Load Charts",
   description: REDTC.description,
-};
+  path: "/redtc/load-charts",
+});
 
 const SECTIONS: { type: string[]; title: string; body: string }[] = [
   {

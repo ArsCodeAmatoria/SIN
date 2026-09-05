@@ -14,7 +14,7 @@ import {
 const FILTERS = ["ALL", ...WIRE_CATEGORIES] as const;
 type Filter = (typeof FILTERS)[number];
 
-export function WhoopwireIndex({ stories }: { stories: WireSummary[] }) {
+export function WireIndex({ stories }: { stories: WireSummary[] }) {
   const [query, setQuery] = useState("");
   const [category, setCategory] = useState<Filter>("ALL");
   const [sort, setSort] = useState<"latest" | "featured">("featured");

@@ -74,7 +74,7 @@ export const FORM_GROUPS: FormGroup[] = [
   "Binder",
 ];
 
-export type WhoopFormDef = {
+export type FormDef = {
   id: string;
   title: string;
   description?: string;

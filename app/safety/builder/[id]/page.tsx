@@ -5,12 +5,12 @@ import { useParams } from "next/navigation";
 import { BuilderApp } from "@/components/form-builder/BuilderApp";
 import { getTemplate } from "@/lib/form-builder/templates";
 import { getLocalForm } from "@/lib/form-builder/store";
-import type { WhoopFormDef } from "@/lib/form-builder/types";
+import type { FormDef } from "@/lib/form-builder/types";
 
 export default function BuilderFormPage() {
   const params = useParams<{ id: string }>();
   const id = Array.isArray(params.id) ? params.id[0] : params.id;
-  const [form, setForm] = useState<WhoopFormDef | null | undefined>(undefined);
+  const [form, setForm] = useState<FormDef | null | undefined>(undefined);
 
   useEffect(() => {
     const t = getTemplate(id);

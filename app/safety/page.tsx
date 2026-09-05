@@ -5,13 +5,15 @@ import { SafetyFind } from "@/components/SafetyFind";
 import { StandardsList } from "@/components/StandardsList";
 import { safetyCatalog } from "@/lib/ohs/catalog";
 import { FIND_NOW, safetyByGroup } from "@/lib/safety";
+import { pageMeta } from "@/lib/seo";
 import { SITE } from "@/lib/site";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta({
   title: "Proven",
   description:
-        "Proven is the crane safety program. Read how lifting work is expected to be performed — CSA Z150 / Z248, WorkSafeBC, BC Crane Safety, Technical Safety BC, ASME B30, manufacturer requirements and site policies.",
-};
+    "Proven is the crane safety program. Read how lifting work is expected to be performed — CSA Z150 / Z248, WorkSafeBC, BC Crane Safety, Technical Safety BC, ASME B30, manufacturer requirements and site policies.",
+  path: "/safety",
+});
 
 export default function SafetyIndexPage() {
   const groups = safetyByGroup();

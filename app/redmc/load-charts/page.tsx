@@ -2,11 +2,13 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { RedtcNav } from "@/components/redtc/RedtcNav";
 import { CHART_MAKERS, CHARTS, REDMC } from "@/lib/redmc/bank";
+import { pageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta({
   title: "Load Charts",
   description: REDMC.description,
-};
+  path: "/redmc/load-charts",
+});
 
 export default function RedmcChartsPage() {
   const totalQs = CHARTS.reduce((n, c) => n + c.questions.length, 0);

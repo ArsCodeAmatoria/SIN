@@ -62,7 +62,7 @@ export type BinderItem = {
   note: string;
   formSlug?: string;
   official?: DocLink[];
-  whoop?: DocLink[];
+  site?: DocLink[];
 };
 
 export type BinderDef = {
@@ -80,7 +80,7 @@ function off(href: string, label: string): DocLink {
   return { href, label, external: true };
 }
 
-function whoop(href: string, label: string): DocLink {
+function site(href: string, label: string): DocLink {
   return { href, label };
 }
 
@@ -127,7 +127,7 @@ const SHARED = {
     note: "Part 19 Table 19-1A. MAD is 1 m under 750 V, 3 m to 75 kV, 4.5 m to 250 kV, 6 m to 550 kV. Unknown: 3 m distribution, 6 m transmission, until BC Hydro verifies. If the crane can enter those limits, Form 30M33 is completed with the power-system owner. Coded form — order it from WorkSafeBC. The GOSPEL sheet is the schematic and the discussion. Post it on the site board.",
     formSlug: "powerline-30m33",
     official: [off(BINDER_OFFICIAL.form30m33, "WORKSAFEBC FORM 30M33 →")],
-    whoop: [whoop("/safety/swp/working-near-powerlines", "SWP — POWERLINES →")],
+    site: [site("/safety/swp/working-near-powerlines", "SWP — POWERLINES →")],
   }),
   power: (n: string): BinderItem => ({
     id: "power-source",
@@ -147,7 +147,7 @@ const SHARED = {
     note: "14.73.3. Submit to WorkSafeBC at least two weeks before erecting, climbing, repositioning or dismantling. Project type: Tower Crane. Post the notice on site for the duration. Significant changes go back in writing.",
     formSlug: "nop-tc-notice",
     official: [off(BINDER_OFFICIAL.nop, "SUBMIT NOP-TC →")],
-    whoop: [whoop("/safety/swp/tower-erection-climbing", "SWP-027 — ERECTION / CLIMBING →")],
+    site: [site("/safety/swp/tower-erection-climbing", "SWP-027 — ERECTION / CLIMBING →")],
   }),
   layout: (n: string): BinderItem => ({
     id: "site-layout",
@@ -176,7 +176,7 @@ const SHARED = {
     note: "A tower operator in the cab is fire-department rope rescue, not a GOSPEL rappel. Host or prime requests the survey in the THARRP portal. Confirm it exists before the operator goes up.",
     formSlug: "tharrp-cover",
     official: [off(BINDER_OFFICIAL.tharrp, "BCCSA THARRP →")],
-    whoop: [whoop("/safety/emergency-response", "10 — EMERGENCY / THARRP →")],
+    site: [site("/safety/emergency-response", "10 — EMERGENCY / THARRP →")],
   }),
   traffic: (n: string): BinderItem => ({
     id: "traffic",
@@ -196,7 +196,7 @@ const SHARED = {
     note: "WorkSafeBC 52E73C for tower, self-erect and industrial cranes: new site, radios change, or the crane runs more than a week. Dedicated UHF. Multi-channel radios are not how you direct the hook.",
     formSlug: "radio-frequency",
     official: [off(BINDER_OFFICIAL.radio, "WORKSAFEBC 52E73C →")],
-    whoop: [whoop("/safety/swp/radio-communication", "SWP — RADIO →")],
+    site: [site("/safety/swp/radio-communication", "SWP — RADIO →")],
   }),
   ndt: (n: string): BinderItem => ({
     id: "ndt",
@@ -230,7 +230,7 @@ const SHARED = {
     group: PRE,
     need: "required",
     note: "Serial operator and maintenance manuals. In the cab and a copy in the binder. OEM PDFs are linked from the crane library — not hosted.",
-    whoop: [whoop("/safety/inspections", "19 — CRANE LIBRARY →")],
+    site: [site("/safety/inspections", "19 — CRANE LIBRARY →")],
   }),
   chart: (n: string): BinderItem => ({
     id: "load-chart",
@@ -239,7 +239,7 @@ const SHARED = {
     group: PRE,
     need: "required",
     note: "The chart for this jib, this counterweight, this reeving. Serial plate wins if the download disagrees.",
-    whoop: [whoop("/safety/inspections", "19 — CRANE LIBRARY →")],
+    site: [site("/safety/inspections", "19 — CRANE LIBRARY →")],
   }),
   csa: (n: string): BinderItem => ({
     id: "csa",
@@ -257,9 +257,9 @@ const SHARED = {
     group: PRE,
     need: "if-applicable",
     note: "If a mobile assists the erect or the dismantle: that machine’s cert, chart, operator ticket, and the lift plan for those picks.",
-    whoop: [
-      whoop("/safety/form/crane-pre-use", "MOBILE PRE-USE — FRM-002 →"),
-      whoop("/safety/form/lift-plan", "LIFT PLAN — FRM-006 →"),
+    site: [
+      site("/safety/form/crane-pre-use", "MOBILE PRE-USE — FRM-002 →"),
+      site("/safety/form/lift-plan", "LIFT PLAN — FRM-006 →"),
     ],
   }),
   components: (n: string): BinderItem => ({
@@ -269,7 +269,7 @@ const SHARED = {
     group: PRE,
     need: "required",
     note: "Incoming inspection of the pieces before they go in the air. Pins, keepers, damage from the last job.",
-    whoop: [whoop("/safety/form/tower-monthly-maintenance", "TOWER MONTHLY — FRM-031 →")],
+    site: [site("/safety/form/tower-monthly-maintenance", "TOWER MONTHLY — FRM-031 →")],
   }),
   zoning: (n: string): BinderItem => ({
     id: "zoning",
@@ -312,7 +312,7 @@ const SHARED = {
     group: ROPE,
     need: "required",
     note: "WLL, identification, current inspection. Failed gear is isolated the same hour.",
-    whoop: [whoop("/safety/form/rigging-inspection-form", "RIGGING INSPECTION — FRM-003 →")],
+    site: [site("/safety/form/rigging-inspection-form", "RIGGING INSPECTION — FRM-003 →")],
   }),
   testBlock: (n: string): BinderItem => ({
     id: "test-block",
@@ -329,7 +329,7 @@ const SHARED = {
     group: ROPE,
     need: "if-applicable",
     note: "If people walk the jib or the counter-jib on a lifeline: engineer or manufacturer spec, inspection, rescue. Part 11. Not THARRP.",
-    whoop: [whoop("/safety/fall-protection", "08 — FALL PROTECTION →")],
+    site: [site("/safety/fall-protection", "08 — FALL PROTECTION →")],
   }),
   dep: (n: string): BinderItem => ({
     id: "dep",
@@ -346,7 +346,7 @@ const SHARED = {
     group: BTH,
     need: "if-applicable",
     note: "Spreader, vacuum, magnet, purpose-built. Marked WLL. Inspection current. 14.53 and Part 15.",
-    whoop: [whoop("/safety/form/rigging-plan", "RIGGING PLAN — FRM-008 →")],
+    site: [site("/safety/form/rigging-plan", "RIGGING PLAN — FRM-008 →")],
   }),
   assemblyProc: (n: string): BinderItem => ({
     id: "assembly-proc",
@@ -355,7 +355,7 @@ const SHARED = {
     group: PROC,
     need: "required",
     note: "Manufacturer sequence applied to this site. Exclusion zone, assist crane, weather abort. Not a generic pamphlet.",
-    whoop: [whoop("/safety/swp/tower-erection-climbing", "SWP-027 →")],
+    site: [site("/safety/swp/tower-erection-climbing", "SWP-027 →")],
   }),
   supervisor: (n: string): BinderItem => ({
     id: "supervisor-qual",
@@ -373,7 +373,7 @@ const SHARED = {
     group: PROC,
     need: "required",
     note: "Written procedures for the high-risk work. GOSPEL-SWP-027 is the company method. The site procedure names this pad, this assist crane, this crew.",
-    whoop: [whoop("/safety/swp/tower-erection-climbing", "SWP-027 →")],
+    site: [site("/safety/swp/tower-erection-climbing", "SWP-027 →")],
   }),
   swpOps: (n: string): BinderItem => ({
     id: "swp-ops",
@@ -382,9 +382,9 @@ const SHARED = {
     group: PROC,
     need: "required",
     note: "How this crane is run and kept. Pre-use, weekly, monthly, shutdown, lockout.",
-    whoop: [
-      whoop("/safety/swp-library", "14 — SWP LIBRARY →"),
-      whoop("/safety/form/tower-pre-use", "TOWER PRE-USE — FRM-027 →"),
+    site: [
+      site("/safety/swp-library", "14 — SWP LIBRARY →"),
+      site("/safety/form/tower-pre-use", "TOWER PRE-USE — FRM-027 →"),
     ],
   }),
   erp: (n: string): BinderItem => ({
@@ -395,7 +395,7 @@ const SHARED = {
     need: "required",
     note: "Site ERP plus crane-specific: powerline contact, load hang-up, operator in the cab, weathervane failure. THARRP is the high-angle piece. It is not the whole plan.",
     formSlug: "emergency-drill",
-    whoop: [whoop("/safety/emergency-response", "10 — EMERGENCY RESPONSE →")],
+    site: [site("/safety/emergency-response", "10 — EMERGENCY RESPONSE →")],
   }),
   report: (n: string): BinderItem => ({
     id: "tower-report",
@@ -414,9 +414,9 @@ const SHARED = {
     group: POST,
     need: "required",
     note: "OEM interval for this serial. GOSPEL weekly and monthly forms record the work. The schedule in the binder is the manufacturer’s, not a guess.",
-    whoop: [
-      whoop("/safety/form/tower-weekly-maintenance", "TOWER WEEKLY — FRM-030 →"),
-      whoop("/safety/form/tower-monthly-maintenance", "TOWER MONTHLY — FRM-031 →"),
+    site: [
+      site("/safety/form/tower-weekly-maintenance", "TOWER WEEKLY — FRM-030 →"),
+      site("/safety/form/tower-monthly-maintenance", "TOWER MONTHLY — FRM-031 →"),
     ],
   }),
   orientation: (n: string): BinderItem => ({
@@ -439,7 +439,7 @@ const SHARED = {
     official: [
       off("https://bccranesafety.ca/", "BC CRANE SAFETY →"),
     ],
-    whoop: [whoop("/safety/form/competency-assessment", "COMPETENCY — FRM-017 →")],
+    site: [site("/safety/form/competency-assessment", "COMPETENCY — FRM-017 →")],
   }),
   logs: (n: string): BinderItem => ({
     id: "inspection-logs",
@@ -448,10 +448,10 @@ const SHARED = {
     group: POST,
     need: "required",
     note: "Pre-use every shift. Frequent and periodic as 14.13 and the OEM require. Logbook in the cab. Copies as the site requires.",
-    whoop: [
-      whoop("/safety/form/tower-pre-use", "TOWER PRE-USE — FRM-027 →"),
-      whoop("/safety/form/self-erect-inspection", "SELF-ERECT INSPECTION — FRM-029 →"),
-      whoop("/safety/form/crane-operator-log", "OPERATOR LOG — FRM-023 →"),
+    site: [
+      site("/safety/form/tower-pre-use", "TOWER PRE-USE — FRM-027 →"),
+      site("/safety/form/self-erect-inspection", "SELF-ERECT INSPECTION — FRM-029 →"),
+      site("/safety/form/crane-operator-log", "OPERATOR LOG — FRM-023 →"),
     ],
   }),
   other: (n: string): BinderItem => ({
@@ -526,7 +526,7 @@ export const TOWER_BINDER: BinderDef = {
       group: PRE,
       need: "if-applicable",
       note: "Climbing frame, ties, next jump. Separate NOP-TC for the activity. Qualified supervisor. Manufacturer sequence.",
-      whoop: [whoop("/safety/swp/tower-erection-climbing", "SWP-027 →")],
+      site: [site("/safety/swp/tower-erection-climbing", "SWP-027 →")],
     },
     SHARED.zoning("23"),
     SHARED.anticollision("24"),
@@ -562,7 +562,7 @@ export const TOWER_BINDER: BinderDef = {
       group: POST,
       need: "if-applicable",
       note: "A move is crane activity. NOP-TC, qualified supervisor, new report. Do not treat a travel or a jump as a footnote.",
-      whoop: [whoop("/safety/swp/tower-erection-climbing", "SWP-027 →")],
+      site: [site("/safety/swp/tower-erection-climbing", "SWP-027 →")],
     },
     SHARED.other("44"),
   ],
@@ -594,7 +594,7 @@ export const SELF_ERECT_BINDER: BinderDef = {
       group: PRE,
       need: "required",
       note: "Self-erects live on pads and outriggers. Bearing known. Slope within OEM. Unfold is not a foundation pour — it is still a supporting-surface problem.",
-      whoop: [whoop("/safety/swp/ground-conditions", "SWP — GROUND →")],
+      site: [site("/safety/swp/ground-conditions", "SWP — GROUND →")],
     },
     SHARED.meeting("08"),
     SHARED.tharrp("09"),
@@ -622,9 +622,9 @@ export const SELF_ERECT_BINDER: BinderDef = {
     SHARED.swpAssembly("31"),
     {
       ...SHARED.swpOps("32"),
-      whoop: [
-        whoop("/safety/swp-library", "14 — SWP LIBRARY →"),
-        whoop("/safety/form/self-erect-inspection", "SELF-ERECT INSPECTION — FRM-029 →"),
+      site: [
+        site("/safety/swp-library", "14 — SWP LIBRARY →"),
+        site("/safety/form/self-erect-inspection", "SELF-ERECT INSPECTION — FRM-029 →"),
       ],
     },
     SHARED.erp("33"),
@@ -634,10 +634,10 @@ export const SELF_ERECT_BINDER: BinderDef = {
     SHARED.operatorCert("37"),
     {
       ...SHARED.logs("38"),
-      whoop: [
-        whoop("/safety/form/self-erect-inspection", "SELF-ERECT INSPECTION — FRM-029 →"),
-        whoop("/safety/form/tower-weekly-maintenance", "TOWER WEEKLY — FRM-030 →"),
-        whoop("/safety/form/crane-operator-log", "OPERATOR LOG — FRM-023 →"),
+      site: [
+        site("/safety/form/self-erect-inspection", "SELF-ERECT INSPECTION — FRM-029 →"),
+        site("/safety/form/tower-weekly-maintenance", "TOWER WEEKLY — FRM-030 →"),
+        site("/safety/form/crane-operator-log", "OPERATOR LOG — FRM-023 →"),
       ],
     },
     {
@@ -672,9 +672,9 @@ export function binderGroups(binder: BinderDef) {
 export function binderItemLinks(item: BinderItem): DocLink[] {
   const fill = item.formSlug
     ? [
-        whoop(`/safety/form/${item.formSlug}`, "GOSPEL FORM →"),
-        whoop(`/safety/builder/${item.formSlug}`, "FILL + PDF →"),
+        site(`/safety/form/${item.formSlug}`, "PROVEN FORM →"),
+        site(`/safety/builder/${item.formSlug}`, "FILL + PDF →"),
       ]
     : [];
-  return [...fill, ...(item.official ?? []), ...(item.whoop ?? [])];
+  return [...fill, ...(item.official ?? []), ...(item.site ?? [])];
 }

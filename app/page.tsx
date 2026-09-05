@@ -14,7 +14,7 @@ export default function HomePage() {
 
   return (
     <>
-      <section className="section section-lead" id="GOSPEL">
+      <section className="section section-lead" id="sin">
         <div className="wrap">
           <p className="mono kicker">01 — THIS SITE</p>
           <h1 className="display giant">
@@ -111,8 +111,8 @@ export default function HomePage() {
             <span className="mono steel">Mobile</span>
             <h3 className="display">{mobile.toLocaleString("en-CA")}</h3>
             <p>
-              Tagged development questions in REDMC. Chart sets appear when
-              real PDFs are supplied.
+              {mobile.toLocaleString("en-CA")} Mobile Crane questions in REDMC.
+              Chart sets appear when real PDFs are supplied.
             </p>
           </article>
           <article>

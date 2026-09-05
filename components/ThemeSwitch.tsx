@@ -21,7 +21,8 @@ export function ThemeSwitch() {
     setTheme(next);
     document.documentElement.setAttribute("data-theme", next);
     try {
-      localStorage.setItem("whoop-theme", next);
+      localStorage.setItem("wire-theme", next);
+      localStorage.removeItem("whoop-theme");
     } catch {
       /* ignore */
     }
