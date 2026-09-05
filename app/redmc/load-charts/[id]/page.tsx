@@ -74,7 +74,8 @@ export default function RedmcChartQuizPage() {
           <p className="mono kicker">{chart.manufacturer}</p>
           <h1 className="display giant">{chart.name}</h1>
           <p className="lede mt-2">
-            Chart is listed. Questions appear when they are written against this PDF.
+            {chart.description} Questions appear when they are written against
+            this PDF. Capacities are not invented here.
           </p>
           <RedtcNav />
         </header>
@@ -86,6 +87,11 @@ export default function RedmcChartQuizPage() {
             Back to charts
           </Link>
         </div>
+        <iframe
+          className="redtc-chart-frame mt-2"
+          src={pdfHref}
+          title={`${chart.name} load chart`}
+        />
       </div>
     );
   }

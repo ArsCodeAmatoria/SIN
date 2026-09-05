@@ -1028,7 +1028,7 @@ html[data-theme="light"] .lead-crane-stage {
 
 @media (min-width: 800px) {
   .place {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
     gap: 1.5rem;
   }
 }
@@ -2621,6 +2621,26 @@ html[data-theme="dark"] .footer .std-mark-on-ink {
   color: var(--crown);
 }
 
+.wire-topic {
+  font-family: var(--font-display), Oswald, sans-serif;
+  font-size: clamp(1.15rem, 2.6vw, 1.75rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+  max-width: 36rem;
+  margin: 0.85rem 0 0;
+}
+
+.exam-cluster {
+  display: grid;
+  gap: 0.35rem;
+  margin-top: 1.4rem;
+}
+
+.exam-cluster a:hover {
+  color: var(--crown);
+}
+
 .wire-share {
   margin-top: 1.4rem;
   display: flex;
@@ -3931,8 +3951,8 @@ html[data-theme="dark"] .wire-share-tool {
 
 .redtc-chart {
   display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 0.8rem;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 0.8rem 1rem;
   align-items: center;
   border-top: 1px solid var(--line);
 }
@@ -3943,11 +3963,29 @@ html[data-theme="dark"] .wire-share-tool {
 
 .redtc-chart a:first-child {
   display: grid;
-  grid-template-columns: 2.4rem 1fr;
-  gap: 0.85rem;
+  grid-template-columns: minmax(7.5rem, 10rem) minmax(0, 1fr);
+  gap: 0.35rem 1.25rem;
   align-items: baseline;
+  min-width: 0;
   padding: 1.1rem 0;
   border: 0;
+}
+
+.redtc-chart a:first-child > span:first-child {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 640px) {
+  .redtc-chart {
+    grid-template-columns: minmax(0, 1fr);
+    align-items: start;
+  }
+
+  .redtc-chart a:first-child {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.2rem;
+  }
 }
 
 .redtc-chart strong {

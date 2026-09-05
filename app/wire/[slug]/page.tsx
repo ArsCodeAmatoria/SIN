@@ -8,9 +8,10 @@ import { WireShare } from "@/components/WireShare";
 import { WireStoryLink } from "@/components/WireStoryLink";
 import { WireSubscribe } from "@/components/WireSubscribe";
 import { ProvenName } from "@/components/ProvenMark";
+import { JsonLd } from "@/components/SeoLanding";
 import { getSafety } from "@/lib/safety";
-import { absUrl, pageMeta } from "@/lib/seo";
-import { SITE } from "@/lib/site";
+import { absUrl, breadcrumbLd, jsonLdGraph, organizationLd, pageMeta, personLd, websiteLd } from "@/lib/seo";
+import { AUTHOR, SITE } from "@/lib/site";
 import {
   WIRE,
   formatWireDate,
@@ -19,6 +20,7 @@ import {
   getRelated,
   readingMinutes,
   summarize,
+  wirePath,
   wordCount,
 } from "@/lib/whoopwire";
 
@@ -35,18 +37,18 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     return pageMeta({
       title: WIRE.name,
       description: WIRE.dek,
-      path: "/whoopwire",
+      path: wirePath(),
     });
   }
-  const path = `/whoopwire/${article.slug}`;
+  const path = wirePath(article.slug);
   return pageMeta({
-    title: article.seoTitle,
+    title: `${article.seoTitle} | ${SITE.name}`,
     description: article.seoDescription,
     path,
     type: "article",
     publishedTime: article.published,
     modifiedTime: article.updated ?? article.published,
-    authors: [SITE.name],
+    authors: [AUTHOR.name],
     section: article.category,
     images: article.image
       ? [{ url: article.image, alt: article.imageAlt ?? article.title }]
@@ -64,56 +66,60 @@ export default async function WireArticlePage({ params }: Props) {
   const safety = article.safety
     .map((item) => getSafety(item))
     .filter((item): item is NonNullable<ReturnType<typeof getSafety>> => Boolean(item));
-  const url = absUrl(`/whoopwire/${article.slug}`);
-
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    headline: article.title,
-    description: article.seoDescription,
-    datePublished: article.published,
-    dateModified: article.updated ?? article.published,
-    author: { "@type": "Organization", name: SITE.name },
-    publisher: {
-      "@type": "Organization",
-      name: SITE.name,
-      url: absUrl("/"),
+  const url = absUrl(wirePath(article.slug));
+  const jsonLd = jsonLdGraph([
+    organizationLd(),
+    websiteLd(),
+    personLd(),
+    breadcrumbLd([
+      { name: SITE.name, path: "/" },
+      { name: WIRE.name, path: wirePath() },
+      { name: article.seoTitle, path: wirePath(article.slug) },
+    ]),
+    {
+      "@type": "Article",
+      headline: article.seoTitle,
+      alternativeHeadline: article.title,
+      description: article.seoDescription,
+      datePublished: article.published,
+      dateModified: article.updated ?? article.published,
+      author: { "@id": `${absUrl(AUTHOR.path)}#author` },
+      publisher: { "@id": `${absUrl("/")}#org` },
+      mainEntityOfPage: url,
+      articleSection: article.category,
+      image: article.image ? absUrl(article.image) : absUrl("/og.png"),
+      wordCount: wordCount(article),
+      inLanguage: "en-CA",
     },
-    mainEntityOfPage: url,
-    articleSection: article.category,
-    image: article.image ? absUrl(article.image) : undefined,
-    wordCount: wordCount(article),
-  };
+  ]);
 
   return (
     <article className="wire-article wrap">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+      <JsonLd data={jsonLd} />
       <header className="wire-article-head">
         <p className="mono kicker">
-          <Link href="/whoopwire">{WIRE.name}</Link>
+          <Link href={wirePath()}>{WIRE.name}</Link>
           <span> / {article.category}</span>
         </p>
-        <h1 className="display giant">
+        <h1 className="wire-topic">{article.seoTitle}</h1>
+        <p className="display giant" aria-hidden="true">
           {article.titleLines.map((line) => (
             <span key={line}>
               {line}
               <br />
             </span>
           ))}
-        </h1>
+        </p>
         <p className="lede-lg mt">{article.excerpt}</p>
         <p className="mono steel mt">
-          {article.author}
+          <Link href={AUTHOR.path}>{article.author}</Link>
           <span> · {formatWireDate(article.published)}</span>
           {article.updated ? (
             <span> · UPDATED {formatWireDate(article.updated)}</span>
           ) : null}
           <span> · {minutes} MIN</span>
         </p>
-        <WireShare title={article.title} url={url} />
+        <WireShare title={article.seoTitle} url={url} />
       </header>
 
       {article.image ? (
@@ -167,7 +173,7 @@ export default async function WireArticlePage({ params }: Props) {
       ) : null}
 
       <nav className="pager">
-        <Link href="/whoopwire">
+        <Link href={wirePath()}>
           <span className="mono steel">{WIRE.name}</span>
           <strong className="display">ALL STORIES</strong>
         </Link>

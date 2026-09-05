@@ -7,7 +7,7 @@ import {
 } from "next/font/google";
 import { Header } from "@/components/Header";
 import { SiteFooter } from "@/components/SiteFooter";
-import { ORIGIN, pageMeta } from "@/lib/seo";
+import { ORIGIN, jsonLdGraph, organizationLd, pageMeta, personLd, websiteLd } from "@/lib/seo";
 import { SITE } from "@/lib/site";
 import "./globals.css";
 
@@ -60,15 +60,24 @@ export const metadata: Metadata = {
   publisher: SITE.name,
   category: "Education",
   keywords: [
-    "crane safety",
-    "British Columbia",
-    "Red Seal",
-    "tower crane",
-    "mobile crane",
-    "WorkSafeBC",
-    "Proven",
+    "crane safety British Columbia",
+    "tower crane Red Seal practice test",
+    "mobile crane Red Seal practice test",
+    "WorkSafeBC crane",
+    "WorkSafeBC rigging",
+    "BC Crane Safety",
+    "SkilledTradesBC",
+    "Fulford Level B",
+    "tower crane Level 1 exam BC",
+    "tower crane load chart practice",
+    "rigging",
   ],
   robots: { index: true, follow: true },
+  verification: {
+    google:
+      process.env.GOOGLE_SITE_VERIFICATION ||
+      "XQGkrtfYzxVzmujfPIcUdEsf3fqVsaf-N4DO4Wp0X6Q",
+  },
   icons: { icon: "/icon.svg" },
   appleWebApp: {
     title: SITE.name,
@@ -95,28 +104,9 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@graph": [
-                {
-                  "@type": "WebSite",
-                  name: SITE.name,
-                  url: ORIGIN,
-                  description: SITE.description,
-                  inLanguage: "en-CA",
-                },
-                {
-                  "@type": "Organization",
-                  name: SITE.name,
-                  legalName: SITE.legalName,
-                  description: SITE.descriptionLong,
-                  url: ORIGIN,
-                  email: SITE.email,
-                  telephone: SITE.phone,
-                  areaServed: SITE.location,
-                },
-              ],
-            }),
+            __html: JSON.stringify(
+              jsonLdGraph([organizationLd(), websiteLd(), personLd()]),
+            ),
           }}
         />
         <div className="grain" aria-hidden />

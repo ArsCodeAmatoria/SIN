@@ -3,10 +3,15 @@ import type { Step } from "@/lib/safety";
 
 export const WIRE = {
   name: "THE WIRE",
+  path: "/wire",
   descriptor: "SAFETY. RIGGING. CRANES. PEOPLE.",
-  dek: "The things worth talking about in crane safety, rigging and the people who do the work.",
+  dek: "The things worth talking about in crane safety, rigging and the people who do the work in British Columbia.",
   subscribe: "New stories on crane safety, rigging and the people doing the work.",
 } as const;
+
+export function wirePath(slug?: string) {
+  return slug ? `${WIRE.path}/${slug}` : WIRE.path;
+}
 
 export const WIRE_CATEGORIES = [
   "SAFETY",

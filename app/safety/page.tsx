@@ -9,9 +9,9 @@ import { pageMeta } from "@/lib/seo";
 import { SITE } from "@/lib/site";
 
 export const metadata: Metadata = pageMeta({
-  title: "Proven",
+  title: "Crane Safety Program, Procedures & Forms BC | PROVEN — sin()",
   description:
-    "Proven is the crane safety program. Read how lifting work is expected to be performed — CSA Z150 / Z248, WorkSafeBC, BC Crane Safety, Technical Safety BC, ASME B30, manufacturer requirements and site policies.",
+    "Free crane and rigging safety program for British Columbia with policies, SWPs, JHAs, lift plans, inspections, emergency procedures, forms and crane binders.",
   path: "/safety",
 });
 

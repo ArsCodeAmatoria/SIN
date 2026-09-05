@@ -63,5 +63,5 @@ export const REDTC = {
   kicker: "RED SEAL PRACTICE",
   dek: "Practice with questions tagged to Fulford Level B, SkilledTradesBC Level 1 and 2, Red Seal IP, and the load-chart practical — WorkSafeBC Part 14 and Part 15.",
   description:
-    "Practice for your B.C. Red Seal Tower Crane Operator exam with 1,250+ questions tagged to Fulford Level B, SkilledTradesBC Level 1 and 2, Red Seal IP, and real manufacturer load charts.",
+    "Practice for your B.C. Red Seal Tower Crane Operator exam with tagged questions for Fulford Level B, SkilledTradesBC Level 1 and 2, Red Seal IP, and real manufacturer load charts.",
 } as const;

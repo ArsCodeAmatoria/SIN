@@ -10,15 +10,163 @@ export type ComingSoonMaker = {
   note: string;
 };
 
-export const CHARTS: LoadChart[] = [];
+export const CHARTS: LoadChart[] = [
+  {
+    id: "grove-rt880e",
+    name: "Grove RT880E",
+    manufacturer: "Grove",
+    model: "RT880E",
+    type: "rough-terrain",
+    pdfFile: "grove-rt880e.pdf",
+    description:
+      "80 US ton hydraulic rough-terrain. Outrigger, on-rubber, pick-and-carry, and boom-extension charts. Hydraulic 80 t class.",
+    specifications: {
+      maxCapacity: "80 USt (72.6 t)",
+      maxJibLength: "41.3–128 ft main boom",
+    },
+    questions: [],
+  },
+  {
+    id: "tadano-gr-800xl-4",
+    name: "Tadano GR-800XL-4",
+    manufacturer: "Tadano",
+    model: "GR-800XL-4",
+    type: "rough-terrain",
+    pdfFile: "tadano-gr-800xl-4.pdf",
+    description:
+      "80 US ton hydraulic rough-terrain. Outrigger spread, on-rubber, and jib-offset charts. Hydraulic 80 t class.",
+    specifications: {
+      maxCapacity: "80 USt (72.6 t)",
+      maxJibLength: "39.4–154.2 ft boom, 58.1 ft jib",
+    },
+    questions: [],
+  },
+  {
+    id: "terex-rt-670",
+    name: "Terex RT 670",
+    manufacturer: "Terex",
+    model: "RT 670",
+    type: "rough-terrain",
+    pdfFile: "terex-rt-670.pdf",
+    description:
+      "70 US ton hydraulic rough-terrain. Main-boom charts at 100% and 0% outriggers, 33 ft and 57 ft jibs, and on-tires.",
+    specifications: {
+      maxCapacity: "70 USt (63.5 t)",
+      maxJibLength: "36–111 ft main boom, 57 ft jib",
+      maxHoistHeight: "170 ft",
+    },
+    questions: [],
+  },
+  {
+    id: "liebherr-ltm-1100-5-3",
+    name: "Liebherr LTM 1100-5.3",
+    manufacturer: "Liebherr",
+    model: "LTM 1100-5.3",
+    type: "all-terrain",
+    pdfFile: "liebherr-ltm-1100-5-3.pdf",
+    description:
+      "100 t hydraulic all-terrain. Unlimited hydraulic class. Main boom, VarioBase, VarioBallast, and jib charts.",
+    specifications: {
+      maxCapacity: "100 t",
+      maxJibLength: "12.9–62 m telescopic boom",
+      maxHoistHeight: "76 m",
+    },
+    questions: [],
+  },
+  {
+    id: "linkbelt-298-series-2",
+    name: "Link-Belt 298 Series 2",
+    manufacturer: "Link-Belt",
+    model: "298 Series 2",
+    type: "lattice-crawler",
+    pdfFile: "linkbelt-298-series-2.pdf",
+    description:
+      "250 US ton lattice-boom crawler. Main-boom and jib working-range diagrams and 360° lift charts.",
+    specifications: {
+      maxCapacity: "250 USt (226.8 t)",
+      maxJibLength: "Main boom and jib attachments",
+    },
+    questions: [],
+  },
+  {
+    id: "liebherr-lr-1300",
+    name: "Liebherr LR 1300",
+    manufacturer: "Liebherr",
+    model: "LR 1300",
+    type: "lattice-crawler",
+    pdfFile: "liebherr-lr-1300.pdf",
+    description:
+      "300 t lattice-boom crawler. Main-boom, L-boom, and luffing-jib lift charts with counterweight combinations.",
+    specifications: {
+      maxCapacity: "300 t (331 USt)",
+      maxJibLength: "66–322 ft main boom",
+    },
+    questions: [],
+  },
+  {
+    id: "manitowoc-14000",
+    name: "Manitowoc 14000",
+    manufacturer: "Manitowoc",
+    model: "14000",
+    type: "lattice-crawler",
+    pdfFile: "manitowoc-14000.pdf",
+    description:
+      "220 US ton lattice-boom crawler. Heavy-lift main boom, fixed jib, and luffing-jib range and load charts.",
+    specifications: {
+      maxCapacity: "220 USt (200 t)",
+      maxJibLength: "292 ft heavy-lift boom",
+    },
+    questions: [],
+  },
+];
 
 export const CHART_MAKERS: ComingSoonMaker[] = [
-  { id: "liebherr", name: "Liebherr", note: "All-terrain and rough-terrain charts — coming soon." },
-  { id: "grove", name: "Grove", note: "Coming soon. Capacities will only be added from a real chart." },
-  { id: "tadano", name: "Tadano", note: "Coming soon." },
-  { id: "terex-demag", name: "Terex / Demag", note: "Coming soon." },
-  { id: "link-belt", name: "Link-Belt", note: "Coming soon." },
-  { id: "manitowoc", name: "Manitowoc", note: "Coming soon." },
+  { id: "demag", name: "Demag", note: "Coming soon." },
+];
+
+export const RIGGING_CHARTS: LoadChart[] = [
+  {
+    id: "chain-slings",
+    name: "Chain slings",
+    manufacturer: "BCACS",
+    model: "Figure 1 (1)",
+    type: "rigging",
+    pdfFile: "chain-slings.pdf",
+    description:
+      "Grade T (8) alloy steel chain. Working load limits in pounds for vertical, choker, basket, and 2-leg bridle hitches. Training and assessment only.",
+    specifications: {
+      maxCapacity: "1/4–1-1/4 in Grade T (8)",
+    },
+    questions: [],
+  },
+  {
+    id: "nylon-web-slings",
+    name: "Nylon web slings",
+    manufacturer: "BCACS",
+    model: "Figure 1 (2)",
+    type: "rigging",
+    pdfFile: "nylon-web-slings.pdf",
+    description:
+      "Nylon web, 6,800 lb/in material. Working load limits in pounds by web width and hitch. Training and assessment only.",
+    specifications: {
+      maxCapacity: "1–6 in web, 6,800 lb/in",
+    },
+    questions: [],
+  },
+  {
+    id: "wire-rope-slings",
+    name: "Wire rope slings",
+    manufacturer: "BCACS",
+    model: "Figure 1 (3)",
+    type: "rigging",
+    pdfFile: "wire-rope-slings.pdf",
+    description:
+      "6×19 IWRC improved plow steel. Working load limits in pounds by rope diameter and hitch. Training and assessment only.",
+    specifications: {
+      maxCapacity: "3/16–1-1/2 in 6×19 IWRC",
+    },
+    questions: [],
+  },
 ];
 
 export function mobileSourceQuestions(): MobileQuestion[] {
@@ -50,12 +198,17 @@ export function chartPdfHref(pdfFile: string) {
   return `/redmc/charts/${pdfFile}`;
 }
 
+export function riggingChartPdfHref(pdfFile: string) {
+  return `/redmc/rigging-charts/${pdfFile}`;
+}
+
 export const REDMC_NAV = [
   { href: "/redmc", label: "INDEX", num: "00" },
   { href: "/redmc/test", label: "PRACTICE", num: "01" },
   { href: "/redmc/test/master", label: "MASTER", num: "02" },
   { href: "/redmc/load-charts", label: "CHARTS", num: "03" },
-  { href: "/redmc/test/review", label: "REVIEW", num: "04" },
+  { href: "/redmc/rigging-charts", label: "RIGGING", num: "04" },
+  { href: "/redmc/test/review", label: "REVIEW", num: "05" },
 ] as const;
 
 export const REDMC_PROGRESS_KEY = "redmc-progress";

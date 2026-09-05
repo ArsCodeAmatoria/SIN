@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { pageMeta } from "@/lib/seo";
 
 export const metadata: Metadata = pageMeta({
-  title: "Load Charts",
+  title: "Tower Crane Load Chart Practice – 14 Manufacturer PDFs | REDTC",
   description:
-    "Practice reading manufacturer tower crane load charts — Liebherr, Potain, WOLFF, Terex, Krøll, Pecco.",
+    "Practice reading manufacturer tower crane load charts — Liebherr, Potain, WOLFF, Terex, Krøll, Pecco. Never interpolate.",
   path: "/redtc/load-charts",
 });
 

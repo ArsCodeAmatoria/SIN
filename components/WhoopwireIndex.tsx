@@ -7,6 +7,7 @@ import { WireSubscribe } from "@/components/WireSubscribe";
 import {
   WIRE_CATEGORIES,
   formatWireDate,
+  wirePath,
   type WireCategory,
   type WireSummary,
 } from "@/lib/whoopwire";
@@ -96,7 +97,7 @@ export function WireIndex({ stories }: { stories: WireSummary[] }) {
       {cover ? (
         <section className="wire-feature wrap">
           <p className="mono kicker">FEATURED — {cover.category}</p>
-          <Link href={`/whoopwire/${cover.slug}`} className="wire-feature-link">
+          <Link href={wirePath(cover.slug)} className="wire-feature-link">
             <h2 className="display giant">
               {cover.titleLines.map((line) => (
                 <span key={line}>

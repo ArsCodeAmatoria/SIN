@@ -4,9 +4,9 @@ import { pageMeta } from "@/lib/seo";
 import { BELIEFS, PRINCIPLES, SITE } from "@/lib/site";
 
 export const metadata: Metadata = pageMeta({
-  title: "Philosophy",
+  title: "How This Crane Safety Program Is Written | sin()",
   description:
-    "No bullshit. Just the standard. How this crane safety information is written.",
+    "No bullshit. Just the standard. How sin() writes crane and rigging safety information for British Columbia.",
   path: "/philosophy",
 });
 

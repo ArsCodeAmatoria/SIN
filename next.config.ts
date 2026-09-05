@@ -37,6 +37,16 @@ const nextConfig: NextConfig = {
         destination: "/",
         permanent: true,
       },
+      {
+        source: "/whoopwire",
+        destination: "/wire",
+        permanent: true,
+      },
+      {
+        source: "/whoopwire/:path*",
+        destination: "/wire/:path*",
+        permanent: true,
+      },
     ];
   },
 };

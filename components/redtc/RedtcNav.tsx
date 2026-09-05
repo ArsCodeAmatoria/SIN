@@ -11,6 +11,7 @@ function peerPath(path: string, to: "tower" | "mobile") {
   if (path.startsWith(`${from}/test/master`)) return `${dest}/test/master`;
   if (path.startsWith(`${from}/test/review`)) return `${dest}/test/review`;
   if (path.startsWith(`${from}/load-charts`)) return `${dest}/load-charts`;
+  if (path.startsWith(`${from}/rigging-charts`)) return `${dest}/load-charts`;
   if (path.startsWith(`${from}/test`)) return `${dest}/test`;
   return dest;
 }

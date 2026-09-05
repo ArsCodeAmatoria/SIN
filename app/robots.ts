@@ -10,5 +10,6 @@ export default function robots(): MetadataRoute.Robots {
       { userAgent: "facebookexternalhit", allow: "/" },
     ],
     host: ORIGIN,
+    sitemap: `${ORIGIN}/sitemap.xml`,
   };
 }

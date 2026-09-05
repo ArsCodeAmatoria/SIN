@@ -1,9 +1,9 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { MobileBankOverview } from "@/components/redmc/MobileBankOverview";
 import { MobileProgress } from "@/components/redmc/MobileProgress";
+import { ExamCluster } from "@/components/ExamCluster";
 import { RedtcNav } from "@/components/redtc/RedtcNav";
-import { allQuestions, CHARTS, REDMC, mobileSourceQuestions } from "@/lib/redmc/bank";
+import { allQuestions, CHARTS, mobileSourceQuestions } from "@/lib/redmc/bank";
 import {
   REDMC_AUTHORITIES,
   REDMC_COVERS,
@@ -12,13 +12,6 @@ import {
   REDMC_RESOURCES,
 } from "@/lib/redmc/copy";
 import { MOBILE_EXAM_TRACKS, MOBILE_RSOS_MWA } from "@/lib/redmc/exam-tracks";
-import { pageMeta } from "@/lib/seo";
-
-export const metadata: Metadata = pageMeta({
-  title: "REDMC",
-  description: REDMC.description,
-  path: "/redmc",
-});
 
 export default function RedmcPage() {
   const bank = allQuestions().length;
@@ -65,6 +58,9 @@ export default function RedmcPage() {
           <Link className="btn btn-ghost" href="/redmc/load-charts">
             Load charts
           </Link>
+          <Link className="btn btn-ghost" href="/redmc/rigging-charts">
+            Rigging charts
+          </Link>
           <Link className="btn btn-ghost" href="/redmc/test/master">
             Master exam
           </Link>
@@ -73,6 +69,7 @@ export default function RedmcPage() {
           {countLabel} in the bank now. Official sitting is 110. Counts only real
           items — not placeholders. Tower Crane stays at REDTC.
         </p>
+        <ExamCluster tone="mobile" />
       </header>
 
       <MobileProgress />
@@ -210,6 +207,9 @@ export default function RedmcPage() {
         <div className="inline-cta">
           <Link className="btn btn-ghost" href="/redmc/load-charts">
             Open load charts
+          </Link>
+          <Link className="btn btn-ghost" href="/redmc/rigging-charts">
+            Open rigging charts
           </Link>
         </div>
       </section>

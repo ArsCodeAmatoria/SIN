@@ -1,7 +1,7 @@
-import type { Metadata } from "next";
 import Link from "next/link";
+import { ExamCluster } from "@/components/ExamCluster";
 import { RedtcNav } from "@/components/redtc/RedtcNav";
-import { allQuestions, CHARTS, REDTC, theoryQuestions } from "@/lib/redtc/bank";
+import { allQuestions, CHARTS, theoryQuestions } from "@/lib/redtc/bank";
 import {
   REDTC_AUTHORITIES,
   REDTC_CATEGORIES,
@@ -14,13 +14,6 @@ import {
   REDTC_RESOURCES,
 } from "@/lib/redtc/copy";
 import { EXAM_TRACKS, RSOS_MWA } from "@/lib/redtc/exam-tracks";
-import { pageMeta } from "@/lib/seo";
-
-export const metadata: Metadata = pageMeta({
-  title: "REDTC",
-  description: REDTC.description,
-  path: "/redtc",
-});
 
 export default function RedtcPage() {
   const bank = allQuestions().length;
@@ -73,6 +66,7 @@ export default function RedtcPage() {
             Master exam
           </Link>
         </div>
+        <ExamCluster tone="tower" />
       </header>
 
       <section className="section wrap">

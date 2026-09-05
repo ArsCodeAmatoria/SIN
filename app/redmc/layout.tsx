@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
-import { REDMC } from "@/lib/redmc/bank";
+import { allQuestions } from "@/lib/redmc/bank";
 import { pageMeta } from "@/lib/seo";
 
+const questions = allQuestions().length;
+
 export const metadata: Metadata = pageMeta({
-  title: "REDMC",
-  description: REDMC.description,
+  title: "Mobile Crane Red Seal Practice Test BC | REDMC",
+  description: `Free BC Mobile Crane Operator and Red Seal exam practice covering load charts, rigging, calculations, crane setup, outriggers and WorkSafeBC regulations. ${questions.toLocaleString("en-CA")} questions in the bank.`,
   path: "/redmc",
 });
 

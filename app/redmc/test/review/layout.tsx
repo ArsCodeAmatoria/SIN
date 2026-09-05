@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { pageMeta } from "@/lib/seo";
 
 export const metadata: Metadata = pageMeta({
-  title: "Review",
-  description: "Browse the REDMC question bank with answers, sources and exam tags.",
+  title: "Mobile Crane Question Bank BC | REDMC",
+  description: "Browse the REDMC mobile crane question bank with answers, sources and exam tags.",
   path: "/redmc/test/review",
 });
 

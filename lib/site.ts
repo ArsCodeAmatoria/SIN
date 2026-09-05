@@ -18,12 +18,22 @@ export const SITE = {
     "Proven is the occupational health and safety management system. Written the way the work actually happens. Public so anyone on the lift can read it before the hook is loaded.",
   close:
     "If a procedure cannot be followed on a jobsite, it is not a procedure. It is theatre.",
-  title: "sin() — Crane Safety Information for British Columbia",
+  title: "Crane Safety, Rigging & Red Seal Exam Prep BC | sin()",
   description:
-    "Tower and mobile crane Red Seal practice, Proven procedures you can use on site, and writing about the work.",
+    "Public tower crane, mobile crane and rigging safety information for British Columbia. Red Seal exam practice, load charts, safety procedures, forms and writing about the work.",
   descriptionLong:
     "sin() is public crane safety information for lifting work in British Columbia.\n\nREDTC and REDMC are Tower Crane and Mobile Crane exam practice — Fulford, SkilledTradesBC, and the Interprovincial Red Seal. Tagged questions. Explanations after you answer. 70% to pass, same as the sitting.\n\nProven is the occupational health and safety program: policies, safe work procedures, hazard assessments, forms and crane binders. Written the way the work actually happens. Public so anyone on the lift can read it before the hook is loaded. No portal. No request form. No expiry date.\n\nThe Wire is writing about safety, rigging, cranes and people.\n\nWork is done to CSA Z150 / Z248, WorkSafeBC, BC Crane Safety, Technical Safety BC, ASME B30, manufacturer requirements and site policies. The stricter applicable requirement wins. Law always wins.\n\nIf a procedure cannot be followed on a jobsite, it is not a procedure. It is theatre.",
   system: "PROVEN",
+} as const;
+
+export const AUTHOR = {
+  name: "sin()",
+  path: "/about",
+  jobTitle: "Crane and rigging safety practitioner",
+  location: "British Columbia",
+  bio: "Crane and rigging safety practitioner in British Columbia. sin() is built from field experience, manufacturer documentation, applicable regulations, certification material and industry standards.",
+  process:
+    "Technical claims are written against WorkSafeBC, BC Crane Safety, SkilledTradesBC, Red Seal occupational standards, CSA Z150 / Z248, ASME B30 and the manufacturer’s document for the machine. If a source is named, it can be opened. Corrections go to info@sin.ae.org.",
 } as const;
 
 export const ABOUT = [
@@ -110,7 +120,7 @@ export const COR = {
 export const NAV = [
   { href: "/", label: "HOME", num: "01" },
   { href: "/safety", label: "PROVEN", num: "02" },
-  { href: "/whoopwire", label: "THE WIRE", num: "03" },
+  { href: "/wire", label: "THE WIRE", num: "03" },
   { href: "/philosophy", label: "PHILOSOPHY", num: "04" },
   { href: "/redtc", label: "REDTC", num: "05" },
   { href: "/redmc", label: "REDMC", num: "06" },

@@ -16,10 +16,11 @@ export function Footer() {
           <Link href="/safety">
             <ProvenName />
           </Link>
-          <Link href="/whoopwire">{WIRE.name}</Link>
+          <Link href={WIRE.path}>{WIRE.name}</Link>
           <Link href="/redtc">REDTC</Link>
           <Link href="/redmc">REDMC</Link>
           <Link href="/#cor">COR®</Link>
+          <Link href="/about">ABOUT</Link>
           <Link href="/philosophy">PHILOSOPHY</Link>
           <Link href="/safety/builder">FORM BUILDER</Link>
           <a href={SITE.emailHref}>{SITE.email}</a>

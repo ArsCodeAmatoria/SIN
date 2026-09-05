@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { pageMeta } from "@/lib/seo";
 
 export const metadata: Metadata = pageMeta({
-  title: "Master Exam",
+  title: "Tower Crane Red Seal Master Exam BC – 100 Questions | REDTC",
   description:
-    "Closed-book 100-question simulation of the Tower Crane Operator Interprovincial exam (2023 RSOS).",
+    "Closed-book 100-question simulation of the Tower Crane Operator Interprovincial exam (2023 RSOS). 70% to pass.",
   path: "/redtc/test/master",
 });
 

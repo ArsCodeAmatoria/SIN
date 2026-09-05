@@ -550,7 +550,7 @@ export const ARTICLES: WireArticle[] = [
       },
       {
         type: "cta",
-        href: "/whoopwire/tower-crane-climbing-sequence",
+        href: "/wire/tower-crane-climbing-sequence",
         label: "PREPARE. INSPECT. BRIEF. BALANCE. CLIMB. →",
       },
       {
@@ -806,7 +806,7 @@ export const ARTICLES: WireArticle[] = [
       {
         type: "cta",
         href: "/safety/swp/tower-erection-climbing",
-        label: "TOWER ERECTION, CLIMBING AND DISMANTLING — GOSPEL-SWP-027 →",
+        label: "TOWER ERECTION, CLIMBING AND DISMANTLING — SWP →",
       },
       {
         type: "cta",
@@ -817,6 +817,16 @@ export const ARTICLES: WireArticle[] = [
         type: "cta",
         href: "/safety/binder/tower",
         label: "TOWER CRANE BINDER →",
+      },
+      {
+        type: "cta",
+        href: "/tower-crane-level-2-practice-test",
+        label: "LEVEL 2 SLE PRACTICE →",
+      },
+      {
+        type: "cta",
+        href: "/redtc",
+        label: "TOWER CRANE EXAM PRACTICE — REDTC →",
       },
     ],
   },
@@ -829,7 +839,7 @@ export const ARTICLES: WireArticle[] = [
       "You do not need a protractor on the hook. Measure sling length and vertical height. sin θ = H / L. Then you can use the tension formula.",
     author: "sin()",
     published: "2026-08-18",
-    image: "/whoopwire/rigging-triangle.jpg",
+    image: "/wire/rigging-triangle.jpg",
     imageAlt:
       "Rigging triangle: two-leg bridle on a concrete block. Sling length L is the hypotenuse. Vertical height H is opposite θ from the horizontal. sin θ = H / L.",
     imageContain: true,
@@ -978,7 +988,7 @@ export const ARTICLES: WireArticle[] = [
       },
       {
         type: "cta",
-        href: "/whoopwire/sling-tension-is-sin",
+        href: "/wire/sling-tension-is-sin",
         label: "SIN() FOR SLING TENSION →",
       },
       {
@@ -1359,7 +1369,7 @@ export const ARTICLES: WireArticle[] = [
       },
       {
         type: "cta",
-        href: "/whoopwire/sling-tension-is-sin",
+        href: "/wire/sling-tension-is-sin",
         label: "SIN() FOR SLING TENSION →",
       },
       {
@@ -1525,8 +1535,18 @@ export const ARTICLES: WireArticle[] = [
       },
       {
         type: "cta",
-        href: "/whoopwire/height-over-length-is-the-angle",
+        href: "/wire/height-over-length-is-the-angle",
         label: "FIND θ FROM HEIGHT AND SLING LENGTH →",
+      },
+      {
+        type: "cta",
+        href: "/redmc/rigging-charts",
+        label: "SLING CHARTS — REDMC →",
+      },
+      {
+        type: "cta",
+        href: "/redtc",
+        label: "RIGGING PRACTICE — REDTC →",
       },
       {
         type: "cta",

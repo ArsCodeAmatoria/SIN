@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { formatWireDate, type WireSummary } from "@/lib/whoopwire";
+import { formatWireDate, wirePath, type WireSummary } from "@/lib/whoopwire";
 
 export function WireStoryLink({
   story,
@@ -10,7 +10,7 @@ export function WireStoryLink({
 }) {
   return (
     <article className={size === "home" ? "wire-home-story" : "wire-row"}>
-      <Link href={`/whoopwire/${story.slug}`}>
+      <Link href={wirePath(story.slug)}>
         <div className="wire-row-meta mono">
           <span>{story.category}</span>
           <span>{formatWireDate(story.published)}</span>

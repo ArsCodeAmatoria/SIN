@@ -1,11 +1,20 @@
 import Link from "next/link";
 import { CorSection } from "@/components/CorSection";
+import { ExamCluster } from "@/components/ExamCluster";
 import { ProvenName } from "@/components/ProvenMark";
 import { WireStoryLink } from "@/components/WireStoryLink";
 import { allQuestions as mobileQuestions } from "@/lib/redmc/bank";
 import { allQuestions as towerQuestions, CHARTS } from "@/lib/redtc/bank";
+import { pageMeta } from "@/lib/seo";
 import { PROGRAM, SITE } from "@/lib/site";
 import { WIRE, getLatest, summarize } from "@/lib/whoopwire";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = pageMeta({
+  title: SITE.title,
+  description: SITE.description,
+  path: "/",
+});
 
 export default function HomePage() {
   const tower = towerQuestions().length;
@@ -32,9 +41,9 @@ export default function HomePage() {
             THE WIRE.
           </p>
           <p className="lede-lg mt">
-            Public information for crane and rigging work in British Columbia.
-            Exam practice, a written safety program, and writing about the
-            work.
+            Public tower crane, mobile crane and rigging safety information for
+            British Columbia. Red Seal exam practice, load charts, safety
+            procedures, forms and writing about the work.
           </p>
           <div className="place mt-2">
             <article>
@@ -79,7 +88,7 @@ export default function HomePage() {
             <Link className="btn btn-ghost" href="/safety">
               READ {SITE.system}
             </Link>
-            <Link className="btn btn-ghost" href="/whoopwire">
+            <Link className="btn btn-ghost" href={WIRE.path}>
               {WIRE.name}
             </Link>
           </div>
@@ -136,6 +145,7 @@ export default function HomePage() {
             MOBILE CRANE
           </Link>
         </div>
+        <ExamCluster />
       </section>
 
       <section className="section" id="safety">
@@ -181,7 +191,7 @@ export default function HomePage() {
 
       <CorSection />
 
-      <section className="section wrap" id="whoopwire">
+      <section className="section wrap" id="wire">
         <p className="mono kicker">05 — THE WIRE</p>
         <h2 className="display giant">{WIRE.name}</h2>
         <p className="mono mt">{WIRE.descriptor}</p>
@@ -192,7 +202,7 @@ export default function HomePage() {
           ))}
         </div>
         <div className="inline-cta">
-          <Link className="btn btn-solid" href="/whoopwire">
+          <Link className="btn btn-solid" href={WIRE.path}>
             READ {WIRE.name} →
           </Link>
         </div>
