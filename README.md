@@ -16,7 +16,7 @@
 [![British Columbia](https://img.shields.io/badge/British_Columbia-Canada-111111)](https://sin.ae.org)
 
 <p align="center">
-  <img width="1024" height="1024" alt="sin() — crane safety" src="https://github.com/user-attachments/assets/641d7133-5fc9-4b26-a012-c67becf143d8" />
+  <img width="1024" height="1024" alt="Image" src="https://github.com/user-attachments/assets/07c8b03f-c95a-4ab4-8c12-b57f135143db" />
 </p>
 
 # sin()
