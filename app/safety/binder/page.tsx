@@ -18,7 +18,7 @@ export default function BinderIndexPage() {
         <h1 className="display">WHICH MACHINE.</h1>
         <p className="lede mt">
           Tower or self-erect. The checklist is mandatory with the Notice of
-          Project — Tower Crane. Work through the items. Download the GOSPEL
+          Project — Tower Crane. Work through the items. Download the Proven
           copy. Official templates stay on BC Crane Safety and WorkSafeBC.
         </p>
         <p className="doc-cta">
@@ -33,7 +33,7 @@ export default function BinderIndexPage() {
       <nav className="ohs-lib-list" aria-label="Binder types">
         {BINDERS.map((binder) => (
           <Link key={binder.kind} href={`/safety/binder/${binder.kind}`}>
-            <span className="mono steel">{binder.number}</span>
+            <span className="mono steel">{binder.number.replace(/^GOSPEL-/, "")}</span>
             <strong className="display">{binder.title}</strong>
             <em>{binder.summary}</em>
           </Link>

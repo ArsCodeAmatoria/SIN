@@ -5,6 +5,7 @@ import { chartPdfHref } from "@/lib/redtc/bank";
 import type { ExamId, Question } from "@/lib/redtc/types";
 import { AnswerOption } from "./AnswerOption";
 import { ChartDisplay } from "./ChartDisplay";
+import { ChartSplit } from "./ChartSplit";
 import { ExplanationPanel } from "./ExplanationPanel";
 
 export function QuestionCard({
@@ -30,36 +31,12 @@ export function QuestionCard({
   examShort?: Record<ExamId, string>;
   pdfBase?: string;
 }) {
-  return (
-    <div className="redtc-card">
-      <div className="redtc-card-meta">
-        <p className="mono kicker">
-          Question {questionNumber} / {totalQuestions}
-          {question.code ? ` · ${question.code}` : ""}
-        </p>
-        {question.category && !hideMeta ? (
-          <p className="mono steel">{question.category}</p>
-        ) : null}
-      </div>
-      {!hideMeta && question.exams?.length ? (
-        <div className="redtc-tags">
-          {question.exams.map((exam) => (
-            <span key={exam} className="redtc-badge">
-              {examShort[exam]}
-            </span>
-          ))}
-        </div>
-      ) : null}
-      {question.chartPdf ? (
-        <a
-          className="btn btn-ghost"
-          href={chartPdfHref(question.chartPdf, pdfBase)}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Open {question.chartName || (question.chartKind === "rigging" ? "rigging chart" : "load chart")} PDF
-        </a>
-      ) : null}
+  const pdfHref = question.chartPdf ? chartPdfHref(question.chartPdf, pdfBase) : null;
+  const chartTitle = question.chartName
+    || (question.chartKind === "rigging" ? "Rigging chart" : "Load chart");
+
+  const body = (
+    <>
       <ChartDisplay questionText={question.question} />
       <div className="redtc-opts">
         {question.options.map((option, index) => (
@@ -80,6 +57,40 @@ export function QuestionCard({
         selectedAnswer={selectedAnswer}
         isVisible={showExplanation}
       />
+    </>
+  );
+
+  return (
+    <div className="redtc-card">
+      {hideMeta ? null : (
+        <>
+          <div className="redtc-card-meta">
+            <p className="mono kicker">
+              Question {questionNumber} / {totalQuestions}
+              {question.code ? ` · ${question.code}` : ""}
+            </p>
+            {question.category ? (
+              <p className="mono steel">{question.category}</p>
+            ) : null}
+          </div>
+          {question.exams?.length ? (
+            <div className="redtc-tags">
+              {question.exams.map((exam) => (
+                <span key={exam} className="redtc-badge">
+                  {examShort[exam]}
+                </span>
+              ))}
+            </div>
+          ) : null}
+        </>
+      )}
+      {pdfHref ? (
+        <ChartSplit pdfHref={pdfHref} title={chartTitle}>
+          {body}
+        </ChartSplit>
+      ) : (
+        body
+      )}
     </div>
   );
 }

@@ -4005,6 +4005,87 @@ html[data-theme="dark"] .wire-share-tool {
   appearance: auto;
 }
 
+.redtc-review {
+  --review-measure: 42rem;
+  max-width: var(--review-measure);
+  padding-bottom: 5.5rem;
+}
+
+.redtc-review:has(.redtc-chart-split) {
+  --review-measure: 56rem;
+}
+
+.redtc-review-filters {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.redtc-review-filters .redtc-filters,
+.redtc-review-filters .redtc-select {
+  margin-bottom: 0;
+}
+
+.redtc-review-filters .redtc-select {
+  max-width: none;
+}
+
+.redtc-review-selects {
+  display: grid;
+  gap: 0.75rem 1.25rem;
+}
+
+@media (min-width: 700px) {
+  .redtc-review-selects {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 56rem) {
+  .redtc-review:has(.redtc-chart-split) .redtc-review-selects {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.redtc-review-nav {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 8;
+  margin-top: 0;
+  padding-top: 0.85rem;
+  padding-bottom: calc(0.85rem + env(safe-area-inset-bottom, 0px));
+  padding-left: var(--pad);
+  padding-right: max(var(--pad), calc(100vw - var(--pad) - var(--review-measure)));
+  background: color-mix(in srgb, var(--paper) 92%, transparent);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-top: 1px solid var(--edge);
+}
+
+.redtc-review-jump {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.redtc-review-jump input {
+  width: 4.5rem;
+  padding: 0.35rem 0;
+  border-bottom: 1px solid var(--line-strong);
+  font-family: var(--font-mono), monospace;
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+.redtc-review .redtc-card {
+  padding-top: 1rem;
+}
+
+.redtc-review .redtc-chart-frame {
+  height: min(58vh, 40rem);
+}
+
 .redtc-chart {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
@@ -4064,6 +4145,10 @@ html[data-theme="dark"] .wire-share-tool {
   color: var(--steel);
   display: block;
   margin-top: 0.25rem;
+}
+
+.redtc-chart-pane .redtc-sit-tools {
+  margin-bottom: 0.6rem;
 }
 
 .redtc-chart-split {

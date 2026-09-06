@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useParams } from "next/navigation";
 import { useMemo, useState } from "react";
 import { ChartDisplay } from "@/components/redtc/ChartDisplay";
+import { useChartViewer } from "@/components/redtc/ChartSplit";
 import { RedtcNav } from "@/components/redtc/RedtcNav";
 import { CHARTS, chartPdfHref } from "@/lib/redtc/bank";
 
@@ -16,6 +17,9 @@ export default function RedtcChartQuizPage() {
   const [show, setShow] = useState(false);
   const [answers, setAnswers] = useState<Record<number, string>>({});
   const [done, setDone] = useState(false);
+
+  const pdfHref = chart ? chartPdfHref(chart.pdfFile) : "";
+  const { frame, sheet, setEnlarge } = useChartViewer(pdfHref, chart?.name || "Load chart");
 
   if (!chart) {
     return (
@@ -44,7 +48,33 @@ export default function RedtcChartQuizPage() {
     setShow(false);
     setAnswers({});
     setDone(false);
+    setEnlarge(false);
   };
+
+  if (!question) {
+    return (
+      <div className="redtc wrap">
+        <header className="page-hero">
+          <p className="mono kicker">{chart.manufacturer}</p>
+          <h1 className="display giant">{chart.name}</h1>
+          <p className="lede mt-2">
+            {chart.description} Questions appear when they are written against
+            this PDF. Capacities are not invented here.
+          </p>
+          <RedtcNav />
+        </header>
+        <div className="inline-cta">
+          <a className="btn btn-solid" href={pdfHref} target="_blank" rel="noopener noreferrer">
+            Open chart
+          </a>
+          <Link className="btn btn-ghost" href="/redtc/load-charts">
+            Back to charts
+          </Link>
+        </div>
+        {frame}
+      </div>
+    );
+  }
 
   if (done) {
     return (
@@ -71,20 +101,19 @@ export default function RedtcChartQuizPage() {
 
   return (
     <div className="redtc wrap redtc-sit">
+      {sheet}
       <div className="redtc-sit-bar">
         <RedtcNav />
         <div className="redtc-sit-tools">
           <p className="mono steel">
             {chart.manufacturer} {chart.model}
           </p>
-          <a
-            className="btn btn-solid"
-            href={chartPdfHref(chart.pdfFile)}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <a className="btn btn-solid" href={pdfHref} target="_blank" rel="noopener noreferrer">
             Open chart
           </a>
+          <button type="button" className="btn btn-ghost" onClick={() => setEnlarge(true)}>
+            Enlarge
+          </button>
         </div>
         <p className="display redtc-q">
           Question {index + 1} of {total}
@@ -96,32 +125,37 @@ export default function RedtcChartQuizPage() {
           />
         </div>
       </div>
-      {question.src ? <p className="steel">{question.src}</p> : null}
-      <ChartDisplay questionText={question.question} />
-      <div className="redtc-opts">
-        {question.options.map((option) => {
-          const picked = selected === option.id;
-          const right = option.id === question.correctAnswer;
-          const state = show ? (right ? "right" : picked ? "wrong" : "") : picked ? "picked" : "";
-          return (
-            <button
-              key={option.id}
-              type="button"
-              className={`redtc-opt${state ? ` ${state}` : ""}`}
-              disabled={show}
-              onClick={() => {
-                if (show) return;
-                setSelected(option.id);
-              }}
-            >
-              <span className="mono redtc-opt-letter">{option.id.toUpperCase()}</span>
-              <span>
-                {option.text}
-                {show ? <em> — {option.explanation}</em> : null}
-              </span>
-            </button>
-          );
-        })}
+      <div className="redtc-chart-split">
+        <div className="redtc-chart-pane">{frame}</div>
+        <div>
+          {question.src ? <p className="steel">{question.src}</p> : null}
+          <ChartDisplay questionText={question.question} />
+          <div className="redtc-opts">
+            {question.options.map((option) => {
+              const picked = selected === option.id;
+              const right = option.id === question.correctAnswer;
+              const state = show ? (right ? "right" : picked ? "wrong" : "") : picked ? "picked" : "";
+              return (
+                <button
+                  key={option.id}
+                  type="button"
+                  className={`redtc-opt${state ? ` ${state}` : ""}`}
+                  disabled={show}
+                  onClick={() => {
+                    if (show) return;
+                    setSelected(option.id);
+                  }}
+                >
+                  <span className="mono redtc-opt-letter">{option.id.toUpperCase()}</span>
+                  <span>
+                    {option.text}
+                    {show ? <em> — {option.explanation}</em> : null}
+                  </span>
+                </button>
+              );
+            })}
+          </div>
+        </div>
       </div>
       <div className="redtc-sit-nav">
         <Link className="btn btn-ghost" href="/redtc/load-charts">

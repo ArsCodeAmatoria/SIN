@@ -73,9 +73,10 @@ export default function RedmcPage() {
         </div>
         <p className="steel mt">
           Practice bank — {bank.toLocaleString("en-CA")} current items (
-          {theoryCount} theory + {riggingQs} BCACS sling-chart). Official Red
-          Seal sitting — 110-question paper. Those two 110s are not the same
-          thing. Counts only real items. Tower Crane stays at REDTC.
+          {theoryCount} theory + {chartQs} manufacturer load-chart + {riggingQs}{" "}
+          BCACS sling-chart). Official Red Seal sitting — 110-question paper.
+          Those two 110s are not the same thing. Counts only real items. Tower
+          Crane stays at REDTC.
         </p>
         <p className="mono steel mt">Last reviewed: {formatReviewed(LAST_REVIEWED)}</p>
         <ExamCluster tone="mobile" />
@@ -150,9 +151,9 @@ export default function RedmcPage() {
         <p className="mono kicker">Question bank</p>
         <h2 className="display giant">{countLabel.toUpperCase()}</h2>
         <p className="lede mt-2">
-          {theoryCount} theory questions + {riggingQs} BCACS sling-chart
-          questions. Manufacturer load-chart question sets are being added
-          separately.
+          {theoryCount} theory questions + {chartQs} manufacturer load-chart
+          questions + {riggingQs} BCACS sling-chart questions. Chart capacities
+          are read from the PDFs in this bank. Never interpolated.
         </p>
         <p className="lede mt">
           This is the current practice bank, not a one-for-one copy of the
@@ -235,11 +236,10 @@ export default function RedmcPage() {
         <p className="mono kicker">Load charts</p>
         <h2 className="display giant">MANUFACTURER CHARTS</h2>
         <p className="lede mt-2">
-          {CHARTS.length} manufacturer load-chart PDFs are available. Question
-          sets are added only when an actual manufacturer PDF and verified
-          questions exist. Capacities are never invented
-          {chartQs ? ` — ${chartQs} chart questions written so far` : ""}.{" "}
-          {riggingQs} sling-chart questions use the BCACS Figure 1 booklet.
+          {CHARTS.length} manufacturer load-chart PDFs. {chartQs} Fulford-style
+          LCR questions written from cells on those files. Capacities are never
+          invented. {riggingQs} sling-chart questions use the BCACS Figure 1
+          booklet.
         </p>
         <div className="inline-cta">
           <Link className="btn btn-ghost" href="/redmc/load-charts">

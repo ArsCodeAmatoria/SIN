@@ -129,6 +129,7 @@ export const SEO_LANDINGS: SeoLanding[] = [
       { href: "/redtc", label: "Tower Crane Red Seal practice tests" },
       { href: "/tower-crane-certification-bc", label: "BC certification path" },
       { href: "/tower-crane-level-1-practice-test", label: "Level 1 SLE" },
+      { href: "/tower-crane-load-chart-practice", label: "Load chart practice" },
     ],
   },
   {
@@ -167,6 +168,7 @@ export const SEO_LANDINGS: SeoLanding[] = [
     practiceLabel: "Start Level 1 practice",
     related: [
       { href: "/redtc", label: "Tower Crane Red Seal practice tests" },
+      { href: "/tower-crane-certification-bc", label: "BC certification path" },
       { href: "/tower-crane-level-2-practice-test", label: "Level 2 SLE" },
       { href: "/tower-crane-red-seal-practice-test", label: "Red Seal IP" },
     ],
@@ -206,7 +208,8 @@ export const SEO_LANDINGS: SeoLanding[] = [
     practiceHref: "/redtc/test",
     practiceLabel: "Start Level 2 practice",
     related: [
-      { href: "/redtc", label: "Tower Crane Red Seal practice tests" },
+      { href: "/tower-crane-level-1-practice-test", label: "Level 1 SLE" },
+      { href: "/tower-crane-certification-bc", label: "BC certification path" },
       { href: "/wire/tower-crane-climbing-sequence", label: "Climbing sequence" },
       { href: "/safety/swp/tower-erection-climbing", label: "Climbing SWP" },
     ],
@@ -256,6 +259,7 @@ export const SEO_LANDINGS: SeoLanding[] = [
     practiceLabel: "Open load charts",
     related: [
       { href: "/redtc", label: "Tower Crane Red Seal practice tests" },
+      { href: "/tower-crane-certification-bc", label: "BC certification path" },
       { href: "/redmc/load-charts", label: "Mobile load charts" },
       { href: "/redmc/rigging-charts", label: "Rigging charts" },
     ],
@@ -310,8 +314,8 @@ export const SEO_LANDINGS: SeoLanding[] = [
     related: [
       { href: "/tower-crane-operator-hours-bc", label: "Hours in B.C." },
       { href: "/tower-crane-level-b-exam-bc", label: "Level B" },
-      { href: "/tower-crane-red-seal-practice-test", label: "Red Seal IP" },
-      { href: "/safety/training-competency", label: "Proven competency" },
+      { href: "/tower-crane-level-1-practice-test", label: "Level 1 SLE" },
+      { href: "/tower-crane-level-2-practice-test", label: "Level 2 SLE" },
     ],
   },
   {
@@ -431,6 +435,7 @@ export const SEO_LANDINGS: SeoLanding[] = [
     practiceLabel: "Open REDMC",
     related: [
       { href: "/mobile-crane-red-seal-practice-test", label: "Red Seal practice" },
+      { href: "/mobile-crane-load-chart-practice", label: "Load chart practice" },
       { href: "/tower-crane-operator-hours-bc", label: "Tower hours (different trade)" },
       { href: "/safety/training-competency", label: "Proven competency" },
     ],
@@ -448,13 +453,13 @@ export const SEO_LANDINGS: SeoLanding[] = [
     lede: "Rough-terrain, all-terrain, lattice crawler. Outriggers, on-rubber, pick-and-carry, boom length, radius, deductions. The cab serial chart still wins on the job.",
     facts: [
       { label: "Cranes", value: "7", note: "Manufacturer PDFs" },
+      { label: "Chart Qs", value: "70", note: "Fulford-style LCR" },
       { label: "Rigging", value: "3", note: "BCACS sling figures" },
-      { label: "Rule", value: "Worse", note: "Between rows, use worse" },
     ],
     sections: [
       {
         heading: "Manufacturer charts",
-        body: "REDMC lists Grove RT880E, Tadano GR-800XL-4, Terex RT 670, Liebherr LTM 1100-5.3, Link-Belt 298 Series 2, Liebherr LR 1300 and Manitowoc 14000. Questions are written against those PDFs only. If a row is missing, the chart is still shown — capacities are not filled in by guess.",
+        body: "REDMC lists Grove RT880E, Tadano GR-800XL-4, Terex RT 670, Liebherr LTM 1100-5.3, Link-Belt 298 Series 2, Liebherr LR 1300 and Manitowoc 14000. Ten Fulford-style LCR questions per crane — gross, net, maximum radius, boom angle, jib, outrigger percent, counterweight and parts of line — written from cells on those PDFs. Capacities are never invented.",
       },
       {
         heading: "Sling charts are separate",
@@ -471,6 +476,7 @@ export const SEO_LANDINGS: SeoLanding[] = [
     practiceLabel: "Open load charts",
     related: [
       { href: "/redmc", label: "REDMC index" },
+      { href: "/bc-mobile-crane-certification", label: "BC certification path" },
       { href: "/redmc/rigging-charts", label: "Rigging charts" },
       { href: "/tower-crane-load-chart-practice", label: "Tower load charts" },
     ],

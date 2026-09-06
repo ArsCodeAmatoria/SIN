@@ -551,12 +551,12 @@ export const ARTICLES: WireArticle[] = [
       },
       {
         type: "cta",
-        href: "/redtc",
-        label: "Tower Crane Red Seal practice tests →",
+        href: "/tower-crane-red-seal-practice-test",
+        label: "Tower Crane Red Seal practice test →",
       },
       {
         type: "cta",
-        href: "/redtc/load-charts",
+        href: "/tower-crane-load-chart-practice",
         label: "Tower crane load chart practice →",
       },
       {
@@ -830,6 +830,16 @@ export const ARTICLES: WireArticle[] = [
       },
       {
         type: "cta",
+        href: "/tower-crane-level-2-practice-test",
+        label: "Tower Crane Level 2 exam practice →",
+      },
+      {
+        type: "cta",
+        href: "/tower-crane-red-seal-practice-test",
+        label: "Tower Crane Red Seal practice test →",
+      },
+      {
+        type: "cta",
         href: "/safety/swp/tower-erection-climbing",
         label: "Tower crane climbing procedure →",
       },
@@ -842,16 +852,6 @@ export const ARTICLES: WireArticle[] = [
         type: "cta",
         href: "/safety/binder/tower",
         label: "Tower crane binder and checklists →",
-      },
-      {
-        type: "cta",
-        href: "/tower-crane-level-2-practice-test",
-        label: "Tower Crane Level 2 exam practice →",
-      },
-      {
-        type: "cta",
-        href: "/redtc",
-        label: "Tower Crane Red Seal practice tests →",
       },
     ],
   },
@@ -1597,8 +1597,13 @@ export const ARTICLES: WireArticle[] = [
       },
       {
         type: "cta",
-        href: "/redtc",
-        label: "RIGGING PRACTICE — REDTC →",
+        href: "/redtc/rigging-charts",
+        label: "SLING CHARTS — REDTC →",
+      },
+      {
+        type: "cta",
+        href: "/tower-crane-red-seal-practice-test",
+        label: "Tower Crane Red Seal practice test →",
       },
       {
         type: "cta",

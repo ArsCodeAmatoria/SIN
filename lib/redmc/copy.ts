@@ -7,7 +7,7 @@ export const REDMC_FEATURES = [
   {
     label: "Charts",
     title: "Manufacturer load charts (as supplied)",
-    body: "Grove, Tadano, Terex, Liebherr, Link-Belt and Manitowoc PDFs are in the bank. Rigging uses the BCACS Figure 1 sling charts — chain, nylon web, and wire rope — the same lookup skill as Fulford’s LCR practical.",
+    body: "Grove, Tadano, Terex, Liebherr, Link-Belt and Manitowoc PDFs with Fulford-style LCR questions written from those cells. Rigging uses the BCACS Figure 1 sling charts — chain, nylon web, and wire rope.",
   },
   {
     label: "Pass",

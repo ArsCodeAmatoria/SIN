@@ -38,6 +38,12 @@ export function Footer() {
           >
             FORM BUILDER
           </Link>
+          <Link
+            href="/safety/binder"
+            title="Tower and self-erect crane site binder wizard"
+          >
+            CRANE BINDER
+          </Link>
           <a href={SITE.emailHref}>{SITE.email}</a>
         </nav>
       </div>

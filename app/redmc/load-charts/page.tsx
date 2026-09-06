@@ -14,13 +14,11 @@ export default function RedmcChartsPage() {
           CHART.
         </h1>
         <p className="lede mt-2">
-          {CHARTS.length} manufacturer charts are available as PDFs. Manufacturer
-          load charts are added only when an actual manufacturer PDF and verified
-          question set are available. Capacities are never invented.{" "}
-          {totalQs
-            ? `${totalQs} load-chart questions written so far.`
-            : "Verified chart question sets are being added against these files."}{" "}
-          Open the chart. Do not interpolate.
+          {CHARTS.length} manufacturer charts. {totalQs} Fulford-style LCR
+          questions written from cells on these PDFs — gross, net, maximum
+          radius, boom angle, jib offset, outrigger percent, counterweight and
+          parts of line. Capacities are never invented. Open the chart. Do not
+          interpolate.
         </p>
         <RedtcNav />
       </header>
@@ -70,8 +68,8 @@ export default function RedmcChartsPage() {
       <section className="section">
         <p className="mono kicker">Manufacturers</p>
         <p className="lede">
-          Demag is not in the bank yet. Questions for the charts above appear
-          only when they are written against the PDF.
+          Demag is not in the bank yet. The seven charts above already have
+          questions written from their PDFs.
         </p>
         <div className="mt" aria-label="Coming soon load charts">
           {CHART_MAKERS.map((maker) => (

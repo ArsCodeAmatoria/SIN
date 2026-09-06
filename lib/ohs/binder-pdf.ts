@@ -81,7 +81,7 @@ export async function binderToPdf(binder: BinderDef, draft: BinderDraft) {
   y -= 16;
   const intro = wrap(
     font,
-    "GOSPEL copy of the site-binder checklist. Numbered to the BC Crane Safety template. Official templates and WorkSafeBC forms stay official — this is the working file.",
+    "Proven copy of the site-binder checklist. Numbered to the BC Crane Safety template. Official templates and WorkSafeBC forms stay official — this is the working file.",
     8,
     W - M * 2,
   );
@@ -156,7 +156,7 @@ export async function binderToPdf(binder: BinderDef, draft: BinderDraft) {
 
   ensure(36);
   text(
-    "Sign-off is on the official BC Crane Safety checklist. This PDF is the GOSPEL working copy.",
+    "Sign-off is on the official BC Crane Safety checklist. This PDF is the Proven working copy.",
     M,
     7,
     font,

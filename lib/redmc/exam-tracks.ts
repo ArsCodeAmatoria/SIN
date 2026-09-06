@@ -84,7 +84,7 @@ export const MOBILE_EXAM_TRACKS: ExamTrack[] = [
     questions: 10,
     minutes: 45,
     passPercent: 70,
-    body: "8 manufacturer load-chart + 2 rigging-chart. Never interpolate. 7/10 to pass. Manufacturer PDFs are used only when verified questions exist. Rigging uses the BCACS Figure 1 booklet.",
+    body: "8 manufacturer load-chart + 2 rigging-chart. Never interpolate. 7/10 to pass. Grove, Tadano, Terex, Liebherr, Link-Belt and Manitowoc cells from the PDFs in this bank. Rigging uses the BCACS Figure 1 booklet.",
   },
 ];
 

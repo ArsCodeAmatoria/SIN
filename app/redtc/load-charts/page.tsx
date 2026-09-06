@@ -56,7 +56,7 @@ export default function RedtcChartsPage() {
         <article>
           <span className="mono steel">01</span>
           <h3 className="display">OPEN THE PDF</h3>
-          <p>New tab. Two screens if you have them.</p>
+          <p>Stays on the left while you answer. Enlarge or pinch-zoom on a phone.</p>
         </article>
         <article>
           <span className="mono steel">02</span>
@@ -77,10 +77,9 @@ export default function RedtcChartsPage() {
             <p className="mono kicker">{section.title}</p>
             <p className="lede">{section.body}</p>
             <p className="steel mt">
-              Click Open PDF to view the load chart in a new browser tab. Answer
-              questions by referencing the chart. Switch between tabs as needed.
-              Questions cover capacity lookups, deductions, and lift planning. Two
-              monitors or a split screen — chart on one side, quiz on the other.
+              Open a crane and the PDF stays beside the question — split screen
+              on desktop, pinch-zoom or enlarge on a phone. Capacity lookups,
+              deductions, and lift planning. Do not interpolate.
             </p>
             <div className="mt" aria-label={section.title}>
               {charts.map((chart) => (

@@ -32,7 +32,7 @@ If a procedure cannot be followed on a jobsite, it is not a procedure. It is the
 ## What’s on the site
 
 - **[REDTC](https://sin.ae.org/redtc)** — Tower Crane Red Seal practice. Fulford Level B, SkilledTradesBC Level 1 and 2, Interprovincial IP, manufacturer load charts, BCACS sling charts. 70% to pass.
-- **[REDMC](https://sin.ae.org/redmc)** — Mobile Crane practice. Separate bank. Manufacturer PDFs and BCACS rigging figures as verified questions exist. Capacities are never invented.
+- **[REDMC](https://sin.ae.org/redmc)** — Mobile Crane practice. Separate bank. Manufacturer load-chart questions from the Grove, Tadano, Terex, Liebherr, Link-Belt and Manitowoc PDFs, plus BCACS sling charts. Capacities are never invented.
 - **[Proven](https://sin.ae.org/safety)** — the occupational health and safety program: policies, SWPs, JHAs, SJPs, forms and crane binders. Readable on a phone before the hook is loaded.
 - **[The Wire](https://sin.ae.org/wire)** — writing about safety, rigging, cranes and people.
 - **[About](https://sin.ae.org/about)** — Kojin Fox. Sources, corrections, `info@sin.ae.org`.

@@ -3,12 +3,11 @@ import { assertMobileBank } from "../to-quiz";
 import { BATCH_01 } from "./batch-01";
 import { BATCH_02 } from "./batch-02";
 
-// Future packs append here. Do not invent questions to fill a count.
+// Future theory packs append here. Do not invent questions to fill a count.
+// Manufacturer load-chart questions live in load-chart-questions.json (not these batches).
 // Batch 2 — B.C. Regulations, Provisional Certification & Rigging
 // Batch 3 — Rigging
 // Batch 4 — Hoisting Calculations
-// Batch 5 — Hydraulic Crane Load Charts
-// Batch 6 — Lattice Crane Load Charts
 // Batch 7 — Assembly / Disassembly
 // Batch 8 — Advanced Red Seal Operations
 // Batch 9 — Provisional Exam Practice

@@ -48,6 +48,9 @@ export function BuilderIndex() {
         <p className="doc-cta">
           <Link href="/safety/safety-forms">17 — SAFETY FORMS →</Link>
         </p>
+        <p className="doc-cta">
+          <Link href="/safety/binder">CRANE BINDER WIZARD →</Link>
+        </p>
       </header>
       <div className="form-actions">
         <button type="button" className="btn btn-solid" onClick={create}>

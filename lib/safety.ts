@@ -1887,7 +1887,7 @@ export const SAFETY: SafetySection[] = [
     title: "CRANE BINDERS",
     kicker: "The file that goes with the NOP-TC.",
     intro:
-      "A tower or self-erect on a B.C. construction site needs a site binder. BC Crane Safety wrote the checklists. WorkSafeBC requires the Notice of Project — Tower Crane. The wizard builds the GOSPEL copy: numbered items, who holds them, and the downloadable forms.",
+      "A tower or self-erect on a B.C. construction site needs a site binder. BC Crane Safety wrote the checklists. WorkSafeBC requires the Notice of Project — Tower Crane. The wizard builds the Proven copy: numbered items, who holds them, and the downloadable forms.",
     library: "binder",
     blocks: [
       {
@@ -1916,8 +1916,8 @@ export const SAFETY: SafetySection[] = [
         items: [
           "Walks the numbered BC Crane Safety items for that class.",
           "Marks each item in binder, missing, or N/A — and who holds it.",
-          "Opens the GOSPEL form and the official download (30M33, 52E73C, NOP-TC, tower crane report, NAV CANADA).",
-          "Downloads a GOSPEL checklist PDF for this site. Saved on this device.",
+          "Opens the Proven form and the official download (30M33, 52E73C, NOP-TC, tower crane report, NAV CANADA).",
+          "Downloads a Proven checklist PDF for this site. Saved on this device.",
         ],
       },
       {
@@ -2043,7 +2043,7 @@ export const FIND_NOW = [
   { href: "/safety/swp/working-near-powerlines", label: "MAD / POWERLINES", hint: "Table 19-1A" },
   { href: "/safety/swp/weather-and-wind", label: "LIGHTNING / WIND", hint: "Thunder is the stop" },
   { href: "/safety/emergency-response", label: "EMERGENCY", hint: "The plan" },
-  { href: "/safety/binder", label: "CRANE BINDER", hint: "Tower / self-erect" },
+  { href: "/safety/binder", label: "CRANE BINDER WIZARD", hint: "Tower / self-erect" },
   { href: "/safety/builder", label: "FORM BUILDER", hint: "Fill + PDF" },
 ] as const;
 

@@ -70,6 +70,9 @@ export default function PhilosophyPage() {
           <Link className="btn btn-ghost" href="/safety/builder">
             OPEN THE FORM BUILDER
           </Link>
+          <Link className="btn btn-ghost" href="/safety/binder">
+            CRANE BINDER WIZARD
+          </Link>
         </div>
       </section>
     </div>

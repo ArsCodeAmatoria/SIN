@@ -26,6 +26,7 @@ export default function HomePage() {
   const mobile = mobileQuestions().length;
   const mobileTheory = mobileSourceQuestions().length;
   const mobileRigging = MOBILE_RIGGING.reduce((n, c) => n + c.questions.length, 0);
+  const mobileChartQs = MOBILE_CHARTS.reduce((n, c) => n + c.questions.length, 0);
   const charts = CHARTS.length;
   const mobilePdfs = MOBILE_CHARTS.length;
 
@@ -139,8 +140,8 @@ export default function HomePage() {
             <p>
               {mobile.toLocaleString("en-CA")} current practice items in REDMC
               — not the official 110-question Red Seal paper. {mobileTheory}{" "}
-              theory + {mobileRigging} rigging-chart. {mobilePdfs} manufacturer
-              load-chart PDFs; verified chart question sets are being added.
+              theory + {mobileChartQs} manufacturer load-chart + {mobileRigging}{" "}
+              rigging-chart. {mobilePdfs} manufacturer PDFs.
             </p>
           </article>
           <article>
@@ -203,6 +204,9 @@ export default function HomePage() {
             </Link>
             <Link className="btn btn-ghost" href="/safety/builder">
               FORM BUILDER
+            </Link>
+            <Link className="btn btn-ghost" href="/safety/binder">
+              CRANE BINDER WIZARD
             </Link>
           </div>
         </div>

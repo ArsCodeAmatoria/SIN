@@ -185,7 +185,7 @@ export function safetyCatalog(): CatalogHit[] {
     },
     {
       href: "/safety/binder",
-      number: "GOSPEL-BND",
+      number: "PROVEN-BND",
       title: "CRANE BINDER WIZARD",
       summary: "Tower or self-erect site binder.",
       kind: "BINDER",
