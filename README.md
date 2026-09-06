@@ -1,3 +1,7 @@
+<div align="center">
+
+<img width="480" alt="sin() — crane safety" src="https://github.com/user-attachments/assets/07c8b03f-c95a-4ab4-8c12-b57f135143db" />
+
 ```
 ███████╗██╗███╗   ██╗    ██╗    ██╗
 ██╔════╝██║████╗  ██║   ██╔╝    ╚██╗
@@ -15,9 +19,7 @@
 [![BC Crane Safety](https://img.shields.io/badge/BC_Crane_Safety-Ticket-6c6861)](https://bccranesafety.ca/)
 [![British Columbia](https://img.shields.io/badge/British_Columbia-Canada-111111)](https://sin.ae.org)
 
-<p align="center">
-  <img width="1024" height="1024" alt="Image" src="https://github.com/user-attachments/assets/07c8b03f-c95a-4ab4-8c12-b57f135143db" />
-</p>
+</div>
 
 # sin()
 
