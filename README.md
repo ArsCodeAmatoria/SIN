@@ -1,6 +1,11 @@
 ```
-sin()
-CRANE SAFETY
+███████╗██╗███╗   ██╗    ██╗    ██╗
+██╔════╝██║████╗  ██║   ██╔╝    ╚██╗
+███████╗██║██╔██╗ ██║   ██║      ██║
+╚════██║██║██║╚██╗██║   ██║      ██║
+███████║██║██║ ╚████║   ╚██╗    ██╔╝
+╚══════╝╚═╝╚═╝  ╚═══╝    ╚═╝    ╚═╝
+              CRANE SAFETY
 ```
 
 [![Next.js](https://img.shields.io/badge/Next.js-15-111111?logo=nextdotjs&logoColor=white)](https://sin.ae.org)
