@@ -34,12 +34,14 @@ export default function AboutPage() {
       <JsonLd data={schema} />
       <header className="page-hero">
         <p className="mono kicker">ABOUT THE AUTHOR</p>
-        <h1 className="display giant">
+        <h1 className="wire-topic">{AUTHOR.name} — Crane &amp; Rigging Safety</h1>
+        <p className="display giant" aria-hidden="true">
           WHO WRITES
           <br />
           THIS.
-        </h1>
+        </p>
         <p className="lede-lg mt-2">{AUTHOR.bio}</p>
+        <p className="lede mt">{AUTHOR.work}</p>
       </header>
       <section className="section">
         <h2 className="display">How sources are used</h2>
@@ -56,21 +58,30 @@ export default function AboutPage() {
         </p>
       </section>
       <section className="section">
+        <h2 className="display">What this is not</h2>
+        <p className="lede mt">
+          Exam practice is not the sitting. Proven is not a regulator. Articles
+          are training material. WorkSafeBC, BC Crane Safety, SkilledTradesBC,
+          the manufacturer’s document for the serial crane, and the site plan
+          remain the authority. If they disagree with this site, they win.
+        </p>
+      </section>
+      <section className="section">
         <h2 className="display">Corrections</h2>
         <p className="lede mt">
           If a regulation citation, hour count, or chart reference is wrong,
-          write {SITE.email}. Name the page. The cab serial chart and the
-          current WorkSafeBC text still win over anything published here.
+          write {SITE.email}. Name the page. Technical pages are dated. When
+          the source changes, the page should show when it was last reviewed.
         </p>
       </section>
       <div className="inline-cta">
-        <Link className="btn btn-solid" href="/redtc">
-          Tower practice
+        <Link className="btn btn-solid" href="/redtc" title="Tower Crane Red Seal practice tests">
+          Tower Crane Red Seal practice
         </Link>
-        <Link className="btn btn-ghost" href="/redmc">
-          Mobile practice
+        <Link className="btn btn-ghost" href="/redmc" title="Mobile Crane Red Seal practice tests">
+          Mobile Crane Red Seal practice
         </Link>
-        <Link className="btn btn-ghost" href="/safety">
+        <Link className="btn btn-ghost" href="/safety" title="Crane safety program and procedures">
           {SITE.system}
         </Link>
         <a className="btn btn-ghost" href={SITE.emailHref}>

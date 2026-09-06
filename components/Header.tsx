@@ -42,7 +42,11 @@ export function Header() {
           >
             {open ? "CLOSE" : "MENU"}
           </button>
-          <Link className="btn btn-solid" href="/safety">
+          <Link
+            className="btn btn-solid"
+            href="/safety"
+            title="Crane safety program, procedures and forms"
+          >
             PROVEN
           </Link>
         </div>
@@ -55,7 +59,13 @@ export function Header() {
       >
         <nav className="overlay-list" aria-label="Primary">
           {NAV.map((item) => (
-            <Link key={item.href} href={item.href} onClick={() => setOpen(false)}>
+            <Link
+              key={item.href}
+              href={item.href}
+              title={item.title}
+              aria-label={item.title}
+              onClick={() => setOpen(false)}
+            >
               <span className="overlay-num">{item.num}</span>
               {item.href === "/safety" ? (
                 <ProvenName className="overlay-label" />

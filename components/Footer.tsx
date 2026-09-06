@@ -13,16 +13,31 @@ export function Footer() {
           <h2 className="brand">{SITE.name}</h2>
         </div>
         <nav className="footer-links mono">
-          <Link href="/safety">
+          <Link href="/safety" title="Crane safety program, procedures and forms">
             <ProvenName />
           </Link>
-          <Link href={WIRE.path}>{WIRE.name}</Link>
-          <Link href="/redtc">REDTC</Link>
-          <Link href="/redmc">REDMC</Link>
+          <Link href={WIRE.path} title="Crane safety and rigging articles">
+            {WIRE.name}
+          </Link>
+          <Link href="/redtc" title="Tower Crane Red Seal practice test">
+            REDTC
+          </Link>
+          <Link href="/redmc" title="Mobile Crane Red Seal practice test">
+            REDMC
+          </Link>
           <Link href="/#cor">COR®</Link>
-          <Link href="/about">ABOUT</Link>
-          <Link href="/philosophy">PHILOSOPHY</Link>
-          <Link href="/safety/builder">FORM BUILDER</Link>
+          <Link href="/about" title="About the author">
+            ABOUT
+          </Link>
+          <Link href="/philosophy" title="How this crane safety program is written">
+            PHILOSOPHY
+          </Link>
+          <Link
+            href="/safety/builder"
+            title="Crane safety form builder — FLHA, lift plans and inspections"
+          >
+            FORM BUILDER
+          </Link>
           <a href={SITE.emailHref}>{SITE.email}</a>
         </nav>
       </div>
@@ -47,7 +62,7 @@ export function Footer() {
       </div>
       <p className="mono footer-std">
         <Link href="/safety#standards">Work done to</Link> CSA Z150 / Z248, WorkSafeBC,
-        BC Crane Safety, Technical Safety BC, ASME B30, manufacturer
+        BC Crane Safety, Technical Safety BC, applicable ASME B30 standards, manufacturer
         requirements and site policies. Those marks identify the bodies — they
         are not a claim those organizations endorse {SITE.name}.
       </p>

@@ -18,6 +18,7 @@ export const REDTC_FEATURES = [
 
 export const REDTC_COVERS = [
   "Real PDF load charts",
+  "BCACS sling charts",
   "Capacity calculations",
   "Rigging fundamentals",
   "Crane operations",
@@ -110,6 +111,7 @@ export const REDTC_PAPERS_STILL = [
 export const REDTC_CATEGORIES = [
   { name: "Load Charts & Parts of Line", count: 140 },
   { name: "PDF Load Chart Practice", count: 140, charts: true },
+  { name: "PDF Rigging Charts", count: 30, rigging: true },
   { name: "Advanced Operations & Traps", count: 95 },
   { name: "Master Level Questions", count: 100 },
   { name: "Rigging & Sling Angles", count: 150 },

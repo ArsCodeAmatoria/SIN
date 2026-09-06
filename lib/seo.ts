@@ -22,6 +22,7 @@ type PageMetaInput = {
   modifiedTime?: string;
   authors?: string[];
   section?: string;
+  index?: boolean;
 };
 
 const SHARE_IMAGE: ShareImage = {
@@ -41,6 +42,7 @@ export function pageMeta({
   modifiedTime,
   authors,
   section,
+  index = true,
 }: PageMetaInput): Metadata {
   const url = absUrl(path);
   const ogImages = (images?.length ? images : [SHARE_IMAGE]).map((image) => {
@@ -67,7 +69,7 @@ export function pageMeta({
     title: { absolute: title },
     description,
     alternates: { canonical: url },
-    robots: { index: true, follow: true },
+    robots: { index, follow: true },
     openGraph: {
       title,
       description,

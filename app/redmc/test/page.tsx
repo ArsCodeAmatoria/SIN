@@ -117,7 +117,7 @@ export default function RedmcTestPage() {
         <p className="lede mt-2">{selectedMode.body}</p>
         {mode === "exam" ? (
           <div className="redtc-filters">
-            {MOBILE_EXAM_LEVEL_TRACKS.filter((item) => item.id !== "lcr").map((item) => (
+            {MOBILE_EXAM_LEVEL_TRACKS.map((item) => (
               <button
                 key={item.id}
                 type="button"

@@ -3453,9 +3453,27 @@ html[data-theme="dark"] .wire-share-tool {
 }
 
 .redtc-callout {
-  padding: 1.2rem 0;
+  display: grid;
+  gap: 1rem;
+  padding: 1.8rem 0 2rem;
   border-top: 1px solid var(--crown);
   border-bottom: 1px solid var(--crown);
+}
+
+.redtc-callout h3 {
+  font-size: clamp(1.7rem, 4vw, 2.6rem);
+  line-height: 1.14;
+  max-width: 18ch;
+  margin: 0;
+}
+
+.redtc-callout p {
+  max-width: 42rem;
+  margin: 0;
+}
+
+.redtc-callout .inline-cta {
+  margin-top: 0.35rem;
 }
 
 .redtc-crane {
@@ -3961,7 +3979,8 @@ html[data-theme="dark"] .wire-share-tool {
   border-bottom: 1px solid var(--line);
 }
 
-.redtc-chart a:first-child {
+.redtc-chart a:first-child,
+.redtc-chart .redtc-chart-soon {
   display: grid;
   grid-template-columns: minmax(7.5rem, 10rem) minmax(0, 1fr);
   gap: 0.35rem 1.25rem;
@@ -3971,7 +3990,8 @@ html[data-theme="dark"] .wire-share-tool {
   border: 0;
 }
 
-.redtc-chart a:first-child > span:first-child {
+.redtc-chart a:first-child > span:first-child,
+.redtc-chart .redtc-chart-soon > span:first-child {
   min-width: 0;
   overflow-wrap: anywhere;
 }
@@ -3982,7 +4002,8 @@ html[data-theme="dark"] .wire-share-tool {
     align-items: start;
   }
 
-  .redtc-chart a:first-child {
+  .redtc-chart a:first-child,
+  .redtc-chart .redtc-chart-soon {
     grid-template-columns: minmax(0, 1fr);
     gap: 0.2rem;
   }

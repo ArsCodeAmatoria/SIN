@@ -22,18 +22,19 @@ export const SITE = {
   description:
     "Public tower crane, mobile crane and rigging safety information for British Columbia. Red Seal exam practice, load charts, safety procedures, forms and writing about the work.",
   descriptionLong:
-    "sin() is public crane safety information for lifting work in British Columbia.\n\nREDTC and REDMC are Tower Crane and Mobile Crane exam practice — Fulford, SkilledTradesBC, and the Interprovincial Red Seal. Tagged questions. Explanations after you answer. 70% to pass, same as the sitting.\n\nProven is the occupational health and safety program: policies, safe work procedures, hazard assessments, forms and crane binders. Written the way the work actually happens. Public so anyone on the lift can read it before the hook is loaded. No portal. No request form. No expiry date.\n\nThe Wire is writing about safety, rigging, cranes and people.\n\nWork is done to CSA Z150 / Z248, WorkSafeBC, BC Crane Safety, Technical Safety BC, ASME B30, manufacturer requirements and site policies. The stricter applicable requirement wins. Law always wins.\n\nIf a procedure cannot be followed on a jobsite, it is not a procedure. It is theatre.",
+    "sin() is public crane safety information for lifting work in British Columbia.\n\nREDTC and REDMC are Tower Crane and Mobile Crane exam practice — Fulford, SkilledTradesBC, and the Interprovincial Red Seal. Tagged questions. Explanations after you answer. 70% to pass, same as the sitting.\n\nProven is the occupational health and safety program: policies, safe work procedures, hazard assessments, forms and crane binders. Written the way the work actually happens. Public so anyone on the lift can read it before the hook is loaded. No portal. No request form. No expiry date.\n\nThe Wire is writing about safety, rigging, cranes and people.\n\nWork is done to CSA Z150 / Z248, WorkSafeBC, BC Crane Safety, Technical Safety BC, applicable ASME B30 standards, manufacturer requirements and site policies. The stricter applicable requirement wins. Law always wins.\n\nIf a procedure cannot be followed on a jobsite, it is not a procedure. It is theatre.",
   system: "PROVEN",
 } as const;
 
 export const AUTHOR = {
-  name: "sin()",
+  name: "Kojin Fox",
   path: "/about",
   jobTitle: "Crane and rigging safety practitioner",
   location: "British Columbia",
-  bio: "Crane and rigging safety practitioner in British Columbia. sin() is built from field experience, manufacturer documentation, applicable regulations, certification material and industry standards.",
+  bio: "Kojin Fox is a crane and rigging safety practitioner in British Columbia. sin() is built from field experience, manufacturer documentation, applicable regulations, certification material and industry standards.",
+  work: "Work includes tower crane and rigging training, safety documentation, operator preparation and field crane operations.",
   process:
-    "Technical claims are written against WorkSafeBC, BC Crane Safety, SkilledTradesBC, Red Seal occupational standards, CSA Z150 / Z248, ASME B30 and the manufacturer’s document for the machine. If a source is named, it can be opened. Corrections go to info@sin.ae.org.",
+    "Technical claims are written against WorkSafeBC, BC Crane Safety, SkilledTradesBC, Red Seal occupational standards, CSA Z150 / Z248, applicable ASME B30 standards and the manufacturer’s document for the machine. If a source is named, it can be opened. Corrections go to info@sin.ae.org.",
 } as const;
 
 export const ABOUT = [
@@ -93,7 +94,7 @@ export const STANDARDS = [
   },
   {
     name: "ASME B30",
-    body: "Cranes, derricks, hoists, slings and related lifting equipment.",
+    body: "Applicable ASME B30 standards — cranes, derricks, hoists, slings and related lifting equipment.",
     logo: "/marks/asme.png",
     logoOnInk: "/marks/asme-on-ink.png",
     href: "https://www.asme.org/",
@@ -118,12 +119,37 @@ export const COR = {
 } as const;
 
 export const NAV = [
-  { href: "/", label: "HOME", num: "01" },
-  { href: "/safety", label: "PROVEN", num: "02" },
-  { href: "/wire", label: "THE WIRE", num: "03" },
-  { href: "/philosophy", label: "PHILOSOPHY", num: "04" },
-  { href: "/redtc", label: "REDTC", num: "05" },
-  { href: "/redmc", label: "REDMC", num: "06" },
+  { href: "/", label: "HOME", num: "01", title: "Crane safety home" },
+  {
+    href: "/safety",
+    label: "PROVEN",
+    num: "02",
+    title: "Crane safety program, procedures and forms",
+  },
+  {
+    href: "/wire",
+    label: "THE WIRE",
+    num: "03",
+    title: "Crane safety and rigging articles",
+  },
+  {
+    href: "/philosophy",
+    label: "PHILOSOPHY",
+    num: "04",
+    title: "How this crane safety program is written",
+  },
+  {
+    href: "/redtc",
+    label: "REDTC",
+    num: "05",
+    title: "Tower Crane Red Seal practice test",
+  },
+  {
+    href: "/redmc",
+    label: "REDMC",
+    num: "06",
+    title: "Mobile Crane Red Seal practice test",
+  },
 ] as const;
 
 export const PROGRAM = [

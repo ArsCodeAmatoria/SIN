@@ -16,7 +16,7 @@ export type SeoLanding = {
 export const SEO_LANDINGS: SeoLanding[] = [
   {
     slug: "tower-crane-red-seal-practice-test",
-    title: "Tower Crane Red Seal Practice Test BC | sin()",
+    title: "Tower Crane Red Seal Practice Test BC | REDTC",
     description:
       "Free BC Tower Crane Operator Red Seal practice. Tagged questions for the Interprovincial exam, Level B, Level 1 and Level 2, plus manufacturer load charts.",
     kicker: "REDTC — RED SEAL IP",
@@ -50,15 +50,15 @@ export const SEO_LANDINGS: SeoLanding[] = [
     practiceHref: "/redtc/test/master",
     practiceLabel: "Sit the Master Exam",
     related: [
-      { href: "/redtc", label: "REDTC index" },
-      { href: "/bc-tower-crane-certification", label: "BC certification path" },
+      { href: "/redtc", label: "Tower Crane Red Seal practice tests" },
+      { href: "/tower-crane-certification-bc", label: "BC certification path" },
       { href: "/tower-crane-load-chart-practice", label: "Load chart practice" },
       { href: "/wire/the-hardest-questions-on-the-tower-crane-red-seal-exam", label: "Hardest Red Seal questions" },
     ],
   },
   {
-    slug: "tower-crane-level-b-practice-test",
-    title: "Tower Crane Level B Practice Test BC | sin()",
+    slug: "tower-crane-level-b-exam-bc",
+    title: "Tower Crane Level B Exam BC | REDTC",
     description:
       "Free Fulford Level B / BC Crane Safety Core Theory practice for Tower Crane Operator. 40-question provisional paper, 70% to pass.",
     kicker: "REDTC — LEVEL B",
@@ -92,8 +92,8 @@ export const SEO_LANDINGS: SeoLanding[] = [
     practiceHref: "/redtc/test",
     practiceLabel: "Start Level B practice",
     related: [
-      { href: "/redtc", label: "REDTC index" },
-      { href: "/bc-tower-crane-certification", label: "BC certification path" },
+      { href: "/redtc", label: "Tower Crane Red Seal practice tests" },
+      { href: "/tower-crane-certification-bc", label: "BC certification path" },
       { href: "/tower-crane-level-1-practice-test", label: "Level 1 SLE" },
     ],
   },
@@ -129,7 +129,7 @@ export const SEO_LANDINGS: SeoLanding[] = [
     practiceHref: "/redtc/test",
     practiceLabel: "Start Level 1 practice",
     related: [
-      { href: "/redtc", label: "REDTC index" },
+      { href: "/redtc", label: "Tower Crane Red Seal practice tests" },
       { href: "/tower-crane-level-2-practice-test", label: "Level 2 SLE" },
       { href: "/tower-crane-red-seal-practice-test", label: "Red Seal IP" },
     ],
@@ -166,14 +166,14 @@ export const SEO_LANDINGS: SeoLanding[] = [
     practiceHref: "/redtc/test",
     practiceLabel: "Start Level 2 practice",
     related: [
-      { href: "/redtc", label: "REDTC index" },
+      { href: "/redtc", label: "Tower Crane Red Seal practice tests" },
       { href: "/wire/tower-crane-climbing-sequence", label: "Climbing sequence" },
       { href: "/safety/swp/tower-erection-climbing", label: "Climbing SWP" },
     ],
   },
   {
     slug: "tower-crane-load-chart-practice",
-    title: "Tower Crane Load Chart Practice BC | sin()",
+    title: "Tower Crane Load Chart Practice BC | REDTC",
     description:
       "Practice reading real manufacturer tower crane load charts — Liebherr, Potain, WOLFF, Terex, Krøll and Pecco. Never interpolate.",
     kicker: "REDTC — LOAD CHARTS",
@@ -203,14 +203,14 @@ export const SEO_LANDINGS: SeoLanding[] = [
     practiceHref: "/redtc/load-charts",
     practiceLabel: "Open load charts",
     related: [
-      { href: "/redtc", label: "REDTC index" },
+      { href: "/redtc", label: "Tower Crane Red Seal practice tests" },
       { href: "/redmc/load-charts", label: "Mobile load charts" },
       { href: "/redmc/rigging-charts", label: "Rigging charts" },
     ],
   },
   {
-    slug: "bc-tower-crane-certification",
-    title: "BC Tower Crane Certification — Path, Exams & Hours | sin()",
+    slug: "tower-crane-certification-bc",
+    title: "Tower Crane Certification BC | REDTC",
     description:
       "How Tower Crane Operator certification works in British Columbia: BC Crane Safety, Fulford Level B, SkilledTradesBC apprenticeship, hours, SLEs and the Red Seal.",
     kicker: "BC CRANE SAFETY + SKILLEDTRADESBC",
@@ -245,7 +245,7 @@ export const SEO_LANDINGS: SeoLanding[] = [
     practiceLabel: "Open REDTC",
     related: [
       { href: "/tower-crane-operator-hours-bc", label: "Hours in B.C." },
-      { href: "/tower-crane-level-b-practice-test", label: "Level B" },
+      { href: "/tower-crane-level-b-exam-bc", label: "Level B" },
       { href: "/tower-crane-red-seal-practice-test", label: "Red Seal IP" },
       { href: "/safety/training-competency", label: "Proven competency" },
     ],
@@ -282,7 +282,7 @@ export const SEO_LANDINGS: SeoLanding[] = [
     practiceHref: "/redtc",
     practiceLabel: "Practice the exams",
     related: [
-      { href: "/bc-tower-crane-certification", label: "Certification path" },
+      { href: "/tower-crane-certification-bc", label: "Certification path" },
       { href: "/bc-mobile-crane-certification", label: "Mobile hours and path" },
       { href: "/wire/a-ticket-isnt-competency", label: "A ticket isn’t competency" },
     ],

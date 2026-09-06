@@ -149,7 +149,7 @@ export const SAFETY: SafetySection[] = [
           "WorkSafeBC Occupational Health and Safety Regulation, including Part 14 — Cranes and Hoists.",
           "BC Crane Safety — crane operator certification and competency requirements in British Columbia.",
           "Technical Safety BC — applicable technical safety requirements for regulated equipment.",
-          "ASME B30 — cranes, derricks, hoists, slings and related lifting equipment.",
+          "applicable ASME B30 standards — cranes, derricks, hoists, slings and related lifting equipment.",
           "Manufacturer requirements — load charts, manuals and configuration limits for the machine on site.",
           "Site policies — the site rules, orientations and lift plans. Where they are stricter, they win.",
         ],

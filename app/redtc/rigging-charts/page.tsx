@@ -1,13 +1,14 @@
 import Link from "next/link";
 import { RedtcNav } from "@/components/redtc/RedtcNav";
-import { RIGGING_CHARTS } from "@/lib/redmc/bank";
-export default function RedmcRiggingChartsPage() {
+import { RIGGING_CHARTS } from "@/lib/redtc/bank";
+
+export default function RedtcRiggingChartsPage() {
   const totalQs = RIGGING_CHARTS.reduce((n, c) => n + c.questions.length, 0);
 
   return (
     <div className="redtc wrap">
       <header className="page-hero">
-        <p className="mono kicker">REDMC — RIGGING</p>
+        <p className="mono kicker">REDTC — RIGGING</p>
         <h1 className="display giant">
           READ THE
           <br />
@@ -16,7 +17,8 @@ export default function RedmcRiggingChartsPage() {
         <p className="lede mt-2">
           BCACS Crane Core figures, March 2011. {RIGGING_CHARTS.length} sling
           charts. {totalQs} questions. Training and assessment only — not a
-          manufacturer rating for the lift.
+          manufacturer rating for the lift. Same two-question slot as Fulford
+          LCR practical.
         </p>
         <RedtcNav />
       </header>
@@ -42,7 +44,7 @@ export default function RedmcRiggingChartsPage() {
         <div className="mt" aria-label="Rigging charts">
           {RIGGING_CHARTS.map((chart) => (
             <div className="redtc-chart" key={chart.id}>
-              <Link href={`/redmc/rigging-charts/${chart.id}`}>
+              <Link href={`/redtc/rigging-charts/${chart.id}`}>
                 <span className="mono steel">{chart.model}</span>
                 <span>
                   <strong>{chart.name}</strong>

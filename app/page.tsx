@@ -41,9 +41,7 @@ export default function HomePage() {
             THE WIRE.
           </p>
           <p className="lede-lg mt">
-            Public tower crane, mobile crane and rigging safety information for
-            British Columbia. Red Seal exam practice, load charts, safety
-            procedures, forms and writing about the work.
+            {SITE.description}
           </p>
           <div className="place mt-2">
             <article>
@@ -82,13 +80,25 @@ export default function HomePage() {
             </article>
           </div>
           <div className="inline-cta">
-            <Link className="btn btn-solid" href="/redtc">
+            <Link
+              className="btn btn-solid"
+              href="/redtc"
+              title="Tower Crane Red Seal practice tests"
+            >
               PRACTICE TESTS
             </Link>
-            <Link className="btn btn-ghost" href="/safety">
+            <Link
+              className="btn btn-ghost"
+              href="/safety"
+              title="Crane safety program and procedures"
+            >
               READ {SITE.system}
             </Link>
-            <Link className="btn btn-ghost" href={WIRE.path}>
+            <Link
+              className="btn btn-ghost"
+              href={WIRE.path}
+              title="Crane safety and rigging articles"
+            >
               {WIRE.name}
             </Link>
           </div>
@@ -112,8 +122,7 @@ export default function HomePage() {
             <span className="mono steel">Tower</span>
             <h3 className="display">{tower.toLocaleString("en-CA")}</h3>
             <p>
-              Questions in REDTC. {charts} manufacturer charts. Existing URLs
-              stay put.
+              Questions in REDTC. {charts} manufacturer charts.
             </p>
           </article>
           <article>
@@ -121,7 +130,8 @@ export default function HomePage() {
             <h3 className="display">{mobile.toLocaleString("en-CA")}</h3>
             <p>
               {mobile.toLocaleString("en-CA")} Mobile Crane questions in REDMC.
-              Chart sets appear when real PDFs are supplied.
+              Manufacturer PDFs are in the bank. Chart questions are added when
+              they are written against those files.
             </p>
           </article>
           <article>
@@ -166,7 +176,7 @@ export default function HomePage() {
           <p className="lede mt">
             Policies, safe work procedures, hazard assessments, forms and crane
             binders. Written to CSA Z150 / Z248, WorkSafeBC, BC Crane Safety,
-            Technical Safety BC, ASME B30, manufacturer requirements and site
+            Technical Safety BC, applicable ASME B30 standards, manufacturer requirements and site
             policies. No portal. No request form. No expiry date.
           </p>
           <div className="mt-2">

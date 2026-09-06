@@ -5,9 +5,9 @@ import { useParams } from "next/navigation";
 import { useMemo, useState } from "react";
 import { ChartDisplay } from "@/components/redtc/ChartDisplay";
 import { RedtcNav } from "@/components/redtc/RedtcNav";
-import { RIGGING_CHARTS, riggingChartPdfHref } from "@/lib/redmc/bank";
+import { RIGGING_CHARTS, riggingChartPdfHref } from "@/lib/redtc/bank";
 
-export default function RedmcRiggingChartQuizPage() {
+export default function RedtcRiggingChartQuizPage() {
   const params = useParams();
   const chartId = String(params.id || "");
   const chart = useMemo(() => RIGGING_CHARTS.find((c) => c.id === chartId), [chartId]);
@@ -28,7 +28,7 @@ export default function RedmcRiggingChartQuizPage() {
           <RedtcNav />
         </header>
         <div className="inline-cta">
-          <Link className="btn btn-ghost" href="/redmc/rigging-charts">
+          <Link className="btn btn-ghost" href="/redtc/rigging-charts">
             Back to rigging
           </Link>
         </div>
@@ -71,7 +71,7 @@ export default function RedmcRiggingChartQuizPage() {
           <button type="button" className="btn btn-solid" onClick={reset}>
             Retry
           </button>
-          <Link className="btn btn-ghost" href="/redmc/rigging-charts">
+          <Link className="btn btn-ghost" href="/redtc/rigging-charts">
             Back to rigging
           </Link>
         </div>
@@ -164,7 +164,7 @@ export default function RedmcRiggingChartQuizPage() {
         </div>
       </div>
       <div className="redtc-sit-nav">
-        <Link className="btn btn-ghost" href="/redmc/rigging-charts">
+        <Link className="btn btn-ghost" href="/redtc/rigging-charts">
           Rigging
         </Link>
         {!show ? (

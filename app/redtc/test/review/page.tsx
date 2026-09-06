@@ -12,6 +12,7 @@ const questions = allQuestions();
 const CATEGORIES = [
   "All Questions",
   "PDF Load Charts",
+  "PDF Rigging Charts",
   ...Array.from(
     new Set(
       questions
@@ -41,7 +42,9 @@ export default function RedtcReviewPage() {
         category === "All Questions" ||
         (category === "PDF Load Charts"
           ? Boolean(q.category?.startsWith("Load Chart:"))
-          : q.category === category);
+          : category === "PDF Rigging Charts"
+            ? q.chartKind === "rigging"
+            : q.category === category);
       const examOk = exam === "all" || (q.exams && q.exams.includes(exam));
       return catOk && examOk;
     });

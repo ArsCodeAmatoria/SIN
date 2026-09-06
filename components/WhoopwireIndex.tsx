@@ -111,7 +111,9 @@ export function WireIndex({ stories }: { stories: WireSummary[] }) {
               {cover.author} · {formatWireDate(cover.published)} · {cover.minutes}{" "}
               MIN
             </p>
-            <span className="btn btn-solid wire-read">READ STORY →</span>
+            <span className="btn btn-solid wire-read">
+              Read {cover.seoTitle}
+            </span>
           </Link>
         </section>
       ) : (

@@ -15,8 +15,9 @@ export const ARTICLES: WireArticle[] = [
     category: "CRANES",
     excerpt:
       "Memorizing definitions is not enough. The difficult Tower Crane Red Seal questions give you several answers that appear correct — and ask you to find the limiting factor.",
-    author: "sin()",
+    author: "Kojin Fox",
     published: "2026-09-05",
+    updated: "2026-09-05",
     seoTitle: "The Hardest Questions on the Tower Crane Red Seal Exam",
     seoDescription:
       "The hardest Tower Crane Red Seal questions aren’t math. Several answers look right. The exam tests whether you can find the limiting factor — capacity, configuration, rigging, conditions and procedure.",
@@ -26,6 +27,16 @@ export const ARTICLES: WireArticle[] = [
       "sling-tension-is-sin",
     ],
     safety: ["crane-operations", "rigging", "training-competency"],
+    sources: [
+      {
+        name: "Red Seal Occupational Standard — Tower Crane Operator (2023)",
+        href: "https://www.red-seal.ca/eng/trades/tower-crane-op.shtml",
+      },
+      {
+        name: "SkilledTradesBC — Tower Crane Operator",
+        href: "https://skilledtradesbc.ca/tower-crane-operator",
+      },
+    ],
     blocks: [
       {
         type: "p",
@@ -541,22 +552,22 @@ export const ARTICLES: WireArticle[] = [
       {
         type: "cta",
         href: "/redtc",
-        label: "PRACTICE THE TOWER CRANE BANK →",
+        label: "Tower Crane Red Seal practice tests →",
       },
       {
         type: "cta",
         href: "/redtc/load-charts",
-        label: "LOAD CHARTS →",
+        label: "Tower crane load chart practice →",
       },
       {
         type: "cta",
         href: "/wire/tower-crane-climbing-sequence",
-        label: "PREPARE. INSPECT. BRIEF. BALANCE. CLIMB. →",
+        label: "Tower crane climbing sequence →",
       },
       {
         type: "cta",
         href: "/safety/crane-operations",
-        label: "07 — CRANE OPERATIONS →",
+        label: "Crane operations procedures →",
       },
     ],
   },
@@ -567,8 +578,9 @@ export const ARTICLES: WireArticle[] = [
     category: "CRANES",
     excerpt:
       "Climbing is not adding another tower section. It temporarily changes the crane. Prepare, inspect, brief, balance, climb, then verify before the hook moves again.",
-    author: "sin()",
+    author: "Kojin Fox",
     published: "2026-09-05",
+    updated: "2026-09-05",
     seoTitle:
       "Tower Crane Climbing Sequence: Prepare, Inspect, Brief, Balance, Climb",
     seoDescription:
@@ -579,6 +591,19 @@ export const ARTICLES: WireArticle[] = [
       "what-your-crane-crew-should-know-before-they-arrive",
     ],
     safety: ["crane-operations", "safe-work-procedures", "inspections"],
+    sources: [
+      {
+        name: "WorkSafeBC OHS Regulation Part 14 — Cranes and Hoists",
+        href: "https://www.worksafebc.com/en/law-policy/occupational-health-safety/searchable-ohs-regulation/ohs-regulation/part-14-cranes-and-hoists",
+      },
+      {
+        name: "CSA Z248 — Code for tower cranes",
+        href: "https://www.csagroup.org/",
+      },
+      {
+        name: "Manufacturer climbing and erection instructions for the serial crane on site",
+      },
+    ],
     blocks: [
       {
         type: "p",
@@ -806,27 +831,27 @@ export const ARTICLES: WireArticle[] = [
       {
         type: "cta",
         href: "/safety/swp/tower-erection-climbing",
-        label: "TOWER ERECTION, CLIMBING AND DISMANTLING — SWP →",
+        label: "Tower crane climbing procedure →",
       },
       {
         type: "cta",
         href: "/safety/crane-operations",
-        label: "07 — CRANE OPERATIONS →",
+        label: "Crane operations procedures →",
       },
       {
         type: "cta",
         href: "/safety/binder/tower",
-        label: "TOWER CRANE BINDER →",
+        label: "Tower crane binder and checklists →",
       },
       {
         type: "cta",
         href: "/tower-crane-level-2-practice-test",
-        label: "LEVEL 2 SLE PRACTICE →",
+        label: "Tower Crane Level 2 exam practice →",
       },
       {
         type: "cta",
         href: "/redtc",
-        label: "TOWER CRANE EXAM PRACTICE — REDTC →",
+        label: "Tower Crane Red Seal practice tests →",
       },
     ],
   },
@@ -837,13 +862,14 @@ export const ARTICLES: WireArticle[] = [
     category: "RIGGING",
     excerpt:
       "You do not need a protractor on the hook. Measure sling length and vertical height. sin θ = H / L. Then you can use the tension formula.",
-    author: "sin()",
+    author: "Kojin Fox",
     published: "2026-08-18",
+    updated: "2026-09-05",
     image: "/wire/rigging-triangle.jpg",
     imageAlt:
       "Rigging triangle: two-leg bridle on a concrete block. Sling length L is the hypotenuse. Vertical height H is opposite θ from the horizontal. sin θ = H / L.",
     imageContain: true,
-    seoTitle: "Height Over Length Is the Angle — Finding Sling θ",
+    seoTitle: "How to Calculate Sling Angle for Rigging | Height ÷ Length — sin()",
     seoDescription:
       "How to find sling angle from the horizontal using sine. Measure height H and sling length L. θ = sin⁻¹(H/L). Worked numbers, the 30° floor, and the tension formula that follows.",
     related: [
@@ -852,6 +878,16 @@ export const ARTICLES: WireArticle[] = [
       "six-things-to-check-before-you-take-the-load",
     ],
     safety: ["rigging", "safe-work-procedures"],
+    sources: [
+      {
+        name: "WorkSafeBC OHS Regulation Part 15 — Rigging",
+        href: "https://www.worksafebc.com/en/law-policy/occupational-health-safety/searchable-ohs-regulation/ohs-regulation/part-15-rigging",
+      },
+      {
+        name: "ASME B30.9 — Slings",
+        href: "https://www.asme.org/",
+      },
+    ],
     blocks: [
       {
         type: "p",
@@ -859,7 +895,7 @@ export const ARTICLES: WireArticle[] = [
       },
       {
         type: "p",
-        text: "This is a two-leg bridle. Equal legs. Load hanging plumb. θ is the angle between the sling and the horizontal — the same θ GOSPEL uses in the tension formula. It is not the angle between the two legs at the hook.",
+        text: "This is a two-leg bridle. Equal legs. Load hanging plumb. θ is the angle between the sling and the horizontal — the same θ the tension formula uses. It is not the angle between the two legs at the hook.",
       },
       {
         type: "h",
@@ -909,7 +945,7 @@ export const ARTICLES: WireArticle[] = [
           {
             n: "01",
             title: "H / L = 0.500    θ = 30°",
-            body: "H is half of L. This is the floor the procedure still allows without an engineer. Tension in each leg equals the whole load. GOSPEL-SWP-010.",
+            body: "H is half of L. This is the floor the procedure still allows without an engineer. Tension in each leg equals the whole load.",
           },
           {
             n: "02",
@@ -937,7 +973,7 @@ export const ARTICLES: WireArticle[] = [
         caption: "Find θ from H / L. Then take that θ into T = W / (2 × sin θ).",
         columns: ["H / L", "θ FROM HORIZONTAL", "WHAT IT MEANS"],
         rows: [
-          ["0.500", "30°", "GOSPEL floor. Each leg sees W."],
+          ["0.500", "30°", "Procedure floor. Each leg sees W."],
           ["0.707", "45°", "Working bridle."],
           ["0.866", "60°", "Steep. Lower tension."],
           ["0.966", "75°", "Almost vertical."],
@@ -989,17 +1025,17 @@ export const ARTICLES: WireArticle[] = [
       {
         type: "cta",
         href: "/wire/sling-tension-is-sin",
-        label: "SIN() FOR SLING TENSION →",
+        label: "How sling tension uses sin() →",
       },
       {
         type: "cta",
         href: "/safety/swp/sling-selection",
-        label: "SLING SELECTION — GOSPEL-SWP-010 →",
+        label: "Sling selection procedure →",
       },
       {
         type: "cta",
         href: "/safety/rigging",
-        label: "06 — RIGGING →",
+        label: "Rigging procedures →",
       },
     ],
   },
@@ -1010,8 +1046,9 @@ export const ARTICLES: WireArticle[] = [
     category: "SAFETY",
     excerpt:
       "In B.C., WorkSafeBC enforces the Regulation — not a vibe called CSA, and not ASME B30 as one book. Mobile is Z150. Tower is Z248. B30 is a series, and only the volumes written into the Regulation are law.",
-    author: "sin()",
+    author: "Kojin Fox",
     published: "2026-08-15",
+    updated: "2026-09-05",
     seoTitle: "What WorkSafeBC Part 14 Actually Names — Z150, Z248, ASME B30",
     seoDescription:
       "What WorkSafeBC actually enforces for cranes in B.C.: OHS Regulation Part 14, CSA Z150-1998 for mobile cranes, CSA Z248-2004 for tower cranes, and which ASME B30 volumes are named in the Regulation.",
@@ -1021,6 +1058,20 @@ export const ARTICLES: WireArticle[] = [
       "why-we-made-our-safety-program-public",
     ],
     safety: ["crane-operations", "rigging", "company-safety-policy"],
+    sources: [
+      {
+        name: "WorkSafeBC OHS Regulation Part 14 — Cranes and Hoists",
+        href: "https://www.worksafebc.com/en/law-policy/occupational-health-safety/searchable-ohs-regulation/ohs-regulation/part-14-cranes-and-hoists",
+      },
+      {
+        name: "WorkSafeBC OHS Regulation Part 15 — Rigging",
+        href: "https://www.worksafebc.com/en/law-policy/occupational-health-safety/searchable-ohs-regulation/ohs-regulation/part-15-rigging",
+      },
+      {
+        name: "CSA Group — Z150 / Z248",
+        href: "https://www.csagroup.org/",
+      },
+    ],
     blocks: [
       {
         type: "p",
@@ -1189,7 +1240,7 @@ export const ARTICLES: WireArticle[] = [
       {
         type: "cta",
         href: "/safety",
-        label: "READ PROVEN →",
+        label: "Crane safety program →",
       },
     ],
   },
@@ -1200,7 +1251,7 @@ export const ARTICLES: WireArticle[] = [
     category: "CRANES",
     excerpt:
       "A mobile crane boom is a right triangle. Height is L × sin θ. Radius from the pin is L × cos θ. That is boom geometry — not a load chart.",
-    author: "sin()",
+    author: "Kojin Fox",
     published: "2026-08-15",
     seoTitle: "Sin the Height. Cos the Radius. — Boom Geometry",
     seoDescription:
@@ -1375,7 +1426,7 @@ export const ARTICLES: WireArticle[] = [
       {
         type: "cta",
         href: "/safety",
-        label: "READ PROVEN →",
+        label: "Crane safety program →",
       },
     ],
   },
@@ -1386,8 +1437,9 @@ export const ARTICLES: WireArticle[] = [
     category: "RIGGING",
     excerpt:
       "Sling tension is not a feeling. For a two-leg bridle, T = W / (2 × sin θ). If you cannot do that, you cannot claim the angle is safe.",
-    author: "sin()",
+    author: "Kojin Fox",
     published: "2026-08-15",
+    updated: "2026-09-05",
     seoTitle: "Sling Tension Is Sin() — Rigging Math",
     seoDescription:
       "How to use sine for two-leg sling tension. T = W / (2 × sin θ), worked numbers, and why 30° from horizontal doubles the load in each leg.",
@@ -1556,7 +1608,7 @@ export const ARTICLES: WireArticle[] = [
       {
         type: "cta",
         href: "/safety",
-        label: "READ PROVEN →",
+        label: "Crane safety program →",
       },
     ],
   },
@@ -1567,7 +1619,7 @@ export const ARTICLES: WireArticle[] = [
     category: "RIGGING",
     excerpt:
       "A qualification tells you what someone has been trained to do. Competency tells you whether they can actually do it.",
-    author: "sin()",
+    author: "Kojin Fox",
     published: "2026-08-06",
     featured: true,
     seoTitle: "A Ticket Isn't Competency",
@@ -1646,7 +1698,7 @@ export const ARTICLES: WireArticle[] = [
       {
         type: "cta",
         href: "/safety",
-        label: "READ PROVEN →",
+        label: "Crane safety program →",
       },
     ],
   },
@@ -1657,7 +1709,7 @@ export const ARTICLES: WireArticle[] = [
     category: "SAFETY",
     excerpt:
       "If people have to ask permission to see how you expect the work to be done, you do not have a safety program. You have a filing cabinet.",
-    author: "sin()",
+    author: "Kojin Fox",
     published: "2026-08-13",
     seoTitle: "Why Proven Is Public",
     seoDescription:
@@ -1716,7 +1768,7 @@ export const ARTICLES: WireArticle[] = [
       {
         type: "cta",
         href: "/safety",
-        label: "READ PROVEN →",
+        label: "Crane safety program →",
       },
       {
         type: "cta",
@@ -1732,7 +1784,7 @@ export const ARTICLES: WireArticle[] = [
     category: "RIGGING",
     excerpt:
       "It is not the loudest person on the steel. It is the one who finds the centre of gravity before anyone finds the radio.",
-    author: "sin()",
+    author: "Kojin Fox",
     published: "2026-05-20",
     seoTitle: "What a Good Rigger Actually Looks Like",
     seoDescription:
@@ -1796,7 +1848,7 @@ export const ARTICLES: WireArticle[] = [
     category: "CRANES",
     excerpt:
       "The lifts that go badly are often the ones nobody bothered to treat as a lift. Small, familiar, 'we've done this.'",
-    author: "sin()",
+    author: "Kojin Fox",
     published: "2026-06-25",
     seoTitle: "The Lift Looked Simple. It Wasn't.",
     seoDescription:
@@ -1857,7 +1909,7 @@ export const ARTICLES: WireArticle[] = [
     category: "SAFETY",
     excerpt:
       "Not a poster. Six things that, if they are wrong, the hook should not leave the ground.",
-    author: "sin()",
+    author: "Kojin Fox",
     published: "2026-07-08",
     seoTitle: "Six Things to Check Before You Take the Load",
     seoDescription:
@@ -1924,7 +1976,7 @@ export const ARTICLES: WireArticle[] = [
       {
         type: "cta",
         href: "/safety",
-        label: "READ PROVEN →",
+        label: "Crane safety program →",
       },
     ],
   },
@@ -1935,7 +1987,7 @@ export const ARTICLES: WireArticle[] = [
     category: "SAFETY",
     excerpt:
       "A safe work procedure that cannot be used on the day is theatre. It exists to be shown, not followed.",
-    author: "sin()",
+    author: "Kojin Fox",
     published: "2026-06-10",
     seoTitle: "When a SWP Isn't Really a SWP",
     seoDescription:
@@ -1998,7 +2050,7 @@ export const ARTICLES: WireArticle[] = [
     category: "INDUSTRY",
     excerpt:
       "A procedure nobody can find at 6:40 a.m. does not exist. Access is part of the control.",
-    author: "sin()",
+    author: "Kojin Fox",
     published: "2026-04-08",
     seoTitle: "Why Documentation Should Be Easy to Find",
     seoDescription:
@@ -2040,7 +2092,7 @@ export const ARTICLES: WireArticle[] = [
       {
         type: "cta",
         href: "/safety",
-        label: "READ PROVEN →",
+        label: "Crane safety program →",
       },
     ],
   },
@@ -2051,7 +2103,7 @@ export const ARTICLES: WireArticle[] = [
     category: "PEOPLE",
     excerpt:
       "A crew shares a brief, a standard and a way of stopping the work. A bunch of people share a start time.",
-    author: "sin()",
+    author: "Kojin Fox",
     published: "2026-04-29",
     seoTitle: "The Difference Between a Crew and a Bunch of People",
     seoDescription:
@@ -2098,7 +2150,7 @@ export const ARTICLES: WireArticle[] = [
       {
         type: "cta",
         href: "/safety",
-        label: "READ PROVEN →",
+        label: "Crane safety program →",
       },
     ],
   },
@@ -2109,7 +2161,7 @@ export const ARTICLES: WireArticle[] = [
     category: "CRANES",
     excerpt:
       "If the first time they see the machine, the load and the site is when they park, you have already spent the briefing.",
-    author: "sin()",
+    author: "Kojin Fox",
     published: "2026-08-04",
     seoTitle: "What Your Crane Crew Should Know Before They Arrive",
     seoDescription:
@@ -2158,7 +2210,7 @@ export const ARTICLES: WireArticle[] = [
       {
         type: "cta",
         href: "/safety",
-        label: "READ PROVEN →",
+        label: "Crane safety program →",
       },
       {
         type: "cta",

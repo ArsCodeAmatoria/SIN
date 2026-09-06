@@ -47,6 +47,16 @@ const nextConfig: NextConfig = {
         destination: "/wire/:path*",
         permanent: true,
       },
+      {
+        source: "/tower-crane-level-b-practice-test",
+        destination: "/tower-crane-level-b-exam-bc",
+        permanent: true,
+      },
+      {
+        source: "/bc-tower-crane-certification",
+        destination: "/tower-crane-certification-bc",
+        permanent: true,
+      },
     ];
   },
 };

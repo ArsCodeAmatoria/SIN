@@ -46,6 +46,11 @@ export default function RedtcChartsPage() {
           Open the chart. Do not interpolate.
         </p>
         <RedtcNav />
+        <div className="inline-cta">
+          <Link className="btn btn-ghost" href="/redtc/rigging-charts">
+            Sling charts
+          </Link>
+        </div>
       </header>
       <div className="place">
         <article>

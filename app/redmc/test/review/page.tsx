@@ -16,6 +16,7 @@ const source = mobileSourceQuestions();
 const CATEGORIES = [
   "All Questions",
   "PDF Load Charts",
+  "PDF Rigging Charts",
   ...REDMC_CATEGORIES,
 ];
 
@@ -61,7 +62,9 @@ export default function RedmcReviewPage() {
         category === "All Questions" ||
         (category === "PDF Load Charts"
           ? Boolean(q.category?.startsWith("Load Chart:"))
-          : q.category === category);
+          : category === "PDF Rigging Charts"
+            ? q.chartKind === "rigging"
+            : q.category === category);
       const examOk = exam === "all" || (q.exams && q.exams.includes(exam));
       const diffOk = difficulty === "all" || q.difficulty === difficulty;
       const mwaOk =

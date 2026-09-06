@@ -1,13 +1,12 @@
 import type { Metadata } from "next";
-import { allQuestions, CHARTS } from "@/lib/redtc/bank";
+import { allQuestions } from "@/lib/redtc/bank";
 import { pageMeta } from "@/lib/seo";
 
 const questions = allQuestions().length;
-const charts = CHARTS.length;
 
 export const metadata: Metadata = pageMeta({
   title: `Tower Crane Red Seal Practice Test BC – ${questions.toLocaleString("en-CA")} Questions | REDTC`,
-  description: `Free BC Tower Crane Operator exam practice with ${questions.toLocaleString("en-CA")} questions, Red Seal prep, Level B, Level 1 & 2 and ${charts} manufacturer load charts.`,
+  description: `Free Tower Crane Red Seal exam practice for B.C. with ${questions.toLocaleString("en-CA")} questions, Fulford Level B, SkilledTradesBC Level 1 & 2, manufacturer load charts, and BCACS sling charts.`,
   path: "/redtc",
 });
 

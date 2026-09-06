@@ -7,7 +7,7 @@ export const REDMC_FEATURES = [
   {
     label: "Charts",
     title: "Manufacturer load charts (as supplied)",
-    body: "Architecture is ready for Liebherr, Grove, Tadano, Terex/Demag, Link-Belt, and Manitowoc PDFs. Sets appear here when a real chart and questions are added — capacities are not invented.",
+    body: "Grove, Tadano, Terex, Liebherr, Link-Belt and Manitowoc PDFs are in the bank. Rigging uses the BCACS Figure 1 sling charts — chain, nylon web, and wire rope — the same lookup skill as Fulford’s LCR practical.",
   },
   {
     label: "Pass",

@@ -17,7 +17,7 @@ export function WireStoryLink({
         </div>
         <h3 className="display">{story.title}</h3>
         <p>{story.excerpt}</p>
-        <span className="mono steel">READ STORY →</span>
+        <span className="mono steel">Read {story.seoTitle}</span>
       </Link>
     </article>
   );

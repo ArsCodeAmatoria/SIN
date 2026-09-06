@@ -57,7 +57,7 @@ export function QuestionCard({
           target="_blank"
           rel="noopener noreferrer"
         >
-          Open {question.chartName || "load chart"} PDF
+          Open {question.chartName || (question.chartKind === "rigging" ? "rigging chart" : "load chart")} PDF
         </a>
       ) : null}
       <ChartDisplay questionText={question.question} />

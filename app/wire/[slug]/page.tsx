@@ -41,8 +41,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     });
   }
   const path = wirePath(article.slug);
+  const title = article.seoTitle.includes("|")
+    ? article.seoTitle
+    : `${article.seoTitle} | The Wire`;
   return pageMeta({
-    title: `${article.seoTitle} | ${SITE.name}`,
+    title,
     description: article.seoDescription,
     path,
     type: "article",
@@ -83,7 +86,12 @@ export default async function WireArticlePage({ params }: Props) {
       description: article.seoDescription,
       datePublished: article.published,
       dateModified: article.updated ?? article.published,
-      author: { "@id": `${absUrl(AUTHOR.path)}#author` },
+      author: {
+        "@type": "Person",
+        "@id": `${absUrl(AUTHOR.path)}#author`,
+        name: AUTHOR.name,
+        url: absUrl(AUTHOR.path),
+      },
       publisher: { "@id": `${absUrl("/")}#org` },
       mainEntityOfPage: url,
       articleSection: article.category,
@@ -112,11 +120,13 @@ export default async function WireArticlePage({ params }: Props) {
         </p>
         <p className="lede-lg mt">{article.excerpt}</p>
         <p className="mono steel mt">
-          <Link href={AUTHOR.path}>{article.author}</Link>
-          <span> · {formatWireDate(article.published)}</span>
-          {article.updated ? (
-            <span> · UPDATED {formatWireDate(article.updated)}</span>
-          ) : null}
+          By <Link href={AUTHOR.path}>{AUTHOR.name}</Link>
+          <span> · Published {formatWireDate(article.published)}</span>
+          <span>
+            {" "}
+            · Last reviewed{" "}
+            {formatWireDate(article.updated ?? article.published)}
+          </span>
           <span> · {minutes} MIN</span>
         </p>
         <WireShare title={article.seoTitle} url={url} />
@@ -134,12 +144,31 @@ export default async function WireArticlePage({ params }: Props) {
 
       <WireBlocks blocks={article.blocks} />
 
+      {article.sources?.length ? (
+        <aside className="section">
+          <p className="mono kicker">Sources</p>
+          <ul className="std-list mt">
+            {article.sources.map((source) => (
+              <li key={source.name}>
+                {source.href ? (
+                  <a href={source.href} target="_blank" rel="noreferrer">
+                    {source.name}
+                  </a>
+                ) : (
+                  source.name
+                )}
+              </li>
+            ))}
+          </ul>
+        </aside>
+      ) : null}
+
       {safety.length ? (
         <aside className="wire-safety">
           <p className="mono steel">
             <ProvenName />
           </p>
-          <Link className="btn btn-solid" href="/safety">
+          <Link className="btn btn-solid" href="/safety" title="Crane safety program and procedures">
             READ {SITE.system} →
           </Link>
           <div className="wire-safety-links">
@@ -153,7 +182,7 @@ export default async function WireArticlePage({ params }: Props) {
         </aside>
       ) : (
         <div className="inline-cta">
-          <Link className="btn btn-ghost" href="/safety">
+          <Link className="btn btn-ghost" href="/safety" title="Crane safety program and procedures">
             READ {SITE.system} →
           </Link>
         </div>
@@ -177,7 +206,7 @@ export default async function WireArticlePage({ params }: Props) {
           <span className="mono steel">{WIRE.name}</span>
           <strong className="display">ALL STORIES</strong>
         </Link>
-        <Link href="/safety">
+        <Link href="/safety" title="Crane safety program and procedures">
           <span className="mono steel">NEXT</span>
           <strong className="display">READ PROVEN</strong>
         </Link>

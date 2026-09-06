@@ -22,19 +22,18 @@ export function SeoLandingPage({ page }: { page: SeoLanding }) {
     websiteLd(),
     breadcrumbLd(crumbs),
     {
-      "@type": "WebPage",
+      "@type": "LearningResource",
       name: page.title,
       description: page.description,
       url: absUrl(`/${page.slug}`),
       isPartOf: { "@id": `${absUrl("/")}#website` },
-    },
-    {
-      "@type": "FAQPage",
-      mainEntity: page.faq.map((item) => ({
-        "@type": "Question",
-        name: item.q,
-        acceptedAnswer: { "@type": "Answer", text: item.a },
-      })),
+      inLanguage: "en-CA",
+      learningResourceType: "Practice test",
+      educationalLevel: "Trade certification",
+      audience: {
+        "@type": "EducationalAudience",
+        educationalRole: "crane operator candidate",
+      },
     },
   ]);
 
@@ -65,8 +64,8 @@ export function SeoLandingPage({ page }: { page: SeoLanding }) {
           <Link className="btn btn-solid" href={page.practiceHref}>
             {page.practiceLabel}
           </Link>
-          <Link className="btn btn-ghost" href="/safety">
-            Read {SITE.system}
+          <Link className="btn btn-ghost" href="/safety" title="Crane safety program and procedures">
+            Crane safety program
           </Link>
         </div>
       </header>

@@ -14,13 +14,17 @@ export function MobileBankOverview({
   items,
   showSourceSplit = false,
   compact = false,
+  extraBankNote,
 }: {
   items: MobileQuestion[];
   showSourceSplit?: boolean;
   compact?: boolean;
+  extraBankNote?: string;
 }) {
   const stats = mobileBankStats(items);
   const countLabel = `${stats.total.toLocaleString("en-CA")} Mobile Crane Questions`;
+  const categoriesWithQuestions = REDMC_CATEGORIES.filter((name) => stats.byCategory[name]);
+  const mwaWithQuestions = MOBILE_MWA.filter((block) => stats.byMwa[block.letter]);
 
   return (
     <>
@@ -47,20 +51,37 @@ export function MobileBankOverview({
           </>
         ) : null}
       </div>
+      {extraBankNote ? <p className="steel mt">{extraBankNote}</p> : null}
+      <p className="steel mt">
+        Questions may be tagged to more than one exam level; level counts therefore overlap.
+      </p>
 
       <p className="mono kicker mt-2">By exam level</p>
       <div className="place mt">
-        {MOBILE_EXAM_LEVELS.map((level) => (
-          <article key={level}>
-            <span className="mono steel">{EXAM_LABEL[level]}</span>
-            <h3 className="display">{stats.byExamLevel[level]}</h3>
-          </article>
-        ))}
+        {MOBILE_EXAM_LEVELS.map((level) => {
+          if (level === "level2") {
+            return (
+              <article key={level}>
+                <span className="mono steel">{EXAM_LABEL[level]}</span>
+                <h3 className="display">—</h3>
+                <p>Technical training. No separate SLE.</p>
+              </article>
+            );
+          }
+          const count = stats.byExamLevel[level];
+          if (!count) return null;
+          return (
+            <article key={level}>
+              <span className="mono steel">{EXAM_LABEL[level]}</span>
+              <h3 className="display">{count}</h3>
+            </article>
+          );
+        })}
       </div>
 
       <p className="mono kicker mt-2">By Red Seal MWA</p>
       <div>
-        {MOBILE_MWA.map((block) => (
+        {mwaWithQuestions.map((block) => (
           <article className="service" key={block.letter}>
             <span className="mono steel">{block.letter}</span>
             <h3 className="display">{stats.byMwa[block.letter]}</h3>
@@ -73,14 +94,12 @@ export function MobileBankOverview({
         <>
           <p className="mono kicker mt-2">By category</p>
           <ul className="std-list mt">
-            {REDMC_CATEGORIES.map((name, i) => (
+            {categoriesWithQuestions.map((name, i) => (
               <li key={name}>
                 <p className="mono steel">{String(i + 1).padStart(2, "0")}</p>
                 <h3 className="display">{name}</h3>
                 <p>
-                  {stats.byCategory[name]
-                    ? `${stats.byCategory[name]} question${stats.byCategory[name] === 1 ? "" : "s"}`
-                    : "Ready for questions"}
+                  {`${stats.byCategory[name]} question${stats.byCategory[name] === 1 ? "" : "s"}`}
                 </p>
               </li>
             ))}

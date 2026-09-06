@@ -14,7 +14,10 @@ export default function RedmcChartsPage() {
           CHART.
         </h1>
         <p className="lede mt-2">
-          Manufacturer PDFs. {CHARTS.length} cranes. {totalQs} questions.
+          {CHARTS.length} manufacturer charts are available as PDFs.{" "}
+          {totalQs
+            ? `${totalQs} load-chart questions written so far.`
+            : "Load-chart question sets are being added as verified questions are completed."}{" "}
           Open the chart. Do not interpolate. Capacities are not invented here.
         </p>
         <RedtcNav />
@@ -65,18 +68,19 @@ export default function RedmcChartsPage() {
       <section className="section">
         <p className="mono kicker">Manufacturers</p>
         <p className="lede">
-          Chart sets appear when a real PDF and questions are supplied.
+          Demag is not in the bank yet. Questions for the charts above appear
+          when they are written against the PDF.
         </p>
         <div className="mt" aria-label="Coming soon load charts">
           {CHART_MAKERS.map((maker) => (
             <div className="redtc-chart" key={maker.id}>
-              <Link href={`/redmc/load-charts/${maker.id}`}>
+              <div className="redtc-chart-soon">
                 <span className="mono steel">Coming soon</span>
                 <span>
                   <strong>{maker.name}</strong>
                   <em>{maker.note}</em>
                 </span>
-              </Link>
+              </div>
             </div>
           ))}
         </div>

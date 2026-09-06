@@ -1,8 +1,11 @@
+import { RIGGING_CHARTS, riggingChartPdfHref, riggingChartQuestions } from "@/lib/rigging-charts";
 import type { LoadChart } from "@/lib/redtc/bank";
 import type { Question } from "@/lib/redtc/types";
 import { MOBILE_QUESTIONS } from "./questions/index";
 import { toQuizQuestion } from "./to-quiz";
 import type { MobileQuestion } from "./types";
+
+export { RIGGING_CHARTS, riggingChartPdfHref };
 
 export type ComingSoonMaker = {
   id: string;
@@ -124,51 +127,6 @@ export const CHART_MAKERS: ComingSoonMaker[] = [
   { id: "demag", name: "Demag", note: "Coming soon." },
 ];
 
-export const RIGGING_CHARTS: LoadChart[] = [
-  {
-    id: "chain-slings",
-    name: "Chain slings",
-    manufacturer: "BCACS",
-    model: "Figure 1 (1)",
-    type: "rigging",
-    pdfFile: "chain-slings.pdf",
-    description:
-      "Grade T (8) alloy steel chain. Working load limits in pounds for vertical, choker, basket, and 2-leg bridle hitches. Training and assessment only.",
-    specifications: {
-      maxCapacity: "1/4–1-1/4 in Grade T (8)",
-    },
-    questions: [],
-  },
-  {
-    id: "nylon-web-slings",
-    name: "Nylon web slings",
-    manufacturer: "BCACS",
-    model: "Figure 1 (2)",
-    type: "rigging",
-    pdfFile: "nylon-web-slings.pdf",
-    description:
-      "Nylon web, 6,800 lb/in material. Working load limits in pounds by web width and hitch. Training and assessment only.",
-    specifications: {
-      maxCapacity: "1–6 in web, 6,800 lb/in",
-    },
-    questions: [],
-  },
-  {
-    id: "wire-rope-slings",
-    name: "Wire rope slings",
-    manufacturer: "BCACS",
-    model: "Figure 1 (3)",
-    type: "rigging",
-    pdfFile: "wire-rope-slings.pdf",
-    description:
-      "6×19 IWRC improved plow steel. Working load limits in pounds by rope diameter and hitch. Training and assessment only.",
-    specifications: {
-      maxCapacity: "3/16–1-1/2 in 6×19 IWRC",
-    },
-    questions: [],
-  },
-];
-
 export function mobileSourceQuestions(): MobileQuestion[] {
   return MOBILE_QUESTIONS;
 }
@@ -191,15 +149,16 @@ export function chartQuestions(offset = 30000): Question[] {
 }
 
 export function allQuestions(chartOffset = 30000): Question[] {
-  return [...theoryQuestions(), ...chartQuestions(chartOffset)];
+  return [
+    ...theoryQuestions(),
+    ...chartQuestions(chartOffset),
+    ...riggingChartQuestions(40000),
+  ];
 }
 
 export function chartPdfHref(pdfFile: string) {
+  if (pdfFile.startsWith("/")) return pdfFile;
   return `/redmc/charts/${pdfFile}`;
-}
-
-export function riggingChartPdfHref(pdfFile: string) {
-  return `/redmc/rigging-charts/${pdfFile}`;
 }
 
 export const REDMC_NAV = [

@@ -3,7 +3,7 @@ import { MobileBankOverview } from "@/components/redmc/MobileBankOverview";
 import { MobileProgress } from "@/components/redmc/MobileProgress";
 import { ExamCluster } from "@/components/ExamCluster";
 import { RedtcNav } from "@/components/redtc/RedtcNav";
-import { allQuestions, CHARTS, mobileSourceQuestions } from "@/lib/redmc/bank";
+import { allQuestions, CHARTS, RIGGING_CHARTS, mobileSourceQuestions } from "@/lib/redmc/bank";
 import {
   REDMC_AUTHORITIES,
   REDMC_COVERS,
@@ -12,11 +12,14 @@ import {
   REDMC_RESOURCES,
 } from "@/lib/redmc/copy";
 import { MOBILE_EXAM_TRACKS, MOBILE_RSOS_MWA } from "@/lib/redmc/exam-tracks";
+import { formatReviewed, LAST_REVIEWED } from "@/lib/reviewed";
 
 export default function RedmcPage() {
   const bank = allQuestions().length;
   const source = mobileSourceQuestions();
   const countLabel = `${bank.toLocaleString("en-CA")} Mobile Crane Questions`;
+  const chartQs = CHARTS.reduce((n, c) => n + c.questions.length, 0);
+  const riggingQs = RIGGING_CHARTS.reduce((n, c) => n + c.questions.length, 0);
 
   return (
     <>
@@ -69,6 +72,7 @@ export default function RedmcPage() {
           {countLabel} in the bank now. Official sitting is 110. Counts only real
           items — not placeholders. Tower Crane stays at REDTC.
         </p>
+        <p className="mono steel mt">Last reviewed: {formatReviewed(LAST_REVIEWED)}</p>
         <ExamCluster tone="mobile" />
       </header>
 
@@ -141,10 +145,13 @@ export default function RedmcPage() {
         <p className="mono kicker">Question bank</p>
         <h2 className="display giant">{countLabel.toUpperCase()}</h2>
         <p className="lede mt-2">
-          Same quiz engine as Tower Crane. Empty categories are ready for the
-          next pack — they are not filled with fakes.
+          Tagged questions in the Mobile Crane theory bank. Categories with no
+          questions yet are not listed.
         </p>
-        <MobileBankOverview items={source} />
+        <MobileBankOverview
+          items={source}
+          extraBankNote={`${RIGGING_CHARTS.reduce((n, c) => n + c.questions.length, 0)} BCACS sling-chart questions sit in the quiz bank on top of this theory count. Manufacturer load-chart questions are not written yet.`}
+        />
         <div className="inline-cta">
           <Link className="btn btn-ghost" href="/redmc/test/review">
             Review the bank
@@ -201,8 +208,10 @@ export default function RedmcPage() {
         <p className="mono kicker">Load charts</p>
         <h2 className="display giant">MANUFACTURER CHARTS</h2>
         <p className="lede mt-2">
-          {CHARTS.length} charts in the bank. Structure is ready. PDFs and
-          questions are added only from real manufacturer documents.
+          {CHARTS.length} manufacturer charts are available as PDFs. Load-chart
+          question sets are being added as verified questions are completed
+          {chartQs ? ` — ${chartQs} written so far` : ""}. {riggingQs} sling-chart
+          questions use the BCACS Figure 1 booklet.
         </p>
         <div className="inline-cta">
           <Link className="btn btn-ghost" href="/redmc/load-charts">

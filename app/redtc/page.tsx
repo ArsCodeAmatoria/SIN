@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { ExamCluster } from "@/components/ExamCluster";
 import { RedtcNav } from "@/components/redtc/RedtcNav";
-import { allQuestions, CHARTS, theoryQuestions } from "@/lib/redtc/bank";
+import { allQuestions, CHARTS, RIGGING_CHARTS, theoryQuestions } from "@/lib/redtc/bank";
 import {
   REDTC_AUTHORITIES,
   REDTC_CATEGORIES,
@@ -14,12 +14,14 @@ import {
   REDTC_RESOURCES,
 } from "@/lib/redtc/copy";
 import { EXAM_TRACKS, RSOS_MWA } from "@/lib/redtc/exam-tracks";
+import { formatReviewed, LAST_REVIEWED } from "@/lib/reviewed";
 
 export default function RedtcPage() {
   const bank = allQuestions().length;
   const theory = theoryQuestions().length;
   const chartCount = CHARTS.length;
   const chartQs = CHARTS.reduce((n, c) => n + c.questions.length, 0);
+  const riggingQs = RIGGING_CHARTS.reduce((n, c) => n + c.questions.length, 0);
   const countLabel = bank.toLocaleString("en-CA");
 
   return (
@@ -34,9 +36,14 @@ export default function RedtcPage() {
           EXAM.
         </h1>
         <p className="lede-lg mt-2">
-          Practice with {theory.toLocaleString("en-CA")} questions tagged to Fulford
-          Level B, SkilledTradesBC Level 1 and 2, Red Seal IP, and the load-chart
-          practical — WorkSafeBC Part 14 and Part 15.
+          Practice with {countLabel} questions — {theory.toLocaleString("en-CA")}{" "}
+          theory questions plus {chartQs.toLocaleString("en-CA")} manufacturer
+          load-chart questions
+          {riggingQs
+            ? ` and ${riggingQs} BCACS sling-chart questions`
+            : ""}{" "}
+          — covering Fulford Level B, SkilledTradesBC Level 1 and 2, Red Seal IP
+          and load-chart practice.
         </p>
         <RedtcNav />
         <div className="place mt-2">
@@ -62,11 +69,15 @@ export default function RedtcPage() {
           <Link className="btn btn-ghost" href="/redtc/load-charts">
             Load charts
           </Link>
+          <Link className="btn btn-ghost" href="/redtc/rigging-charts">
+            Rigging charts
+          </Link>
           <Link className="btn btn-ghost" href="/redtc/test/master">
             Master exam
           </Link>
         </div>
         <ExamCluster tone="tower" />
+        <p className="mono steel mt">Last reviewed: {formatReviewed(LAST_REVIEWED)}</p>
       </header>
 
       <section className="section wrap">
@@ -86,8 +97,9 @@ export default function RedtcPage() {
         </div>
         <p className="lede mt">
           {theory.toLocaleString("en-CA")} theory questions. {chartQs} load-chart
-          questions on {chartCount} manufacturer charts. {countLabel} in the bank.
-          70% to pass. This is practice — not the official paper.
+          questions on {chartCount} manufacturer charts. {riggingQs} sling-chart
+          questions. {countLabel} in the bank. 70% to pass. This is practice —
+          not the official paper.
         </p>
       </section>
 
@@ -295,23 +307,30 @@ export default function RedtcPage() {
         </p>
         <div className="redtc-callout mt-2">
           <p className="mono steel">Skilled Trades Certification</p>
-          <h3 className="display">Compulsory trade as of July 5, 2027</h3>
+          <h3 className="display">
+            Compulsory trade
+            <br />
+            as of July 5, 2027
+          </h3>
           <p>
             A one-year transition began July 6, 2026. After July 5, 2027, Tower
             Crane Operators in B.C. must be a registered apprentice, a trade
-            qualifier, or a certified journeyperson. Existing B.C. CofQ or Red
-            Seal holders already meet the requirement. Employers will also need a
-            2:1 apprentice-to-journeyperson ratio.
+            qualifier, or a certified journeyperson.
           </p>
-          <p className="mt">
+          <p>
+            Existing B.C. CofQ or Red Seal holders already meet the requirement.
+            Employers will also need a 2:1 apprentice-to-journeyperson ratio.
+          </p>
+          <div className="inline-cta">
             <a
+              className="btn btn-ghost"
               href="https://skilledtradesbc.ca/skilledtradescertification"
               target="_blank"
               rel="noreferrer"
             >
-              Official details →
+              Official details
             </a>
-          </p>
+          </div>
         </div>
         <div className="place mt-2">
           <article>
@@ -505,6 +524,9 @@ export default function RedtcPage() {
           <Link className="btn btn-solid" href="/redtc/load-charts">
             Start practicing
           </Link>
+          <Link className="btn btn-ghost" href="/redtc/rigging-charts">
+            Sling charts
+          </Link>
         </div>
       </section>
 
@@ -515,14 +537,24 @@ export default function RedtcPage() {
         <nav className="safety-index mt-2" aria-label="Question categories">
           {REDTC_CATEGORIES.map((item, i) => (
             <Link
-              href={"charts" in item ? "/redtc/load-charts" : "/redtc/test/review"}
+              href={
+                "charts" in item
+                  ? "/redtc/load-charts"
+                  : "rigging" in item
+                    ? "/redtc/rigging-charts"
+                    : "/redtc/test/review"
+              }
               key={item.name}
             >
               <span className="mono steel">{String(i + 1).padStart(2, "0")}</span>
               <span>
                 <strong>{item.name}</strong>
                 <em>
-                  {"charts" in item ? `${chartCount} crane charts` : `${item.count} questions`}
+                  {"charts" in item
+                    ? `${chartCount} crane charts`
+                    : "rigging" in item
+                      ? "3 sling charts"
+                      : `${item.count} questions`}
                 </em>
               </span>
             </Link>
@@ -599,6 +631,9 @@ export default function RedtcPage() {
           </Link>
           <Link className="btn btn-ghost" href="/redtc/load-charts">
             Load charts
+          </Link>
+          <Link className="btn btn-ghost" href="/redtc/rigging-charts">
+            Rigging charts
           </Link>
           <Link className="btn btn-ghost" href="/redtc/test/master">
             Master exam

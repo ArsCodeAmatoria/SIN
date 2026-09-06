@@ -4,7 +4,7 @@ import { pageMeta } from "@/lib/seo";
 import { WIRE, getSummaries, wirePath } from "@/lib/whoopwire";
 
 export const metadata: Metadata = pageMeta({
-  title: "Crane Safety & Rigging Articles BC | The Wire — sin()",
+  title: "Crane Safety & Rigging Articles BC | The Wire",
   description:
     "Writing about crane safety, rigging, WorkSafeBC and the people who do the work in British Columbia. Not a newsletter mill.",
   path: wirePath(),

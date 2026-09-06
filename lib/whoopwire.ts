@@ -36,6 +36,8 @@ export type WireBlock =
   | { type: "calc"; name: "sling-sin" | "boom-trig" | "sling-angle" }
   | { type: "cta"; href: string; label: string };
 
+export type WireSource = { name: string; href?: string };
+
 export type WireArticle = {
   slug: string;
   title: string;
@@ -54,6 +56,7 @@ export type WireArticle = {
   seoDescription: string;
   related: string[];
   safety: string[];
+  sources?: WireSource[];
   blocks: WireBlock[];
 };
 

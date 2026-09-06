@@ -8,7 +8,7 @@ import {
 import { Header } from "@/components/Header";
 import { SiteFooter } from "@/components/SiteFooter";
 import { ORIGIN, jsonLdGraph, organizationLd, pageMeta, personLd, websiteLd } from "@/lib/seo";
-import { SITE } from "@/lib/site";
+import { AUTHOR, SITE } from "@/lib/site";
 import "./globals.css";
 
 const display = Oswald({
@@ -51,12 +51,12 @@ export const metadata: Metadata = {
   ...share,
   title: {
     default: SITE.title,
-    template: `%s — ${SITE.name}`,
+    template: "%s",
   },
   metadataBase: new URL(ORIGIN),
   applicationName: SITE.name,
-  authors: [{ name: SITE.name, url: ORIGIN }],
-  creator: SITE.name,
+  authors: [{ name: AUTHOR.name, url: `${ORIGIN}/about` }],
+  creator: AUTHOR.name,
   publisher: SITE.name,
   category: "Education",
   keywords: [

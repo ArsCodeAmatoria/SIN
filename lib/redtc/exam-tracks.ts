@@ -101,7 +101,7 @@ export const EXAM_TRACKS: ExamTrack[] = [
     questions: 10,
     minutes: 45,
     passPercent: 70,
-    body: "8 load-chart + 2 rigging. Never interpolate. 7/10 to pass. Uses this site’s manufacturer PDFs (same skill as Fulford’s LCR exam).",
+    body: "8 manufacturer load-chart + 2 sling-chart. Never interpolate. 7/10 to pass. Manufacturer PDFs plus the BCACS Figure 1 booklet (chain, nylon web, wire rope).",
   },
 ];
 
@@ -240,7 +240,7 @@ export function selectIpPaper(all: Question[]): Question[] {
 
     if (task.id === "C-8") {
       const theory = exact.filter((q) => !q.chartPdf);
-      const charts = exact.filter((q) => q.chartPdf);
+      const charts = exact.filter((q) => q.chartPdf && q.chartKind !== "rigging");
       const chartSlots = Math.min(3, maxCharts - chartsTaken, task.count);
       const chartPick = takeFrom(charts, chartSlots, used);
       chartsTaken += chartPick.filter((q) => q.chartPdf).length;
@@ -319,8 +319,9 @@ export function selectTrackQuestions(all: Question[], trackId: ExamTrack["id"]):
   if (trackId === "b") return selectLevelBPaper(all);
   if (trackId === "ip") return selectIpPaper(all);
   if (trackId === "lcr") {
-    const charts = shuffle(all.filter((q) => q.chartPdf)).slice(0, 8);
-    const rigging = shuffle(
+    const charts = shuffle(all.filter((q) => q.chartPdf && q.chartKind !== "rigging")).slice(0, 8);
+    const riggingCharts = shuffle(all.filter((q) => q.chartKind === "rigging"));
+    const riggingTheory = shuffle(
       all.filter(
         (q) =>
           !q.chartPdf &&
@@ -328,10 +329,15 @@ export function selectTrackQuestions(all: Question[], trackId: ExamTrack["id"]):
             q.bSection === 8 ||
             q.bSection === 9 ||
             q.bSection === 10 ||
-            (q.exams?.includes("lcr") && /sling|hitch|rigging|wll/i.test(q.question)))
-      )
-    ).slice(0, 2);
-    const fill = shuffle(all.filter((q) => q.chartPdf && !charts.includes(q)));
+            (q.exams?.includes("lcr") && /sling|hitch|rigging|wll/i.test(q.question))),
+      ),
+    );
+    const rigging = [...riggingCharts.slice(0, 2)];
+    if (rigging.length < 2) {
+      const used = new Set(rigging.map((q) => q.id));
+      rigging.push(...riggingTheory.filter((q) => !used.has(q.id)).slice(0, 2 - rigging.length));
+    }
+    const fill = shuffle(all.filter((q) => q.chartPdf && q.chartKind !== "rigging" && !charts.includes(q)));
     const picked = [...charts];
     while (picked.length < 8 && fill.length) picked.push(fill.pop()!);
     picked.push(...rigging);

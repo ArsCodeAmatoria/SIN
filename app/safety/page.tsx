@@ -9,7 +9,7 @@ import { pageMeta } from "@/lib/seo";
 import { SITE } from "@/lib/site";
 
 export const metadata: Metadata = pageMeta({
-  title: "Crane Safety Program, Procedures & Forms BC | PROVEN — sin()",
+  title: "Crane Safety Program & Procedures BC | PROVEN",
   description:
     "Free crane and rigging safety program for British Columbia with policies, SWPs, JHAs, lift plans, inspections, emergency procedures, forms and crane binders.",
   path: "/safety",

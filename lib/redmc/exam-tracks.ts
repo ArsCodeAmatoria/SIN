@@ -77,12 +77,12 @@ export const MOBILE_EXAM_TRACKS: ExamTrack[] = [
   },
   {
     id: "lcr",
-    title: "Load charts",
-    subtitle: "Manufacturer PDFs",
+    title: "Load charts & rigging",
+    subtitle: "Fulford-style practical",
     questions: 10,
     minutes: 45,
     passPercent: 70,
-    body: "Chart sets are coming soon. This track stays empty until a manufacturer PDF and questions are supplied — capacities are not invented here.",
+    body: "8 manufacturer load-chart + 2 rigging-chart. Never interpolate. 7/10 to pass. Manufacturer PDFs fill as questions are written. Rigging uses the BCACS Figure 1 booklet.",
   },
 ];
 
@@ -115,7 +115,7 @@ export const MOBILE_PRACTICE_MODES: {
     id: "exam",
     title: "Exam-Level Practice",
     subtitle: "Provisional through Red Seal",
-    body: "Sit a paper tagged to BC Provisional, Level 1, Level 2, Level 3, or Red Seal.",
+    body: "Sit a paper tagged to BC Provisional, Level 1, Level 2, Level 3, Red Seal, or Fulford-style load charts and rigging.",
   },
   {
     id: "calculation",
@@ -269,7 +269,11 @@ export function mobileTrackAvailable(
   trackId: ExamTrack["id"],
 ): number {
   if (trackId === "practice") return Math.min(10, all.length);
-  if (trackId === "lcr") return Math.min(10, all.filter((q) => q.chartPdf).length);
+  if (trackId === "lcr") {
+    const load = all.filter((q) => q.chartPdf && q.chartKind !== "rigging");
+    const rigging = all.filter((q) => q.chartKind === "rigging");
+    return Math.min(10, load.length + rigging.length);
+  }
   if (trackId === "ip") return Math.min(MASTER_QUESTIONS, all.length);
   const exam = trackId as ExamId;
   const tagged = all.filter((q) => q.exams?.includes(exam));
@@ -308,7 +312,17 @@ export function selectMobileTrackQuestions(
   if (trackId === "practice") return shufflePaper(all.slice()).slice(0, Math.min(10, all.length));
   if (trackId === "ip") return shufflePaper(selectMobileIpPaper(all));
   if (trackId === "lcr") {
-    return shufflePaper(all.filter((q) => q.chartPdf)).slice(0, 10);
+    const load = shufflePaper(all.filter((q) => q.chartPdf && q.chartKind !== "rigging"));
+    const rigging = shufflePaper(all.filter((q) => q.chartKind === "rigging"));
+    const picked = [...load.slice(0, 8), ...rigging.slice(0, 2)];
+    if (picked.length < 10) {
+      const used = new Set(picked.map((q) => q.id));
+      const fill = shufflePaper(
+        [...load, ...rigging].filter((q) => !used.has(q.id)),
+      );
+      picked.push(...fill.slice(0, 10 - picked.length));
+    }
+    return shufflePaper(picked).slice(0, 10);
   }
   const exam = trackId as ExamId;
   const tagged = all.filter((q) => q.exams?.includes(exam));

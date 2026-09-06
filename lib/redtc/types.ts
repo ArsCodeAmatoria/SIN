@@ -31,10 +31,12 @@ export interface Question {
   correctAnswer: string;
   category?: string;
   difficulty?: Difficulty;
-  /** PDF filename for load chart questions - enables "Open Chart" link */
+  /** PDF filename or absolute public path — enables "Open Chart" link */
   chartPdf?: string;
   /** Chart name for display (e.g. "Liebherr 470 EC-B") */
   chartName?: string;
+  /** Load-chart PDFs vs BCACS rigging figures */
+  chartKind?: "load" | "rigging";
   /** Exams this question maps to */
   exams?: ExamId[];
   /** Fulford Level B Core Theory section 1–15 */

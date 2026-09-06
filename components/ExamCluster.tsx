@@ -1,18 +1,19 @@
 import Link from "next/link";
 
 const TOWER = [
-  { href: "/tower-crane-red-seal-practice-test", label: "Red Seal IP" },
-  { href: "/tower-crane-level-b-practice-test", label: "Level B" },
-  { href: "/tower-crane-level-1-practice-test", label: "Level 1" },
-  { href: "/tower-crane-level-2-practice-test", label: "Level 2" },
-  { href: "/tower-crane-load-chart-practice", label: "Load charts" },
-  { href: "/bc-tower-crane-certification", label: "Certification" },
+  { href: "/tower-crane-red-seal-practice-test", label: "Red Seal practice test" },
+  { href: "/tower-crane-level-b-exam-bc", label: "Level B exam" },
+  { href: "/tower-crane-level-1-practice-test", label: "Level 1 exam" },
+  { href: "/tower-crane-level-2-practice-test", label: "Level 2 exam" },
+  { href: "/tower-crane-load-chart-practice", label: "Load chart practice" },
+  { href: "/redtc/rigging-charts", label: "Rigging charts" },
+  { href: "/tower-crane-certification-bc", label: "Certification in B.C." },
 ] as const;
 
 const MOBILE = [
-  { href: "/mobile-crane-red-seal-practice-test", label: "Red Seal IP" },
-  { href: "/bc-mobile-crane-certification", label: "Certification" },
-  { href: "/mobile-crane-load-chart-practice", label: "Load charts" },
+  { href: "/mobile-crane-red-seal-practice-test", label: "Red Seal practice test" },
+  { href: "/bc-mobile-crane-certification", label: "Certification in B.C." },
+  { href: "/mobile-crane-load-chart-practice", label: "Load chart practice" },
   { href: "/redmc/rigging-charts", label: "Rigging charts" },
 ] as const;
 
