@@ -1,17 +1,10 @@
 import Link from "next/link";
-import { CorSection } from "@/components/CorSection";
-import { ExamCluster } from "@/components/ExamCluster";
+import { DocBadge } from "@/components/DocBadge";
 import { ProvenName } from "@/components/ProvenMark";
 import { WireStoryLink } from "@/components/WireStoryLink";
-import {
-  allQuestions as mobileQuestions,
-  CHARTS as MOBILE_CHARTS,
-  RIGGING_CHARTS as MOBILE_RIGGING,
-  mobileSourceQuestions,
-} from "@/lib/redmc/bank";
-import { allQuestions as towerQuestions, CHARTS } from "@/lib/redtc/bank";
+import { HOME_LIFT_GROUPS } from "@/lib/safety";
 import { pageMeta } from "@/lib/seo";
-import { PROGRAM, SITE } from "@/lib/site";
+import { SITE } from "@/lib/site";
 import { WIRE, getLatest, summarize } from "@/lib/whoopwire";
 import type { Metadata } from "next";
 
@@ -21,204 +14,150 @@ export const metadata: Metadata = pageMeta({
   path: "/",
 });
 
-export default function HomePage() {
-  const tower = towerQuestions().length;
-  const mobile = mobileQuestions().length;
-  const mobileTheory = mobileSourceQuestions().length;
-  const mobileRigging = MOBILE_RIGGING.reduce((n, c) => n + c.questions.length, 0);
-  const mobileChartQs = MOBILE_CHARTS.reduce((n, c) => n + c.questions.length, 0);
-  const charts = CHARTS.length;
-  const mobilePdfs = MOBILE_CHARTS.length;
+const HERO_LIFT = [
+  { href: "/safety/form/flha", label: "FLHA", hint: "This shift" },
+  { href: "/safety/binder", label: "BINDERS", hint: "This machine" },
+  { href: "/sling", label: "SLING", hint: "θ / tension / WLL" },
+  { href: "/safety", label: "PROVEN", hint: "The program" },
+] as const;
 
+const TOWER_LANDINGS = [
+  { href: "/tower-crane-level-b-exam-bc", label: "Level B" },
+  { href: "/tower-crane-level-1-practice-test", label: "Level 1" },
+  { href: "/tower-crane-level-2-practice-test", label: "Level 2" },
+  { href: "/tower-crane-load-chart-practice", label: "Load charts" },
+] as const;
+
+export default function HomePage() {
   return (
     <>
-      <section className="section section-lead" id="sin">
+      <section className="section section-lead home-hero" id="sin">
         <div className="wrap">
-          <p className="mono kicker">01 — THIS SITE</p>
-          <h1 className="display giant">
-            CRANE
+          <p className="mono kicker">CRANE SAFETY · BRITISH COLUMBIA</p>
+          <h1 className="display home-title">
+            Practice the exam.
             <br />
-            SAFETY
-            <br />
-            INFORMATION.
+            Use it on the lift.
           </h1>
-          <p className="display pitch-line mt-2">
-            PRACTICE TESTS.
-            <br />
-            A PUBLIC PROGRAM.
-            <br />
-            THE WIRE.
-          </p>
-          <p className="lede-lg mt">
-            {SITE.description}
-          </p>
-          <div className="place mt-2">
-            <article>
-              <span className="mono steel">Practice</span>
-              <h3 className="display">RED SEAL TESTS</h3>
-              <p>
-                Tower Crane and Mobile Crane exam prep. Tagged questions, load
-                charts, 70% to pass.
-              </p>
-            </article>
-            <article>
-              <span className="mono steel">Program</span>
-              <h3 className="display">
-                <ProvenName />
-              </h3>
-              <p>
-                Policies, procedures, JHAs, forms and binders. Readable on a
-                phone before the hook is loaded.
-              </p>
-            </article>
-            <article>
-              <span className="mono steel">Writing</span>
-              <h3 className="display">{WIRE.name}</h3>
-              <p>
-                Safety, rigging, cranes, people. The blog. Not a newsletter
-                mill.
-              </p>
-            </article>
-            <article>
-              <span className="mono steel">COR®</span>
-              <h3 className="display">INFORMATION</h3>
-              <p>
-                What the Certificate of Recognition is, who runs it in B.C.,
-                and how an OHS program maps to it.
-              </p>
-            </article>
-          </div>
-          <div className="inline-cta">
-            <Link
-              className="btn btn-solid"
-              href="/redtc"
-              title="Tower Crane Red Seal practice tests"
-            >
-              PRACTICE TESTS
-            </Link>
-            <Link
-              className="btn btn-ghost"
-              href="/safety"
-              title="Crane safety program and procedures"
-            >
-              READ {SITE.system}
-            </Link>
-            <Link
-              className="btn btn-ghost"
-              href={WIRE.path}
-              title="Crane safety and rigging articles"
-            >
-              {WIRE.name}
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      <section className="section wrap redtc" id="redtc">
-        <p className="mono kicker">02 — PRACTICE TESTS</p>
-        <h2 className="display giant">
-          RED SEAL.
-          <br />
-          PRACTICE.
-        </h2>
-        <p className="lede mt-2">
-          Tower Crane and Mobile Crane. Fulford, SkilledTradesBC, Red Seal IP,
-          and manufacturer load charts. Same interface. Separate banks. 70% to
-          pass.
-        </p>
-        <div className="place mt-2">
-          <article>
-            <span className="mono steel">Tower</span>
-            <h3 className="display">{tower.toLocaleString("en-CA")}</h3>
-            <p>
-              Questions in REDTC. {charts} manufacturer charts.
-            </p>
-          </article>
-          <article>
-            <span className="mono steel">Mobile</span>
-            <h3 className="display">{mobile.toLocaleString("en-CA")}</h3>
-            <p>
-              {mobile.toLocaleString("en-CA")} current practice items in REDMC
-              — not the official 110-question Red Seal paper. {mobileTheory}{" "}
-              theory + {mobileChartQs} manufacturer load-chart + {mobileRigging}{" "}
-              rigging-chart. {mobilePdfs} manufacturer PDFs.
-            </p>
-          </article>
-          <article>
-            <span className="mono steel">Pass</span>
-            <h3 className="display">70%</h3>
-            <p>Same bar as the sitting. Explanations after you answer.</p>
-          </article>
-          <article>
-            <span className="mono steel">Master</span>
-            <h3 className="display">IP</h3>
-            <p>
-              Closed-book Red Seal paper. Tower 100. Mobile 110, 2021 RSOS.
-            </p>
-          </article>
-        </div>
-        <div className="inline-cta">
-          <Link className="btn btn-solid" href="/redtc">
-            TOWER CRANE
-          </Link>
-          <Link className="btn btn-ghost" href="/redmc">
-            MOBILE CRANE
-          </Link>
-        </div>
-        <ExamCluster />
-      </section>
-
-      <section className="section" id="safety">
-        <div className="wrap">
-          <p className="mono kicker">03 — THE PROGRAM</p>
-          <h2 className="display giant">
-            THE SAFETY
-            <br />
-            SYSTEM IS
-            <br />
-            CALLED
-            <br />
-            <ProvenName />
-          </h2>
-          <p className="lede-lg mt-2">
-            A public occupational health and safety program for lifting work.
-          </p>
           <p className="lede mt">
-            Policies, safe work procedures, hazard assessments, forms and crane
-            binders. Written to CSA Z150 / Z248, WorkSafeBC, BC Crane Safety,
-            Technical Safety BC, applicable ASME B30 standards, manufacturer requirements and site
-            policies. No portal. No request form. No expiry date.
+            Tower and mobile Red Seal practice. Procedures, forms, binders and
+            sling math. Written for operators, riggers and supervisors in
+            British Columbia.
           </p>
-          <div className="mt-2">
-            {PROGRAM.map((s) => (
-              <article className="service" key={s.num}>
-                <span className="mono steel">{s.num}</span>
-                <h3 className="display">{s.title}</h3>
-                <p>{s.body}</p>
-              </article>
-            ))}
-          </div>
-          <div className="inline-cta">
-            <Link className="btn btn-solid" href="/safety">
-              OPEN {SITE.system}
-            </Link>
-            <Link className="btn btn-ghost" href="/safety/builder">
-              FORM BUILDER
-            </Link>
-            <Link className="btn btn-ghost" href="/safety/binder">
-              CRANE BINDER WIZARD
-            </Link>
+          <div className="home-jobs">
+            <div className="home-practice">
+              <Link
+                href="/redtc/test"
+                title="Tower Crane Red Seal practice test"
+              >
+                <strong className="display">Tower test</strong>
+                <em>REDTC · 70% to pass</em>
+              </Link>
+              <Link
+                href="/redmc/test"
+                title="Mobile Crane Red Seal practice test"
+              >
+                <strong className="display">Mobile test</strong>
+                <em>REDMC · 70% to pass</em>
+              </Link>
+            </div>
+            <nav className="home-hero-lift" aria-label="This lift">
+              {HERO_LIFT.map((item) => (
+                <Link href={item.href} key={item.href}>
+                  <strong className="display">{item.label}</strong>
+                  <em>{item.hint}</em>
+                </Link>
+              ))}
+            </nav>
           </div>
         </div>
       </section>
 
-      <CorSection />
+      <section className="section wrap" id="practice">
+        <h2 className="display home-section-title">Red Seal practice</h2>
+        <div className="home-doors mt-2">
+          <article>
+            <h3 className="display">Tower Crane</h3>
+            <p>
+              Fulford, SkilledTradesBC, Interprovincial. Manufacturer load
+              charts. 70% to pass.
+            </p>
+            <div className="inline-cta">
+              <Link className="btn btn-solid" href="/redtc/test">
+                Start tower test
+              </Link>
+              <Link className="btn btn-ghost" href="/redtc">
+                REDTC
+              </Link>
+            </div>
+            <p className="mono steel home-landings">
+              {TOWER_LANDINGS.map((item, i) => (
+                <span key={item.href}>
+                  {i ? " · " : ""}
+                  <Link href={item.href}>{item.label}</Link>
+                </span>
+              ))}
+            </p>
+          </article>
+          <article>
+            <h3 className="display">Mobile Crane</h3>
+            <p>
+              Theory, manufacturer charts, sling charts. 70% to pass.
+            </p>
+            <div className="inline-cta">
+              <Link className="btn btn-solid" href="/redmc/test">
+                Start mobile test
+              </Link>
+              <Link className="btn btn-ghost" href="/redmc">
+                REDMC
+              </Link>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section className="section wrap" id="lift">
+        <h2 className="display home-section-title">This lift</h2>
+        {HOME_LIFT_GROUPS.map((group) => (
+          <div className="safety-now-group" key={group.id}>
+            <p className="mono steel">{group.label}</p>
+            <nav className="safety-now" aria-label={group.label}>
+              {group.items.map((item) => (
+                <Link href={item.href} key={item.href}>
+                  {item.kind ? <DocBadge kind={item.kind} /> : null}
+                  <strong className="display">{item.label}</strong>
+                  <em>{item.hint}</em>
+                </Link>
+              ))}
+            </nav>
+          </div>
+        ))}
+        <div className="inline-cta">
+          <Link className="btn btn-ghost" href="/safety/builder">
+            FORM BUILDER
+          </Link>
+        </div>
+      </section>
+
+      <section className="section wrap" id="safety">
+        <h2 className="display home-section-title">
+          <ProvenName />
+        </h2>
+        <p className="lede mt">
+          The occupational health and safety program for this work. Policies,
+          procedures, JHAs and forms. Readable on a phone before the hook is
+          loaded.
+        </p>
+        <div className="inline-cta">
+          <Link className="btn btn-solid" href="/safety">
+            Open Proven
+          </Link>
+        </div>
+      </section>
 
       <section className="section wrap" id="wire">
-        <p className="mono kicker">05 — THE WIRE</p>
-        <h2 className="display giant">{WIRE.name}</h2>
-        <p className="mono mt">{WIRE.descriptor}</p>
-        <p className="lede mt-2">{WIRE.dek}</p>
+        <h2 className="display home-section-title">{WIRE.name}</h2>
+        <p className="lede mt">{WIRE.dek}</p>
         <div className="wire-stack mt-2">
           {getLatest(3).map((story) => (
             <WireStoryLink key={story.slug} story={summarize(story)} size="home" />
@@ -226,7 +165,7 @@ export default function HomePage() {
         </div>
         <div className="inline-cta">
           <Link className="btn btn-solid" href={WIRE.path}>
-            READ {WIRE.name} →
+            Read {WIRE.name} →
           </Link>
         </div>
       </section>

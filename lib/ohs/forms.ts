@@ -16,7 +16,7 @@ export const FORMS: SafetyForm[] = [
       "Stop criteria",
       "Signatures of everyone on the lift",
     ],
-    routing: "Crew completes in the field. Copy to GOSPEL.",
+    routing: "Crew completes in the field. Copy to Proven.",
   },
   {
     slug: "crane-pre-use",
@@ -69,7 +69,7 @@ export const FORMS: SafetyForm[] = [
       "Questions and answers",
       "Attendance",
     ],
-    routing: "Supervisor or designated lead. Copy to GOSPEL with the FLHA.",
+    routing: "Supervisor or designated lead. Copy to Proven with the FLHA.",
   },
   {
     slug: "daily-lift-checklist",
@@ -120,7 +120,7 @@ export const FORMS: SafetyForm[] = [
       "Rescue / abort",
       "Approvals",
     ],
-    routing: "Approved before the hook is loaded. Copy to GOSPEL and the prime contractor as required.",
+    routing: "Approved before the hook is loaded. Copy to Proven and the prime contractor as required.",
   },
   {
     slug: "rigging-plan",
@@ -308,7 +308,7 @@ export const FORMS: SafetyForm[] = [
       "Date",
       "Replaced or destroyed if failed",
     ],
-    routing: "GOSPEL. Failed PPE is destroyed or marked, not left in a truck.",
+    routing: "Proven. Failed PPE is destroyed or marked, not left in a truck.",
   },
   {
     slug: "worker-acknowledgement",
@@ -370,7 +370,7 @@ export const FORMS: SafetyForm[] = [
       "Removed from service",
       "Inspector",
     ],
-    routing: "GOSPEL. Failed gear does not travel to the next site.",
+    routing: "Proven. Failed gear does not travel to the next site.",
   },
   {
     slug: "crane-operator-log",
@@ -406,7 +406,7 @@ export const FORMS: SafetyForm[] = [
       "Lifts this shift",
       "Rejected gear tagged",
     ],
-    routing: "Rigger completes. Failed gear is isolated the same hour. Copy to GOSPEL.",
+    routing: "Rigger completes. Failed gear is isolated the same hour. Copy to Proven.",
   },
   {
     slug: "weekly-maintenance",
@@ -466,7 +466,7 @@ export const FORMS: SafetyForm[] = [
       "Defects and out-of-service decision",
     ],
     routing:
-      "Operator completes. Defects that affect lifting stop the crane. Copy in the logbook. Copy to GOSPEL.",
+      "Operator completes. Defects that affect lifting stop the crane. Copy in the logbook. Copy to Proven.",
     download: {
       href: "/safety/builder/tower-pre-use",
       label: "FILL THIS FORM →",
@@ -489,7 +489,7 @@ export const FORMS: SafetyForm[] = [
       "Defects and out-of-service decision",
     ],
     routing:
-      "Operator completes. Luffing-system defects stop the crane. Copy in the logbook. Copy to GOSPEL.",
+      "Operator completes. Luffing-system defects stop the crane. Copy in the logbook. Copy to Proven.",
     download: {
       href: "/safety/builder/luffing-jib-inspection",
       label: "FILL THIS FORM →",
@@ -512,7 +512,7 @@ export const FORMS: SafetyForm[] = [
       "Defects and out-of-service decision",
     ],
     routing:
-      "Operator completes. Incomplete unfold or missing ballast stops the crane. Copy in the logbook. Copy to GOSPEL.",
+      "Operator completes. Incomplete unfold or missing ballast stops the crane. Copy in the logbook. Copy to Proven.",
     download: {
       href: "/safety/builder/self-erect-inspection",
       label: "FILL THIS FORM →",
@@ -579,11 +579,11 @@ export const FORMS: SafetyForm[] = [
       "Inspection findings still open",
       "Training and competency gaps",
       "Worker concerns and refusals",
-      "COR / audit actions",
+      "Audit findings still open",
       "Objectives this period",
       "Decisions, owners, dates",
     ],
-    routing: "GOSPEL Safety. Minutes kept with the records. Actions enter FRM-014.",
+    routing: "Proven. Minutes kept with the records. Actions enter FRM-014.",
     download: {
       href: "/safety/builder/management-review",
       label: "FILL THIS FORM →",
@@ -604,7 +604,7 @@ export const FORMS: SafetyForm[] = [
       "Worker concerns",
       "Actions, owners, dates",
     ],
-    routing: "GOSPEL or the supervisor who ran it. Record kept. 3.2(c).",
+    routing: "Proven or the supervisor who ran it. Record kept. 3.2(c).",
     download: {
       href: "/safety/builder/ohs-meeting",
       label: "FILL THIS FORM →",
@@ -624,7 +624,7 @@ export const FORMS: SafetyForm[] = [
       "What failed",
       "Actions, owners, dates",
     ],
-    routing: "GOSPEL Safety. Lessons enter FRM-014.",
+    routing: "Proven. Lessons enter FRM-014.",
     download: {
       href: "/safety/builder/emergency-drill",
       label: "FILL THIS FORM →",
@@ -1113,7 +1113,7 @@ export const FORMS: SafetyForm[] = [
     links: [
       {
         href: "/safety/sjp/flytable-cycle",
-        label: "SJP TEMPLATE — GOSPEL-SJP-001 →",
+        label: "SJP TEMPLATE — PROVEN-SJP-001 →",
       },
       {
         href: "https://www.worksafebc.com/en/resources/health-safety/videos/flytable-safety",
@@ -1149,7 +1149,7 @@ export const FORMS: SafetyForm[] = [
     links: [
       {
         href: "/safety/sjp/loading-platform",
-        label: "SJP TEMPLATE — GOSPEL-SJP-003 →",
+        label: "SJP TEMPLATE — PROVEN-SJP-003 →",
       },
       {
         href: "https://www.doka.com/en/solutions/products/loading-platform/index",

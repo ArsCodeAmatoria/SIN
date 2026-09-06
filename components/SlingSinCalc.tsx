@@ -1,10 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
-
-function sinDeg(deg: number) {
-  return Math.sin((deg * Math.PI) / 180);
-}
+import { formatTension, twoLegTension } from "@/lib/sling-math";
 
 export function SlingSinCalc() {
   const [load, setLoad] = useState("4000");
@@ -12,18 +9,7 @@ export function SlingSinCalc() {
   const w = Number(load);
   const theta = Number(angle);
 
-  const result = useMemo(() => {
-    if (!Number.isFinite(w) || w <= 0) return null;
-    if (!Number.isFinite(theta) || theta <= 0 || theta > 90) return null;
-    const s = sinDeg(theta);
-    if (s <= 0) return null;
-    return {
-      sin: s,
-      factor: 1 / s,
-      tension: w / (2 * s),
-      low: theta < 30,
-    };
-  }, [w, theta]);
+  const result = useMemo(() => twoLegTension(w, theta), [w, theta]);
 
   return (
     <div className="wire-calc">
@@ -53,7 +39,7 @@ export function SlingSinCalc() {
           />
         </label>
       </div>
-      {result ? (
+      {result.ok ? (
         <dl className="wire-calc-out">
           <div>
             <dt className="mono">sin(θ)</dt>
@@ -71,7 +57,7 @@ export function SlingSinCalc() {
       ) : (
         <p className="steel mt">Enter a load and an angle between 1° and 90°.</p>
       )}
-      {result?.low ? (
+      {result.ok && result.low ? (
         <p className="wire-calc-warn mono">
           BELOW 30° WE DO NOT RIG THIS WAY UNLESS AN ENGINEER OWNS THE NUMBERS.
         </p>
@@ -82,10 +68,4 @@ export function SlingSinCalc() {
       </p>
     </div>
   );
-}
-
-function formatTension(n: number) {
-  if (n >= 100) return n.toFixed(0);
-  if (n >= 10) return n.toFixed(1);
-  return n.toFixed(2);
 }

@@ -6,7 +6,32 @@ import { useEffect, useState } from "react";
 import { Wordmark } from "./Logo";
 import { ProvenName } from "./ProvenMark";
 import { ThemeSwitch } from "./ThemeSwitch";
-import { NAV, SITE } from "@/lib/site";
+import { NAV_LIFT, NAV_PRACTICE, NAV_READ, SITE, type NavItem } from "@/lib/site";
+
+function OverlayLinks({
+  items,
+  onPick,
+}: {
+  items: NavItem[];
+  onPick: () => void;
+}) {
+  return items.map((item) => (
+    <Link
+      key={item.href}
+      href={item.href}
+      title={item.title}
+      aria-label={item.title}
+      onClick={onPick}
+    >
+      <span className="overlay-num">{item.num}</span>
+      {item.href === "/safety" ? (
+        <ProvenName className="overlay-label" />
+      ) : (
+        <span className="overlay-label">{item.label}</span>
+      )}
+    </Link>
+  ));
+}
 
 export function Header() {
   const [open, setOpen] = useState(false);
@@ -42,39 +67,29 @@ export function Header() {
           >
             {open ? "CLOSE" : "MENU"}
           </button>
-          <Link
-            className="btn btn-solid"
-            href="/safety"
-            title="Crane safety program, procedures and forms"
-          >
-            PROVEN
-          </Link>
         </div>
       </header>
       <div
         id="site-menu"
         className={`overlay${open ? " open" : ""}`}
         hidden={!open}
+        inert={!open}
         aria-hidden={!open}
       >
-        <nav className="overlay-list" aria-label="Primary">
-          {NAV.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              title={item.title}
-              aria-label={item.title}
-              onClick={() => setOpen(false)}
-            >
-              <span className="overlay-num">{item.num}</span>
-              {item.href === "/safety" ? (
-                <ProvenName className="overlay-label" />
-              ) : (
-                <span className="overlay-label">{item.label}</span>
-              )}
-            </Link>
-          ))}
-        </nav>
+        <div className="overlay-bands">
+          <nav className="overlay-list" aria-label="Practice">
+            <p className="mono overlay-kicker">PRACTICE</p>
+            <OverlayLinks items={NAV_PRACTICE} onPick={() => setOpen(false)} />
+          </nav>
+          <nav className="overlay-list overlay-desk" aria-label="This lift">
+            <p className="mono overlay-kicker">THIS LIFT</p>
+            <OverlayLinks items={NAV_LIFT} onPick={() => setOpen(false)} />
+          </nav>
+          <nav className="overlay-list overlay-read" aria-label="Read">
+            <p className="mono overlay-kicker">READ</p>
+            <OverlayLinks items={NAV_READ} onPick={() => setOpen(false)} />
+          </nav>
+        </div>
         <div className="overlay-foot mono">
           <span>{SITE.location}</span>
           <a href={SITE.emailHref}>{SITE.email}</a>

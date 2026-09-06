@@ -62,17 +62,17 @@ export function SignatureField({
 
   return (
     <div className="fb-sig">
-      <div className="fb-sig-tabs">
+      <div className="tabs fb-sig-tabs">
         <button
           type="button"
-          className={kind === "typed" ? "active" : undefined}
+          className={kind === "typed" ? "is-on" : undefined}
           onClick={() => setKind("typed")}
         >
           TYPED
         </button>
         <button
           type="button"
-          className={kind === "drawn" ? "active" : undefined}
+          className={kind === "drawn" ? "is-on" : undefined}
           onClick={() => setKind("drawn")}
         >
           DRAWN

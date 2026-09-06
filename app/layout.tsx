@@ -5,6 +5,7 @@ import {
   Oswald,
   Poppins,
 } from "next/font/google";
+import { CabCopy } from "@/components/CabCopy";
 import { Header } from "@/components/Header";
 import { SiteFooter } from "@/components/SiteFooter";
 import { ORIGIN, jsonLdGraph, organizationLd, pageMeta, personLd, websiteLd } from "@/lib/seo";
@@ -111,6 +112,7 @@ export default function RootLayout({
         />
         <div className="grain" aria-hidden />
         <Header />
+        <CabCopy />
         <main id="content" className="main">
           {children}
         </main>

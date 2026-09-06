@@ -126,7 +126,7 @@ export const MAD_REFS = [
 ];
 
 export const LIGHTNING_RULE: DocTable = {
-  caption: "LIGHTNING — GOSPEL STOP. THUNDER IS THE TRIGGER. DO NOT COUNT TO 30.",
+  caption: "LIGHTNING — STOP. THUNDER IS THE TRIGGER. DO NOT COUNT TO 30.",
   columns: ["TRIGGER", "ACTION"],
   rows: [
     ["Thunder heard, or lightning seen", "Stop the lift. Land. Manufacturer shutdown. Shelter. Do not wait for a 30-second count."],
@@ -137,7 +137,7 @@ export const LIGHTNING_RULE: DocTable = {
 
 export const LIGHTNING_BANG: DocTable = {
   caption: "FLASH-TO-BANG — CITE ONLY. SOUND ~300 m/s. NOT A REASON TO KEEP LIFTING.",
-  columns: ["SECONDS AFTER FLASH", "~DISTANCE", "GOSPEL"],
+  columns: ["SECONDS AFTER FLASH", "~DISTANCE", "STOP"],
   rows: [
     ["Thunder — any rumble", "Striking distance", "ECCC: if you hear it, you are in range. Stop."],
     ["10 s", "~3 km", "Already too close."],

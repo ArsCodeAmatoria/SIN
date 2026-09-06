@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useMemo, useState } from "react";
+import { DocBadge } from "@/components/DocBadge";
 import type { CatalogHit } from "@/lib/ohs/catalog";
 
 export function SafetyFind({ catalog }: { catalog: CatalogHit[] }) {
@@ -33,9 +34,13 @@ export function SafetyFind({ catalog }: { catalog: CatalogHit[] }) {
       {hits.length > 0 ? (
         <nav className="safety-find-hits" aria-label="Search results">
           {hits.map((item) => (
-            <Link key={item.href} href={item.href}>
-              <span className="mono steel">
-                {item.kind} {item.number}
+            <Link
+              key={item.href}
+              href={item.href}
+              className={item.kind === "BINDER" ? "is-binder" : undefined}
+            >
+              <span className="ohs-lib-head">
+                <DocBadge number={item.number} />
               </span>
               <strong className="display">{item.title}</strong>
             </Link>

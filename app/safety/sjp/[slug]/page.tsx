@@ -29,7 +29,7 @@ export default async function SjpPage({ params }: Props) {
   return (
     <SafetyDocFrame
       kicker="SAFE JOB PROCEDURE"
-      num={doc.number.replace("GOSPEL-", "")}
+      number={doc.number}
       title={doc.title}
       intro={doc.summary}
       backHref="/safety/sjp-library"

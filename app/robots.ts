@@ -4,7 +4,7 @@ import { ORIGIN } from "@/lib/seo";
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: [
-      { userAgent: "*", allow: "/" },
+      { userAgent: "*", allow: "/", disallow: ["/sw.js", "/cab-offline.html", "/safety/cab-manifest"] },
       { userAgent: "LinkedInBot", allow: "/" },
       { userAgent: "Twitterbot", allow: "/" },
       { userAgent: "facebookexternalhit", allow: "/" },

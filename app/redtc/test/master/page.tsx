@@ -1,13 +1,14 @@
 "use client";
 
 import Link from "next/link";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { FormulaSheet } from "@/components/redtc/FormulaSheet";
 import { ProgressBar } from "@/components/redtc/ProgressBar";
 import { QuestionCard } from "@/components/redtc/QuestionCard";
 import { RedtcNav } from "@/components/redtc/RedtcNav";
-import { allQuestions } from "@/lib/redtc/bank";
+import { allQuestions, REDTC_PROGRESS_KEY } from "@/lib/redtc/bank";
 import { parseRsosTask, RSOS_MWA, RSOS_TASKS, scoreByMwa, selectIpPaper } from "@/lib/redtc/exam-tracks";
+import { recordMaster } from "@/lib/redtc/progress";
 import { useTest } from "@/lib/redtc/use-test";
 
 const questions = allQuestions(10000);
@@ -31,6 +32,7 @@ export default function RedtcMasterPage() {
   const [reviewMissed, setReviewMissed] = useState(false);
   const [reviewIndex, setReviewIndex] = useState(0);
   const [showNav, setShowNav] = useState(false);
+  const recorded = useRef(false);
 
   const {
     currentQuestion,
@@ -73,7 +75,15 @@ export default function RedtcMasterPage() {
     if (timerExpired && hasStarted && !isComplete) submitExam();
   }, [timerExpired, hasStarted, isComplete, submitExam]);
 
+  useEffect(() => {
+    if (isComplete && hasStarted && !recorded.current) {
+      recorded.current = true;
+      recordMaster(REDTC_PROGRESS_KEY, testQuestions, results);
+    }
+  }, [isComplete, hasStarted, testQuestions, results]);
+
   const handleStart = useCallback(() => {
+    recorded.current = false;
     initializeTest(selectIpPaper(questions));
     setHasStarted(true);
     setTimeRemaining(TIMER);
@@ -291,6 +301,11 @@ export default function RedtcMasterPage() {
           <button type="button" className="btn btn-ghost" onClick={handleReset}>
             {passed ? "Sit another paper" : "Try again"}
           </button>
+          {missed.length > 0 ? (
+            <Link className="btn btn-ghost" href="/redtc/test#drill">
+              Drill misses
+            </Link>
+          ) : null}
           <Link className="btn btn-ghost" href="/redtc/test">
             Practice papers
           </Link>

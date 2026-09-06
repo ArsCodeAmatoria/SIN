@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { absUrl, breadcrumbLd, jsonLdGraph, organizationLd, websiteLd } from "@/lib/seo";
+import { absUrl, breadcrumbLd, jsonLdGraph, organizationLd, ORIGIN, websiteLd } from "@/lib/seo";
 import type { SeoLanding } from "@/lib/seo-landings";
 import { SITE } from "@/lib/site";
 
@@ -20,18 +20,20 @@ export function Breadcrumbs({
   return (
     <nav className="crumbs" aria-label="Breadcrumb">
       <ol>
-        {items.map((item, index) => {
-          const last = index === items.length - 1;
-          return (
-            <li key={`${item.name}-${index}`}>
-              {!last && item.path ? (
-                <Link href={item.path}>{item.name}</Link>
-              ) : (
-                <span aria-current={last ? "page" : undefined}>{item.name}</span>
-              )}
-            </li>
-          );
-        })}
+        {items
+          .filter((item, index) => item.path || index === items.length - 1)
+          .map((item, index, listed) => {
+            const last = index === listed.length - 1;
+            return (
+              <li key={`${item.name}-${index}`}>
+                {!last && item.path ? (
+                  <Link href={item.path}>{item.name}</Link>
+                ) : (
+                  <span aria-current={last ? "page" : undefined}>{item.name}</span>
+                )}
+              </li>
+            );
+          })}
       </ol>
     </nav>
   );
@@ -50,7 +52,7 @@ export function SeoLandingPage({ page }: { page: SeoLanding }) {
     name: page.title,
     description: page.description,
     url,
-    isPartOf: { "@id": `${absUrl("/")}#website` },
+    isPartOf: { "@id": `${ORIGIN}/#website` },
     inLanguage: "en-CA",
     breadcrumb: { "@id": `${url}#breadcrumb` },
   };

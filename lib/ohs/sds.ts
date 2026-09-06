@@ -5,7 +5,7 @@ export const SDS: Sds[] = [
   {
     slug: "diesel-fuel",
     title: "DIESEL FUEL",
-    number: "GOSPEL-SDS-001",
+    number: "PROVEN-SDS-001",
     use: "Fuel for mobile cranes, boom trucks and support vehicles on site. This procedure does not cover bulk fuel storage. Workers may refuel host or carrier equipment as assigned.",
     hazards: [
       "Flammable liquid and vapour",
@@ -21,7 +21,7 @@ export const SDS: Sds[] = [
   {
     slug: "hydraulic-oil",
     title: "HYDRAULIC OIL",
-    number: "GOSPEL-SDS-002",
+    number: "PROVEN-SDS-002",
     use: "Crane hydraulic systems. Leaks are a slip hazard and a fire hazard on hot surfaces. Operators report leaks; they do not ignore a wet boom pin.",
     hazards: ["Slippery surfaces", "Skin irritation", "High-pressure injection from pinhole leaks", "Smoke if it hits exhaust or brakes"],
     ppe: ["Gloves", "Eye protection", "Do not check leaks with your hand"],
@@ -32,7 +32,7 @@ export const SDS: Sds[] = [
   {
     slug: "grease-and-lubricants",
     title: "GREASE AND LUBRICANTS",
-    number: "GOSPEL-SDS-003",
+    number: "PROVEN-SDS-003",
     use: "Pins, slew rings, wire rope dressing as the manufacturer specifies. Not a substitute for inspection.",
     hazards: ["Skin irritation", "Slippery decks and ladders", "Contaminated rags as fire load"],
     ppe: ["Gloves", "Eye protection when spraying or brushing overhead"],
@@ -43,7 +43,7 @@ export const SDS: Sds[] = [
   {
     slug: "penetrating-oil",
     title: "PENETRATING OIL",
-    number: "GOSPEL-SDS-004",
+    number: "PROVEN-SDS-004",
     use: "Freeing seized pins and hardware on rigging and crane attachments. Not a cleaner for synthetic slings.",
     hazards: ["Flammable aerosol if that is the product", "Inhalation in closed cabs or shops", "Skin defatting"],
     ppe: ["Gloves", "Eye protection", "Ventilation"],
@@ -54,7 +54,7 @@ export const SDS: Sds[] = [
   {
     slug: "wire-rope-dressing",
     title: "WIRE ROPE DRESSING",
-    number: "GOSPEL-SDS-005",
+    number: "PROVEN-SDS-005",
     use: "Manufacturer-approved dressing for hoist and boom rope. Dressing does not hide broken wires.",
     hazards: ["Skin and eye irritation", "Slippery rope and decks", "Solvent vapour depending on product"],
     ppe: ["Gloves", "Eye protection"],
@@ -65,7 +65,7 @@ export const SDS: Sds[] = [
   {
     slug: "battery-electrolyte",
     title: "BATTERY ELECTROLYTE",
-    number: "GOSPEL-SDS-006",
+    number: "PROVEN-SDS-006",
     use: "Crane and carrier batteries. Jumping, charging and acid contact are electrical and chemical hazards.",
     hazards: ["Corrosive acid", "Explosive hydrogen while charging", "Electrical short and arc"],
     ppe: ["Acid-resistant gloves", "Eye protection", "No jewellery across terminals"],
@@ -76,7 +76,7 @@ export const SDS: Sds[] = [
   {
     slug: "hand-cleaner",
     title: "INDUSTRIAL HAND CLEANER",
-    number: "GOSPEL-SDS-007",
+    number: "PROVEN-SDS-007",
     use: "Removing grease after rigging and inspections. Not for washing eyes. Not a substitute for gloves.",
     hazards: ["Skin irritation with overuse", "Solvent vapour depending on product"],
     ppe: ["Use as directed. Moisturize. Do not use on cuts as a cleaner of first resort."],

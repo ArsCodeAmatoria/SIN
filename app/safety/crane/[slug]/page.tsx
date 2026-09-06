@@ -30,7 +30,7 @@ export default async function CranePage({ params }: Props) {
   return (
     <SafetyDocFrame
       kicker={`${doc.maker.toUpperCase()} · ${doc.family}`}
-      num={doc.number.replace("GOSPEL-", "")}
+      number={doc.number}
       title={doc.title}
       intro={doc.summary}
       backHref="/safety/inspections"

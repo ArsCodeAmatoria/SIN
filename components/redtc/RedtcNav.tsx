@@ -23,16 +23,16 @@ export function RedtcNav() {
 
   return (
     <>
-      <nav className="redtc-crane" aria-label="Crane discipline">
+      <nav className="tabs" aria-label="Crane discipline">
         <Link
           href={peerPath(path, "tower")}
-          className={!mobile ? "active" : undefined}
+          className={!mobile ? "is-on" : undefined}
         >
           Tower Crane
         </Link>
         <Link
           href={peerPath(path, "mobile")}
-          className={mobile ? "active" : undefined}
+          className={mobile ? "is-on" : undefined}
         >
           Mobile Crane
         </Link>

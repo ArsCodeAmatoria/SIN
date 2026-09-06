@@ -89,7 +89,7 @@ export default async function FormPage({ params }: Props) {
   return (
     <SafetyDocFrame
       kicker={`${doc.group.toUpperCase()} FORM`}
-      num={doc.number.replace(/^(GOSPEL|PROVEN)-/, "")}
+      number={doc.number}
       title={doc.title}
       intro={doc.summary}
       backHref="/safety/safety-forms"

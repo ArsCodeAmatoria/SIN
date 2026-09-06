@@ -1,7 +1,8 @@
 import Link from "next/link";
 import { ExamCluster } from "@/components/ExamCluster";
+import { PracticeProgress } from "@/components/redtc/PracticeProgress";
 import { RedtcNav } from "@/components/redtc/RedtcNav";
-import { allQuestions, CHARTS, RIGGING_CHARTS, theoryQuestions } from "@/lib/redtc/bank";
+import { allQuestions, CHARTS, RIGGING_CHARTS, REDTC_PROGRESS_KEY, theoryQuestions } from "@/lib/redtc/bank";
 import {
   REDTC_AUTHORITIES,
   REDTC_CATEGORIES,
@@ -17,7 +18,8 @@ import { EXAM_TRACKS, RSOS_MWA } from "@/lib/redtc/exam-tracks";
 import { formatReviewed, LAST_REVIEWED } from "@/lib/reviewed";
 
 export default function RedtcPage() {
-  const bank = allQuestions().length;
+  const questions = allQuestions();
+  const bank = questions.length;
   const theory = theoryQuestions().length;
   const chartCount = CHARTS.length;
   const chartQs = CHARTS.reduce((n, c) => n + c.questions.length, 0);
@@ -46,6 +48,27 @@ export default function RedtcPage() {
           and load-chart practice.
         </p>
         <RedtcNav />
+        <div className="inline-cta">
+          <Link className="btn btn-solid" href="/redtc/test">
+            Start practice test
+          </Link>
+          <Link className="btn btn-ghost" href="/redtc/load-charts">
+            Load charts
+          </Link>
+          <Link className="btn btn-ghost" href="/redtc/rigging-charts">
+            Rigging charts
+          </Link>
+          <Link className="btn btn-ghost" href="/redtc/test/master">
+            Master exam
+          </Link>
+        </div>
+        <PracticeProgress
+          compact
+          storageKey={REDTC_PROGRESS_KEY}
+          bank={questions}
+          drillHref="/redtc/test#drill"
+          kicker="Last score on this device"
+        />
         <div className="place mt-2">
           <article>
             <span className="mono steel">Practice bank</span>
@@ -77,20 +100,6 @@ export default function RedtcPage() {
         </div>
         <p className="mono steel mt-2">Covers</p>
         <p className="lede">{REDTC_COVERS.join(" · ")}</p>
-        <div className="inline-cta">
-          <Link className="btn btn-solid" href="/redtc/test">
-            Start practice test
-          </Link>
-          <Link className="btn btn-ghost" href="/redtc/load-charts">
-            Load charts
-          </Link>
-          <Link className="btn btn-ghost" href="/redtc/rigging-charts">
-            Rigging charts
-          </Link>
-          <Link className="btn btn-ghost" href="/redtc/test/master">
-            Master exam
-          </Link>
-        </div>
         <ExamCluster tone="tower" />
         <p className="mono steel mt">Last reviewed: {formatReviewed(LAST_REVIEWED)}</p>
       </header>

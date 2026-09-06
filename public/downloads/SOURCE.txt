@@ -5,11 +5,6 @@ injury-management.zip
   Employer guide, employee PIM bulletin, sample forms, supplementary notes.
   Source: BC Construction Safety Alliance. https://www.bccsa.ca/
 
-cor.zip
-  BCCSA COR® audit tool, forms, policies, auditor guide, student audit assignment.
-  Source: BC Construction Safety Alliance COR program.
-  https://www.bccsa.ca/cor_program.php
-
 BCCSA catalogues linked from the Safety Program (PDFs sit on BCCSA’s file server
 and require a signed-in bccsa.ca session to download — they are not copied here
 until a member download is dropped in):

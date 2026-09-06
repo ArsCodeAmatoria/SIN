@@ -13,6 +13,8 @@ import {
 } from "@/lib/form-builder";
 import type { FormDef } from "@/lib/form-builder/types";
 import { ProvenName } from "@/components/ProvenMark";
+import { DocBadge } from "@/components/DocBadge";
+import { IssuerCard } from "@/components/IssuerCard";
 import { useRouter } from "next/navigation";
 
 export function BuilderIndex() {
@@ -43,15 +45,17 @@ export function BuilderIndex() {
         <p className="lede mt">
           <ProvenName /> forms are assembled from reusable Safety Blocks. Pick a
           controlled template, or start from scratch. Fill it out on this
-          device. Download a PDF. Nothing is kept on a server.
+          device. Put your company name, logo and signature on the PDF. Nothing
+          is kept on a server.
         </p>
         <p className="doc-cta">
           <Link href="/safety/safety-forms">17 — SAFETY FORMS →</Link>
         </p>
-        <p className="doc-cta">
-          <Link href="/safety/binder">CRANE BINDER WIZARD →</Link>
+        <p className="doc-cta is-binder">
+          <Link href="/safety/binder">CRANE BINDERS →</Link>
         </p>
       </header>
+      <IssuerCard compact />
       <div className="form-actions">
         <button type="button" className="btn btn-solid" onClick={create}>
           NEW FORM
@@ -68,7 +72,7 @@ export function BuilderIndex() {
               {items.map((t) => (
                 <div key={t.id} className="fb-index-row">
                   <Link href={`/safety/builder/${t.id}`}>
-                    <span className="mono steel">{t.number}</span>
+                    <DocBadge number={t.number} />
                     <strong className="display">{t.title}</strong>
                     <em>{t.description}</em>
                   </Link>
@@ -93,7 +97,7 @@ export function BuilderIndex() {
             {local.map((t) => (
               <div key={t.id} className="fb-index-row">
                 <Link href={`/safety/builder/${t.id}`}>
-                  <span className="mono steel">{t.number}</span>
+                  <DocBadge number={t.number} />
                   <strong className="display">{t.title}</strong>
                   <em>Working copy. Not the controlled template.</em>
                 </Link>

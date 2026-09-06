@@ -5,15 +5,15 @@ export const SJPS: Sjp[] = [
   {
     slug: "flytable-cycle",
     title: "FLYTABLE CYCLE",
-    number: "GOSPEL-SJP-001",
+    number: "PROVEN-SJP-001",
     summary: "This table. This floor. This drawing revision. Not last cycle’s sheet.",
-    when: "Every flytable / flyform cycle the crane hooks. Critical lift. Fill PROVEN-FRM-052. Typical tables only — corner and nontypical use GOSPEL-SJP-002 on the same form.",
+    when: "Every flytable / flyform cycle the crane hooks. Critical lift. Fill PROVEN-FRM-052. Typical tables only — corner and nontypical use PROVEN-SJP-002 on the same form.",
     purpose:
-      "Name the facts the SWP cannot know until this morning: table ID, drawing revision, weight, pick points, sling lengths, wind number, named crew, holds. The method stays GOSPEL-SWP-028. If this sheet contradicts the SWP, stop and fix one of them before the hook moves.",
+      "Name the facts the SWP cannot know until this morning: table ID, drawing revision, weight, pick points, sling lengths, wind number, named crew, holds. The method stays PROVEN-SWP-028. If this sheet contradicts the SWP, stop and fix one of them before the hook moves.",
     basedOn: [
-      { href: "/safety/swp/flytable-cycling", label: "SWP — FLYTABLE CYCLING — GOSPEL-SWP-028 →" },
-      { href: "/safety/jha/flytable-cycling", label: "JHA — FLYTABLE CYCLING — GOSPEL-JHA-011 →" },
-      { href: "/safety/swp/critical-lifts", label: "SWP — CRITICAL LIFTS — GOSPEL-SWP-019 →" },
+      { href: "/safety/swp/flytable-cycling", label: "SWP — FLYTABLE CYCLING — PROVEN-SWP-028 →" },
+      { href: "/safety/jha/flytable-cycling", label: "JHA — FLYTABLE CYCLING — PROVEN-JHA-011 →" },
+      { href: "/safety/swp/critical-lifts", label: "SWP — CRITICAL LIFTS — PROVEN-SWP-019 →" },
       { href: "/safety/form/flytable-cycle-sjp", label: "FILL THIS CYCLE — PROVEN-FRM-052 →" },
     ],
     facts: [
@@ -59,7 +59,7 @@ export const SJPS: Sjp[] = [
     ],
     abort: [
       "Any fact on this sheet is unknown or no longer true",
-      "The work is being asked to drift from GOSPEL-SWP-028",
+      "The work is being asked to drift from PROVEN-SWP-028",
       "This table is a corner or nontypical and this is the typical SJP",
       "Radio loss. Wind over the number. Person in the zone.",
       "Change without stop-and-discuss",
@@ -91,19 +91,19 @@ export const SJPS: Sjp[] = [
   {
     slug: "corner-nontypical-flytable",
     title: "CORNER / NONTIPICAL FLYTABLE",
-    number: "GOSPEL-SJP-002",
+    number: "PROVEN-SJP-002",
     summary: "This corner table. This special plan. Not the typical cycle sheet.",
     when: "The table is a corner, infill, reduced-width, or any table the engineer marks nontypical. Fill PROVEN-FRM-052 and mark it nontypical. Attach the special handling plan.",
     purpose:
-      "Force the special facts onto paper: why this table is not typical, the engineered handling plan, the different sling geometry, the extra tag line. Then do GOSPEL-SWP-028 on top of that plan. Do not fly this table on GOSPEL-SJP-001 alone.",
+      "Force the special facts onto paper: why this table is not typical, the engineered handling plan, the different sling geometry, the extra tag line. Then do PROVEN-SWP-028 on top of that plan. Do not fly this table on PROVEN-SJP-001 alone.",
     basedOn: [
-      { href: "/safety/swp/corner-nontypical-flytables", label: "SWP — CORNER AND NONTIPICAL FLYTABLES — GOSPEL-SWP-029 →" },
-      { href: "/safety/jha/corner-nontypical-flytables", label: "JHA — CORNER AND NONTIPICAL FLYTABLES — GOSPEL-JHA-012 →" },
-      { href: "/safety/sjp/flytable-cycle", label: "SJP — TYPICAL CYCLE — GOSPEL-SJP-001 →" },
+      { href: "/safety/swp/corner-nontypical-flytables", label: "SWP — CORNER AND NONTIPICAL FLYTABLES — PROVEN-SWP-029 →" },
+      { href: "/safety/jha/corner-nontypical-flytables", label: "JHA — CORNER AND NONTIPICAL FLYTABLES — PROVEN-JHA-012 →" },
+      { href: "/safety/sjp/flytable-cycle", label: "SJP — TYPICAL CYCLE — PROVEN-SJP-001 →" },
       { href: "/safety/form/flytable-cycle-sjp", label: "FILL THIS CYCLE — PROVEN-FRM-052 →" },
     ],
     facts: [
-      "Everything GOSPEL-SJP-001 names",
+      "Everything PROVEN-SJP-001 names",
       "Why this table is nontypical — said in one sentence",
       "Special engineered handling plan — document number and revision, at the lift",
       "COG as that plan, not as the typical table",
@@ -119,7 +119,7 @@ export const SJPS: Sjp[] = [
       },
       {
         n: "02",
-        title: "THEN GOSPEL-SJP-001 HOLDS",
+        title: "THEN PROVEN-SJP-001 HOLDS",
         body: "Drop, roll, attach, fly, land — every hold on the typical cycle, plus the extra holds this plan names. Crane still does not pull.",
       },
     ],
@@ -127,17 +127,17 @@ export const SJPS: Sjp[] = [
       "Special plan not at the lift",
       "Anyone treating it as typical",
       "Sling lengths copied from a typical table",
-      "Every abort on GOSPEL-SJP-001",
+      "Every abort on PROVEN-SJP-001",
     ],
     named: [
-      "Everyone named on GOSPEL-SJP-001",
+      "Everyone named on PROVEN-SJP-001",
       "Extra tag-line hands the special plan names",
       "Engineer contact if the table or the plan changed",
     ],
     documentation: [
       "PROVEN-FRM-052 marked nontypical",
       "Special handling plan attached",
-      "GOSPEL-SJP-001 documentation",
+      "PROVEN-SJP-001 documentation",
     ],
     references: [...LIFT_REFS, ...FLYTABLE_REFS],
     download: {
@@ -149,15 +149,15 @@ export const SJPS: Sjp[] = [
   {
     slug: "loading-platform",
     title: "LOADING PLATFORM",
-    number: "GOSPEL-SJP-003",
+    number: "PROVEN-SJP-003",
     summary: "This deck. This floor. This serial. Empty. Not last floor’s sheet.",
     when: "Every loading-platform install, reposition or strike the crane hooks. Critical lift. Fill PROVEN-FRM-053. Daily SuperDeck extend / retract is not this sheet.",
     purpose:
-      "Name the facts the SWP cannot know until this morning: manufacturer, serial, dead weight, WLL, pick points, chain, wind number, named crew, holds. The method stays GOSPEL-SWP-030. If this sheet contradicts the SWP, stop and fix one of them before the hook moves.",
+      "Name the facts the SWP cannot know until this morning: manufacturer, serial, dead weight, WLL, pick points, chain, wind number, named crew, holds. The method stays PROVEN-SWP-030. If this sheet contradicts the SWP, stop and fix one of them before the hook moves.",
     basedOn: [
-      { href: "/safety/swp/loading-platform-reposition", label: "SWP — LOADING PLATFORM — GOSPEL-SWP-030 →" },
-      { href: "/safety/jha/loading-platform-reposition", label: "JHA — LOADING PLATFORM — GOSPEL-JHA-014 →" },
-      { href: "/safety/swp/critical-lifts", label: "SWP — CRITICAL LIFTS — GOSPEL-SWP-019 →" },
+      { href: "/safety/swp/loading-platform-reposition", label: "SWP — LOADING PLATFORM — PROVEN-SWP-030 →" },
+      { href: "/safety/jha/loading-platform-reposition", label: "JHA — LOADING PLATFORM — PROVEN-JHA-014 →" },
+      { href: "/safety/swp/critical-lifts", label: "SWP — CRITICAL LIFTS — PROVEN-SWP-019 →" },
       { href: "/safety/form/loading-platform-sjp", label: "FILL THIS DECK — PROVEN-FRM-053 →" },
     ],
     facts: [
@@ -205,7 +205,7 @@ export const SJPS: Sjp[] = [
       "Improvised picks",
       "Wind above the number on this sheet",
       "Asked to retract or extend a SuperDeck with the crane",
-      "The work is being asked to drift from GOSPEL-SWP-030",
+      "The work is being asked to drift from PROVEN-SWP-030",
     ],
     named: [
       "Operator",

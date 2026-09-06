@@ -226,7 +226,7 @@ export const MANAGEMENT_REVIEW_ITEMS = [
   "Training and competency gaps",
   "Young / new worker orientations complete",
   "Worker concerns and refusals",
-  "COR / audit actions",
+  "Audit findings still open",
   "First aid and emergency drills",
   "Objectives this period — met or not",
   "Program revisions required",

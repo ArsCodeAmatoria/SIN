@@ -1,10 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { CabLine } from "@/components/CabCopy";
+import { DocBadge } from "@/components/DocBadge";
 import { ProvenName } from "@/components/ProvenMark";
 import { SafetyFind } from "@/components/SafetyFind";
 import { StandardsList } from "@/components/StandardsList";
+import { LIBRARY_KIND } from "@/lib/ohs/doc";
 import { safetyCatalog } from "@/lib/ohs/catalog";
-import { FIND_NOW, safetyByGroup } from "@/lib/safety";
+import { FIND_NOW_GROUPS, safetyByGroup } from "@/lib/safety";
 import { pageMeta } from "@/lib/seo";
 import { SITE } from "@/lib/site";
 
@@ -25,27 +28,35 @@ export default function SafetyIndexPage() {
         <p className="mono steel">PUBLIC DOCUMENT</p>
         <h1 className="display">
           <ProvenName />
-          <br />
-          IS OPEN.
         </h1>
         <p className="lede mt-2">
-          Proven is the platform behind the lift. People, process and
-          documentation — organized, verified and accountable. Operators,
-          riggers, supervisors, contractors and clients can read how the work
-          is expected to be performed before the gate. No request form. No
-          expiring link. No PDF as the primary experience.
+          Open the form for this shift. Build the binder for this machine. Read
+          the procedure before the hook is loaded. No portal. No expiry.
         </p>
+        <CabLine where="proven" />
       </header>
 
-      <p className="mono kicker">NEED IT NOW</p>
-      <nav className="safety-now" aria-label="Documents used on the job">
-        {FIND_NOW.map((item) => (
-          <Link href={item.href} key={item.href}>
-            <strong className="display">{item.label}</strong>
-            <em>{item.hint}</em>
-          </Link>
+      <section id="now">
+        <p className="mono kicker">NEED IT NOW</p>
+        {FIND_NOW_GROUPS.map((group) => (
+          <div className="safety-now-group" key={group.id}>
+            <p className="mono steel">{group.label}</p>
+            <nav className="safety-now" aria-label={group.label}>
+              {group.items.map((item) => (
+                <Link
+                  href={item.href}
+                  key={item.href}
+                  className={item.href.includes("/binder") ? "is-binder" : undefined}
+                >
+                  {item.kind ? <DocBadge kind={item.kind} /> : null}
+                  <strong className="display">{item.label}</strong>
+                  <em>{item.hint}</em>
+                </Link>
+              ))}
+            </nav>
+          </div>
         ))}
-      </nav>
+      </section>
 
       <SafetyFind catalog={catalog} />
 
@@ -54,8 +65,15 @@ export default function SafetyIndexPage() {
           <p className="mono kicker">{group.label}</p>
           <nav className="safety-index" aria-label={group.label}>
             {group.sections.map((s) => (
-              <Link href={`/safety/${s.slug}`} key={s.slug}>
-                <span className="mono steel">{s.num}</span>
+              <Link
+                href={`/safety/${s.slug}`}
+                key={s.slug}
+                className={s.slug === "crane-binders" ? "is-binder" : undefined}
+              >
+                <span className="safety-index-head">
+                  <span className="mono steel">{s.num}</span>
+                  {s.library ? <DocBadge kind={LIBRARY_KIND[s.library]} /> : null}
+                </span>
                 <span>
                   <strong>{s.title}</strong>
                   <em>{s.kicker}</em>
@@ -67,8 +85,10 @@ export default function SafetyIndexPage() {
       ))}
 
       <p className="lede mt-2">
-        Read it on a phone at the gate. Print a section if you need it on paper.
-        If the procedure cannot be followed, it is not the procedure.
+        Read it on a phone at the gate. Open once on a network and the pages
+        stay on this device when the trailer Wi-Fi is dead. Print a section if
+        you need it on paper. If the procedure cannot be followed, it is not the
+        procedure.
       </p>
       <div id="standards" className="mt-2">
         <p className="mono steel">WHAT THE WORK IS DONE TO</p>
@@ -79,11 +99,6 @@ export default function SafetyIndexPage() {
         </p>
         <StandardsList />
       </div>
-      <p className="lede mt">
-        Proven maps to the COR® elements — the Certificate of Recognition —
-        so that framework is readable.{" "}
-        <Link href="/#cor">WHAT COR IS →</Link>
-      </p>
       <p className="mono steel doc-colophon">
         <ProvenName />
         <span>

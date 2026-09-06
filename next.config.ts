@@ -7,6 +7,20 @@ const nextConfig: NextConfig = {
   async headers() {
     return [
       {
+        source: "/sw.js",
+        headers: [
+          { key: "Cache-Control", value: "no-cache, no-store, must-revalidate" },
+          { key: "Service-Worker-Allowed", value: "/" },
+        ],
+      },
+      {
+        source: "/cab-offline.html",
+        headers: [
+          { key: "Cache-Control", value: "no-cache" },
+          { key: "X-Robots-Tag", value: "noindex" },
+        ],
+      },
+      {
         source: "/og.png",
         headers: [
           { key: "Cache-Control", value: "public, max-age=86400, immutable" },
@@ -62,6 +76,11 @@ const nextConfig: NextConfig = {
       {
         source: "/bc-tower-crane-certification",
         destination: "/tower-crane-certification-bc",
+        statusCode: 301,
+      },
+      {
+        source: "/safety/binder/crawler",
+        destination: "/safety/binder/mobile",
         statusCode: 301,
       },
     ];

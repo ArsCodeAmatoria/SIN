@@ -16,7 +16,11 @@ import {
   selectMobilePracticeQuestions,
   type MobilePracticeMode,
 } from "@/lib/redmc/exam-tracks";
-import { recordPractice } from "@/lib/redtc/progress";
+import {
+  loadProgress,
+  recordPractice,
+  selectDrillQuestions,
+} from "@/lib/redtc/progress";
 import { useTest } from "@/lib/redtc/use-test";
 import type { ExamId } from "@/lib/redtc/types";
 
@@ -39,12 +43,21 @@ export default function RedmcTestPage() {
   const [exam, setExam] = useState<ExamId>("b");
   const [category, setCategory] = useState<string>(CATEGORIES_WITH_QUESTIONS[0] || "");
   const [mwa, setMwa] = useState("A");
+  const [drillCount, setDrillCount] = useState(0);
   const recorded = useRef(false);
 
   const selectedMode = MOBILE_PRACTICE_MODES.find((item) => item.id === mode)!;
   const examTrack = MOBILE_EXAM_LEVEL_TRACKS.find((item) => item.id === exam);
   const paperOpts = { exam, category, mwa };
-  const paperSize = mobilePracticeAvailable(questions, mode, paperOpts);
+  const paperSize =
+    mode === "drill"
+      ? drillCount
+      : mobilePracticeAvailable(questions, mode, paperOpts);
+
+  useEffect(() => {
+    setDrillCount(selectDrillQuestions(questions, loadProgress(REDMC_PROGRESS_KEY)).length);
+    if (window.location.hash === "#drill") setMode("drill");
+  }, []);
 
   const {
     currentQuestion,
@@ -83,7 +96,10 @@ export default function RedmcTestPage() {
 
   const start = () => {
     recorded.current = false;
-    const paper = selectMobilePracticeQuestions(questions, mode, paperOpts);
+    const paper =
+      mode === "drill"
+        ? selectDrillQuestions(questions, loadProgress(REDMC_PROGRESS_KEY))
+        : selectMobilePracticeQuestions(questions, mode, paperOpts);
     if (!paper.length) return;
     initializeTest(paper);
     setHasStarted(true);
@@ -106,6 +122,7 @@ export default function RedmcTestPage() {
             <button
               key={item.id}
               type="button"
+              id={item.id === "drill" ? "drill" : undefined}
               className={`redtc-track${item.id === mode ? " active" : ""}`}
               onClick={() => setMode(item.id)}
             >
@@ -177,7 +194,11 @@ export default function RedmcTestPage() {
         </div>
         <div className="inline-cta">
           <button type="button" className="btn btn-solid" onClick={start} disabled={!paperSize}>
-            {paperSize ? `Start ${selectedMode.title}` : "No questions tagged yet"}
+            {paperSize
+              ? `Start ${selectedMode.title}`
+              : mode === "drill"
+                ? "Sit a paper first"
+                : "No questions tagged yet"}
           </button>
           <Link className="btn btn-ghost" href="/redmc/test/master">
             Master exam
@@ -227,16 +248,47 @@ export default function RedmcTestPage() {
           fastest {formatTime(timingStats.fastest)} · slowest {formatTime(timingStats.slowest)}
         </p>
         <div className="inline-cta">
-          <button
-            type="button"
-            className="btn btn-solid"
-            onClick={() => {
-              recorded.current = false;
-              resetTest();
-            }}
-          >
-            {passed ? "Practice again" : "Try again"}
-          </button>
+          {results.incorrectCount > 0 ? (
+            <button
+              type="button"
+              className="btn btn-solid"
+              onClick={() => {
+                setMode("drill");
+                recorded.current = false;
+                const paper = selectDrillQuestions(
+                  questions,
+                  loadProgress(REDMC_PROGRESS_KEY),
+                );
+                if (!paper.length) return;
+                initializeTest(paper);
+              }}
+            >
+              Drill misses
+            </button>
+          ) : (
+            <button
+              type="button"
+              className="btn btn-solid"
+              onClick={() => {
+                recorded.current = false;
+                resetTest();
+              }}
+            >
+              Practice again
+            </button>
+          )}
+          {results.incorrectCount > 0 ? (
+            <button
+              type="button"
+              className="btn btn-ghost"
+              onClick={() => {
+                recorded.current = false;
+                resetTest();
+              }}
+            >
+              Try again
+            </button>
+          ) : null}
           <Link className="btn btn-ghost" href="/redmc/test/master">
             Master exam
           </Link>

@@ -10,7 +10,7 @@ import { WireSubscribe } from "@/components/WireSubscribe";
 import { ProvenName } from "@/components/ProvenMark";
 import { JsonLd, Breadcrumbs } from "@/components/SeoLanding";
 import { getSafety } from "@/lib/safety";
-import { absUrl, breadcrumbLd, jsonLdGraph, organizationLd, pageMeta, personLd, websiteLd } from "@/lib/seo";
+import { absUrl, breadcrumbLd, jsonLdGraph, organizationLd, ORIGIN, pageMeta, personLd, websiteLd } from "@/lib/seo";
 import { AUTHOR, SITE } from "@/lib/site";
 import {
   WIRE,
@@ -73,7 +73,6 @@ export default async function WireArticlePage({ params }: Props) {
   const crumbs = [
     { name: SITE.name, path: "/" },
     { name: WIRE.name, path: wirePath() },
-    { name: article.category },
     {
       name: article.seoTitle.includes("|")
         ? article.seoTitle.slice(0, article.seoTitle.indexOf("|")).trim()
@@ -99,7 +98,7 @@ export default async function WireArticlePage({ params }: Props) {
         name: AUTHOR.name,
         url: absUrl(AUTHOR.path),
       },
-      publisher: { "@id": `${absUrl("/")}#org` },
+      publisher: { "@id": `${ORIGIN}/#org` },
       mainEntityOfPage: url,
       url,
       articleSection: article.category,

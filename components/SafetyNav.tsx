@@ -25,6 +25,10 @@ function sectionFromPath(path: string): string | undefined {
   return nested[part] ?? part;
 }
 
+function isActive(current: string | undefined, slug?: string) {
+  return slug ? current === slug : !current;
+}
+
 function NavLinks({
   current,
   onPick,
@@ -37,8 +41,8 @@ function NavLinks({
     <>
       <Link
         href="/safety"
-        className={!current ? "active" : undefined}
-        aria-current={!current ? "page" : undefined}
+        className={isActive(current) ? "active" : undefined}
+        aria-current={isActive(current) ? "page" : undefined}
         onClick={onPick}
       >
         <span>00</span>
@@ -51,8 +55,9 @@ function NavLinks({
             <Link
               key={s.slug}
               href={`/safety/${s.slug}`}
-              className={current === s.slug ? "active" : undefined}
-              aria-current={current === s.slug ? "page" : undefined}
+              className={isActive(current, s.slug) ? "active" : undefined}
+              data-nav={s.slug === "crane-binders" ? "binder" : undefined}
+              aria-current={isActive(current, s.slug) ? "page" : undefined}
               onClick={onPick}
             >
               <span>{s.num}</span>
@@ -71,6 +76,7 @@ export function SafetyNav() {
   const stripRef = useRef<HTMLElement>(null);
   const [tocOpen, setTocOpen] = useState(false);
   const [desktop, setDesktop] = useState(false);
+  const [offline, setOffline] = useState(false);
   const here = SAFETY.find((s) => s.slug === current);
   const label = here ? `${here.num}  ${here.title}` : SITE.system;
 
@@ -80,6 +86,17 @@ export function SafetyNav() {
     sync();
     mq.addEventListener("change", sync);
     return () => mq.removeEventListener("change", sync);
+  }, []);
+
+  useEffect(() => {
+    const sync = () => setOffline(!navigator.onLine);
+    sync();
+    window.addEventListener("online", sync);
+    window.addEventListener("offline", sync);
+    return () => {
+      window.removeEventListener("online", sync);
+      window.removeEventListener("offline", sync);
+    };
   }, []);
 
   useEffect(() => {
@@ -100,7 +117,7 @@ export function SafetyNav() {
         }}
       >
         <summary>
-          <span className="mono steel">NOW</span>
+          <span className="mono steel">{offline ? "OFFLINE" : "NOW"}</span>
           <strong className="display">{label}</strong>
         </summary>
         <div className="doc-nav-inner">
@@ -115,8 +132,8 @@ export function SafetyNav() {
       <nav ref={stripRef} className="doc-nav-scroll" aria-label="Safety sections">
         <Link
           href="/safety"
-          className={!current ? "active" : undefined}
-          aria-current={!current ? "page" : undefined}
+          className={isActive(current) ? "active" : undefined}
+          aria-current={isActive(current) ? "page" : undefined}
           aria-label="00 Index"
         >
           <span aria-hidden="true">00</span>
@@ -126,8 +143,9 @@ export function SafetyNav() {
           <Link
             key={s.slug}
             href={`/safety/${s.slug}`}
-            className={current === s.slug ? "active" : undefined}
-            aria-current={current === s.slug ? "page" : undefined}
+            className={isActive(current, s.slug) ? "active" : undefined}
+            data-nav={s.slug === "crane-binders" ? "binder" : undefined}
+            aria-current={isActive(current, s.slug) ? "page" : undefined}
             aria-label={`${s.num} ${s.title}`}
           >
             <span aria-hidden="true">{s.num}</span>

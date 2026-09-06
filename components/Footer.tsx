@@ -1,8 +1,7 @@
 import Link from "next/link";
-import { CorMark } from "@/components/CorMark";
 import { ProvenName } from "@/components/ProvenMark";
 import { StandardMarks } from "@/components/StandardsList";
-import { COR, SITE } from "@/lib/site";
+import { SITE } from "@/lib/site";
 import { WIRE } from "@/lib/whoopwire";
 
 export function Footer() {
@@ -25,7 +24,6 @@ export function Footer() {
           <Link href="/redmc" title="Mobile Crane Red Seal practice test">
             REDMC
           </Link>
-          <Link href="/#cor">COR®</Link>
           <Link href="/about" title="About the author">
             ABOUT
           </Link>
@@ -40,9 +38,13 @@ export function Footer() {
           </Link>
           <Link
             href="/safety/binder"
-            title="Tower and self-erect crane site binder wizard"
+            title="Tower, self-erect and mobile crane site binders"
+            className="is-binder"
           >
-            CRANE BINDER
+            CRANE BINDERS
+          </Link>
+          <Link href="/sling" title="Sling angle, tension and WLL desk">
+            SLING DESK
           </Link>
           <a href={SITE.emailHref}>{SITE.email}</a>
         </nav>
@@ -52,17 +54,6 @@ export function Footer() {
         <br />
         {SITE.sub}
       </p>
-      <div className="footer-cred">
-        <CorMark className="cor-mark cor-mark-foot" />
-        <p className="mono">
-          {COR.mark}
-          <br />
-          Certifying partner:{" "}
-          <a href={COR.partnerUrl} rel="noreferrer" target="_blank">
-            {COR.partner}
-          </a>
-        </p>
-      </div>
       <div className="footer-marks">
         <StandardMarks compact />
       </div>

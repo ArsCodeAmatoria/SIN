@@ -145,6 +145,7 @@ export default function RedmcMasterPage() {
       correct: results.correctCount,
       masterAttempts: 1,
       masterBest: results.percentage,
+      missedIds: [],
       byCategory: testQuestions.reduce(
         (acc, q) => {
           const name = q.category || "Uncategorized";
@@ -356,6 +357,11 @@ export default function RedmcMasterPage() {
           <button type="button" className="btn btn-ghost" onClick={handleReset}>
             {passed ? "Sit another paper" : "Try again"}
           </button>
+          {missed.length > 0 ? (
+            <Link className="btn btn-ghost" href="/redmc/test#drill">
+              Drill misses
+            </Link>
+          ) : null}
           <Link className="btn btn-ghost" href="/redmc/test">
             Practice papers
           </Link>

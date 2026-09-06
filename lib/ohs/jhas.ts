@@ -39,12 +39,12 @@ function jha(
 
 export const JHAS: Jha[] = [
   jha(
-    "GOSPEL-JHA-001",
+    "PROVEN-JHA-001",
     "rigging-a-load",
     "RIGGING A LOAD",
     "Dropped load, crush, cut sling, people in the fall line.",
     {
-      job: "Making a hitch and taking a load off the ground. The steps live in GOSPEL-SWP-011. This page is what can go wrong while you do them.",
+      job: "Making a hitch and taking a load off the ground. The steps live in PROVEN-SWP-011. This page is what can go wrong while you do them.",
       people: ["Rigger at the piece", "Operator on the crane", "Signalperson", "Anyone who can walk into the fall zone"],
       swpHref: "/safety/swp/slinging-loads",
       swpLabel: "SWP — SLINGING LOADS →",
@@ -69,7 +69,7 @@ export const JHAS: Jha[] = [
           level: "high",
           hazard: "Cut, birdcaged, opened, or unidentified sling or hardware",
           risk: "Hitch fails under load. Dropped load. Fatal if anyone is under it.",
-          control: "Inspect before use (Part 15). Failed gear tagged and isolated — GOSPEL-SWP-025. No one-more-lift.",
+          control: "Inspect before use (Part 15). Failed gear tagged and isolated — PROVEN-SWP-025. No one-more-lift.",
         },
         {
           task: "Connect the hitch",
@@ -96,12 +96,12 @@ export const JHAS: Jha[] = [
     }
   ),
   jha(
-    "GOSPEL-JHA-002",
+    "PROVEN-JHA-002",
     "signalling-a-crane",
     "SIGNALLING A CRANE",
     "Two voices, a blind operator, a person in the path.",
     {
-      job: "Directing the crane so the operator moves only on a signal they can trust. Method: GOSPEL-SWP-005 / 007.",
+      job: "Directing the crane so the operator moves only on a signal they can trust. Method: PROVEN-SWP-005 / 007.",
       people: ["Signalperson", "Operator", "Riggers in the zone", "Other trades who can enter the path"],
       swpHref: "/safety/swp/crane-communication",
       swpLabel: "SWP — CRANE COMMUNICATION →",
@@ -133,7 +133,7 @@ export const JHAS: Jha[] = [
           level: "high",
           hazard: "Blind corner, glare, signalperson also rigging",
           risk: "Boom or load into steel, lines or people the operator cannot see.",
-          control: "If you cannot see, you are not signalling. Dedicated spotter or stop. Blind lifts: GOSPEL-JHA-005.",
+          control: "If you cannot see, you are not signalling. Dedicated spotter or stop. Blind lifts: PROVEN-JHA-005.",
         },
         {
           task: "Hold the zone",
@@ -146,12 +146,12 @@ export const JHAS: Jha[] = [
     }
   ),
   jha(
-    "GOSPEL-JHA-003",
+    "PROVEN-JHA-003",
     "connecting-a-load",
     "CONNECTING A LOAD",
     "Pinch, roll, cut sling, hands on a live hitch.",
     {
-      job: "Putting the hitch on the piece before the crane takes weight. Method: GOSPEL-SWP-011 / 012.",
+      job: "Putting the hitch on the piece before the crane takes weight. Method: PROVEN-SWP-011 / 012.",
       people: ["Rigger on or beside the load", "Operator waiting on the hook", "Anyone reaching in to ‘help’"],
       swpHref: "/safety/swp/slinging-loads",
       swpLabel: "SWP — SLINGING LOADS →",
@@ -203,12 +203,12 @@ export const JHAS: Jha[] = [
     }
   ),
   jha(
-    "GOSPEL-JHA-004",
+    "PROVEN-JHA-004",
     "landing-a-load",
     "LANDING A LOAD",
     "Pinch against a wall, unprepared set, tag line wrapped on a wrist.",
     {
-      job: "Putting the piece down so it stays put and nobody is trapped. Method: GOSPEL-SWP-015.",
+      job: "Putting the piece down so it stays put and nobody is trapped. Method: PROVEN-SWP-015.",
       people: ["Rigger at the set", "Tag-line hands", "Operator", "Anyone between the load and a structure"],
       swpHref: "/safety/swp/load-control",
       swpLabel: "SWP — LOAD CONTROL →",
@@ -233,7 +233,7 @@ export const JHAS: Jha[] = [
           level: "high",
           hazard: "Spin into people or plant; tag line on the body",
           risk: "Struck-by, pull-in, person used as an anchor.",
-          control: "Tag lines, not shoulders. Hold so you can let go. GOSPEL-JHA-008.",
+          control: "Tag lines, not shoulders. Hold so you can let go. PROVEN-JHA-008.",
         },
         {
           task: "Keep the pinch clear",
@@ -253,12 +253,12 @@ export const JHAS: Jha[] = [
     }
   ),
   jha(
-    "GOSPEL-JHA-005",
+    "PROVEN-JHA-005",
     "blind-lift",
     "BLIND LIFT",
     "Operator cannot see. Radio dies. Boom into what nobody called.",
     {
-      job: "Moving a load when the operator cannot see the load, the set, or part of the path. Method: GOSPEL-SWP-008. 14.47–14.49.",
+      job: "Moving a load when the operator cannot see the load, the set, or part of the path. Method: PROVEN-SWP-008. 14.47–14.49.",
       people: ["Operator", "Dedicated signalperson", "Anyone in a hole, on a floor, or around a corner the boom can reach"],
       swpHref: "/safety/swp/blind-lifts",
       swpLabel: "SWP — BLIND LIFTS →",
@@ -303,12 +303,12 @@ export const JHAS: Jha[] = [
     }
   ),
   jha(
-    "GOSPEL-JHA-006",
+    "PROVEN-JHA-006",
     "mobile-crane-setup",
     "MOBILE CRANE SETUP",
     "Punch-through, short-rig, tail swing, overhead lines, wrong chart.",
     {
-      job: "Putting a mobile crane or boom truck on the ground the chart requires. Method: GOSPEL-SWP-001, 021, 022. 14.2(5) CSA Z150-1998 or ASME B30.5-2004 or B30.22-2005.",
+      job: "Putting a mobile crane or boom truck on the ground the chart requires. Method: PROVEN-SWP-001, 021, 022. 14.2(5) CSA Z150-1998 or ASME B30.5-2004 or B30.22-2005.",
       people: ["Operator", "Oiler / second", "People in the jack line or tail-swing arc", "Anyone under a boom being raised into lines"],
       swpHref: "/safety/swp/mobile-crane-setup",
       swpLabel: "SWP — MOBILE CRANE SETUP →",
@@ -360,12 +360,12 @@ export const JHAS: Jha[] = [
     }
   ),
   jha(
-    "GOSPEL-JHA-007",
+    "PROVEN-JHA-007",
     "suspended-load",
     "SUSPENDED LOAD",
     "Someone under it. Nobody on the crane. Wind on a hanging piece.",
     {
-      job: "Any time a load is off the ground on a lift under this program. Method: GOSPEL-SWP-017. 14.44, 14.45.",
+      job: "Any time a load is off the ground on a lift under this program. Method: PROVEN-SWP-017. 14.44, 14.45.",
       people: ["Everyone who can walk under the hook", "Operator", "Tag-line hands", "Trades using the shadow as a shortcut"],
       swpHref: "/safety/swp/suspended-loads",
       swpLabel: "SWP — SUSPENDED LOADS →",
@@ -410,12 +410,12 @@ export const JHAS: Jha[] = [
     }
   ),
   jha(
-    "GOSPEL-JHA-008",
+    "PROVEN-JHA-008",
     "tag-line",
     "TAG LINE",
     "Wrap on a wrist. Standing in the bight. Pulled under the load.",
     {
-      job: "Using a line to control rotation of a live load. Method: GOSPEL-SWP-016.",
+      job: "Using a line to control rotation of a live load. Method: PROVEN-SWP-016.",
       people: ["Tag-line hands", "Anyone in the bight", "Rigger who grabbed the load instead"],
       swpHref: "/safety/swp/tag-lines",
       swpLabel: "SWP — TAG LINES →",
@@ -460,12 +460,12 @@ export const JHAS: Jha[] = [
     }
   ),
   jha(
-    "GOSPEL-JHA-009",
+    "PROVEN-JHA-009",
     "rigging-inspection",
     "RIGGING INSPECTION",
     "Unidentified gear. A cut that the next rigger will use.",
     {
-      job: "Deciding whether a sling or fitting may take load. Method: GOSPEL-SWP-009. Part 15.",
+      job: "Deciding whether a sling or fitting may take load. Method: PROVEN-SWP-009. Part 15.",
       people: ["Rigger doing the inspection", "The next rigger if failed gear is left on the pile", "Anyone under a hitch made of that gear"],
       swpHref: "/safety/swp/rigging-inspection",
       swpLabel: "SWP — RIGGING INSPECTION →",
@@ -490,7 +490,7 @@ export const JHAS: Jha[] = [
           level: "high",
           hazard: "Broken wires, cuts, stretch, opened throat, missing latch",
           risk: "Hitch fails at load. People in the zone take the consequence.",
-          control: "Rejection criteria in the SWP. Fail = tag, isolate, report the same shift. GOSPEL-SWP-025.",
+          control: "Rejection criteria in the SWP. Fail = tag, isolate, report the same shift. PROVEN-SWP-025.",
         },
         {
           task: "Leave it for the next person",
@@ -503,12 +503,12 @@ export const JHAS: Jha[] = [
     }
   ),
   jha(
-    "GOSPEL-JHA-010",
+    "PROVEN-JHA-010",
     "critical-lift",
     "CRITICAL LIFT",
     "Capacity, tandem, public, plant — and a brief that was theatre.",
     {
-      job: "A lift the site or this program calls critical. Method: GOSPEL-SWP-019. 14.42 tandem. 14.42.1 critical lift.",
+      job: "A lift the site or this program calls critical. Method: PROVEN-SWP-019. 14.42 tandem. 14.42.1 critical lift.",
       people: ["Named supervisor", "Operator", "Rigger and signalperson", "People under the path — plant operators, public, other trades"],
       swpHref: "/safety/swp/critical-lifts",
       swpLabel: "SWP — CRITICAL LIFTS →",
@@ -553,12 +553,12 @@ export const JHAS: Jha[] = [
     }
   ),
   jha(
-    "GOSPEL-JHA-011",
+    "PROVEN-JHA-011",
     "flytable-cycling",
     "FLYTABLE CYCLING",
     "Critical lift. Changing COG. Edge. Wind. Four floors of radio.",
     {
-      job: "Cycling a flytable / flyform floor to floor. Method: GOSPEL-SWP-028. Fill GOSPEL-SJP-001 / FRM-052 for this cycle. This page is what can go wrong in drop, roll, fly and land. Formwork carpentry is the host’s hazard analysis, not this one.",
+      job: "Cycling a flytable / flyform floor to floor. Method: PROVEN-SWP-028. Fill PROVEN-SJP-001 / FRM-052 for this cycle. This page is what can go wrong in drop, roll, fly and land. Formwork carpentry is the host’s hazard analysis, not this one.",
       people: [
         "Operator",
         "Rigger and signalperson",
@@ -574,7 +574,7 @@ export const JHAS: Jha[] = [
       stop: [
         "No engineered drawing or manufacturer cycle at the lift",
         "Weight or COG unknown (14.36)",
-        "This is a corner or nontypical table without GOSPEL-SWP-029",
+        "This is a corner or nontypical table without PROVEN-SWP-029",
         "Crane being asked to pull the table out",
         "People or loose gear on the table",
         "Radios not confirmed on both floors",
@@ -587,7 +587,7 @@ export const JHAS: Jha[] = [
           level: "high",
           hazard: "Last floor’s SJP, missing drawing, no pre-lift meeting",
           risk: "Critical lift run as a grocery pick. The incidents WorkSafeBC filmed.",
-          control: "This-cycle SJP. Drawing revision. Meeting close to the lift. GOSPEL-SWP-019 and 028.",
+          control: "This-cycle SJP. Drawing revision. Meeting close to the lift. PROVEN-SWP-019 and 028.",
         },
         {
           task: "Drop",
@@ -635,12 +635,12 @@ export const JHAS: Jha[] = [
     }
   ),
   jha(
-    "GOSPEL-JHA-012",
+    "PROVEN-JHA-012",
     "corner-nontypical-flytables",
     "CORNER AND NONTIPICAL FLYTABLES",
     "Asymmetric COG. Reduced stability. Typical plan will not hold it.",
     {
-      job: "Flying a corner, infill or nontypical table. Method: GOSPEL-SWP-029 plus 028. BC Crane Safety: special handling plan.",
+      job: "Flying a corner, infill or nontypical table. Method: PROVEN-SWP-029 plus 028. BC Crane Safety: special handling plan.",
       people: [
         "Same as a typical cycle",
         "Whoever the special plan names as extra tag line or spotter",
@@ -663,7 +663,7 @@ export const JHAS: Jha[] = [
           level: "high",
           hazard: "Corner table on the typical SJP",
           risk: "Wrong COG, wrong hang, dump at the edge.",
-          control: "Said on GOSPEL-SJP-002. Brief repeats it. If they cannot, the brief failed.",
+          control: "Said on PROVEN-SJP-002. Brief repeats it. If they cannot, the brief failed.",
         },
         {
           task: "Special plan",
@@ -677,18 +677,18 @@ export const JHAS: Jha[] = [
           level: "extreme",
           hazard: "Asymmetric COG, reduced bearing, missing extra tag line",
           risk: "Table rotates into the structure or over the street. High severity.",
-          control: "Sling geometry only as the special plan. Extra tag line and spotter if named. Slower. GOSPEL-SWP-028 still applies — crane does not pull.",
+          control: "Sling geometry only as the special plan. Extra tag line and spotter if named. Slower. PROVEN-SWP-028 still applies — crane does not pull.",
         },
       ],
     }
   ),
   jha(
-    "GOSPEL-JHA-013",
+    "PROVEN-JHA-013",
     "working-near-powerlines",
     "WORKING NEAR POWERLINES",
     "Arc, contact, step potential. MAD is a wall. Guessing voltage is the incident.",
     {
-      job: "Any lift where overhead or buried electrical lines exist or might. Method: GOSPEL-SWP-018. Distances: WorkSafeBC Table 19-1A, the same numbers BC Hydro publishes.",
+      job: "Any lift where overhead or buried electrical lines exist or might. Method: PROVEN-SWP-018. Distances: WorkSafeBC Table 19-1A, the same numbers BC Hydro publishes.",
       people: [
         "Operator",
         "Rigger and tag-line hands",
@@ -746,12 +746,12 @@ export const JHAS: Jha[] = [
     }
   ),
   jha(
-    "GOSPEL-JHA-014",
+    "PROVEN-JHA-014",
     "loading-platform-reposition",
     "LOADING PLATFORM INSTALL AND REPOSITION",
     "Empty deck. Four points. Props out. Edge. The service WLL is not the fly weight.",
     {
-      job: "Installing, repositioning or striking a cantilever loading platform by crane. Method: GOSPEL-SWP-030. Fill GOSPEL-SJP-003 / FRM-053 for this deck. Rails, props, clamps and daily SuperDeck extend / retract are the host’s hazard analysis, not this one.",
+      job: "Installing, repositioning or striking a cantilever loading platform by crane. Method: PROVEN-SWP-030. Fill PROVEN-SJP-003 / FRM-053 for this deck. Rails, props, clamps and daily SuperDeck extend / retract are the host’s hazard analysis, not this one.",
       people: [
         "Operator",
         "Rigger and signalperson",
@@ -780,7 +780,7 @@ export const JHAS: Jha[] = [
           level: "high",
           hazard: "Last floor’s SJP. Missing user information. Service WLL written as the pick.",
           risk: "Critical lift run as a grocery pick. Overload or a surprise hang.",
-          control: "This-deck SJP. Type plate. Empty dead weight plus rigging. Meeting close to the lift. GOSPEL-SWP-019 and 030.",
+          control: "This-deck SJP. Type plate. Empty dead weight plus rigging. Meeting close to the lift. PROVEN-SWP-019 and 030.",
         },
         {
           task: "Hitch",
@@ -835,12 +835,12 @@ export const JHAS: Jha[] = [
     }
   ),
   jha(
-    "GOSPEL-JHA-015",
+    "PROVEN-JHA-015",
     "weather-and-wind",
     "WEATHER AND WIND",
     "Thunder is striking distance. A crane is a rod. The first 30 of 30/30 is not a reason to keep lifting.",
     {
-      job: "Outdoor crane and rigging when wind, lightning, ice or visibility can take the plan. Method: GOSPEL-SWP-023. Environment Canada: when thunder roars, go indoors. Wait 30 minutes after the last rumble.",
+      job: "Outdoor crane and rigging when wind, lightning, ice or visibility can take the plan. Method: PROVEN-SWP-023. Environment Canada: when thunder roars, go indoors. Wait 30 minutes after the last rumble.",
       people: [
         "Operator",
         "Rigger and tag-line hands",

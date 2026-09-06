@@ -1,7 +1,9 @@
 "use client";
 
 import { useState } from "react";
+import { Dialog } from "@/components/Dialog";
 import { downloadPdf, formToPdf, pdfFilename } from "@/lib/form-builder/pdf";
+import { loadIssuer } from "@/lib/ohs/issuer";
 import type { FormValues, FormDef } from "@/lib/form-builder/types";
 
 export function EmailPdf({
@@ -25,7 +27,7 @@ export function EmailPdf({
     setStatus("");
     setBusy(true);
     try {
-      const bytes = await formToPdf(form, values);
+      const bytes = await formToPdf(form, values, loadIssuer());
       let binary = "";
       bytes.forEach((b) => {
         binary += String.fromCharCode(b);
@@ -61,52 +63,50 @@ export function EmailPdf({
     }
   }
 
-  if (!open) {
-    return (
+  return (
+    <>
       <button type="button" className="btn btn-ghost" onClick={() => setOpen(true)}>
         EMAIL PDF
       </button>
-    );
-  }
-
-  return (
-    <div className="fb-email">
-      <p className="mono">EMAIL PDF</p>
-      <label className="field">
-        <span className="mono">TO</span>
-        <input
-          type="email"
-          required
-          value={to}
-          onChange={(e) => setTo(e.target.value)}
-        />
-      </label>
-      <label className="field">
-        <span className="mono">CC</span>
-        <input type="email" value={cc} onChange={(e) => setCc(e.target.value)} />
-      </label>
-      <label className="field">
-        <span className="mono">SUBJECT</span>
-        <input value={subject} onChange={(e) => setSubject(e.target.value)} />
-      </label>
-      <label className="field">
-        <span className="mono">MESSAGE</span>
-        <textarea value={message} onChange={(e) => setMessage(e.target.value)} />
-      </label>
-      {status ? <p className="steel">{status}</p> : null}
-      <div className="form-actions">
-        <button
-          type="button"
-          className="btn btn-solid"
-          disabled={busy || !to.trim()}
-          onClick={send}
-        >
-          {busy ? "SENDING…" : "SEND"}
-        </button>
-        <button type="button" className="btn btn-ghost" onClick={() => setOpen(false)}>
-          CLOSE
-        </button>
-      </div>
-    </div>
+      <Dialog open={open} title="EMAIL PDF" onClose={() => setOpen(false)}>
+        <div className="fb-email">
+          <label className="field">
+            <span className="mono">TO</span>
+            <input
+              type="email"
+              required
+              value={to}
+              onChange={(e) => setTo(e.target.value)}
+            />
+          </label>
+          <label className="field">
+            <span className="mono">CC</span>
+            <input type="email" value={cc} onChange={(e) => setCc(e.target.value)} />
+          </label>
+          <label className="field">
+            <span className="mono">SUBJECT</span>
+            <input value={subject} onChange={(e) => setSubject(e.target.value)} />
+          </label>
+          <label className="field">
+            <span className="mono">MESSAGE</span>
+            <textarea value={message} onChange={(e) => setMessage(e.target.value)} />
+          </label>
+          {status ? <p className="steel">{status}</p> : null}
+          <div className="form-actions">
+            <button
+              type="button"
+              className="btn btn-solid"
+              disabled={busy || !to.trim()}
+              onClick={() => void send()}
+            >
+              {busy ? "SENDING…" : "SEND"}
+            </button>
+            <button type="button" className="btn btn-ghost" onClick={() => setOpen(false)}>
+              CLOSE
+            </button>
+          </div>
+        </div>
+      </Dialog>
+    </>
   );
 }

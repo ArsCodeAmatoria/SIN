@@ -1,5 +1,7 @@
 import { PDFDocument, StandardFonts, rgb, type PDFFont, type PDFPage } from "pdf-lib";
 import { SITE } from "@/lib/site";
+import { shortNumber } from "@/lib/ohs/doc";
+import { type Issuer } from "@/lib/ohs/issuer";
 import type {
   FormValues,
   InspectionRow,
@@ -60,7 +62,7 @@ function wrap(font: PDFFont, text: string, size: number, width: number) {
   return lines;
 }
 
-function drawHeader(ctx: Ctx, form: FormDef, completedBy: string) {
+function drawHeader(ctx: Ctx, form: FormDef, completedBy: string, issuer?: Issuer) {
   const { page, bold, font } = ctx;
   page.drawText(SITE.system, {
     x: M,
@@ -76,8 +78,9 @@ function drawHeader(ctx: Ctx, form: FormDef, completedBy: string) {
     font,
     color: STEEL,
   });
-  const numW = bold.widthOfTextAtSize(form.number, 9);
-  page.drawText(form.number, {
+  const num = shortNumber(form.number);
+  const numW = bold.widthOfTextAtSize(num, 9);
+  page.drawText(num, {
     x: W - M - numW,
     y: H - 32,
     size: 9,
@@ -97,7 +100,8 @@ function drawHeader(ctx: Ctx, form: FormDef, completedBy: string) {
     font: bold,
     color: INK,
   });
-  const meta = `Rev ${form.revision}  ·  Effective ${form.effective}  ·  ${form.current ? "CURRENT VERSION" : "WORKING COPY"}  ·  ${completedBy || "Completed in field"}`;
+  const issued = issuer?.name ? `  ·  ${issuer.name}` : "";
+  const meta = `Rev ${form.revision}  ·  Effective ${form.effective}  ·  ${form.current ? "CURRENT VERSION" : "WORKING COPY"}  ·  ${completedBy || "Completed in field"}${issued}`;
   page.drawText(meta, {
     x: M,
     y: H - 76,
@@ -288,7 +292,8 @@ async function drawBlock(
 
 export async function formToPdf(
   form: FormDef,
-  values: FormValues
+  values: FormValues,
+  issuer?: Issuer,
 ): Promise<Uint8Array> {
   const doc = await PDFDocument.create();
   const font = await doc.embedFont(StandardFonts.Helvetica);
@@ -303,7 +308,11 @@ export async function formToPdf(
     "";
 
   const ctx: Ctx = { doc, page, font, bold, y: H - M, pages: [page] };
-  drawHeader(ctx, form, completed);
+  drawHeader(ctx, form, completed, issuer);
+
+  if (issuer?.logoDataUrl) {
+    await embedPng(ctx, issuer.logoDataUrl, 120, 36);
+  }
 
   if (form.description) {
     await drawParagraph(ctx, form.description, 9);

@@ -144,22 +144,27 @@ export function SafetyLibraryPanel({ kind }: { kind: SafetyLibraryKind }) {
     return (
       <SafetyLibrary
         placeholder="30M33, radio, NOP-TC, tower report…"
-        groupOrder={["Wizard", "Tower", "Self-erect", "Binder forms"]}
+        groupOrder={["Start", "Tower", "Self-erect", "Mobile", "Binder forms"]}
         items={[
           {
             href: "/safety/binder",
-            number: "GOSPEL-BND",
-            title: "BINDER WIZARD",
+            number: "PROVEN-BND",
+            title: "CRANE BINDERS",
             summary:
-              "Tower or self-erect. Walk the checklist. Download the GOSPEL PDF.",
-            meta: "Wizard",
+              "Pick the machine. Name the site. Mark what you have. Download the Proven PDF.",
+            meta: "Start",
           },
           ...BINDERS.map((item) => ({
             href: `/safety/binder/${item.kind}`,
             number: item.number,
             title: item.title,
             summary: item.summary,
-            meta: item.kind === "tower" ? "Tower" : "Self-erect",
+            meta:
+              item.kind === "tower"
+                ? "Tower"
+                : item.kind === "self-erect"
+                  ? "Self-erect"
+                  : "Mobile",
           })),
           ...FORMS.filter((item) => item.group === "Binder").map((item) => ({
             href: `/safety/form/${item.slug}`,

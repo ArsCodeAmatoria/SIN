@@ -186,8 +186,8 @@ export function safetyCatalog(): CatalogHit[] {
     {
       href: "/safety/binder",
       number: "PROVEN-BND",
-      title: "CRANE BINDER WIZARD",
-      summary: "Tower or self-erect site binder.",
+      title: "CRANE BINDERS",
+      summary: "Tower, self-erect or mobile / crawler site binder.",
       kind: "BINDER",
     },
     ...BINDERS.map((item) => ({

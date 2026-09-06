@@ -10,7 +10,6 @@
 
 [![Next.js](https://img.shields.io/badge/Next.js-15-111111?logo=nextdotjs&logoColor=white)](https://sin.ae.org)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
-[![COR®](https://img.shields.io/badge/COR®-Certified-ffd500)](https://www.bccsa.ca/)
 [![WorkSafeBC](https://img.shields.io/badge/WorkSafeBC-Part_14-111111)](https://www.worksafebc.com/)
 [![BC Crane Safety](https://img.shields.io/badge/BC_Crane_Safety-Ticket-6c6861)](https://bccranesafety.ca/)
 [![British Columbia](https://img.shields.io/badge/British_Columbia-Canada-111111)](https://sin.ae.org)
@@ -51,8 +50,6 @@ Working documents, not a poster:
 - **[Crane binders](https://sin.ae.org/safety/binder)** — Tower and Self-Erect site binders.
 
 The work is done to CSA Z150 / Z248 as named, WorkSafeBC (including Part 14, Part 15 and Part 19 Table 19-1A), BC Crane Safety, Technical Safety BC, applicable ASME B30 standards, manufacturer requirements and site policies. The stricter applicable requirement wins. Law always wins.
-
-Proven is COR® Certified through the BC Construction Safety Alliance. That certification is of this occupational health and safety management system — not a claim that incidents will never occur.
 
 ## This site
 

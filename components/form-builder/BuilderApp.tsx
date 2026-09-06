@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { Dialog } from "@/components/Dialog";
 import { SafetyControl } from "@/components/SafetyControl";
 import { ProvenName } from "@/components/ProvenMark";
 import { EmailPdf } from "@/components/form-builder/EmailPdf";
@@ -16,6 +17,7 @@ import {
   pdfFilename,
   saveLocalForm,
 } from "@/lib/form-builder";
+import { loadIssuer } from "@/lib/ohs/issuer";
 import {
   emptyValues,
   nid,
@@ -46,6 +48,7 @@ export function BuilderApp({ initial }: { initial: FormDef }) {
   const [values, setValues] = useState<FormValues>(emptyValues);
   const [missing, setMissing] = useState<string[]>([]);
   const [saved, setSaved] = useState("");
+  const [pdfError, setPdfError] = useState("");
   const [dragType, setDragType] = useState<BlockType | null>(null);
   const [dragIndex, setDragIndex] = useState<number | null>(null);
 
@@ -97,8 +100,13 @@ export function BuilderApp({ initial }: { initial: FormDef }) {
       return;
     }
     setMissing([]);
-    const bytes = await formToPdf(form, values);
-    downloadPdf(bytes, pdfFilename(form));
+    setPdfError("");
+    try {
+      const bytes = await formToPdf(form, values, loadIssuer());
+      downloadPdf(bytes, pdfFilename(form));
+    } catch {
+      setPdfError("The PDF could not be built. Check the form and try again.");
+    }
   }
 
   function save() {
@@ -150,16 +158,18 @@ export function BuilderApp({ initial }: { initial: FormDef }) {
       />
 
       <div className="fb-toolbar">
-        {(["edit", "preview", "fill"] as const).map((m) => (
-          <button
-            key={m}
-            type="button"
-            className={`btn ${mode === m ? "btn-solid" : "btn-ghost"}`}
-            onClick={() => setMode(m)}
-          >
-            {m === "edit" ? "EDIT" : m === "preview" ? "PREVIEW" : "FILL OUT"}
-          </button>
-        ))}
+        <div className="tabs" role="tablist" aria-label="Form mode">
+          {(["edit", "preview", "fill"] as const).map((m) => (
+            <button
+              key={m}
+              type="button"
+              className={mode === m ? "is-on" : undefined}
+              onClick={() => setMode(m)}
+            >
+              {m === "edit" ? "EDIT" : m === "preview" ? "PREVIEW" : "FILL OUT"}
+            </button>
+          ))}
+        </div>
         <button type="button" className="btn btn-ghost" onClick={save}>
           SAVE
         </button>
@@ -178,6 +188,14 @@ export function BuilderApp({ initial }: { initial: FormDef }) {
           Required fields are incomplete. They are marked on the form.
         </p>
       ) : null}
+      <Dialog open={!!pdfError} title="PDF FAILED" onClose={() => setPdfError("")}>
+        <p className="lede mt">{pdfError}</p>
+        <div className="form-actions">
+          <button type="button" className="btn btn-solid" onClick={() => setPdfError("")}>
+            CLOSE
+          </button>
+        </div>
+      </Dialog>
 
       {mode === "edit" ? (
         <div className="fb-meta">

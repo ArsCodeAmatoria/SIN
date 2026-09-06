@@ -19,6 +19,11 @@ export default function RedmcRiggingChartsPage() {
           manufacturer rating for the lift.
         </p>
         <RedtcNav />
+        <div className="inline-cta">
+          <Link className="btn btn-ghost" href="/sling">
+            Sling-angle desk
+          </Link>
+        </div>
       </header>
       <div className="place">
         <article>

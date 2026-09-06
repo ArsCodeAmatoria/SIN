@@ -2,8 +2,10 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Blocks } from "@/components/Blocks";
+import { DocBadge } from "@/components/DocBadge";
 import { SafetyLibraryPanel } from "@/components/SafetyLibraryPanel";
 import { ProvenName } from "@/components/ProvenMark";
+import { LIBRARY_KIND } from "@/lib/ohs/doc";
 import { SAFETY, getSafety } from "@/lib/safety";
 import { pageMeta } from "@/lib/seo";
 import { SITE } from "@/lib/site";
@@ -40,8 +42,11 @@ export default async function SafetySectionPage({ params }: Props) {
         <p className="mono steel">
           <ProvenName />
         </p>
+        {section.library ? <DocBadge kind={LIBRARY_KIND[section.library]} /> : null}
         <div className="num">{section.num}</div>
-        <h1 className="display">{section.title}</h1>
+        <h1 className={`display${section.slug === "crane-binders" ? " binder-title" : ""}`}>
+          {section.title}
+        </h1>
         <p className="lede mt">{section.intro}</p>
       </header>
       <Blocks blocks={section.blocks} />

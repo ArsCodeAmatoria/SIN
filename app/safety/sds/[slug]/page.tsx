@@ -29,7 +29,7 @@ export default async function SdsPage({ params }: Props) {
   return (
     <SafetyDocFrame
       kicker="SDS"
-      num={doc.number.replace("GOSPEL-", "")}
+      number={doc.number}
       title={doc.title}
       intro={doc.use}
       backHref="/safety/whmis-sds"

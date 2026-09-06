@@ -6,7 +6,7 @@ const LEGACY_KEYS = ["whoop-form-defs-v1"];
 function migrateNumbers(form: FormDef): FormDef {
   return {
     ...form,
-    number: form.number.replace(/^GOSPEL-FRM/, "PROVEN-FRM"),
+    number: form.number.replace(/^GOSPEL-/, "PROVEN-").replace(/^Proven-/, "PROVEN-"),
   };
 }
 

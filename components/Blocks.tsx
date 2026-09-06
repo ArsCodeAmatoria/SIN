@@ -26,8 +26,9 @@ export function Blocks({ blocks }: { blocks: Block[] }) {
           return <ProcedureSteps key={i} items={block.items} />;
         if (block.type === "cta") {
           const offsite = /^https?:\/\//i.test(block.href);
+          const binder = block.href.includes("/binder");
           return (
-            <p className="doc-cta" key={i}>
+            <p className={`doc-cta${binder ? " is-binder" : ""}`} key={i}>
               {offsite ? (
                 <a href={block.href} target="_blank" rel="noreferrer">
                   {block.label}

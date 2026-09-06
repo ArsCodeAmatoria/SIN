@@ -1,15 +1,31 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ProgressBar } from "@/components/redtc/ProgressBar";
 import { QuestionCard } from "@/components/redtc/QuestionCard";
 import { RedtcNav } from "@/components/redtc/RedtcNav";
-import { allQuestions } from "@/lib/redtc/bank";
+import { allQuestions, REDTC_PROGRESS_KEY, REDTC_SEEN_KEY } from "@/lib/redtc/bank";
 import { EXAM_TRACKS, selectTrackQuestions, type ExamTrack } from "@/lib/redtc/exam-tracks";
+import {
+  loadProgress,
+  recordPractice,
+  selectDrillQuestions,
+} from "@/lib/redtc/progress";
 import { useTest } from "@/lib/redtc/use-test";
 
 const questions = allQuestions();
+
+type PaperId = ExamTrack["id"] | "drill";
+
+const DRILL = {
+  id: "drill" as const,
+  title: "Drill misses",
+  subtitle: "Wrong answers + weak topics",
+  questions: 10,
+  passPercent: 70,
+  body: "Questions you missed, then items from categories still under 70%. Sit another paper first if this is empty.",
+};
 
 function formatTime(ms: number): string {
   const seconds = Math.floor(ms / 1000);
@@ -21,8 +37,13 @@ function formatTime(ms: number): string {
 
 export default function RedtcTestPage() {
   const [hasStarted, setHasStarted] = useState(false);
-  const [selectedTrack, setSelectedTrack] = useState<ExamTrack["id"]>("practice");
-  const track = EXAM_TRACKS.find((t) => t.id === selectedTrack)!;
+  const [selectedTrack, setSelectedTrack] = useState<PaperId>("practice");
+  const [drillCount, setDrillCount] = useState(0);
+  const recorded = useRef(false);
+  const track =
+    selectedTrack === "drill"
+      ? DRILL
+      : EXAM_TRACKS.find((t) => t.id === selectedTrack)!;
 
   const {
     currentQuestion,
@@ -35,6 +56,7 @@ export default function RedtcTestPage() {
     previousQuestion,
     resetTest,
     initializeTest,
+    testQuestions,
     results,
     answeredCount,
     totalQuestions,
@@ -48,10 +70,29 @@ export default function RedtcTestPage() {
   } = useTest(questions, {
     questionsPerTest: track.questions,
     passPercentage: track.passPercent,
+    seenKey: REDTC_SEEN_KEY,
   });
 
+  useEffect(() => {
+    setDrillCount(selectDrillQuestions(questions, loadProgress(REDTC_PROGRESS_KEY)).length);
+    if (window.location.hash === "#drill") setSelectedTrack("drill");
+  }, []);
+
+  useEffect(() => {
+    if (isComplete && !recorded.current) {
+      recorded.current = true;
+      recordPractice(REDTC_PROGRESS_KEY, testQuestions, results);
+    }
+  }, [isComplete, testQuestions, results]);
+
   const start = () => {
-    initializeTest(selectTrackQuestions(questions, selectedTrack));
+    recorded.current = false;
+    const paper =
+      selectedTrack === "drill"
+        ? selectDrillQuestions(questions, loadProgress(REDTC_PROGRESS_KEY))
+        : selectTrackQuestions(questions, selectedTrack);
+    if (!paper.length) return;
+    initializeTest(paper);
     setHasStarted(true);
   };
 
@@ -68,6 +109,18 @@ export default function RedtcTestPage() {
           <RedtcNav />
         </header>
         <div className="redtc-tracks">
+          <button
+            type="button"
+            className={`redtc-track${selectedTrack === "drill" ? " active" : ""}`}
+            onClick={() => setSelectedTrack("drill")}
+            id="drill"
+          >
+            <span className="mono steel">
+              {drillCount} Q · {DRILL.passPercent}%
+            </span>
+            <strong className="display">{DRILL.title}</strong>
+            <em>{DRILL.subtitle}</em>
+          </button>
           {EXAM_TRACKS.map((item) => (
             <button
               key={item.id}
@@ -85,7 +138,9 @@ export default function RedtcTestPage() {
         <div className="place mt-2">
           <article>
             <span className="mono steel">QUESTIONS</span>
-            <h3 className="display">{track.questions}</h3>
+            <h3 className="display">
+              {selectedTrack === "drill" ? drillCount : track.questions}
+            </h3>
           </article>
           <article>
             <span className="mono steel">TO PASS</span>
@@ -97,8 +152,15 @@ export default function RedtcTestPage() {
           </article>
         </div>
         <div className="inline-cta">
-          <button type="button" className="btn btn-solid" onClick={start}>
-            Start {track.title}
+          <button
+            type="button"
+            className="btn btn-solid"
+            onClick={start}
+            disabled={selectedTrack === "drill" && drillCount === 0}
+          >
+            {selectedTrack === "drill" && drillCount === 0
+              ? "Sit a paper first"
+              : `Start ${track.title}`}
           </button>
           <Link className="btn btn-ghost" href="/redtc">
             Back to REDTC
@@ -145,9 +207,40 @@ export default function RedtcTestPage() {
           fastest {formatTime(timingStats.fastest)} · slowest {formatTime(timingStats.slowest)}
         </p>
         <div className="inline-cta">
-          <button type="button" className="btn btn-solid" onClick={() => resetTest()}>
-            {passed ? "Practice again" : "Try again"}
-          </button>
+          {results.incorrectCount > 0 ? (
+            <button
+              type="button"
+              className="btn btn-solid"
+              onClick={() => {
+                setSelectedTrack("drill");
+                recorded.current = false;
+                const paper = selectDrillQuestions(
+                  questions,
+                  loadProgress(REDTC_PROGRESS_KEY),
+                );
+                if (!paper.length) return;
+                initializeTest(paper);
+              }}
+            >
+              Drill misses
+            </button>
+          ) : (
+            <button type="button" className="btn btn-solid" onClick={() => resetTest()}>
+              Practice again
+            </button>
+          )}
+          {results.incorrectCount > 0 ? (
+            <button
+              type="button"
+              className="btn btn-ghost"
+              onClick={() => {
+                recorded.current = false;
+                resetTest();
+              }}
+            >
+              Try again
+            </button>
+          ) : null}
           <Link className="btn btn-ghost" href="/redtc/test/master">
             Master exam
           </Link>

@@ -997,6 +997,11 @@ export const ARTICLES: WireArticle[] = [
         name: "sling-angle",
       },
       {
+        type: "cta",
+        href: "/sling",
+        label: "Open the sling desk — θ, tension, tag →",
+      },
+      {
         type: "p",
         text: "You now have θ. The next number is tension. Two equal legs: T = W / (2 × sin θ). That is the other Wire story. Do not stop at a pretty angle.",
       },
@@ -1164,7 +1169,7 @@ export const ARTICLES: WireArticle[] = [
       },
       {
         type: "p",
-        text: "For the machines GOSPEL actually supplies people onto, this is the map in section 14.2 as it stood in August 2026.",
+        text: "For the machines Proven actually supplies people onto, this is the map in section 14.2 as it stood in August 2026.",
       },
       {
         type: "table",
@@ -1565,6 +1570,11 @@ export const ARTICLES: WireArticle[] = [
         name: "sling-sin",
       },
       {
+        type: "cta",
+        href: "/sling",
+        label: "Open the sling desk — θ, tension, tag →",
+      },
+      {
         type: "h",
         text: "WHAT THIS FORMULA DOES NOT DO",
       },
@@ -1764,21 +1774,12 @@ export const ARTICLES: WireArticle[] = [
       },
       {
         type: "p",
-        text: "COR certification is a separate layer. It is an independent look at whether an occupational health and safety management system is maintained. It is not a substitute for letting people read the actual rules of the work.",
-      },
-      {
-        type: "p",
         text: "If your safety program cannot survive being read by a stranger, it was not written for the people doing the lift.",
       },
       {
         type: "cta",
         href: "/safety",
         label: "Crane safety program →",
-      },
-      {
-        type: "cta",
-        href: "/#cor",
-        label: "WHAT COR IS →",
       },
     ],
   },
@@ -2035,7 +2036,7 @@ export const ARTICLES: WireArticle[] = [
       },
       {
         type: "p",
-        text: "GOSPEL procedures are public and short enough to use. A site-specific job procedure still has to be written for this lift, this day. The SWP is the method. The SJP is the instance. If the instance contradicts the method, stop and fix one of them before the hook moves.",
+        text: "Proven procedures are public and short enough to use. A site-specific job procedure still has to be written for this lift, this day. The SWP is the method. The SJP is the instance. If the instance contradicts the method, stop and fix one of them before the hook moves.",
       },
       {
         type: "p",
@@ -2092,7 +2093,7 @@ export const ARTICLES: WireArticle[] = [
       },
       {
         type: "p",
-        text: "The answer is blunt. Proven is public. COR is stated in public. If a document matters to the work, it should survive daylight.",
+        text: "The answer is blunt. Proven is public. If a document matters to the work, it should survive daylight.",
       },
       {
         type: "cta",

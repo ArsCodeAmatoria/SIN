@@ -11,6 +11,8 @@ export type DisciplineProgress = {
   byCategory: Record<string, CategoryScore>;
   masterAttempts: number;
   masterBest: number | null;
+  /** Most recent misses first. Dropped when the same item is answered correctly. */
+  missedIds: number[];
 };
 
 const EMPTY: DisciplineProgress = {
@@ -19,7 +21,34 @@ const EMPTY: DisciplineProgress = {
   byCategory: {},
   masterAttempts: 0,
   masterBest: null,
+  missedIds: [],
 };
+
+const MISS_CAP = 120;
+export const DRILL_SIZE = 10;
+
+function shuffle<T>(items: T[]): T[] {
+  const out = [...items];
+  for (let i = out.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [out[i], out[j]] = [out[j], out[i]];
+  }
+  return out;
+}
+
+function rememberMisses(
+  prev: number[],
+  questions: Question[],
+  results: TestResult,
+): number[] {
+  let ids = [...prev];
+  for (const question of questions) {
+    const ok = results.answers[question.id]?.isCorrect;
+    ids = ids.filter((id) => id !== question.id);
+    if (!ok) ids.unshift(question.id);
+  }
+  return ids.slice(0, MISS_CAP);
+}
 
 export function loadProgress(key: string): DisciplineProgress {
   if (typeof window === "undefined") return EMPTY;
@@ -27,10 +56,14 @@ export function loadProgress(key: string): DisciplineProgress {
     const raw = localStorage.getItem(key);
     if (!raw) return EMPTY;
     const parsed = JSON.parse(raw) as DisciplineProgress;
+    const missedIds = Array.isArray(parsed.missedIds)
+      ? parsed.missedIds.filter((id) => Number.isFinite(id))
+      : [];
     return {
       ...EMPTY,
       ...parsed,
       byCategory: parsed.byCategory || {},
+      missedIds,
     };
   } catch {
     return EMPTY;
@@ -56,6 +89,7 @@ function applySit(
     attempted: prev.attempted + questions.length,
     correct: prev.correct + results.correctCount,
     byCategory: { ...prev.byCategory },
+    missedIds: rememberMisses(prev.missedIds, questions, results),
   };
 
   for (const question of questions) {
@@ -103,4 +137,41 @@ export function weakestCategories(progress: DisciplineProgress, limit = 4) {
     }))
     .sort((a, b) => a.pct - b.pct || b.attempted - a.attempted)
     .slice(0, limit);
+}
+
+/** Paper from recent misses, then items in categories still under 70%. */
+export function selectDrillQuestions(
+  bank: Question[],
+  progress: DisciplineProgress,
+  size = DRILL_SIZE,
+): Question[] {
+  const byId = new Map(bank.map((question) => [question.id, question]));
+  const picked: Question[] = [];
+  const used = new Set<number>();
+
+  const take = (pool: Question[]) => {
+    for (const question of shuffle(pool)) {
+      if (picked.length >= size) return;
+      if (used.has(question.id)) continue;
+      used.add(question.id);
+      picked.push(question);
+    }
+  };
+
+  take(
+    (progress.missedIds ?? [])
+      .map((id) => byId.get(id))
+      .filter((question): question is Question => Boolean(question)),
+  );
+
+  if (picked.length < size) {
+    const weak = new Set(
+      weakestCategories(progress, 8)
+        .filter((item) => item.attempted >= 1 && item.pct < 70)
+        .map((item) => item.name),
+    );
+    take(bank.filter((question) => weak.has(question.category || "Uncategorized")));
+  }
+
+  return picked;
 }

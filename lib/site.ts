@@ -18,9 +18,9 @@ export const SITE = {
     "Proven is the occupational health and safety management system. Written the way the work actually happens. Public so anyone on the lift can read it before the hook is loaded.",
   close:
     "If a procedure cannot be followed on a jobsite, it is not a procedure. It is theatre.",
-  title: "Crane Safety, Rigging & Red Seal Exam Prep BC | sin()",
+  title: "Crane Safety & Red Seal Practice BC | sin()",
   description:
-    "Public tower crane, mobile crane and rigging safety information for British Columbia. Red Seal exam practice, load charts, safety procedures, forms and writing about the work.",
+    "Free Tower and Mobile Crane Red Seal practice for B.C. Procedures, FLHAs, crane binders and sling math. Public. No portal.",
   descriptionLong:
     "sin() is public crane safety information for lifting work in British Columbia.\n\nREDTC and REDMC are Tower Crane and Mobile Crane exam practice — Fulford, SkilledTradesBC, and the Interprovincial Red Seal. Tagged questions. Explanations after you answer. 70% to pass, same as the sitting.\n\nProven is the occupational health and safety program: policies, safe work procedures, hazard assessments, forms and crane binders. Written the way the work actually happens. Public so anyone on the lift can read it before the hook is loaded. No portal. No request form. No expiry date.\n\nThe Wire is writing about safety, rigging, cranes and people.\n\nWork is done to CSA Z150 / Z248, WorkSafeBC, BC Crane Safety, Technical Safety BC, applicable ASME B30 standards, manufacturer requirements and site policies. The stricter applicable requirement wins. Law always wins.\n\nIf a procedure cannot be followed on a jobsite, it is not a procedure. It is theatre.",
   system: "PROVEN",
@@ -57,10 +57,6 @@ export const ABOUT = [
   {
     name: "Open book",
     body: "Proven is public. Operators, riggers, supervisors, contractors and clients can read how the work is expected to be done before the gate.",
-  },
-  {
-    name: "COR®",
-    body: "This site explains the Certificate of Recognition and how a crane OHS program maps to it.",
   },
 ] as const;
 
@@ -109,48 +105,88 @@ export const STANDARDS = [
   },
 ] as const;
 
-export const COR = {
-  mark: "COR®",
-  title: "Certificate of Recognition",
-  partner: "BC Construction Safety Alliance",
-  partnerUrl: "https://www.bccsa.ca/cor_program.php",
-  program: "WorkSafeBC Certificate of Recognition",
-  asset: "/cor/bccsa-cor-certified.png",
-} as const;
+export type NavItem = {
+  href: string;
+  label: string;
+  num: string;
+  title: string;
+  binder?: boolean;
+};
 
-export const NAV = [
-  { href: "/", label: "HOME", num: "01", title: "Crane safety home" },
+export const NAV_PRACTICE: NavItem[] = [
   {
-    href: "/safety",
-    label: "PROVEN",
+    href: "/redtc/test",
+    label: "TOWER TEST",
+    num: "01",
+    title: "Tower Crane Red Seal practice test",
+  },
+  {
+    href: "/redmc/test",
+    label: "MOBILE TEST",
     num: "02",
-    title: "Crane safety program, procedures and forms",
-  },
-  {
-    href: "/wire",
-    label: "THE WIRE",
-    num: "03",
-    title: "Crane safety and rigging articles",
-  },
-  {
-    href: "/philosophy",
-    label: "PHILOSOPHY",
-    num: "04",
-    title: "How this crane safety program is written",
+    title: "Mobile Crane Red Seal practice test",
   },
   {
     href: "/redtc",
     label: "REDTC",
-    num: "05",
-    title: "Tower Crane Red Seal practice test",
+    num: "03",
+    title: "Tower Crane practice — Fulford, SkilledTradesBC, Red Seal",
   },
   {
     href: "/redmc",
     label: "REDMC",
-    num: "06",
-    title: "Mobile Crane Red Seal practice test",
+    num: "04",
+    title: "Mobile Crane practice — Red Seal and manufacturer charts",
   },
-] as const;
+];
+
+export const NAV_LIFT: NavItem[] = [
+  {
+    href: "/safety/form/flha",
+    label: "FLHA",
+    num: "01",
+    title: "Field level hazard assessment",
+  },
+  {
+    href: "/safety/builder",
+    label: "FORM BUILDER",
+    num: "02",
+    title: "Crane safety form builder — FLHA, lift plans and inspections",
+  },
+  {
+    href: "/safety/binder",
+    label: "CRANE BINDERS",
+    num: "03",
+    title: "Tower, self-erect and mobile crane site binders",
+  },
+  {
+    href: "/sling",
+    label: "SLING DESK",
+    num: "04",
+    title: "Sling angle, tension and WLL desk",
+  },
+  {
+    href: "/safety",
+    label: "PROVEN",
+    num: "05",
+    title: "Crane safety program, procedures and forms",
+  },
+];
+
+export const NAV_READ: NavItem[] = [
+  {
+    href: "/wire",
+    label: "THE WIRE",
+    num: "01",
+    title: "Crane safety and rigging articles",
+  },
+  {
+    href: "/about",
+    label: "ABOUT",
+    num: "02",
+    title: "About the author",
+  },
+];
 
 export const PROGRAM = [
   {
@@ -171,7 +207,7 @@ export const PROGRAM = [
   {
     num: "04",
     title: "FORMS + BINDERS",
-    body: "FLHA, lift plans, inspections, incident reports. Tower and self-erect binders. Fill them. Download a PDF.",
+    body: "FLHA, lift plans, inspections, incident reports. Tower, self-erect and mobile binders. Fill them. Download a PDF.",
   },
   {
     num: "05",
@@ -233,6 +269,6 @@ export const METHOD = [
   {
     num: "04",
     title: "ACCOUNT",
-    body: "Incidents are reported. Stop-work is real. COR® is an independent look at an occupational health and safety management system — not that nothing will go wrong.",
+    body: "Incidents are reported. Stop-work is real. An occupational health and safety management system is not a claim that nothing will go wrong.",
   },
 ] as const;

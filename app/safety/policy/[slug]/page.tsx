@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { PolicyIssue } from "@/components/PolicyIssue";
 import { SafetyControlStamp } from "@/components/SafetyControl";
 import { SafetyDocFrame } from "@/components/SafetyDocFrame";
 import { POLICIES, getPolicy } from "@/lib/ohs";
@@ -29,7 +30,7 @@ export default async function PolicyPage({ params }: Props) {
   return (
     <SafetyDocFrame
       kicker="OH&S POLICY"
-      num={doc.number.replace("GOSPEL-", "")}
+      number={doc.number}
       title={doc.title}
       intro={doc.summary}
       backHref="/safety/ohs-policies"
@@ -59,6 +60,7 @@ export default async function PolicyPage({ params }: Props) {
             </article>
           ))}
         </div>
+        <PolicyIssue policy={doc} />
       </div>
     </SafetyDocFrame>
   );

@@ -46,6 +46,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return [
     loc("/", undefined, "weekly", 1),
+    loc("/sling", undefined, "weekly", 0.8),
     loc("/wire", undefined, "weekly", 0.8),
     loc("/about", undefined, "monthly", 0.6),
     loc("/philosophy", undefined, "yearly", 0.4),

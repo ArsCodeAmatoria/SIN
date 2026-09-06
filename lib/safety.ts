@@ -1,5 +1,6 @@
-import { COR_ELEMENTS, PROGRAM_HIERARCHY, WSBC_33 } from "@/lib/ohs/system";
+import { PROGRAM_HIERARCHY, WSBC_33 } from "@/lib/ohs/system";
 import { LIGHTNING_RULE, MAD_APPROACH, MAD_DOWN, MAD_UNKNOWN } from "@/lib/ohs/meta";
+import type { DocKind } from "@/lib/ohs/doc";
 
 export type Step = { n: string; title: string; body: string };
 
@@ -334,7 +335,7 @@ export const SAFETY: SafetySection[] = [
       },
       {
         type: "p",
-        text: "COR treats safe work practices and safe job procedures as two elements. Practices are the standing rules — no lift without a plan, no damaged gear, no work under a load, one signalperson, STOP means stop. They live in 01, 06, 07 and 12. Procedures are the numbered SWPs in the library. An SJP is this lift, this site, this day, when the SWP is not enough. Do not file a practice as a second procedure.",
+        text: "Practices are the standing rules — no lift without a plan, no damaged gear, no work under a load, one signalperson, STOP means stop. They live in 01, 06, 07 and 12. Procedures are the numbered SWPs in the library. An SJP is this lift, this site, this day, when the SWP is not enough. Do not file a practice as a second procedure.",
       },
       {
         type: "h",
@@ -451,8 +452,8 @@ export const SAFETY: SafetySection[] = [
         type: "list",
         items: [
           "Critical lifts as defined by the site or by this program (see Crane Operations).",
-          "Flytable / flyform cycles — every table, every floor. GOSPEL-SJP-001. Corner and nontypical tables: GOSPEL-SJP-002.",
-          "Loading-platform install, reposition or strike — every deck, every floor. GOSPEL-SJP-003. Daily SuperDeck extend / retract is host, not this SJP.",
+          "Flytable / flyform cycles — every table, every floor. PROVEN-SJP-001. Corner and nontypical tables: PROVEN-SJP-002.",
+          "Loading-platform install, reposition or strike — every deck, every floor. PROVEN-SJP-003. Daily SuperDeck extend / retract is host, not this SJP.",
           "Tandem or multiple-crane lifts.",
           "Loads of unknown or shifting centre of gravity.",
           "Lifts over occupied buildings, public space, or process equipment.",
@@ -631,17 +632,17 @@ export const SAFETY: SafetySection[] = [
       },
       {
         type: "p",
-        text: "Treat as critical unless the site defines a stricter threshold: loads approaching chart capacity, tandem lifts, lifts over operating plant or public space, non-routine paths, loads with shifting COG, a flytable / flyform cycle, or a loading-platform install, reposition or strike. Critical lifts get an SJP, named supervision, and a slower brief. Ego is not a control. Flytables: GOSPEL-SWP-028, GOSPEL-JHA-011, GOSPEL-SJP-001. Loading platforms: GOSPEL-SWP-030, GOSPEL-JHA-014, GOSPEL-SJP-003.",
+        text: "Treat as critical unless the site defines a stricter threshold: loads approaching chart capacity, tandem lifts, lifts over operating plant or public space, non-routine paths, loads with shifting COG, a flytable / flyform cycle, or a loading-platform install, reposition or strike. Critical lifts get an SJP, named supervision, and a slower brief. Ego is not a control. Flytables: PROVEN-SWP-028, PROVEN-JHA-011, PROVEN-SJP-001. Loading platforms: PROVEN-SWP-030, PROVEN-JHA-014, PROVEN-SJP-003.",
       },
       {
         type: "cta",
         href: "/safety/swp/flytable-cycling",
-        label: "FLYTABLE CYCLING — GOSPEL-SWP-028 →",
+        label: "FLYTABLE CYCLING — PROVEN-SWP-028 →",
       },
       {
         type: "cta",
         href: "/safety/swp/loading-platform-reposition",
-        label: "LOADING PLATFORM — GOSPEL-SWP-030 →",
+        label: "LOADING PLATFORM — PROVEN-SWP-030 →",
       },
       {
         type: "h",
@@ -660,7 +661,7 @@ export const SAFETY: SafetySection[] = [
       {
         type: "cta",
         href: "/safety/swp/weather-and-wind",
-        label: "WEATHER AND WIND — GOSPEL-SWP-023 →",
+        label: "WEATHER AND WIND — PROVEN-SWP-023 →",
       },
       {
         type: "p",
@@ -685,7 +686,7 @@ export const SAFETY: SafetySection[] = [
       {
         type: "cta",
         href: "/safety/swp/working-near-powerlines",
-        label: "WORKING NEAR POWERLINES — GOSPEL-SWP-018 →",
+        label: "WORKING NEAR POWERLINES — PROVEN-SWP-018 →",
       },
       {
         type: "h",
@@ -693,22 +694,22 @@ export const SAFETY: SafetySection[] = [
       },
       {
         type: "p",
-        text: "Operating the crane is not servicing it. Isolation before a body is in the machine: GOSPEL-SWP-026. Climbing the ladder to the cab to operate is not jumping the tower. Erection, climbing (increasing height) and dismantling are a separate lift under a qualified supervisor, with a Notice of Project as 14.73.3 requires. GOSPEL-SWP-027. Emergency shutdown: people first. GOSPEL-SWP-024.",
+        text: "Operating the crane is not servicing it. Isolation before a body is in the machine: PROVEN-SWP-026. Climbing the ladder to the cab to operate is not jumping the tower. Erection, climbing (increasing height) and dismantling are a separate lift under a qualified supervisor, with a Notice of Project as 14.73.3 requires. PROVEN-SWP-027. Emergency shutdown: people first. PROVEN-SWP-024.",
       },
       {
         type: "cta",
         href: "/safety/swp/lockout",
-        label: "LOCKOUT / ISOLATION — GOSPEL-SWP-026 →",
+        label: "LOCKOUT / ISOLATION — PROVEN-SWP-026 →",
       },
       {
         type: "cta",
         href: "/safety/swp/tower-erection-climbing",
-        label: "TOWER ERECTION, CLIMBING AND DISMANTLING — GOSPEL-SWP-027 →",
+        label: "TOWER ERECTION, CLIMBING AND DISMANTLING — PROVEN-SWP-027 →",
       },
       {
         type: "cta",
         href: "/safety/crane-binders",
-        label: "22 — CRANE BINDERS / NOP-TC →",
+        label: "22 — CRANE BINDERS →",
       },
     ],
   },
@@ -927,7 +928,7 @@ export const SAFETY: SafetySection[] = [
       },
       {
         type: "p",
-        text: "First aid on a host site is the host’s. First aid on a workplace the employer controls is the employer’s assessment under Part 3 Division 4. GOSPEL-POL-025. Drills are recorded where the employer controls that workplace. PROVEN-FRM-034.",
+        text: "First aid on a host site is the host’s. First aid on a workplace the employer controls is the employer’s assessment under Part 3 Division 4. PROVEN-POL-025. Drills are recorded where the employer controls that workplace. PROVEN-FRM-034.",
       },
       {
         type: "cta",
@@ -937,7 +938,7 @@ export const SAFETY: SafetySection[] = [
       {
         type: "cta",
         href: "/safety/policy/first-aid",
-        label: "GOSPEL-POL-025 — FIRST AID →",
+        label: "PROVEN-POL-025 — FIRST AID →",
       },
       {
         type: "h",
@@ -996,7 +997,7 @@ export const SAFETY: SafetySection[] = [
         items: [
           {
             title: "Crane incident",
-            body: "Stop. People first. Land or hold only if it does not create a second event. Notify the site and the employer. Hold the scene. GOSPEL-SWP-024.",
+            body: "Stop. People first. Land or hold only if it does not create a second event. Notify the site and the employer. Hold the scene. PROVEN-SWP-024.",
           },
           {
             title: "Crane overturn",
@@ -1024,7 +1025,7 @@ export const SAFETY: SafetySection[] = [
           },
           {
             title: "Severe weather",
-            body: "Land the load. Manufacturer shutdown. People off the machine. Thunder: stop, shelter 30 minutes after the last rumble. Do not count to 30. Strike: 14.16.1. GOSPEL-SWP-023.",
+            body: "Land the load. Manufacturer shutdown. People off the machine. Thunder: stop, shelter 30 minutes after the last rumble. Do not count to 30. Strike: 14.16.1. PROVEN-SWP-023.",
           },
           {
             title: "Equipment failure",
@@ -1212,7 +1213,7 @@ export const SAFETY: SafetySection[] = [
       },
       {
         type: "table",
-        caption: "GOSPEL crane and rigging competency — pre-lift check. Not a training course.",
+        caption: "Proven crane and rigging competency — pre-lift check. Not a training course.",
         columns: ["ROLE", "QUALIFICATION", "MACHINE / TASK", "VERIFY"],
         rows: [
           ["Crane operator", "BC Crane Safety class, current", "This configuration and chart", "Ticket + experience + practical"],
@@ -1254,12 +1255,12 @@ export const SAFETY: SafetySection[] = [
       },
       {
         type: "p",
-        text: "The Act sets this by workplace, not by a company’s total headcount. Twenty or more workers regularly employed at a workplace: joint committee. Nine to nineteen: worker health and safety representative. GOSPEL-POL-026. On a host site, workers participate in that workplace’s system. Worker recommendations get a response and enter the corrective-action log.",
+        text: "The Act sets this by workplace, not by a company’s total headcount. Twenty or more workers regularly employed at a workplace: joint committee. Nine to nineteen: worker health and safety representative. PROVEN-POL-026. On a host site, workers participate in that workplace’s system. Worker recommendations get a response and enter the corrective-action log.",
       },
       {
         type: "cta",
         href: "/safety/policy/joint-committee",
-        label: "GOSPEL-POL-026 — JOINT COMMITTEE / WORKER REPRESENTATIVE →",
+        label: "PROVEN-POL-026 — JOINT COMMITTEE / WORKER REPRESENTATIVE →",
       },
       {
         type: "h",
@@ -1329,7 +1330,7 @@ export const SAFETY: SafetySection[] = [
     blocks: [
       {
         type: "p",
-        text: "Each policy is a controlled document: number, revision 01, effective 2026-09-01, owner GOSPEL Safety. The current version is the one on this site.",
+        text: "Each policy is a controlled document: number, revision 01, effective 2026-09-01, owner Proven. Open a policy, put your company name, logo and signature on it, and download a PDF. The current version is the one on this site.",
       },
       {
         type: "p",
@@ -1338,7 +1339,7 @@ export const SAFETY: SafetySection[] = [
       {
         type: "cta",
         href: "/safety/policy/bullying-and-harassment",
-        label: "GOSPEL-POL-017 — BULLYING AND HARASSMENT →",
+        label: "PROVEN-POL-017 — BULLYING AND HARASSMENT →",
       },
     ],
   },
@@ -1353,7 +1354,7 @@ export const SAFETY: SafetySection[] = [
     blocks: [
       {
         type: "p",
-        text: "WorkSafeBC requires written procedures for specified high-risk work (OHS Regulation B.C. Reg. 296/97). CCOHS describes an SWP as the step-by-step method. GOSPEL SWPs are purpose, scope, procedure, competency, equipment, PPE, prohibited practices, emergency, documentation and the editions the Regulation names — CSA Z150-1998, CSA Z248-2004, ASME B30.5-2004, B30.22-2005. The matching JHA is the hazard analysis, not a second procedure.",
+        text: "WorkSafeBC requires written procedures for specified high-risk work (OHS Regulation B.C. Reg. 296/97). CCOHS describes an SWP as the step-by-step method. Proven SWPs are purpose, scope, procedure, competency, equipment, PPE, prohibited practices, emergency, documentation and the editions the Regulation names — CSA Z150-1998, CSA Z248-2004, ASME B30.5-2004, B30.22-2005. The matching JHA is the hazard analysis, not a second procedure.",
       },
       {
         type: "cta",
@@ -1443,7 +1444,7 @@ export const SAFETY: SafetySection[] = [
     blocks: [
       {
         type: "p",
-        text: "Do not invent a form on the tailgate. Use these. Site forms that are stricter or required by the client are used as well — not instead of the facts these forms capture.",
+        text: "Do not invent a form on the tailgate. Use these. Fill them in the form builder. Put your company on the PDF. Site forms that are stricter or required by the client are used as well — not instead of the facts these forms capture.",
       },
       {
         type: "cta",
@@ -1453,7 +1454,7 @@ export const SAFETY: SafetySection[] = [
       {
         type: "cta",
         href: "/safety/binder",
-        label: "CRANE BINDER WIZARD →",
+        label: "CRANE BINDERS →",
       },
       {
         type: "cta",
@@ -1549,17 +1550,17 @@ export const SAFETY: SafetySection[] = [
       },
       {
         type: "p",
-        text: "MDT 219 topless. MRH 125 hydraulic luffer. MR rope luffers. Hup, Igo and Igo T self-erects. Published load charts download from Manitowoc. Serial manuals stay in the cab and on Crane Care. Complete the GOSPEL form for this class.",
+        text: "MDT 219 topless. MRH 125 hydraulic luffer. MR rope luffers. Hup, Igo and Igo T self-erects. Published load charts download from Manitowoc. Serial manuals stay in the cab and on Crane Care. Complete the Proven form for this class.",
       },
       {
         type: "cta",
         href: "/safety/crane/mdt-219",
-        label: "POTAIN MDT 219 — GOSPEL-CRN-001 →",
+        label: "POTAIN MDT 219 — PROVEN-CRN-001 →",
       },
       {
         type: "cta",
         href: "/safety/crane/mrh-125",
-        label: "POTAIN MRH 125 — GOSPEL-CRN-002 →",
+        label: "POTAIN MRH 125 — PROVEN-CRN-002 →",
       },
       {
         type: "h",
@@ -1567,17 +1568,17 @@ export const SAFETY: SafetySection[] = [
       },
       {
         type: "p",
-        text: "Clear flat-top. Compact and Cross saddle jib. 166 B hydraulic luffer. B-series rope luffers. Published data sheets download from wolffkran.com Canada. Serial manuals stay in the cab. Calgary service and WOLFF Assist support the interval. Complete the GOSPEL form for this class.",
+        text: "Clear flat-top. Compact and Cross saddle jib. 166 B hydraulic luffer. B-series rope luffers. Published data sheets download from wolffkran.com Canada. Serial manuals stay in the cab. Calgary service and WOLFF Assist support the interval. Complete the Proven form for this class.",
       },
       {
         type: "cta",
         href: "/safety/crane/wolff-clear",
-        label: "WOLFF CLEAR — GOSPEL-CRN-005 →",
+        label: "WOLFF CLEAR — PROVEN-CRN-005 →",
       },
       {
         type: "cta",
         href: "/safety/crane/wolff-166-b",
-        label: "WOLFF 166 B — GOSPEL-CRN-007 →",
+        label: "WOLFF 166 B — PROVEN-CRN-007 →",
       },
       {
         type: "h",
@@ -1585,22 +1586,22 @@ export const SAFETY: SafetySection[] = [
       },
       {
         type: "p",
-        text: "EC-B flat-top. HC-L rope luffers and 195 HC-LH hydraulic. K-series fast-erect. Published data sheets download from liebherr.com Canada. Serial manuals stay in the cab, on the Tower Crane Portal and on MyLiebherr. Complete the GOSPEL form for this class.",
+        text: "EC-B flat-top. HC-L rope luffers and 195 HC-LH hydraulic. K-series fast-erect. Published data sheets download from liebherr.com Canada. Serial manuals stay in the cab, on the Tower Crane Portal and on MyLiebherr. Complete the Proven form for this class.",
       },
       {
         type: "cta",
         href: "/safety/crane/liebherr-ec-b",
-        label: "LIEBHERR EC-B — GOSPEL-CRN-009 →",
+        label: "LIEBHERR EC-B — PROVEN-CRN-009 →",
       },
       {
         type: "cta",
         href: "/safety/crane/liebherr-hc-l",
-        label: "LIEBHERR HC-L — GOSPEL-CRN-010 →",
+        label: "LIEBHERR HC-L — PROVEN-CRN-010 →",
       },
       {
         type: "cta",
         href: "/safety/crane/liebherr-k-series",
-        label: "LIEBHERR K-SERIES — GOSPEL-CRN-011 →",
+        label: "LIEBHERR K-SERIES — PROVEN-CRN-011 →",
       },
       {
         type: "h",
@@ -1608,17 +1609,17 @@ export const SAFETY: SafetySection[] = [
       },
       {
         type: "p",
-        text: "R-generation and WA flat-top. RL hydraulic luffers. L / LW / LH rope luffers. Published product pages and Manual Download PDFs from en-product.zoomlion.com. Serial manuals stay in the cab. Complete the GOSPEL form for this class.",
+        text: "R-generation and WA flat-top. RL hydraulic luffers. L / LW / LH rope luffers. Published product pages and Manual Download PDFs from en-product.zoomlion.com. Serial manuals stay in the cab. Complete the Proven form for this class.",
       },
       {
         type: "cta",
         href: "/safety/crane/zoomlion-flat-top",
-        label: "ZOOMLION FLAT-TOP — GOSPEL-CRN-012 →",
+        label: "ZOOMLION FLAT-TOP — PROVEN-CRN-012 →",
       },
       {
         type: "cta",
         href: "/safety/crane/zoomlion-rl",
-        label: "ZOOMLION RL — GOSPEL-CRN-013 →",
+        label: "ZOOMLION RL — PROVEN-CRN-013 →",
       },
       {
         type: "h",
@@ -1626,22 +1627,22 @@ export const SAFETY: SafetySection[] = [
       },
       {
         type: "p",
-        text: "Raimondi MRT and T-series flat-top. LR rope luffers and LRH174 hydraulic. Terex CTT flat-top, CTL / CTLH luffers, CBR and CSE self-erects. Terex tower and self-erect now sit under Raimondi. Data sheets download from each product page on raimondi.com. Serial manuals stay in the cab. Complete the GOSPEL form for this class.",
+        text: "Raimondi MRT and T-series flat-top. LR rope luffers and LRH174 hydraulic. Terex CTT flat-top, CTL / CTLH luffers, CBR and CSE self-erects. Terex tower and self-erect now sit under Raimondi. Data sheets download from each product page on raimondi.com. Serial manuals stay in the cab. Complete the Proven form for this class.",
       },
       {
         type: "cta",
         href: "/safety/crane/raimondi-flat-top",
-        label: "RAIMONDI FLAT-TOP — GOSPEL-CRN-015 →",
+        label: "RAIMONDI FLAT-TOP — PROVEN-CRN-015 →",
       },
       {
         type: "cta",
         href: "/safety/crane/terex-ctt",
-        label: "TEREX CTT — GOSPEL-CRN-017 →",
+        label: "TEREX CTT — PROVEN-CRN-017 →",
       },
       {
         type: "cta",
         href: "/safety/crane/terex-self-erect",
-        label: "TEREX SELF-ERECTING — GOSPEL-CRN-019 →",
+        label: "TEREX SELF-ERECTING — PROVEN-CRN-019 →",
       },
       {
         type: "h",
@@ -1649,17 +1650,17 @@ export const SAFETY: SafetySection[] = [
       },
       {
         type: "p",
-        text: "Flat-top J165 / J235. HPA hydraulic luffers. PA rope luffers. Published EN 14439 C25 and FEM 1001 sheets download from jaso.com/tower. Serial manuals stay in the cab. Smartlink and Eco Mode where fitted. Complete the GOSPEL form for this class.",
+        text: "Flat-top J165 / J235. HPA hydraulic luffers. PA rope luffers. Published EN 14439 C25 and FEM 1001 sheets download from jaso.com/tower. Serial manuals stay in the cab. Smartlink and Eco Mode where fitted. Complete the Proven form for this class.",
       },
       {
         type: "cta",
         href: "/safety/crane/jaso-flat-top",
-        label: "JASO FLAT TOP — GOSPEL-CRN-020 →",
+        label: "JASO FLAT TOP — PROVEN-CRN-020 →",
       },
       {
         type: "cta",
         href: "/safety/crane/jaso-hpa",
-        label: "JASO HPA — GOSPEL-CRN-021 →",
+        label: "JASO HPA — PROVEN-CRN-021 →",
       },
       {
         type: "h",
@@ -1667,17 +1668,17 @@ export const SAFETY: SafetySection[] = [
       },
       {
         type: "p",
-        text: "SK hammerhead. SN rope luffers. SKK 140 articulated jib. Morrow published the North American range sheets. Peiner built them. Terex took Peiner in 1998. Current Terex SK sits under Raimondi. Serial manuals stay in the cab. Complete the GOSPEL form for this class.",
+        text: "SK hammerhead. SN rope luffers. SKK 140 articulated jib. Morrow published the North American range sheets. Peiner built them. Terex took Peiner in 1998. Current Terex SK sits under Raimondi. Serial manuals stay in the cab. Complete the Proven form for this class.",
       },
       {
         type: "cta",
         href: "/safety/crane/pecco-sk",
-        label: "PECCO SK — GOSPEL-CRN-023 →",
+        label: "PECCO SK — PROVEN-CRN-023 →",
       },
       {
         type: "cta",
         href: "/safety/crane/pecco-sn",
-        label: "PECCO SN — GOSPEL-CRN-024 →",
+        label: "PECCO SN — PROVEN-CRN-024 →",
       },
       {
         type: "cta",
@@ -1745,15 +1746,15 @@ export const SAFETY: SafetySection[] = [
       {
         type: "list",
         items: [
-          "GOSPEL-POL — policies",
-          "GOSPEL-SWP — safe work procedures",
-          "GOSPEL-JHA — job hazard analyses",
-          "GOSPEL-SJP — this lift, this site, this day",
+          "PROVEN-POL — policies",
+          "PROVEN-SWP — safe work procedures",
+          "PROVEN-JHA — job hazard analyses",
+          "PROVEN-SJP — this lift, this site, this day",
           "PROVEN-FRM — forms",
-          "GOSPEL-BND — crane site binders",
-          "GOSPEL-SDS — safety data sheets in this library",
-          "GOSPEL-CRN — crane charts and inspection packs",
-          "GOSPEL-RPT — field reports",
+          "PROVEN-BND — crane site binders",
+          "PROVEN-SDS — safety data sheets in this library",
+          "PROVEN-CRN — crane charts and inspection packs",
+          "PROVEN-RPT — field reports",
         ],
       },
       {
@@ -1762,7 +1763,7 @@ export const SAFETY: SafetySection[] = [
       },
       {
         type: "p",
-        text: "Revision 01. Effective 2026-09-01. Owner: GOSPEL Safety. Approved by: GOSPEL. Review by: 2027-09-01. Documents on this website are the current version. Printed copies are uncontrolled the moment they leave the screen — check the number and revision before you use a photocopy.",
+        text: "Revision 01. Effective 2026-09-01. Owner: Proven. Approved by: Proven. Review by: 2027-09-01. Documents on this website are the current version. Printed copies are uncontrolled the moment they leave the screen — check the number and revision before you use a photocopy.",
       },
       {
         type: "h",
@@ -1784,7 +1785,7 @@ export const SAFETY: SafetySection[] = [
     title: "OHS MANAGEMENT SYSTEM",
     kicker: "Documentation is not implementation.",
     intro:
-      "Proven is GOSPEL’s occupational health and safety management system for crane and rigging work. WorkSafeBC s. 3.3 names what a formal program must contain. BCCSA COR® measures the CFCSA 14 elements. The tables below map those requirements to the documents, forms, records, owners and frequencies that already live in this system.",
+      "Proven is the occupational health and safety management system for crane and rigging work. WorkSafeBC s. 3.3 names what a formal program must contain. The table below maps those requirements to the documents, forms, records, owners and frequencies that already live in this system.",
     blocks: [
       {
         type: "quote",
@@ -1807,7 +1808,7 @@ export const SAFETY: SafetySection[] = [
       },
       {
         type: "p",
-        text: "OHS Regulation 3.1: a 3.3 program is required if the employer has 20 or more workers and at least one workplace with a moderate or high hazard rating under Schedule 3-A, or 50 or more workers. An officer can also require one. Crane and rigging work is high-hazard work. This written program exists because the work requires it. The COR® table below is a document map for that framework. If a workplace the employer controls is below the 3.1 threshold, 3.2 still requires monthly meetings with workers and a record of what was discussed — PROVEN-FRM-033. This program is not an excuse to skip that.",
+        text: "OHS Regulation 3.1: a 3.3 program is required if the employer has 20 or more workers and at least one workplace with a moderate or high hazard rating under Schedule 3-A, or 50 or more workers. An officer can also require one. Crane and rigging work is high-hazard work. This written program exists because the work requires it. The table below is a document map for that framework. If a workplace the employer controls is below the 3.1 threshold, 3.2 still requires monthly meetings with workers and a record of what was discussed — PROVEN-FRM-033. This program is not an excuse to skip that.",
       },
       {
         type: "h",
@@ -1832,35 +1833,14 @@ export const SAFETY: SafetySection[] = [
       },
       {
         type: "h",
-        text: "BCCSA COR® — 14 ELEMENTS",
-      },
-      {
-        type: "p",
-        text: "BCCSA uses the COR® OHS National Audit Document. The CFCSA Accreditation Standard names 14 elements. Passing scores (80% overall, 50% per element) are for the audit, not for this page. This table is the document map. Implementation is the completed record.",
-      },
-      {
-        type: "table",
-        caption: "CFCSA / BCCSA COR® elements — mapped to this program.",
-        columns: ["ELEMENT", "DOCUMENTATION", "FORM", "RECORD", "OWNER", "FREQUENCY"],
-        rows: COR_ELEMENTS.map((row) => [
-          `${row.id} ${row.title}`,
-          row.documentation,
-          row.form,
-          row.record,
-          row.owner,
-          row.frequency,
-        ]),
-      },
-      {
-        type: "h",
         text: "SIZE AND HOST SITE",
       },
       {
         type: "list",
         items: [
-          "Joint committee or worker representative — Act Part 2 Division 5, per workplace. GOSPEL-POL-026.",
-          "First aid — Part 3 Division 4 and Schedule 3-A, per workplace. Host site: host’s first aid. Employer-controlled workplace: the employer’s assessment. GOSPEL-POL-025.",
-          "Prime contractor — multiple-employer workplaces as the Act requires. GOSPEL-POL-027.",
+          "Joint committee or worker representative — Act Part 2 Division 5, per workplace. PROVEN-POL-026.",
+          "First aid — Part 3 Division 4 and Schedule 3-A, per workplace. Host site: host’s first aid. Employer-controlled workplace: the employer’s assessment. PROVEN-POL-025.",
+          "Prime contractor — multiple-employer workplaces as the Act requires. PROVEN-POL-027.",
           "Young or new worker orientation — 3.23 before they begin, every workplace. PROVEN-FRM-015.",
         ],
       },
@@ -1872,12 +1852,12 @@ export const SAFETY: SafetySection[] = [
       {
         type: "cta",
         href: "/safety/policy/continuous-improvement",
-        label: "GOSPEL-POL-016 — CONTINUOUS IMPROVEMENT →",
+        label: "PROVEN-POL-016 — CONTINUOUS IMPROVEMENT →",
       },
       {
         type: "cta",
         href: "/safety/policy/contractors",
-        label: "GOSPEL-POL-027 — CONTRACTORS AND MULTI-EMPLOYER SITES →",
+        label: "PROVEN-POL-027 — CONTRACTORS AND MULTI-EMPLOYER SITES →",
       },
     ],
   },
@@ -1885,9 +1865,9 @@ export const SAFETY: SafetySection[] = [
     num: "22",
     slug: "crane-binders",
     title: "CRANE BINDERS",
-    kicker: "The file that goes with the NOP-TC.",
+    kicker: "The file that goes with the machine.",
     intro:
-      "A tower or self-erect on a B.C. construction site needs a site binder. BC Crane Safety wrote the checklists. WorkSafeBC requires the Notice of Project — Tower Crane. The wizard builds the Proven copy: numbered items, who holds them, and the downloadable forms.",
+      "A tower or self-erect on a B.C. construction site needs a site binder. BC Crane Safety wrote those checklists. WorkSafeBC requires the Notice of Project — Tower Crane. A mobile or crawler still needs a file. Pick the machine. Name the site. Mark what you have. Download the Proven PDF with your company on it.",
     library: "binder",
     blocks: [
       {
@@ -1896,29 +1876,45 @@ export const SAFETY: SafetySection[] = [
       },
       {
         type: "h",
-        text: "TWO BINDERS",
+        text: "HOW TO BUILD ONE",
       },
       {
-        type: "p",
-        text: "Tower Crane Site Binder — hammerhead, topless, luffing jib. Self-Erect Tower Crane Site Binder — Hup, Igo, K-series, CBR, CSE and the rest of that class. Pick the one that matches the machine. Do not run a top-slewing tower on the self-erect list.",
+        type: "steps",
+        items: [
+          {
+            n: "01",
+            title: "PICK THE MACHINE",
+            body: "Tower, self-erect, or mobile / crawler. Do not run a top-slewing tower on the self-erect list. Do not run a crawler on the tower list.",
+          },
+          {
+            n: "02",
+            title: "NAME THIS SITE",
+            body: "Project, address, contractor, supervisor, make, model, serial.",
+          },
+          {
+            n: "03",
+            title: "MARK WHAT YOU HAVE",
+            body: "Each item is in the binder, missing, or N/A. Open the Proven form or the official download when you need it.",
+          },
+          {
+            n: "04",
+            title: "DOWNLOAD THE PDF",
+            body: "Your company name, logo and signature print on the working copy. Official BC Crane Safety and WorkSafeBC paper stays official.",
+          },
+        ],
       },
       {
         type: "cta",
         href: "/safety/binder",
-        label: "BINDER WIZARD — TOWER OR SELF-ERECT →",
+        label: "START A CRANE BINDER →",
       },
       {
         type: "h",
-        text: "WHAT THE WIZARD DOES",
+        text: "THREE MACHINES",
       },
       {
-        type: "list",
-        items: [
-          "Walks the numbered BC Crane Safety items for that class.",
-          "Marks each item in binder, missing, or N/A — and who holds it.",
-          "Opens the Proven form and the official download (30M33, 52E73C, NOP-TC, tower crane report, NAV CANADA).",
-          "Downloads a Proven checklist PDF for this site. Saved on this device.",
-        ],
+        type: "p",
+        text: "Tower — hammerhead, topless, luffing jib. Self-erect — Hup, Igo, K-series, CBR, CSE and the rest of that class. Mobile / crawler — rough-terrain, all-terrain, truck crane, boom truck, lattice. The mobile file is not a BC Crane Safety template. It is numbered to Proven forms and WorkSafeBC Part 14.",
       },
       {
         type: "h",
@@ -1944,7 +1940,7 @@ export const SAFETY: SafetySection[] = [
       },
       {
         type: "p",
-        text: "Official paper stays official. GOSPEL sheets are the working copy and the cover. Form 30M33 is coded by WorkSafeBC — order it; the GOSPEL record is the schematic and the discussion. Radio coordination is 52E73C. The tower crane report is WorkSafeBC’s checklist after erect, climb or reposition.",
+        text: "Official paper stays official. Proven sheets are the working copy and the cover. Form 30M33 is coded by WorkSafeBC — order it; the Proven record is the schematic and the discussion. Radio coordination is 52E73C. The tower crane report is WorkSafeBC’s checklist after erect, climb or reposition.",
       },
       {
         type: "cta",
@@ -1967,12 +1963,22 @@ export const SAFETY: SafetySection[] = [
       },
       {
         type: "p",
-        text: "Table of contents, notes, and OHSR / CSA info files live on BC Crane Safety. Use them. This program does not host their PDFs as if they were GOSPEL documents.",
+        text: "Table of contents, notes, and OHSR / CSA info files live on BC Crane Safety. Use them. This program does not host their PDFs as if they were Proven documents.",
       },
       {
         type: "cta",
         href: "https://bccranesafety.ca/resources/tower-crane-site-binder/",
         label: "BC CRANE SAFETY — TOWER CRANE SITE BINDERS →",
+      },
+      {
+        type: "cta",
+        href: "https://www.worksafebc.com/en/resources/health-safety/checklist/mobile-crane-inspection-checklist?lang=en",
+        label: "WORKSAFEBC — MOBILE CRANE INSPECTION CHECKLIST →",
+      },
+      {
+        type: "cta",
+        href: "/safety/binder/mobile",
+        label: "MOBILE / CRAWLER BINDER — BND-003 →",
       },
     ],
   },
@@ -2028,24 +2034,82 @@ export const SAFETY_GROUPS = [
   },
 ] as const;
 
-/** Documents people actually open at the gate. */
-export const FIND_NOW = [
-  { href: "/safety/form/flha", label: "FLHA", hint: "This shift" },
-  { href: "/safety/form/crane-pre-use", label: "CRANE PRE-USE", hint: "This machine" },
-  { href: "/safety/form/tower-pre-use", label: "TOWER PRE-USE", hint: "Tower / luffer / Z248" },
-  { href: "/safety/form/lift-plan", label: "LIFT PLAN", hint: "This lift" },
-  { href: "/safety/sjp/flytable-cycle", label: "FLYTABLE SJP", hint: "This cycle" },
-  { href: "/safety/sjp/loading-platform", label: "LOADING PLATFORM SJP", hint: "This deck" },
-  { href: "/safety/sjp-library", label: "SJP LIBRARY", hint: "This lift" },
-  { href: "/safety/form/toolbox-meeting", label: "TOOLBOX", hint: "The brief" },
-  { href: "/safety/policy/right-to-refuse", label: "STOP WORK", hint: "Refuse unsafe" },
-  { href: "/safety/report/incident", label: "INCIDENT", hint: "Report it" },
-  { href: "/safety/swp/working-near-powerlines", label: "MAD / POWERLINES", hint: "Table 19-1A" },
-  { href: "/safety/swp/weather-and-wind", label: "LIGHTNING / WIND", hint: "Thunder is the stop" },
-  { href: "/safety/emergency-response", label: "EMERGENCY", hint: "The plan" },
-  { href: "/safety/binder", label: "CRANE BINDER WIZARD", hint: "Tower / self-erect" },
-  { href: "/safety/builder", label: "FORM BUILDER", hint: "Fill + PDF" },
-] as const;
+/** Documents people actually open at the gate, grouped the way the work happens. */
+export type FindNowItem = {
+  href: string;
+  label: string;
+  hint: string;
+  kind?: DocKind;
+};
+
+export const FIND_NOW_GROUPS: { id: string; label: string; items: FindNowItem[] }[] = [
+  {
+    id: "shift",
+    label: "THIS SHIFT",
+    items: [
+      { href: "/safety/form/flha", label: "FLHA", hint: "This shift", kind: "FRM" },
+      { href: "/safety/form/toolbox-meeting", label: "TOOLBOX", hint: "The brief", kind: "FRM" },
+      { href: "/safety/form/lift-plan", label: "LIFT PLAN", hint: "This lift", kind: "FRM" },
+    ],
+  },
+  {
+    id: "machine",
+    label: "THIS MACHINE",
+    items: [
+      { href: "/safety/form/crane-pre-use", label: "CRANE PRE-USE", hint: "This machine", kind: "FRM" },
+      { href: "/safety/form/tower-pre-use", label: "TOWER PRE-USE", hint: "Tower / luffer / Z248", kind: "FRM" },
+      { href: "/safety/binder", label: "CRANE BINDERS", hint: "Pick · mark · PDF", kind: "BND" },
+    ],
+  },
+  {
+    id: "pad",
+    label: "THIS PAD",
+    items: [
+      { href: "/sling", label: "SLING DESK", hint: "θ / tension / WLL" },
+      { href: "/safety/swp/working-near-powerlines", label: "MAD / POWERLINES", hint: "Table 19-1A", kind: "SWP" },
+      { href: "/safety/swp/weather-and-wind", label: "LIGHTNING / WIND", hint: "Thunder is the stop", kind: "SWP" },
+      { href: "/safety/sjp/flytable-cycle", label: "FLYTABLE SJP", hint: "This cycle", kind: "SJP" },
+      { href: "/safety/sjp/loading-platform", label: "LOADING PLATFORM SJP", hint: "This deck", kind: "SJP" },
+    ],
+  },
+  {
+    id: "stop",
+    label: "STOP",
+    items: [
+      { href: "/safety/policy/right-to-refuse", label: "STOP WORK", hint: "Refuse unsafe", kind: "POL" },
+      { href: "/safety/report/incident", label: "INCIDENT", hint: "Report it", kind: "RPT" },
+      { href: "/safety/emergency-response", label: "EMERGENCY", hint: "The plan", kind: "RPT" },
+    ],
+  },
+  {
+    id: "pdf",
+    label: "MAKE A PDF",
+    items: [
+      { href: "/safety/builder", label: "FORM BUILDER", hint: "Fill + PDF", kind: "FRM" },
+    ],
+  },
+];
+
+const HOME_LIFT_HREFS = new Set([
+  "/safety/form/flha",
+  "/safety/form/toolbox-meeting",
+  "/safety/form/lift-plan",
+  "/safety/form/crane-pre-use",
+  "/safety/binder",
+  "/sling",
+  "/safety/swp/working-near-powerlines",
+]);
+
+export const HOME_LIFT_GROUPS = FIND_NOW_GROUPS.filter(
+  (group) => group.id === "shift" || group.id === "machine" || group.id === "pad",
+)
+  .map((group) => ({
+    ...group,
+    items: group.items.filter((item) => HOME_LIFT_HREFS.has(item.href)),
+  }))
+  .filter((group) => group.items.length);
+
+export const FIND_NOW: FindNowItem[] = FIND_NOW_GROUPS.flatMap((group) => group.items);
 
 export function safetyByGroup() {
   return SAFETY_GROUPS.map((group) => ({

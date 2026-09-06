@@ -20,7 +20,7 @@ export function JhaDoc({ doc }: { doc: Jha }) {
         is not the procedure. Do the work to the matching SWP. WorkSafeBC does
         not prescribe a JHA form — the Workers Compensation Act s. 21(2)(b)
         requires workers to be made aware of known or reasonably foreseeable
-        hazards. This is how GOSPEL does that for this job.
+        hazards. This is how Proven does that for this job.
       </p>
       <h2>HAZARDS AND RISK</h2>
       <div className="wire-table-wrap">

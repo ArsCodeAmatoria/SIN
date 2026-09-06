@@ -32,7 +32,9 @@ export {
 } from "./meta";
 export { BINDERS, getBinder, BINDER_OFFICIAL } from "./binders";
 export type { BinderDef, BinderItem, BinderKind } from "./binders";
-export { WSBC_33, COR_ELEMENTS, PROGRAM_HIERARCHY } from "./system";
+export { shortNumber, docKind, LIBRARY_KIND } from "./doc";
+export type { DocKind } from "./doc";
+export { WSBC_33, PROGRAM_HIERARCHY } from "./system";
 export type { SystemRow } from "./system";
 export {
   safetyCatalog,

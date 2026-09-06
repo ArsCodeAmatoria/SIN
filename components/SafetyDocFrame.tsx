@@ -1,11 +1,14 @@
 import type { ReactNode } from "react";
 import Link from "next/link";
+import { DocBadge } from "@/components/DocBadge";
 import { ProvenName } from "@/components/ProvenMark";
+import { shortNumber } from "@/lib/ohs/doc";
 import { SITE } from "@/lib/site";
 
 export function SafetyDocFrame({
   kicker,
   num,
+  number,
   title,
   intro,
   children,
@@ -13,18 +16,21 @@ export function SafetyDocFrame({
   backLabel,
 }: {
   kicker: string;
-  num: string;
+  num?: string;
+  number?: string;
   title: string;
   intro: string;
   children: ReactNode;
   backHref: string;
   backLabel: string;
 }) {
+  const display = num ?? (number ? shortNumber(number) : "");
   return (
     <article className="doc-body">
       <header className="doc-title">
         <p className="mono steel">{kicker}</p>
-        <div className="num">{num}</div>
+        {number ? <DocBadge number={number} /> : null}
+        {display ? <div className="num">{display}</div> : null}
         <h1 className="display">{title}</h1>
         <p className="lede mt">{intro}</p>
       </header>

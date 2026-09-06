@@ -42,15 +42,15 @@ export function ThemeSwitch() {
       aria-checked={lightsOn}
       aria-label={
         lightsOn
-          ? "Lights on. Switch to dark mode."
-          : "Lights off. Switch to light mode."
+          ? "Light mode. Switch to dark."
+          : "Dark mode. Switch to light."
       }
       onClick={toggle}
     >
       <span className="switch-housing">
         <span className="switch-track">
-          <span className="switch-mark switch-mark-on">ON</span>
-          <span className="switch-mark switch-mark-off">OFF</span>
+          <span className="switch-mark switch-mark-on">LIGHT</span>
+          <span className="switch-mark switch-mark-off">DARK</span>
         </span>
         <span className="switch-knob" aria-hidden>
           <span className="switch-knob-face">

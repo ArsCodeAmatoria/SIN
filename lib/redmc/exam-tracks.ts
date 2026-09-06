@@ -90,6 +90,7 @@ export const MOBILE_EXAM_TRACKS: ExamTrack[] = [
 
 export type MobilePracticeMode =
   | "practice"
+  | "drill"
   | "category"
   | "exam"
   | "calculation"
@@ -106,6 +107,12 @@ export const MOBILE_PRACTICE_MODES: {
     title: "Quick Practice",
     subtitle: "10 mixed questions",
     body: "10 random questions from the Mobile Crane bank.",
+  },
+  {
+    id: "drill",
+    title: "Drill misses",
+    subtitle: "Wrong answers + weak topics",
+    body: "A paper from questions you missed, then from categories still under 70%. Sit a paper first if this is empty.",
   },
   {
     id: "category",
@@ -289,6 +296,7 @@ export function mobilePracticeAvailable(
   opts?: { exam?: ExamId; category?: string; mwa?: string },
 ): number {
   if (mode === "practice") return Math.min(10, all.length);
+  if (mode === "drill") return 0;
   if (mode === "calculation") {
     return Math.min(10, all.filter((q) => q.calculation).length);
   }

@@ -4,7 +4,7 @@ export const POLICIES: Policy[] = [
   {
     slug: "health-and-safety",
     title: "OH&S POLICY",
-    number: "GOSPEL-POL-001",
+    number: "PROVEN-POL-001",
     summary:
       "This is the occupational health and safety policy for this program. The work is done to this program, to the law, and to the machine.",
     statements: [
@@ -18,7 +18,7 @@ export const POLICIES: Policy[] = [
       },
       {
         title: "Objectives",
-        body: "Every lift has a named competent person and a plan. Defects that affect lifting take the crane down the same hour. Incidents and near misses are reported the same shift. This program is reviewed at least annually. COR maintenance is submitted as BCCSA requires.",
+        body: "Every lift has a named competent person and a plan. Defects that affect lifting take the crane down the same hour. Incidents and near misses are reported the same shift. This program is reviewed at least annually.",
       },
       {
         title: "Scope",
@@ -41,7 +41,7 @@ export const POLICIES: Policy[] = [
   {
     slug: "competency",
     title: "COMPETENCY",
-    number: "GOSPEL-POL-002",
+    number: "PROVEN-POL-002",
     summary:
       "A ticket is not competency. This program names what the person must hold for the machine, the lift and the site.",
     statements: [
@@ -62,7 +62,7 @@ export const POLICIES: Policy[] = [
   {
     slug: "training",
     title: "TRAINING",
-    number: "GOSPEL-POL-003",
+    number: "PROVEN-POL-003",
     summary:
       "Site orientations and briefings are arranged. Workers hold the qualification for the role before they start.",
     statements: [
@@ -99,7 +99,7 @@ export const POLICIES: Policy[] = [
   {
     slug: "hazard-identification",
     title: "HAZARD IDENTIFICATION",
-    number: "GOSPEL-POL-004",
+    number: "PROVEN-POL-004",
     summary:
       "Name the hazards of this lift, this site, this day. A parking-lot form is not identification.",
     statements: [
@@ -120,7 +120,7 @@ export const POLICIES: Policy[] = [
   {
     slug: "risk-assessment",
     title: "RISK ASSESSMENT",
-    number: "GOSPEL-POL-005",
+    number: "PROVEN-POL-005",
     summary:
       "Every lift requires a hazard assessment. FLHA at the shift. Reassess when the work changes.",
     statements: [
@@ -141,7 +141,7 @@ export const POLICIES: Policy[] = [
   {
     slug: "incident-reporting",
     title: "INCIDENT REPORTING",
-    number: "GOSPEL-POL-006",
+    number: "PROVEN-POL-006",
     summary:
       "Injuries, dropped loads, crane contact, failed rigging and stop-work events are reported. Quiet is not always safe.",
     statements: [
@@ -162,7 +162,7 @@ export const POLICIES: Policy[] = [
   {
     slug: "near-miss-reporting",
     title: "NEAR-MISS REPORTING",
-    number: "GOSPEL-POL-007",
+    number: "PROVEN-POL-007",
     summary:
       "Someone in the zone, a lost signal that almost mattered, a sling that started to cut — that is a report, not a story for later.",
     statements: [
@@ -183,7 +183,7 @@ export const POLICIES: Policy[] = [
   {
     slug: "right-to-refuse",
     title: "RIGHT TO REFUSE UNSAFE WORK",
-    number: "GOSPEL-POL-008",
+    number: "PROVEN-POL-008",
     summary:
       "The three rights are operating procedure. A replacement is not sent to do the same unsafe work.",
     statements: [
@@ -204,9 +204,9 @@ export const POLICIES: Policy[] = [
   {
     slug: "violence-and-harassment",
     title: "VIOLENCE / HARASSMENT",
-    number: "GOSPEL-POL-009",
+    number: "PROVEN-POL-009",
     summary:
-      "Threats and physical violence are not part of a lift. Harassment is GOSPEL-POL-017. Report them. They are acted on. OHS Regulation Part 4.",
+      "Threats and physical violence are not part of a lift. Harassment is PROVEN-POL-017. Report them. They are acted on. OHS Regulation Part 4.",
     statements: [
       {
         title: "Zero for violence",
@@ -218,14 +218,14 @@ export const POLICIES: Policy[] = [
       },
       {
         title: "Bullying and harassment",
-        body: "Humiliation, racism, sexual harassment and “that’s just the trade” are covered by GOSPEL-POL-017 Bullying and Harassment — Workers Compensation Act s. 21, WorkSafeBC P2-21-2.",
+        body: "Humiliation, racism, sexual harassment and “that’s just the trade” are covered by PROVEN-POL-017 Bullying and Harassment — Workers Compensation Act s. 21, WorkSafeBC P2-21-2.",
       },
     ],
   },
   {
     slug: "ppe",
     title: "PPE",
-    number: "GOSPEL-POL-010",
+    number: "PROVEN-POL-010",
     summary:
       "Minimum PPE for lifting work. Site rules that are stricter win. Damaged PPE is out of service.",
     statements: [
@@ -254,7 +254,7 @@ export const POLICIES: Policy[] = [
   {
     slug: "crane-operations",
     title: "CRANE OPERATIONS",
-    number: "GOSPEL-POL-011",
+    number: "PROVEN-POL-011",
     summary:
       "The chart is the law of the machine. No lift without a plan. No unclear signal.",
     statements: [
@@ -275,7 +275,7 @@ export const POLICIES: Policy[] = [
   {
     slug: "rigging",
     title: "RIGGING",
-    number: "GOSPEL-POL-012",
+    number: "PROVEN-POL-012",
     summary:
       "Know the load. Know the hitch. Protect the sling. No people under the load.",
     statements: [
@@ -296,7 +296,7 @@ export const POLICIES: Policy[] = [
   {
     slug: "equipment-inspection",
     title: "EQUIPMENT INSPECTION",
-    number: "GOSPEL-POL-013",
+    number: "PROVEN-POL-013",
     summary:
       "Pre-use inspection of the crane as assigned, and of every sling and piece of hardware before it takes load.",
     statements: [
@@ -329,7 +329,7 @@ export const POLICIES: Policy[] = [
   {
     slug: "environmental-conditions",
     title: "ENVIRONMENTAL CONDITIONS",
-    number: "GOSPEL-POL-014",
+    number: "PROVEN-POL-014",
     summary:
       "Wind, lightning, ice, heat and visibility are stop criteria, not atmosphere.",
     download: {
@@ -368,7 +368,7 @@ export const POLICIES: Policy[] = [
   {
     slug: "emergency-response",
     title: "EMERGENCY RESPONSE",
-    number: "GOSPEL-POL-015",
+    number: "PROVEN-POL-015",
     summary:
       "Every lift names how the site calls for help, where to muster, and how to put the crane in a safe condition.",
     download: {
@@ -411,7 +411,7 @@ export const POLICIES: Policy[] = [
   {
     slug: "continuous-improvement",
     title: "CONTINUOUS IMPROVEMENT",
-    number: "GOSPEL-POL-016",
+    number: "PROVEN-POL-016",
     summary:
       "Findings become actions. Actions get owners and dates. Management reviews the system. This program is revised when the lesson is real.",
     statements: [
@@ -421,15 +421,11 @@ export const POLICIES: Policy[] = [
       },
       {
         title: "Management review",
-        body: "This program requires a periodic management OHS meeting to review safety activities and incident trends and to decide what changes. 3.3(d). At least quarterly, and after a serious incident. Agenda: incidents, inspections, outstanding corrective actions, training, worker concerns and refusals, COR / audit results, objectives. PROVEN-FRM-032.",
+        body: "This program requires a periodic management OHS meeting to review safety activities and incident trends and to decide what changes. 3.3(d). At least quarterly, and after a serious incident. Agenda: incidents, inspections, outstanding corrective actions, training, worker concerns and refusals, objectives. PROVEN-FRM-032.",
       },
       {
         title: "Records and statistics",
         body: "Inspection, incident, investigation, training, meeting and first-aid records are kept at least three years, or longer if a claim or order requires it. First aid: 3.19. The information is available to the joint committee or worker health and safety representative, as applicable, and on request to an officer, the union representing the workers, or the workers. 3.3(f).",
-      },
-      {
-        title: "COR",
-        body: "COR® is a WorkSafeBC incentive program. BCCSA is the certifying partner for construction in B.C. This program is written so it can be mapped to the COR elements. An audit finding becomes a corrective action with an owner and a date.",
       },
       {
         title: "This program",
@@ -440,7 +436,7 @@ export const POLICIES: Policy[] = [
   {
     slug: "bullying-and-harassment",
     title: "BULLYING AND HARASSMENT",
-    number: "GOSPEL-POL-017",
+    number: "PROVEN-POL-017",
     summary:
       "Not acceptable. Not “the trade.” Report it. The employer at the workplace deals with it. WorkSafeBC P2-21-2, P2-22-1, P2-23-2.",
     statements: [
@@ -497,7 +493,7 @@ export const POLICIES: Policy[] = [
   {
     slug: "workplace-conduct",
     title: "WORKPLACE CONDUCT",
-    number: "GOSPEL-POL-018",
+    number: "PROVEN-POL-018",
     summary:
       "You are a guest on a host site. Show up. Be competent. Do not make the lift about you.",
     statements: [
@@ -534,7 +530,7 @@ export const POLICIES: Policy[] = [
   {
     slug: "fitness-for-work",
     title: "FITNESS FOR WORK",
-    number: "GOSPEL-POL-019",
+    number: "PROVEN-POL-019",
     summary:
       "Fit for this lift, today. Fatigue, illness and injury are named before the gate — not after the hook.",
     statements: [
@@ -559,7 +555,7 @@ export const POLICIES: Policy[] = [
   {
     slug: "impairment",
     title: "IMPAIRMENT",
-    number: "GOSPEL-POL-020",
+    number: "PROVEN-POL-020",
     summary:
       "Unfit to lift is unfit to lift. Alcohol, cannabis, other drugs, medication and fatigue. OHS Regulation 4.19 and 4.20.",
     statements: [
@@ -588,7 +584,7 @@ export const POLICIES: Policy[] = [
   {
     slug: "working-alone",
     title: "WORKING ALONE",
-    number: "GOSPEL-POL-021",
+    number: "PROVEN-POL-021",
     summary:
       "A lift is not a one-person job. If assistance would not be readily available, there is a written check-in. 4.21–4.23.",
     statements: [
@@ -617,13 +613,13 @@ export const POLICIES: Policy[] = [
   {
     slug: "injury-management",
     title: "INJURY MANAGEMENT",
-    number: "GOSPEL-POL-022",
+    number: "PROVEN-POL-022",
     summary:
       "First aid first. Report it. Care, not a cover-up. The claim is not a rumour.",
     download: {
       href: "/downloads/injury-management.zip",
       label: "DOWNLOAD INJURY MANAGEMENT PACK →",
-      note: "BCCSA employer guide, employee bulletin, sample forms and supplementary materials. Use them. Do not replace GOSPEL-POL-022.",
+      note: "BCCSA employer guide, employee bulletin, sample forms and supplementary materials. Use them. Do not replace PROVEN-POL-022.",
     },
     statements: [
       {
@@ -647,7 +643,7 @@ export const POLICIES: Policy[] = [
   {
     slug: "return-to-work",
     title: "RETURN TO WORK",
-    number: "GOSPEL-POL-023",
+    number: "PROVEN-POL-023",
     summary:
       "Restrictions named. Work matched. Not a paper promise. Workers Compensation Act duty to maintain employment where it applies.",
     statements: [
@@ -672,7 +668,7 @@ export const POLICIES: Policy[] = [
   {
     slug: "discrimination",
     title: "DISCRIMINATION",
-    number: "GOSPEL-POL-024",
+    number: "PROVEN-POL-024",
     summary:
       "Assignment to a lift is about the work. Human Rights Code s. 13. Not a vibe, and not a pretext.",
     statements: [
@@ -690,14 +686,14 @@ export const POLICIES: Policy[] = [
       },
       {
         title: "Report",
-        body: "Report to the supervisor or the employer at the workplace, or email info@sin.ae.org. If the alleged person is the supervisor or the employer, use that route anyway and name it. A complaint may also be filed with the BC Human Rights Tribunal. Bullying and harassment under WorkSafeBC is a separate file — GOSPEL-POL-017 — and both can apply.",
+        body: "Report to the supervisor or the employer at the workplace, or email info@sin.ae.org. If the alleged person is the supervisor or the employer, use that route anyway and name it. A complaint may also be filed with the BC Human Rights Tribunal. Bullying and harassment under WorkSafeBC is a separate file — PROVEN-POL-017 — and both can apply.",
       },
     ],
   },
   {
     slug: "first-aid",
     title: "FIRST AID",
-    number: "GOSPEL-POL-025",
+    number: "PROVEN-POL-025",
     summary:
       "First aid follows the workplace. On a host site that is usually the host. On a workplace the employer controls, that employer does the assessment.",
     statements: [
@@ -722,7 +718,7 @@ export const POLICIES: Policy[] = [
   {
     slug: "joint-committee",
     title: "JOINT COMMITTEE / WORKER REPRESENTATIVE",
-    number: "GOSPEL-POL-026",
+    number: "PROVEN-POL-026",
     summary:
       "Committee or worker representative follows the Act for that workplace. It is not a poster this program invents for every site.",
     statements: [
@@ -751,7 +747,7 @@ export const POLICIES: Policy[] = [
   {
     slug: "contractors",
     title: "CONTRACTORS AND MULTI-EMPLOYER SITES",
-    number: "GOSPEL-POL-027",
+    number: "PROVEN-POL-027",
     summary:
       "The contractor brings the crew and this program. The host owns the site. The prime contractor owns coordination where the Act requires one. Subcontractors are selected and watched.",
     statements: [
@@ -777,7 +773,7 @@ export const POLICIES: Policy[] = [
       },
       {
         title: "Subcontractors",
-        body: "If another company is hired — a rigger shop, a signal crew, a carrier — selection includes their ability to identify, communicate and control hazards that affect their people, the crew, and anyone else. They get this program and the host’s rules. The work they were hired for is monitored. A COR card is evidence, not a substitute for watching the hitch.",
+        body: "If another company is hired — a rigger shop, a signal crew, a carrier — selection includes their ability to identify, communicate and control hazards that affect their people, the crew, and anyone else. They get this program and the host’s rules. The work they were hired for is monitored. A certificate is not a substitute for watching the hitch.",
       },
       {
         title: "Orientation and communication",
@@ -788,7 +784,7 @@ export const POLICIES: Policy[] = [
   {
     slug: "occupational-health",
     title: "OCCUPATIONAL HEALTH",
-    number: "GOSPEL-POL-028",
+    number: "PROVEN-POL-028",
     summary:
       "Noise, MSI, heat, cold, WHMIS and smoke as they actually hit crane and rigging work. Not a silica program this work does not include.",
     statements: [

@@ -1,10 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
-
-function toDeg(rad: number) {
-  return (rad * 180) / Math.PI;
-}
+import { slingAngleFromHL } from "@/lib/sling-math";
 
 export function SlingAngleCalc() {
   const [height, setHeight] = useState("2");
@@ -12,19 +9,7 @@ export function SlingAngleCalc() {
   const h = Number(height);
   const l = Number(length);
 
-  const result = useMemo(() => {
-    if (!Number.isFinite(h) || h <= 0) return null;
-    if (!Number.isFinite(l) || l <= 0) return null;
-    if (h > l) return { impossible: true as const };
-    const ratio = h / l;
-    const theta = toDeg(Math.asin(ratio));
-    return {
-      impossible: false as const,
-      ratio,
-      theta,
-      low: theta < 30,
-    };
-  }, [h, l]);
+  const result = useMemo(() => slingAngleFromHL(h, l), [h, l]);
 
   return (
     <div className="wire-calc">
@@ -53,11 +38,11 @@ export function SlingAngleCalc() {
           />
         </label>
       </div>
-      {result?.impossible ? (
+      {!result.ok && result.reason === "impossible" ? (
         <p className="wire-calc-warn mono">
           HEIGHT CANNOT BE LONGER THAN THE SLING. MEASURE AGAIN.
         </p>
-      ) : result ? (
+      ) : result.ok ? (
         <dl className="wire-calc-out">
           <div>
             <dt className="mono">H / L</dt>
@@ -75,7 +60,7 @@ export function SlingAngleCalc() {
       ) : (
         <p className="steel mt">Enter height and sling length in the same unit.</p>
       )}
-      {result && !result.impossible && result.low ? (
+      {result.ok && result.low ? (
         <p className="wire-calc-warn mono">
           BELOW 30° WE DO NOT RIG THIS WAY UNLESS AN ENGINEER OWNS THE NUMBERS.
         </p>

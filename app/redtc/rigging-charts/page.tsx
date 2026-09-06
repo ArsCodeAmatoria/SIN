@@ -21,6 +21,11 @@ export default function RedtcRiggingChartsPage() {
           LCR practical.
         </p>
         <RedtcNav />
+        <div className="inline-cta">
+          <Link className="btn btn-ghost" href="/sling">
+            Sling-angle desk
+          </Link>
+        </div>
       </header>
       <div className="place">
         <article>

@@ -62,6 +62,9 @@ export function chartPdfHref(pdfFile: string, base = "/redtc/charts") {
 
 export { RIGGING_CHARTS, riggingChartPdfHref };
 
+export const REDTC_PROGRESS_KEY = "redtc-progress";
+export const REDTC_SEEN_KEY = "redtc-seen-questions";
+
 export const REDTC_NAV = [
   { href: "/redtc", label: "INDEX", num: "00" },
   { href: "/redtc/test", label: "PRACTICE", num: "01" },

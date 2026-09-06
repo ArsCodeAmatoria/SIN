@@ -1,9 +1,9 @@
 import Link from "next/link";
-import { MobileBankOverview } from "@/components/redmc/MobileBankOverview";
-import { MobileProgress } from "@/components/redmc/MobileProgress";
 import { ExamCluster } from "@/components/ExamCluster";
+import { MobileBankOverview } from "@/components/redmc/MobileBankOverview";
+import { PracticeProgress } from "@/components/redtc/PracticeProgress";
 import { RedtcNav } from "@/components/redtc/RedtcNav";
-import { allQuestions, CHARTS, RIGGING_CHARTS, mobileSourceQuestions } from "@/lib/redmc/bank";
+import { allQuestions, CHARTS, RIGGING_CHARTS, REDMC_PROGRESS_KEY, mobileSourceQuestions } from "@/lib/redmc/bank";
 import {
   REDMC_AUTHORITIES,
   REDMC_COVERS,
@@ -15,7 +15,8 @@ import { MOBILE_EXAM_TRACKS, MOBILE_RSOS_MWA } from "@/lib/redmc/exam-tracks";
 import { formatReviewed, LAST_REVIEWED } from "@/lib/reviewed";
 
 export default function RedmcPage() {
-  const bank = allQuestions().length;
+  const questions = allQuestions();
+  const bank = questions.length;
   const source = mobileSourceQuestions();
   const theoryCount = source.length;
   const countLabel = `${bank.toLocaleString("en-CA")} Mobile Crane Practice Questions`;
@@ -39,6 +40,30 @@ export default function RedmcPage() {
           chart exercises.
         </p>
         <RedtcNav />
+        <div className="inline-cta">
+          <Link className="btn btn-solid" href="/redmc/test">
+            Start practice test
+          </Link>
+          <Link className="btn btn-ghost" href="/redmc/load-charts">
+            Load charts
+          </Link>
+          <Link className="btn btn-ghost" href="/redmc/rigging-charts">
+            Rigging charts
+          </Link>
+          <Link className="btn btn-ghost" href="/redmc/test/master">
+            Master exam
+          </Link>
+          <Link className="btn btn-ghost" href="/safety/binder/mobile">
+            Mobile / crawler binder
+          </Link>
+        </div>
+        <PracticeProgress
+          compact
+          storageKey={REDMC_PROGRESS_KEY}
+          bank={questions}
+          drillHref="/redmc/test#drill"
+          kicker="Last score on this device"
+        />
         <div className="place mt-2">
           <article>
             <span className="mono steel">Practice bank</span>
@@ -57,20 +82,6 @@ export default function RedmcPage() {
         </div>
         <p className="mono steel mt-2">Covers</p>
         <p className="lede">{REDMC_COVERS.join(" · ")}</p>
-        <div className="inline-cta">
-          <Link className="btn btn-solid" href="/redmc/test">
-            Start practice test
-          </Link>
-          <Link className="btn btn-ghost" href="/redmc/load-charts">
-            Load charts
-          </Link>
-          <Link className="btn btn-ghost" href="/redmc/rigging-charts">
-            Rigging charts
-          </Link>
-          <Link className="btn btn-ghost" href="/redmc/test/master">
-            Master exam
-          </Link>
-        </div>
         <p className="steel mt">
           Practice bank — {bank.toLocaleString("en-CA")} current items (
           {theoryCount} theory + {chartQs} manufacturer load-chart + {riggingQs}{" "}
@@ -81,8 +92,6 @@ export default function RedmcPage() {
         <p className="mono steel mt">Last reviewed: {formatReviewed(LAST_REVIEWED)}</p>
         <ExamCluster tone="mobile" />
       </header>
-
-      <MobileProgress />
 
       <section className="section wrap">
         <p className="mono kicker">What this is</p>

@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useMemo, useState } from "react";
+import { DocBadge } from "@/components/DocBadge";
 import { RiskBadge } from "@/components/RiskBadge";
 import type { LibraryCard } from "@/lib/ohs";
 
@@ -62,9 +63,17 @@ export function SafetyLibrary({
           ) : null}
           <nav className="ohs-lib-list" aria-label={section.label ?? "Document library"}>
             {section.items.map((item) => (
-              <Link key={item.href} href={item.href}>
+              <Link
+                key={item.href}
+                href={item.href}
+                className={
+                  item.number.includes("-BND") || item.href.includes("/binder")
+                    ? "is-binder"
+                    : undefined
+                }
+              >
                 <span className="ohs-lib-head">
-                  <span className="mono steel">{item.number}</span>
+                  <DocBadge number={item.number} />
                   {item.risk ? <RiskBadge level={item.risk} /> : null}
                 </span>
                 <strong className="display">{item.title}</strong>
