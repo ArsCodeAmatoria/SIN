@@ -16,7 +16,7 @@
 [![British Columbia](https://img.shields.io/badge/British_Columbia-Canada-111111)](https://whoop.ca)
 
 <p align="center">
-  <img src="./docs/whoop-cover.jpg" alt="GOSPEL — crane safety" width="720">
+  <img width="1024" height="1024" alt="Image" src="https://github.com/user-attachments/assets/641d7133-5fc9-4b26-a012-c67becf143d8" />
 </p>
 
 # GOSPEL
