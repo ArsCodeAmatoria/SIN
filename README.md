@@ -16,7 +16,7 @@
 [![British Columbia](https://img.shields.io/badge/British_Columbia-Canada-111111)](https://sin.ae.org)
 
 <p align="center">
-  <img width="1024" height="1024" alt="Image" src="https://github.com/user-attachments/assets/07c8b03f-c95a-4ab4-8c12-b57f135143db" />
+  <img width="1024" height="1024" alt="Image" src="https://github.com/user-attachments/assets/72db6574-824e-4dd6-a2b4-6d2d04878ed6" />
 </p>
 
 # sin()
