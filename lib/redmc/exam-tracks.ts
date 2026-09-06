@@ -5,7 +5,7 @@ import { shufflePaper } from "./to-quiz";
 export const MOBILE_EXAM_LABELS: Record<ExamId, string> = {
   b: "BC Provisional",
   l1: "Level 1 SLE",
-  l2: "Level 2 technical",
+  l2: "Level 2 topic practice",
   l3: "Level 3 SLE",
   ip: "Red Seal IP",
   lcr: "Load charts",
@@ -14,7 +14,7 @@ export const MOBILE_EXAM_LABELS: Record<ExamId, string> = {
 export const MOBILE_EXAM_SHORT: Record<ExamId, string> = {
   b: "Provisional",
   l1: "Level 1",
-  l2: "Level 2",
+  l2: "L2 topics",
   l3: "Level 3",
   ip: "Red Seal",
   lcr: "Charts",
@@ -50,12 +50,14 @@ export const MOBILE_EXAM_TRACKS: ExamTrack[] = [
   },
   {
     id: "l2",
-    title: "Level 2 technical",
-    subtitle: "140 hours",
+    title: "Level 2 Topic Practice",
+    subtitle:
+      "50 practice questions · technical-training topics only · no separate Level 2 SLE",
     questions: 50,
     minutes: null,
     passPercent: 70,
-    body: "Level 2 is technical training (140 hours). There is no separate Level 2 SLE. Use this paper for Level 2 topics in the current verified bank.",
+    kicker: "TOPICS",
+    body: "Level 2 is 140 hours of technical training. There is no Standardized Level Exam at this level. This paper is topic practice from the verified bank — not an official sitting.",
   },
   {
     id: "l3",
@@ -115,7 +117,7 @@ export const MOBILE_PRACTICE_MODES: {
     id: "exam",
     title: "Exam-Level Practice",
     subtitle: "Provisional through Red Seal",
-    body: "Sit a paper tagged to BC Provisional, Level 1, Level 2, Level 3, Red Seal, or Fulford-style load charts and rigging.",
+    body: "Sit a paper tagged to BC Provisional, Level 1 SLE, Level 2 topics (no SLE), Level 3 SLE, Red Seal, or Fulford-style load charts and rigging.",
   },
   {
     id: "calculation",

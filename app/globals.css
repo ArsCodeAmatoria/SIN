@@ -1191,6 +1191,8 @@ html[data-theme="dark"] .footer .std-mark-on-ink {
 
 .doc-nav {
   min-width: 0;
+  display: flex;
+  flex-direction: column;
   border-bottom: 1px solid var(--line);
   background: var(--paper);
 }
@@ -1201,6 +1203,10 @@ html[data-theme="dark"] .footer .std-mark-on-ink {
     top: calc(var(--header) + env(safe-area-inset-top, 0px));
     z-index: 40;
     margin-inline: calc(-1 * var(--pad));
+  }
+
+  .doc-nav-scroll {
+    order: -1;
   }
 }
 

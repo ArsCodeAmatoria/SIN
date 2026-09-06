@@ -74,7 +74,12 @@ export default async function WireArticlePage({ params }: Props) {
     { name: SITE.name, path: "/" },
     { name: WIRE.name, path: wirePath() },
     { name: article.category },
-    { name: article.seoTitle, path: wirePath(article.slug) },
+    {
+      name: article.seoTitle.includes("|")
+        ? article.seoTitle.slice(0, article.seoTitle.indexOf("|")).trim()
+        : article.seoTitle,
+      path: wirePath(article.slug),
+    },
   ];
   const jsonLd = jsonLdGraph([
     organizationLd(),

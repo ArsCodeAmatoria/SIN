@@ -137,14 +137,18 @@ export function personLd() {
 }
 
 export function breadcrumbLd(items: { name: string; path?: string }[]) {
+  const listed = items.filter((item, index) => item.path || index === items.length - 1);
   return {
     "@type": "BreadcrumbList",
-    itemListElement: items.map((item, index) => ({
-      "@type": "ListItem",
-      position: index + 1,
-      name: item.name,
-      ...(item.path ? { item: absUrl(item.path) } : {}),
-    })),
+    itemListElement: listed.map((item, index) => {
+      const last = index === listed.length - 1;
+      return {
+        "@type": "ListItem",
+        position: index + 1,
+        name: item.name,
+        ...(last || !item.path ? {} : { item: absUrl(item.path) }),
+      };
+    }),
   };
 }
 

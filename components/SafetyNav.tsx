@@ -90,27 +90,6 @@ export function SafetyNav() {
 
   return (
     <aside className="doc-nav">
-      <nav ref={stripRef} className="doc-nav-scroll" aria-label="Safety sections">
-        <Link
-          href="/safety"
-          className={!current ? "active" : undefined}
-          aria-current={!current ? "page" : undefined}
-        >
-          <span aria-hidden="true">00</span>
-          <span className="visually-hidden">00 Index</span>
-        </Link>
-        {SAFETY.map((s) => (
-          <Link
-            key={s.slug}
-            href={`/safety/${s.slug}`}
-            className={current === s.slug ? "active" : undefined}
-            aria-current={current === s.slug ? "page" : undefined}
-          >
-            <span aria-hidden="true">{s.num}</span>
-            <span className="visually-hidden">{`${s.num} ${s.title}`}</span>
-          </Link>
-        ))}
-      </nav>
       <details
         className="doc-nav-shell"
         open={desktop || tocOpen}
@@ -133,6 +112,29 @@ export function SafetyNav() {
           </nav>
         </div>
       </details>
+      <nav ref={stripRef} className="doc-nav-scroll" aria-label="Safety sections">
+        <Link
+          href="/safety"
+          className={!current ? "active" : undefined}
+          aria-current={!current ? "page" : undefined}
+          aria-label="00 Index"
+        >
+          <span aria-hidden="true">00</span>
+          <span className="visually-hidden">00 Index</span>
+        </Link>
+        {SAFETY.map((s) => (
+          <Link
+            key={s.slug}
+            href={`/safety/${s.slug}`}
+            className={current === s.slug ? "active" : undefined}
+            aria-current={current === s.slug ? "page" : undefined}
+            aria-label={`${s.num} ${s.title}`}
+          >
+            <span aria-hidden="true">{s.num}</span>
+            <span className="visually-hidden">{`${s.num} ${s.title}`}</span>
+          </Link>
+        ))}
+      </nav>
     </aside>
   );
 }

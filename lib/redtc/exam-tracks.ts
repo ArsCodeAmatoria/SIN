@@ -46,6 +46,7 @@ export type ExamTrack = {
   minutes: number | null;
   passPercent: number;
   body: string;
+  kicker?: string;
 };
 
 export const EXAM_TRACKS: ExamTrack[] = [

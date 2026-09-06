@@ -188,7 +188,9 @@ export default function RedmcPage() {
         <div className="mt-2">
           {MOBILE_EXAM_TRACKS.map((item) => (
             <article className="service" key={item.id}>
-              <span className="mono steel">{item.questions} Q</span>
+              <span className="mono steel">
+                {item.kicker ?? `${item.questions} Q`}
+              </span>
               <h3 className="display">{item.title}</h3>
               <p>
                 {item.subtitle}. {item.body}

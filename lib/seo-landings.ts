@@ -399,13 +399,13 @@ export const SEO_LANDINGS: SeoLanding[] = [
     slug: "bc-mobile-crane-certification",
     title: "BC Mobile Crane Certification — Path, Hours & Exams | REDMC",
     description:
-      "How Mobile Crane Operator certification works in British Columbia: BC Crane Safety, Fulford provisional, 4,980 hours, Level 1 and Level 3 SLEs, Red Seal IP.",
+      "How Mobile Crane Operator certification works in British Columbia: BC Crane Safety, Fulford provisional, Level 1–3 technical training, 4,980 hours, Level 1 and Level 3 SLEs, Red Seal IP.",
     kicker: "BC CRANE SAFETY + SKILLEDTRADESBC",
     crumb: "Certification in B.C.",
     cluster: MOBILE,
     kind: "guide",
     h1: ["MOBILE CRANE", "CERTIFICATION", "IN B.C."],
-    lede: "Register with BC Crane Safety. Pass provisional theory. Log 4,980 hours. Sit Level 1 SLE, Level 3 SLE, and the 110-question Red Seal. Compulsory trade from 5 July 2027.",
+    lede: "Register with BC Crane Safety. Pass provisional theory. Complete Level 1, Level 2 and Level 3 technical training, pass the Level 1 and Level 3 SLEs, log 4,980 work-based hours, and pass the Red Seal and practical requirements. Compulsory trade from 5 July 2027.",
     facts: [
       { label: "WBT", value: "4,980", note: "Work-based hours" },
       { label: "Operating", value: "1,600", note: "Hours on the hook" },
