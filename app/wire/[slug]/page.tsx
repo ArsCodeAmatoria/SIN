@@ -8,7 +8,7 @@ import { WireShare } from "@/components/WireShare";
 import { WireStoryLink } from "@/components/WireStoryLink";
 import { WireSubscribe } from "@/components/WireSubscribe";
 import { ProvenName } from "@/components/ProvenMark";
-import { JsonLd } from "@/components/SeoLanding";
+import { JsonLd, Breadcrumbs } from "@/components/SeoLanding";
 import { getSafety } from "@/lib/safety";
 import { absUrl, breadcrumbLd, jsonLdGraph, organizationLd, pageMeta, personLd, websiteLd } from "@/lib/seo";
 import { AUTHOR, SITE } from "@/lib/site";
@@ -70,15 +70,17 @@ export default async function WireArticlePage({ params }: Props) {
     .map((item) => getSafety(item))
     .filter((item): item is NonNullable<ReturnType<typeof getSafety>> => Boolean(item));
   const url = absUrl(wirePath(article.slug));
+  const crumbs = [
+    { name: SITE.name, path: "/" },
+    { name: WIRE.name, path: wirePath() },
+    { name: article.category },
+    { name: article.seoTitle, path: wirePath(article.slug) },
+  ];
   const jsonLd = jsonLdGraph([
     organizationLd(),
     websiteLd(),
     personLd(),
-    breadcrumbLd([
-      { name: SITE.name, path: "/" },
-      { name: WIRE.name, path: wirePath() },
-      { name: article.seoTitle, path: wirePath(article.slug) },
-    ]),
+    { ...breadcrumbLd(crumbs), "@id": `${url}#breadcrumb` },
     {
       "@type": "Article",
       headline: article.seoTitle,
@@ -94,6 +96,7 @@ export default async function WireArticlePage({ params }: Props) {
       },
       publisher: { "@id": `${absUrl("/")}#org` },
       mainEntityOfPage: url,
+      url,
       articleSection: article.category,
       image: article.image ? absUrl(article.image) : absUrl("/og.png"),
       wordCount: wordCount(article),
@@ -105,6 +108,7 @@ export default async function WireArticlePage({ params }: Props) {
     <article className="wire-article wrap">
       <JsonLd data={jsonLd} />
       <header className="wire-article-head">
+        <Breadcrumbs items={crumbs} />
         <p className="mono kicker">
           <Link href={wirePath()}>{WIRE.name}</Link>
           <span> / {article.category}</span>

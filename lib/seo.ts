@@ -136,14 +136,14 @@ export function personLd() {
   };
 }
 
-export function breadcrumbLd(items: { name: string; path: string }[]) {
+export function breadcrumbLd(items: { name: string; path?: string }[]) {
   return {
     "@type": "BreadcrumbList",
     itemListElement: items.map((item, index) => ({
       "@type": "ListItem",
       position: index + 1,
       name: item.name,
-      item: absUrl(item.path),
+      ...(item.path ? { item: absUrl(item.path) } : {}),
     })),
   };
 }

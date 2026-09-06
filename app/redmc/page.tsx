@@ -17,7 +17,8 @@ import { formatReviewed, LAST_REVIEWED } from "@/lib/reviewed";
 export default function RedmcPage() {
   const bank = allQuestions().length;
   const source = mobileSourceQuestions();
-  const countLabel = `${bank.toLocaleString("en-CA")} Mobile Crane Questions`;
+  const theoryCount = source.length;
+  const countLabel = `${bank.toLocaleString("en-CA")} Mobile Crane Practice Questions`;
   const chartQs = CHARTS.reduce((n, c) => n + c.questions.length, 0);
   const riggingQs = RIGGING_CHARTS.reduce((n, c) => n + c.questions.length, 0);
 
@@ -40,16 +41,18 @@ export default function RedmcPage() {
         <RedtcNav />
         <div className="place mt-2">
           <article>
-            <span className="mono steel">Questions</span>
+            <span className="mono steel">Practice bank</span>
             <h3 className="display">{bank.toLocaleString("en-CA")}</h3>
+            <p>Current items — not the official paper</p>
           </article>
           <article>
             <span className="mono steel">Pass mark</span>
             <h3 className="display">70%</h3>
           </article>
           <article>
-            <span className="mono steel">RSOS exam</span>
+            <span className="mono steel">Official IP</span>
             <h3 className="display">110</h3>
+            <p>2021 RSOS sitting — a different 110</p>
           </article>
         </div>
         <p className="mono steel mt-2">Covers</p>
@@ -69,8 +72,10 @@ export default function RedmcPage() {
           </Link>
         </div>
         <p className="steel mt">
-          {countLabel} in the bank now. Official sitting is 110. Counts only real
-          items — not placeholders. Tower Crane stays at REDTC.
+          Practice bank — {bank.toLocaleString("en-CA")} current items (
+          {theoryCount} theory + {riggingQs} BCACS sling-chart). Official Red
+          Seal sitting — 110-question paper. Those two 110s are not the same
+          thing. Counts only real items. Tower Crane stays at REDTC.
         </p>
         <p className="mono steel mt">Last reviewed: {formatReviewed(LAST_REVIEWED)}</p>
         <ExamCluster tone="mobile" />
@@ -145,13 +150,31 @@ export default function RedmcPage() {
         <p className="mono kicker">Question bank</p>
         <h2 className="display giant">{countLabel.toUpperCase()}</h2>
         <p className="lede mt-2">
-          Tagged questions in the Mobile Crane theory bank. Categories with no
-          questions yet are not listed.
+          {theoryCount} theory questions + {riggingQs} BCACS sling-chart
+          questions. Manufacturer load-chart question sets are being added
+          separately.
         </p>
-        <MobileBankOverview
-          items={source}
-          extraBankNote={`${RIGGING_CHARTS.reduce((n, c) => n + c.questions.length, 0)} BCACS sling-chart questions sit in the quiz bank on top of this theory count. Manufacturer load-chart questions are not written yet.`}
-        />
+        <p className="lede mt">
+          This is the current practice bank, not a one-for-one copy of the
+          official 110-question Red Seal paper. Categories with no questions yet
+          are not listed.
+        </p>
+        <div className="place mt-2">
+          <article>
+            <span className="mono steel">Total</span>
+            <h3 className="display">{bank.toLocaleString("en-CA")}</h3>
+            <p>Practice items</p>
+          </article>
+          <article>
+            <span className="mono steel">Theory</span>
+            <h3 className="display">{theoryCount}</h3>
+          </article>
+          <article>
+            <span className="mono steel">Rigging-chart</span>
+            <h3 className="display">{riggingQs}</h3>
+          </article>
+        </div>
+        <MobileBankOverview items={source} showBankTotal={false} />
         <div className="inline-cta">
           <Link className="btn btn-ghost" href="/redmc/test/review">
             Review the bank
@@ -184,9 +207,11 @@ export default function RedmcPage() {
         <p className="mono kicker">Master exam</p>
         <h2 className="display giant">110-QUESTION RED SEAL</h2>
         <p className="lede mt-2">
-          Official 2021 RSOS weighting. This site sits a paper from the Mobile
-          Crane bank using that distribution. Until the bank is full, the sitting
-          uses every tagged question available — it will not invent the rest.
+          The official Interprovincial paper is 110 questions on the 2021 RSOS.
+          The Master Exam follows that weighting as closely as the current
+          verified question bank allows. Questions are never fabricated simply to
+          fill a category. {bank.toLocaleString("en-CA")} practice items is not
+          the official sitting.
         </p>
         <div>
           {MOBILE_RSOS_MWA.map((block) => (
@@ -208,10 +233,11 @@ export default function RedmcPage() {
         <p className="mono kicker">Load charts</p>
         <h2 className="display giant">MANUFACTURER CHARTS</h2>
         <p className="lede mt-2">
-          {CHARTS.length} manufacturer charts are available as PDFs. Load-chart
-          question sets are being added as verified questions are completed
-          {chartQs ? ` — ${chartQs} written so far` : ""}. {riggingQs} sling-chart
-          questions use the BCACS Figure 1 booklet.
+          {CHARTS.length} manufacturer load-chart PDFs are available. Question
+          sets are added only when an actual manufacturer PDF and verified
+          questions exist. Capacities are never invented
+          {chartQs ? ` — ${chartQs} chart questions written so far` : ""}.{" "}
+          {riggingQs} sling-chart questions use the BCACS Figure 1 booklet.
         </p>
         <div className="inline-cta">
           <Link className="btn btn-ghost" href="/redmc/load-charts">

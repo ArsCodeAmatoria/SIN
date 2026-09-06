@@ -1411,7 +1411,7 @@ export const ARTICLES: WireArticle[] = [
       },
       {
         type: "p",
-        text: "Use this to see the shape of the lift before you argue with the chart. Then open the chart at the radius you actually have. The operator works to the chart, CSA Z150, ASME B30, the manufacturer, and the site. The triangle is so you are not surprised when booming down eats the capacity.",
+        text: "Use this to see the shape of the lift before you argue with the chart. Then open the chart at the radius you actually have. The operator works to the chart, CSA Z150, applicable ASME B30 standards, the manufacturer, and the site. The triangle is so you are not surprised when booming down eats the capacity.",
       },
       {
         type: "cta",

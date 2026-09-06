@@ -1,12 +1,21 @@
+import { FULFORD_B_SECTIONS } from "@/lib/redtc/exam-tracks";
+import { REDTC_CHART_MODELS, REDTC_EXAM_TOPICS } from "@/lib/redtc/copy";
+
+const TOWER = { name: "REDTC", path: "/redtc" } as const;
+const MOBILE = { name: "REDMC", path: "/redmc" } as const;
+
 export type SeoLanding = {
   slug: string;
   title: string;
   description: string;
   kicker: string;
+  crumb: string;
+  cluster: { name: string; path: string };
+  kind: "practice" | "guide";
   h1: string[];
   lede: string;
   facts: { label: string; value: string; note: string }[];
-  sections: { heading: string; body: string }[];
+  sections: { heading: string; body: string; list?: string[] }[];
   faq: { q: string; a: string }[];
   practiceHref: string;
   practiceLabel: string;
@@ -20,6 +29,9 @@ export const SEO_LANDINGS: SeoLanding[] = [
     description:
       "Free BC Tower Crane Operator Red Seal practice. Tagged questions for the Interprovincial exam, Level B, Level 1 and Level 2, plus manufacturer load charts.",
     kicker: "REDTC — RED SEAL IP",
+    crumb: "Red Seal practice test",
+    cluster: TOWER,
+    kind: "practice",
     h1: ["TOWER CRANE", "RED SEAL", "PRACTICE."],
     lede: "The Interprovincial Red Seal for Tower Crane Operator is a closed-book 100-question paper. Practice it here, then sit the same 70% bar as SkilledTradesBC.",
     facts: [
@@ -35,6 +47,13 @@ export const SEO_LANDINGS: SeoLanding[] = [
       {
         heading: "Practice without inventing the exam",
         body: "REDTC is the practice bank — tagged questions, explanations after you answer, and a closed-book Master Exam that follows the official distribution. Load-chart items open real manufacturer PDFs. Counts are real items, not placeholders.",
+      },
+      {
+        heading: "How the 100-question paper is weighted",
+        body: "The 2023 Red Seal Occupational Standard weights the Interprovincial exam across five Major Work Activities. Practice follows that split; it is not a leaked copy of the sitting.",
+        list: REDTC_EXAM_TOPICS.map(
+          (item) => `${item.topic} — ${item.percentage}%`,
+        ),
       },
     ],
     faq: [
@@ -62,6 +81,9 @@ export const SEO_LANDINGS: SeoLanding[] = [
     description:
       "Free Fulford Level B / BC Crane Safety Core Theory practice for Tower Crane Operator. 40-question provisional paper, 70% to pass.",
     kicker: "REDTC — LEVEL B",
+    crumb: "Level B exam",
+    cluster: TOWER,
+    kind: "practice",
     h1: ["LEVEL B.", "PROVISIONAL", "THEORY."],
     lede: "Level B is the Fulford core theory that lets you operate a tower crane in B.C. under a written supervision plan. Forty questions. 70% to pass. Fifteen sections.",
     facts: [
@@ -77,6 +99,18 @@ export const SEO_LANDINGS: SeoLanding[] = [
       {
         heading: "Practice the same 15 sections",
         body: "REDTC tags questions to the BC Crane Safety Core Theory layout. Start the Level B paper in the practice room. Explanations come after you answer. Then read Proven for the procedures the questions assume you will follow on site.",
+      },
+      {
+        heading: "What is tested",
+        body: "Forty questions. The points are not equal — sling charts and load weight carry more of the paper than tag lines.",
+        list: FULFORD_B_SECTIONS.map(
+          (section) =>
+            `${section.id}. ${section.name} — ${section.points} point${section.points === 1 ? "" : "s"}`,
+        ),
+      },
+      {
+        heading: "Level B is not Level 1",
+        body: "Level B is Fulford provisional theory so you can operate under a written supervision plan. Level 1 SLE is the first SkilledTradesBC apprenticeship exam after 175 hours of technical training. You can hold Level B and still have Level 1, Level 2, the Red Seal and a practical ahead of you.",
       },
     ],
     faq: [
@@ -99,10 +133,13 @@ export const SEO_LANDINGS: SeoLanding[] = [
   },
   {
     slug: "tower-crane-level-1-practice-test",
-    title: "Tower Crane Level 1 Practice Test BC | sin()",
+    title: "Tower Crane Level 1 Practice Test BC | REDTC",
     description:
       "Free SkilledTradesBC Tower Crane Operator Level 1 SLE practice. Regulations, rigging, calculations, inspection and ordinary lift planning. 70% to pass.",
     kicker: "REDTC — LEVEL 1 SLE",
+    crumb: "Level 1 practice test",
+    cluster: TOWER,
+    kind: "practice",
     h1: ["LEVEL 1 SLE.", "TOWER CRANE."],
     lede: "SkilledTradesBC Level 1 is the first Standardized Level Exam on the Tower Crane Operator apprenticeship. 70%. No code book.",
     facts: [
@@ -136,10 +173,13 @@ export const SEO_LANDINGS: SeoLanding[] = [
   },
   {
     slug: "tower-crane-level-2-practice-test",
-    title: "Tower Crane Level 2 Practice Test BC | sin()",
+    title: "Tower Crane Level 2 Practice Test BC | REDTC",
     description:
       "Free SkilledTradesBC Tower Crane Operator Level 2 SLE practice covering advanced rigging, climbing, critical lifts and specialty operations.",
     kicker: "REDTC — LEVEL 2 SLE",
+    crumb: "Level 2 practice test",
+    cluster: TOWER,
+    kind: "practice",
     h1: ["LEVEL 2 SLE.", "CLIMBING AND", "CRITICAL LIFTS."],
     lede: "Level 2 is the second Standardized Level Exam. Communications, advanced rigging, engineered lifts, climbing and reconfiguration, self-erect assembly, specialty operations.",
     facts: [
@@ -177,6 +217,9 @@ export const SEO_LANDINGS: SeoLanding[] = [
     description:
       "Practice reading real manufacturer tower crane load charts — Liebherr, Potain, WOLFF, Terex, Krøll and Pecco. Never interpolate.",
     kicker: "REDTC — LOAD CHARTS",
+    crumb: "Load chart practice",
+    cluster: TOWER,
+    kind: "practice",
     h1: ["READ THE", "CHART."],
     lede: "Capacity is on the manufacturer PDF for that serial. Practice the lookup here: radius, jib, reeving, deductions. If the number is between rows, use the worse one.",
     facts: [
@@ -192,6 +235,15 @@ export const SEO_LANDINGS: SeoLanding[] = [
       {
         heading: "What you will be asked",
         body: "Gross versus net, hook-block and rigging deductions, parts of line, chart modes, maximum radius for a given load. The same discipline as WorkSafeBC Part 14: the chart for the configuration in front of you.",
+      },
+      {
+        heading: "Six manufacturers, 14 charts",
+        body: "Practice copies only. The cab serial chart still wins on the job.",
+        list: [
+          ...REDTC_CHART_MODELS.flat.map((c) => `${c.name} — ${c.jib} jib · flat-top / hammerhead`),
+          ...REDTC_CHART_MODELS.luffing.map((c) => `${c.name} — ${c.jib} jib · luffing`),
+          ...REDTC_CHART_MODELS.self.map((c) => `${c.name} — ${c.jib} jib · self-erecting`),
+        ],
       },
     ],
     faq: [
@@ -214,6 +266,9 @@ export const SEO_LANDINGS: SeoLanding[] = [
     description:
       "How Tower Crane Operator certification works in British Columbia: BC Crane Safety, Fulford Level B, SkilledTradesBC apprenticeship, hours, SLEs and the Red Seal.",
     kicker: "BC CRANE SAFETY + SKILLEDTRADESBC",
+    crumb: "Certification in B.C.",
+    cluster: TOWER,
+    kind: "guide",
     h1: ["TOWER CRANE", "CERTIFICATION", "IN B.C."],
     lede: "Register with BC Crane Safety. Get provisional status. Train and log hours. Pass Level 1, Level 2, the Red Seal, and a practical. That is the path. This page is the map — REDTC is the practice.",
     facts: [
@@ -229,6 +284,15 @@ export const SEO_LANDINGS: SeoLanding[] = [
       {
         heading: "The sequence",
         body: "Register with BC Crane Safety, then enrol with SkilledTradesBC. Pass Fulford Level B so you can operate under a written supervision plan. Complete technical training and 2,685 hours of work-based training, logging crane time in SkillRecord Passport. Pass Level 1 SLE, Level 2 SLE, the Interprovincial Red Seal, and a Fulford practical.",
+        list: [
+          "Register with BC Crane Safety, then enrol with SkilledTradesBC",
+          "Pass Fulford Level B — provisional theory",
+          "Train and log hours — 175 + 140 technical, 2,685 work-based",
+          "Pass Level 1 SLE",
+          "Pass Level 2 SLE",
+          "Pass the Interprovincial Red Seal — 100 questions",
+          "Pass a Fulford practical assessment",
+        ],
       },
     ],
     faq: [
@@ -252,10 +316,13 @@ export const SEO_LANDINGS: SeoLanding[] = [
   },
   {
     slug: "tower-crane-operator-hours-bc",
-    title: "Tower Crane Operator Hours BC — 2,685 Work-Based | sin()",
+    title: "Tower Crane Operator Hours BC — 2,685 Work-Based | REDTC",
     description:
       "Tower Crane Operator work-based and technical hours in British Columbia: 2,685 WBT, 175 + 140 technical hours, SkillRecord Passport, SkilledTradesBC.",
     kicker: "SKILLEDTRADESBC — HOURS",
+    crumb: "Hours in B.C.",
+    cluster: TOWER,
+    kind: "guide",
     h1: ["2,685 HOURS.", "THEN THE", "PAPER."],
     lede: "Tower Crane Operator in B.C. is not a weekend ticket. Technical training is 175 hours then 140. Work-based training is 2,685 hours. Log crane time in SkillRecord Passport.",
     facts: [
@@ -289,10 +356,13 @@ export const SEO_LANDINGS: SeoLanding[] = [
   },
   {
     slug: "mobile-crane-red-seal-practice-test",
-    title: "Mobile Crane Red Seal Practice Test BC | sin()",
+    title: "Mobile Crane Red Seal Practice Test BC | REDMC",
     description:
       "Free BC Mobile Crane Operator and Red Seal exam practice covering load charts, rigging, calculations, crane setup, outriggers and WorkSafeBC regulations.",
     kicker: "REDMC — RED SEAL IP",
+    crumb: "Red Seal practice test",
+    cluster: MOBILE,
+    kind: "practice",
     h1: ["MOBILE CRANE", "RED SEAL", "PRACTICE."],
     lede: "The Mobile Crane Operator Interprovincial exam is 110 questions on the 2021 RSOS. Closed book. 70% to pass. Practice it in REDMC — separate from the tower bank.",
     facts: [
@@ -303,7 +373,7 @@ export const SEO_LANDINGS: SeoLanding[] = [
     sections: [
       {
         heading: "What this bank is",
-        body: "REDMC is Mobile Crane only. Questions are tagged to BC provisional, SkilledTradesBC Level 1 and Level 3, and the 110-question Interprovincial exam. Explanations after you answer. Manufacturer load charts and BCACS rigging figures sit beside the papers as they are added. Capacities are not invented.",
+        body: "REDMC is Mobile Crane only. Questions are tagged to BC provisional, SkilledTradesBC Level 1 and Level 3, and the 110-question Interprovincial exam. The current practice bank is not a complete one-for-one copy of that 110-question paper. Explanations after you answer. Manufacturer load charts and BCACS rigging figures sit beside the papers as verified questions are added. Capacities are not invented.",
       },
       {
         heading: "Tower stays in REDTC",
@@ -327,10 +397,13 @@ export const SEO_LANDINGS: SeoLanding[] = [
   },
   {
     slug: "bc-mobile-crane-certification",
-    title: "BC Mobile Crane Certification — Path, Hours & Exams | sin()",
+    title: "BC Mobile Crane Certification — Path, Hours & Exams | REDMC",
     description:
       "How Mobile Crane Operator certification works in British Columbia: BC Crane Safety, Fulford provisional, 4,980 hours, Level 1 and Level 3 SLEs, Red Seal IP.",
     kicker: "BC CRANE SAFETY + SKILLEDTRADESBC",
+    crumb: "Certification in B.C.",
+    cluster: MOBILE,
+    kind: "guide",
     h1: ["MOBILE CRANE", "CERTIFICATION", "IN B.C."],
     lede: "Register with BC Crane Safety. Pass provisional theory. Log 4,980 hours. Sit Level 1 SLE, Level 3 SLE, and the 110-question Red Seal. Compulsory trade from 5 July 2027.",
     facts: [
@@ -364,10 +437,13 @@ export const SEO_LANDINGS: SeoLanding[] = [
   },
   {
     slug: "mobile-crane-load-chart-practice",
-    title: "Mobile Crane Load Chart Practice BC | sin()",
+    title: "Mobile Crane Load Chart Practice BC | REDMC",
     description:
       "Practice reading manufacturer mobile crane load charts — Grove, Tadano, Terex, Liebherr, Link-Belt, Manitowoc — plus BCACS rigging figures. Never interpolate.",
     kicker: "REDMC — CHARTS",
+    crumb: "Load chart practice",
+    cluster: MOBILE,
+    kind: "practice",
     h1: ["MOBILE", "LOAD CHARTS."],
     lede: "Rough-terrain, all-terrain, lattice crawler. Outriggers, on-rubber, pick-and-carry, boom length, radius, deductions. The cab serial chart still wins on the job.",
     facts: [

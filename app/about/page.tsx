@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { JsonLd } from "@/components/SeoLanding";
+import { JsonLd, Breadcrumbs } from "@/components/SeoLanding";
 import { absUrl, breadcrumbLd, jsonLdGraph, organizationLd, ORIGIN, pageMeta, personLd, websiteLd } from "@/lib/seo";
 import { AUTHOR, SITE } from "@/lib/site";
 import { WIRE } from "@/lib/whoopwire";
@@ -33,6 +33,12 @@ export default function AboutPage() {
     <div className="wrap">
       <JsonLd data={schema} />
       <header className="page-hero">
+        <Breadcrumbs
+          items={[
+            { name: SITE.name, path: "/" },
+            { name: "About", path: AUTHOR.path },
+          ]}
+        />
         <p className="mono kicker">ABOUT THE AUTHOR</p>
         <h1 className="wire-topic">{AUTHOR.name} — Crane &amp; Rigging Safety</h1>
         <p className="display giant" aria-hidden="true">

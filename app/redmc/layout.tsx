@@ -6,7 +6,7 @@ const questions = allQuestions().length;
 
 export const metadata: Metadata = pageMeta({
   title: "Mobile Crane Red Seal Practice Test BC | REDMC",
-  description: `Free BC Mobile Crane Operator and Red Seal exam practice covering load charts, rigging, calculations, crane setup, outriggers and WorkSafeBC regulations. ${questions.toLocaleString("en-CA")} questions in the bank.`,
+  description: `Free BC Mobile Crane Operator practice. Current practice bank: ${questions.toLocaleString("en-CA")} items — not the official 110-question Red Seal paper. Load charts, rigging, calculations, crane setup, outriggers and WorkSafeBC.`,
   path: "/redmc",
 });
 

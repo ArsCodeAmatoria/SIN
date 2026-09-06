@@ -37,7 +37,7 @@ export const MOBILE_EXAM_TRACKS: ExamTrack[] = [
     questions: 40,
     minutes: 90,
     passPercent: 70,
-    body: "Provisional theory so you can operate under a written supervision plan. Tagged questions only — the bank grows as items are added.",
+    body: "Provisional theory so you can operate under a written supervision plan. Tagged questions only — nothing is invented to pad the paper.",
   },
   {
     id: "l1",
@@ -55,7 +55,7 @@ export const MOBILE_EXAM_TRACKS: ExamTrack[] = [
     questions: 50,
     minutes: null,
     passPercent: 70,
-    body: "Level 2 is technical training (140 hours). There is no separate Level 2 SLE. Use this paper for Level 2 topics while that bank is built.",
+    body: "Level 2 is technical training (140 hours). There is no separate Level 2 SLE. Use this paper for Level 2 topics in the current verified bank.",
   },
   {
     id: "l3",
@@ -82,7 +82,7 @@ export const MOBILE_EXAM_TRACKS: ExamTrack[] = [
     questions: 10,
     minutes: 45,
     passPercent: 70,
-    body: "8 manufacturer load-chart + 2 rigging-chart. Never interpolate. 7/10 to pass. Manufacturer PDFs fill as questions are written. Rigging uses the BCACS Figure 1 booklet.",
+    body: "8 manufacturer load-chart + 2 rigging-chart. Never interpolate. 7/10 to pass. Manufacturer PDFs are used only when verified questions exist. Rigging uses the BCACS Figure 1 booklet.",
   },
 ];
 

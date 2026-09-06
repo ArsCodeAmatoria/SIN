@@ -15,11 +15,13 @@ export function MobileBankOverview({
   showSourceSplit = false,
   compact = false,
   extraBankNote,
+  showBankTotal = true,
 }: {
   items: MobileQuestion[];
   showSourceSplit?: boolean;
   compact?: boolean;
   extraBankNote?: string;
+  showBankTotal?: boolean;
 }) {
   const stats = mobileBankStats(items);
   const countLabel = `${stats.total.toLocaleString("en-CA")} Mobile Crane Questions`;
@@ -29,11 +31,13 @@ export function MobileBankOverview({
   return (
     <>
       <div className="place mt-2">
-        <article>
-          <span className="mono steel">Bank</span>
-          <h3 className="display">{stats.total.toLocaleString("en-CA")}</h3>
-          <p>{countLabel}</p>
-        </article>
+        {showBankTotal ? (
+          <article>
+            <span className="mono steel">Theory bank</span>
+            <h3 className="display">{stats.total.toLocaleString("en-CA")}</h3>
+            <p>{countLabel}</p>
+          </article>
+        ) : null}
         <article>
           <span className="mono steel">Calculations</span>
           <h3 className="display">{stats.calculations}</h3>

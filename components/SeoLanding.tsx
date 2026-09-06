@@ -12,35 +12,68 @@ export function JsonLd({ data }: { data: unknown }) {
   );
 }
 
+export function Breadcrumbs({
+  items,
+}: {
+  items: { name: string; path?: string }[];
+}) {
+  return (
+    <nav className="crumbs" aria-label="Breadcrumb">
+      <ol>
+        {items.map((item, index) => {
+          const last = index === items.length - 1;
+          return (
+            <li key={`${item.name}-${index}`}>
+              {!last && item.path ? (
+                <Link href={item.path}>{item.name}</Link>
+              ) : (
+                <span aria-current={last ? "page" : undefined}>{item.name}</span>
+              )}
+            </li>
+          );
+        })}
+      </ol>
+    </nav>
+  );
+}
+
 export function SeoLandingPage({ page }: { page: SeoLanding }) {
+  const url = absUrl(`/${page.slug}`);
   const crumbs = [
     { name: SITE.name, path: "/" },
-    { name: page.kicker, path: `/${page.slug}` },
+    { name: page.cluster.name, path: page.cluster.path },
+    { name: page.crumb, path: `/${page.slug}` },
   ];
+  const webpage: Record<string, unknown> = {
+    "@type": page.kind === "practice" ? ["WebPage", "LearningResource"] : "WebPage",
+    "@id": `${url}#webpage`,
+    name: page.title,
+    description: page.description,
+    url,
+    isPartOf: { "@id": `${absUrl("/")}#website` },
+    inLanguage: "en-CA",
+    breadcrumb: { "@id": `${url}#breadcrumb` },
+  };
+  if (page.kind === "practice") {
+    webpage.learningResourceType = "Practice test";
+    webpage.educationalLevel = "Trade certification";
+    webpage.audience = {
+      "@type": "EducationalAudience",
+      educationalRole: "crane operator candidate",
+    };
+  }
   const schema = jsonLdGraph([
     organizationLd(),
     websiteLd(),
-    breadcrumbLd(crumbs),
-    {
-      "@type": "LearningResource",
-      name: page.title,
-      description: page.description,
-      url: absUrl(`/${page.slug}`),
-      isPartOf: { "@id": `${absUrl("/")}#website` },
-      inLanguage: "en-CA",
-      learningResourceType: "Practice test",
-      educationalLevel: "Trade certification",
-      audience: {
-        "@type": "EducationalAudience",
-        educationalRole: "crane operator candidate",
-      },
-    },
+    { ...breadcrumbLd(crumbs), "@id": `${url}#breadcrumb` },
+    webpage,
   ]);
 
   return (
     <div className="wrap">
       <JsonLd data={schema} />
       <header className="page-hero">
+        <Breadcrumbs items={crumbs} />
         <p className="mono kicker">{page.kicker}</p>
         <h1 className="display giant">
           {page.h1.map((line) => (
@@ -73,6 +106,15 @@ export function SeoLandingPage({ page }: { page: SeoLanding }) {
         <section className="section" key={section.heading}>
           <h2 className="display">{section.heading}</h2>
           <p className="lede mt">{section.body}</p>
+          {section.list?.length ? (
+            <ul className="std-list mt">
+              {section.list.map((item) => (
+                <li key={item}>
+                  <p>{item}</p>
+                </li>
+              ))}
+            </ul>
+          ) : null}
         </section>
       ))}
       <section className="section">

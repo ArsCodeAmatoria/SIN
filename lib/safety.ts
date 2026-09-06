@@ -506,7 +506,7 @@ export const SAFETY: SafetySection[] = [
     title: "RIGGING",
     kicker: "The gear is the truth. The guess is the hazard.",
     intro:
-      "Riggers rig to rated capacity, known weights and inspected hardware. The hitch is not “made to work” with a choker and optimism. Rigging is done to ASME B30, manufacturer instructions for the hardware, and the site.",
+      "Riggers rig to rated capacity, known weights and inspected hardware. The hitch is not “made to work” with a choker and optimism. Rigging is done to applicable ASME B30 standards, manufacturer instructions for the hardware, and the site.",
     blocks: [
       {
         type: "h",
@@ -575,7 +575,7 @@ export const SAFETY: SafetySection[] = [
     title: "CRANE OPERATIONS",
     kicker: "The chart is the law of the machine.",
     intro:
-      "Operators run cranes they are competent on, to the load chart, on ground that can hold them, with a crew they can hear. The operator works to CSA Z150 or Z248 as the machine requires, ASME B30, the manufacturer, WorkSafeBC, and the site. If those conditions are not present, the crane does not come on load.",
+      "Operators run cranes they are competent on, to the load chart, on ground that can hold them, with a crew they can hear. The operator works to CSA Z150 or Z248 as the machine requires, applicable ASME B30 standards, the manufacturer, WorkSafeBC, and the site. If those conditions are not present, the crane does not come on load.",
     blocks: [
       {
         type: "h",

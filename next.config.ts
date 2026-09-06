@@ -20,42 +20,42 @@ const nextConfig: NextConfig = {
       {
         source: "/safety/swa-library",
         destination: "/safety/jha-library",
-        permanent: true,
+        statusCode: 301,
       },
       {
         source: "/safety/swa/:slug",
         destination: "/safety/jha/:slug",
-        permanent: true,
+        statusCode: 301,
       },
       {
         source: "/hire",
         destination: "/safety",
-        permanent: true,
+        statusCode: 301,
       },
       {
         source: "/crew",
         destination: "/",
-        permanent: true,
+        statusCode: 301,
       },
       {
         source: "/whoopwire",
         destination: "/wire",
-        permanent: true,
+        statusCode: 301,
       },
       {
         source: "/whoopwire/:path*",
         destination: "/wire/:path*",
-        permanent: true,
+        statusCode: 301,
       },
       {
         source: "/tower-crane-level-b-practice-test",
         destination: "/tower-crane-level-b-exam-bc",
-        permanent: true,
+        statusCode: 301,
       },
       {
         source: "/bc-tower-crane-certification",
         destination: "/tower-crane-certification-bc",
-        permanent: true,
+        statusCode: 301,
       },
     ];
   },

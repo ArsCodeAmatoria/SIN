@@ -3,7 +3,12 @@ import { CorSection } from "@/components/CorSection";
 import { ExamCluster } from "@/components/ExamCluster";
 import { ProvenName } from "@/components/ProvenMark";
 import { WireStoryLink } from "@/components/WireStoryLink";
-import { allQuestions as mobileQuestions } from "@/lib/redmc/bank";
+import {
+  allQuestions as mobileQuestions,
+  CHARTS as MOBILE_CHARTS,
+  RIGGING_CHARTS as MOBILE_RIGGING,
+  mobileSourceQuestions,
+} from "@/lib/redmc/bank";
 import { allQuestions as towerQuestions, CHARTS } from "@/lib/redtc/bank";
 import { pageMeta } from "@/lib/seo";
 import { PROGRAM, SITE } from "@/lib/site";
@@ -19,7 +24,10 @@ export const metadata: Metadata = pageMeta({
 export default function HomePage() {
   const tower = towerQuestions().length;
   const mobile = mobileQuestions().length;
+  const mobileTheory = mobileSourceQuestions().length;
+  const mobileRigging = MOBILE_RIGGING.reduce((n, c) => n + c.questions.length, 0);
   const charts = CHARTS.length;
+  const mobilePdfs = MOBILE_CHARTS.length;
 
   return (
     <>
@@ -129,9 +137,10 @@ export default function HomePage() {
             <span className="mono steel">Mobile</span>
             <h3 className="display">{mobile.toLocaleString("en-CA")}</h3>
             <p>
-              {mobile.toLocaleString("en-CA")} Mobile Crane questions in REDMC.
-              Manufacturer PDFs are in the bank. Chart questions are added when
-              they are written against those files.
+              {mobile.toLocaleString("en-CA")} current practice items in REDMC
+              — not the official 110-question Red Seal paper. {mobileTheory}{" "}
+              theory + {mobileRigging} rigging-chart. {mobilePdfs} manufacturer
+              load-chart PDFs; verified chart question sets are being added.
             </p>
           </article>
           <article>

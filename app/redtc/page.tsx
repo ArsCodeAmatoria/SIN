@@ -42,22 +42,37 @@ export default function RedtcPage() {
           {riggingQs
             ? ` and ${riggingQs} BCACS sling-chart questions`
             : ""}{" "}
-          — covering Fulford Level B, SkilledTradesBC Level 1 and 2, Red Seal IP
+          — tagged to Fulford Level B, SkilledTradesBC Level 1 and 2, Red Seal IP
           and load-chart practice.
         </p>
         <RedtcNav />
         <div className="place mt-2">
           <article>
-            <span className="mono steel">Questions</span>
+            <span className="mono steel">Practice bank</span>
             <h3 className="display">{countLabel}</h3>
           </article>
+          <article>
+            <span className="mono steel">Theory</span>
+            <h3 className="display">{theory.toLocaleString("en-CA")}</h3>
+          </article>
+          <article>
+            <span className="mono steel">Load-chart</span>
+            <h3 className="display">{chartQs.toLocaleString("en-CA")}</h3>
+          </article>
+          {riggingQs ? (
+            <article>
+              <span className="mono steel">Rigging-chart</span>
+              <h3 className="display">{riggingQs}</h3>
+            </article>
+          ) : null}
           <article>
             <span className="mono steel">Pass mark</span>
             <h3 className="display">70%</h3>
           </article>
           <article>
-            <span className="mono steel">RSOS exam</span>
-            <h3 className="display">2023</h3>
+            <span className="mono steel">Official IP</span>
+            <h3 className="display">100</h3>
+            <p>2023 RSOS paper — not this bank count</p>
           </article>
         </div>
         <p className="mono steel mt-2">Covers</p>

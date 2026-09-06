@@ -44,7 +44,7 @@ export const ABOUT = [
   },
   {
     name: "The standard",
-    body: "Work is done to Proven, applicable OHS law, CSA Z150 / Z248, ASME B30 as named, the manufacturer, and the site. The stricter applicable requirement wins. Law always wins.",
+    body: "Work is done to Proven, applicable OHS law, CSA Z150 / Z248, applicable ASME B30 standards, the manufacturer, and the site. The stricter applicable requirement wins. Law always wins.",
   },
   {
     name: "The system",

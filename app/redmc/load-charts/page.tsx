@@ -14,11 +14,13 @@ export default function RedmcChartsPage() {
           CHART.
         </h1>
         <p className="lede mt-2">
-          {CHARTS.length} manufacturer charts are available as PDFs.{" "}
+          {CHARTS.length} manufacturer charts are available as PDFs. Manufacturer
+          load charts are added only when an actual manufacturer PDF and verified
+          question set are available. Capacities are never invented.{" "}
           {totalQs
             ? `${totalQs} load-chart questions written so far.`
-            : "Load-chart question sets are being added as verified questions are completed."}{" "}
-          Open the chart. Do not interpolate. Capacities are not invented here.
+            : "Verified chart question sets are being added against these files."}{" "}
+          Open the chart. Do not interpolate.
         </p>
         <RedtcNav />
       </header>
@@ -69,7 +71,7 @@ export default function RedmcChartsPage() {
         <p className="mono kicker">Manufacturers</p>
         <p className="lede">
           Demag is not in the bank yet. Questions for the charts above appear
-          when they are written against the PDF.
+          only when they are written against the PDF.
         </p>
         <div className="mt" aria-label="Coming soon load charts">
           {CHART_MAKERS.map((maker) => (
