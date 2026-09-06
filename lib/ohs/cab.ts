@@ -12,7 +12,7 @@ export type CabManifest = {
 
 /**
  * Pages and marks that belong in the cab copy: Proven + sling desk.
- * Not REDTC, REDMC, or the Wire. Not WorkSafeBC / BCCS PDFs.
+ * Not REDTC or the Wire. Not WorkSafeBC / BCCS PDFs.
  */
 export function cabUrls(): string[] {
   const urls = new Set<string>(["/safety", "/sling", "/icon.svg"]);

@@ -10,42 +10,18 @@ const TOWER = [
   { href: "/tower-crane-certification-bc", label: "Certification in B.C." },
 ] as const;
 
-const MOBILE = [
-  { href: "/mobile-crane-red-seal-practice-test", label: "Red Seal practice test" },
-  { href: "/bc-mobile-crane-certification", label: "Certification in B.C." },
-  { href: "/mobile-crane-load-chart-practice", label: "Load chart practice" },
-  { href: "/redmc/rigging-charts", label: "Rigging charts" },
-] as const;
-
-export function ExamCluster({
-  tone = "both",
-}: {
-  tone?: "tower" | "mobile" | "both";
-}) {
+export function ExamCluster() {
   return (
     <div className="exam-cluster">
-      {tone !== "mobile" ? (
-        <p className="mono steel">
-          Tower{" "}
-          {TOWER.map((item, i) => (
-            <span key={item.href}>
-              {i ? " · " : ""}
-              <Link href={item.href}>{item.label}</Link>
-            </span>
-          ))}
-        </p>
-      ) : null}
-      {tone !== "tower" ? (
-        <p className="mono steel">
-          Mobile{" "}
-          {MOBILE.map((item, i) => (
-            <span key={item.href}>
-              {i ? " · " : ""}
-              <Link href={item.href}>{item.label}</Link>
-            </span>
-          ))}
-        </p>
-      ) : null}
+      <p className="mono steel">
+        Tower{" "}
+        {TOWER.map((item, i) => (
+          <span key={item.href}>
+            {i ? " · " : ""}
+            <Link href={item.href}>{item.label}</Link>
+          </span>
+        ))}
+      </p>
     </div>
   );
 }

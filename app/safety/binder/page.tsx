@@ -7,7 +7,7 @@ import { pageMeta } from "@/lib/seo";
 export const metadata: Metadata = pageMeta({
   title: "Crane Binders",
   description:
-    "Build a tower, self-erect, or mobile / crawler site binder. Pick the machine, mark what you have, download the Proven PDF.",
+    "Build a tower or self-erect site binder. Pick the machine, mark what you have, download the Proven PDF.",
   path: "/safety/binder",
 });
 
@@ -19,9 +19,9 @@ export default function BinderIndexPage() {
         <DocBadge kind="BND" number="PROVEN-BND" />
         <h1 className="display binder-title">CRANE BINDERS</h1>
         <p className="lede mt">
-          One machine. One site file. Pick the class, name the project, mark
-          what is in the binder, download the Proven copy. Official BC Crane
-          Safety and WorkSafeBC paper stays official.
+          One machine. One site file. Pick tower or self-erect, name the
+          project, mark what is in the binder, download the Proven copy.
+          Official BC Crane Safety paper stays official.
         </p>
       </header>
 
@@ -29,7 +29,7 @@ export default function BinderIndexPage() {
         <li>
           <span className="mono">01</span>
           <strong>Pick the machine</strong>
-          <em>Tower, self-erect, or mobile / crawler. Do not mix the lists.</em>
+          <em>Tower or self-erect. Do not mix the lists.</em>
         </li>
         <li>
           <span className="mono">02</span>
@@ -49,7 +49,7 @@ export default function BinderIndexPage() {
       </ol>
 
       <nav className="binder-pick" aria-label="Binder types">
-        {BINDERS.map((binder) => (
+        {BINDERS.filter((binder) => binder.kind !== "mobile").map((binder) => (
           <Link key={binder.kind} href={`/safety/binder/${binder.kind}`}>
             <DocBadge number={binder.number} />
             <strong className="display">{binder.title}</strong>
@@ -61,6 +61,12 @@ export default function BinderIndexPage() {
 
       <p className="doc-cta">
         <Link href="/safety/crane-binders">22 — WHY THE BINDER EXISTS →</Link>
+      </p>
+      <p className="mono steel mt">
+        A mobile that assists the erect still needs its own file.
+      </p>
+      <p className="doc-cta">
+        <Link href="/safety/binder/mobile">MOBILE / CRAWLER BINDER →</Link>
       </p>
       <p className="doc-cta">
         <a href={BINDER_OFFICIAL.bccsBinder} target="_blank" rel="noreferrer">

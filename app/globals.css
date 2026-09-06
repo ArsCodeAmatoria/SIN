@@ -192,10 +192,6 @@ html[data-theme="dark"] .grain {
   margin-bottom: 1rem;
 }
 
-.footer-links .proven-name {
-  justify-content: flex-end;
-}
-
 .header-actions {
   display: flex;
   align-items: center;
@@ -1392,8 +1388,8 @@ html[data-theme="dark"] .std-mark-on-ink {
 }
 
 .footer-marks {
-  margin: 2rem 0 0;
-  padding-top: 1.4rem;
+  margin: 0.4rem 0 0;
+  padding-top: 1.2rem;
   border-top: 1px solid var(--on-ink-line);
 }
 
@@ -3785,39 +3781,31 @@ html[data-theme="dark"] .wire-share-tool {
 .footer {
   background: var(--ink);
   color: var(--paper);
-  padding: clamp(3rem, 8vw, 5rem) var(--pad) 2rem;
+  padding: clamp(2rem, 5vw, 3.2rem) var(--pad) 1.6rem;
 }
 
 .footer a:hover {
   color: var(--crown);
 }
 
-.footer-top {
-  display: flex;
-  justify-content: space-between;
-  gap: 2rem;
-  flex-wrap: wrap;
-  align-items: flex-end;
-  padding-bottom: 3rem;
-}
-
-.footer h2 {
-  font-size: clamp(3.2rem, 12vw, 9rem);
-  font-weight: 700;
-  letter-spacing: -0.03em;
-  text-transform: none;
+.footer .brand,
+.footer .brand-name {
   color: var(--paper);
 }
 
-.footer-links {
-  display: grid;
-  gap: 0.4rem;
-  text-align: right;
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem 2rem;
+  flex-wrap: wrap;
+  align-items: baseline;
+  padding-bottom: 1.4rem;
 }
 
-.footer-links a.is-binder {
-  color: var(--binder);
-  font-weight: 800;
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 1.15rem;
 }
 
 .footer-bot {
@@ -3825,9 +3813,21 @@ html[data-theme="dark"] .wire-share-tool {
   justify-content: space-between;
   gap: 1rem;
   flex-wrap: wrap;
-  padding-top: 1.4rem;
+  padding-top: 1.2rem;
   border-top: 1px solid var(--on-ink-line);
   color: var(--on-ink-muted);
+}
+
+.site-colophon {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem 0.85rem;
+  padding: 1.2rem var(--pad) 2rem;
+  color: var(--steel);
+}
+
+.site-colophon a:hover {
+  color: var(--ink);
 }
 
 /* ——— Misc ——— */
@@ -3939,6 +3939,7 @@ html[data-theme="dark"] .wire-share-tool {
 @media print {
   .header,
   .footer,
+  .site-colophon,
   .grain,
   .overlay,
   .lead-crane,

@@ -1,68 +1,64 @@
 import Link from "next/link";
-import { ProvenName } from "@/components/ProvenMark";
+import { Wordmark } from "@/components/Logo";
 import { StandardMarks } from "@/components/StandardsList";
 import { SITE } from "@/lib/site";
 import { WIRE } from "@/lib/whoopwire";
 
-export function Footer() {
+const LINKS = [
+  { href: "/about", label: "ABOUT", title: "About the author" },
+  {
+    href: "/philosophy",
+    label: "PHILOSOPHY",
+    title: "How this crane safety program is written",
+  },
+  { href: WIRE.path, label: WIRE.name, title: "Crane safety and rigging articles" },
+] as const;
+
+function StandardsLine() {
   return (
-    <footer className="footer">
+    <p className="mono footer-std">
+      <Link href="/safety#standards">Work done to</Link> CSA Z150 / Z248, WorkSafeBC,
+      BC Crane Safety, Technical Safety BC, applicable ASME B30 standards, manufacturer
+      requirements and site policies. Those marks identify the bodies — they
+      are not a claim those organizations endorse {SITE.name}.
+    </p>
+  );
+}
+
+export function SiteColophon() {
+  return (
+    <p className="mono steel site-colophon">
+      <span>{SITE.legalName}. Current version on this site.</span>
+      <span>
+        <Link href="/safety#standards">Work done to</Link> CSA Z150 / Z248,
+        WorkSafeBC, BC Crane Safety and the rest — not an endorsement.
+      </span>
+    </p>
+  );
+}
+
+export function Footer({ marks = false }: { marks?: boolean }) {
+  return (
+    <footer className={marks ? "footer footer-full" : "footer"}>
       <div className="footer-top">
-        <div>
-          <h2 className="brand">{SITE.name}</h2>
-        </div>
-        <nav className="footer-links mono">
-          <Link href="/safety" title="Crane safety program, procedures and forms">
-            <ProvenName />
-          </Link>
-          <Link href={WIRE.path} title="Crane safety and rigging articles">
-            {WIRE.name}
-          </Link>
-          <Link href="/redtc" title="Tower Crane Red Seal practice test">
-            REDTC
-          </Link>
-          <Link href="/redmc" title="Mobile Crane Red Seal practice test">
-            REDMC
-          </Link>
-          <Link href="/about" title="About the author">
-            ABOUT
-          </Link>
-          <Link href="/philosophy" title="How this crane safety program is written">
-            PHILOSOPHY
-          </Link>
-          <Link
-            href="/safety/builder"
-            title="Crane safety form builder — FLHA, lift plans and inspections"
-          >
-            FORM BUILDER
-          </Link>
-          <Link
-            href="/safety/binder"
-            title="Tower, self-erect and mobile crane site binders"
-            className="is-binder"
-          >
-            CRANE BINDERS
-          </Link>
-          <Link href="/sling" title="Sling angle, tension and WLL desk">
-            SLING DESK
-          </Link>
+        <Link href="/" aria-label={`${SITE.name} home`}>
+          <Wordmark />
+        </Link>
+        <nav className="footer-links mono" aria-label="Site">
+          {LINKS.map((item) => (
+            <Link key={item.href} href={item.href} title={item.title}>
+              {item.label}
+            </Link>
+          ))}
           <a href={SITE.emailHref}>{SITE.email}</a>
         </nav>
       </div>
-      <p className="display giant-sm">
-        {SITE.tagline}
-        <br />
-        {SITE.sub}
-      </p>
-      <div className="footer-marks">
-        <StandardMarks compact />
-      </div>
-      <p className="mono footer-std">
-        <Link href="/safety#standards">Work done to</Link> CSA Z150 / Z248, WorkSafeBC,
-        BC Crane Safety, Technical Safety BC, applicable ASME B30 standards, manufacturer
-        requirements and site policies. Those marks identify the bodies — they
-        are not a claim those organizations endorse {SITE.name}.
-      </p>
+      {marks ? (
+        <div className="footer-marks">
+          <StandardMarks compact />
+        </div>
+      ) : null}
+      <StandardsLine />
       <div className="footer-bot mono">
         <span>© {new Date().getFullYear()} {SITE.legalName}</span>
         <span>OPEN. USABLE. ACCOUNTABLE.</span>

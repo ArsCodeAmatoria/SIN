@@ -306,7 +306,7 @@ export const RIGGING_CHARTS: LoadChart[] = [
 
 export function riggingChartPdfHref(pdfFile: string) {
   if (pdfFile.startsWith("/")) return pdfFile;
-  return `/redmc/rigging-charts/${pdfFile}`;
+  return `/redtc/rigging-charts/${pdfFile}`;
 }
 
 export function riggingChartQuestions(offset = 40000): Question[] {

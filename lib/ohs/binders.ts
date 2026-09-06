@@ -731,14 +731,13 @@ export const MOBILE_BINDER: BinderDef = {
     {
       ...SHARED.manual("04"),
       group: MAC,
-      note: "14.12. Serial operator and maintenance manuals. In the cab. Manufacturer sequence for assembly, travel and shutdown. REDMC charts are practice — not this serial.",
+      note: "14.12. Serial operator and maintenance manuals. In the cab. Manufacturer sequence for assembly, travel and shutdown. Practice charts are not this serial.",
     },
     {
       ...SHARED.chart("05"),
       group: MAC,
       note: "14.5. The chart for this boom, this counterweight, this jib, this outrigger or crawler position, this reeving. Serial plate wins if a download disagrees. Practice PDFs are not this machine.",
       site: [
-        site("/redmc/load-charts", "REDMC LOAD CHARTS — PRACTICE →"),
         site("/sling", "SLING-ANGLE DESK →"),
       ],
     },

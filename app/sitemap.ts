@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { safetyCatalog } from "@/lib/ohs/catalog";
-import { CHARTS as MOBILE_CHARTS, RIGGING_CHARTS } from "@/lib/redmc/bank";
 import { CHARTS as TOWER_CHARTS } from "@/lib/redtc/bank";
+import { RIGGING_CHARTS } from "@/lib/rigging-charts";
 import { ORIGIN } from "@/lib/seo";
 import { SEO_LANDINGS } from "@/lib/seo-landings";
 import { getArticles, wirePath } from "@/lib/whoopwire";
@@ -33,13 +33,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     loc("/redtc/rigging-charts", undefined, "weekly", 0.6),
     ...TOWER_CHARTS.map((chart) => loc(`/redtc/load-charts/${chart.id}`, undefined, "monthly", 0.5)),
     ...RIGGING_CHARTS.map((chart) => loc(`/redtc/rigging-charts/${chart.id}`, undefined, "monthly", 0.5)),
-    loc("/redmc", undefined, "weekly", 0.9),
-    loc("/redmc/test", undefined, "weekly", 0.7),
-    loc("/redmc/test/master", undefined, "weekly", 0.7),
-    loc("/redmc/load-charts", undefined, "weekly", 0.7),
-    loc("/redmc/rigging-charts", undefined, "weekly", 0.6),
-    ...MOBILE_CHARTS.map((chart) => loc(`/redmc/load-charts/${chart.id}`, undefined, "monthly", 0.5)),
-    ...RIGGING_CHARTS.map((chart) => loc(`/redmc/rigging-charts/${chart.id}`, undefined, "monthly", 0.5)),
   ];
 
   const landings = SEO_LANDINGS.map((page) => loc(`/${page.slug}`, undefined, "monthly", 0.85));

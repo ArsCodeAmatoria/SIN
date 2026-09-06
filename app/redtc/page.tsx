@@ -100,7 +100,7 @@ export default function RedtcPage() {
         </div>
         <p className="mono steel mt-2">Covers</p>
         <p className="lede">{REDTC_COVERS.join(" · ")}</p>
-        <ExamCluster tone="tower" />
+        <ExamCluster />
         <p className="mono steel mt">Last reviewed: {formatReviewed(LAST_REVIEWED)}</p>
       </header>
 

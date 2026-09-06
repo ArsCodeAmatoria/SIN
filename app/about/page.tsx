@@ -56,11 +56,12 @@ export default function AboutPage() {
       <section className="section">
         <h2 className="display">What this site is</h2>
         <p className="lede mt">
-          {SITE.name} is public crane and rigging information for British
-          Columbia. REDTC and REDMC are exam practice. {SITE.system} is the
-          written safety program. {WIRE.name} is the writing. None of it is a
-          substitute for the manufacturer’s document, the site plan, or the
-          law.
+          {SITE.name} is public tower crane and rigging information for British
+          Columbia. REDTC is Tower Crane exam practice — including self-erect.
+          {" "}
+          {SITE.system} is the written safety program. {WIRE.name} is the
+          writing. None of it is a substitute for the manufacturer’s document,
+          the site plan, or the law.
         </p>
       </section>
       <section className="section">
@@ -84,8 +85,8 @@ export default function AboutPage() {
         <Link className="btn btn-solid" href="/redtc" title="Tower Crane Red Seal practice tests">
           Tower Crane Red Seal practice
         </Link>
-        <Link className="btn btn-ghost" href="/redmc" title="Mobile Crane Red Seal practice tests">
-          Mobile Crane Red Seal practice
+        <Link className="btn btn-ghost" href="/sling" title="Sling angle, tension and WLL desk">
+          Sling desk
         </Link>
         <Link className="btn btn-ghost" href="/safety" title="Crane safety program and procedures">
           {SITE.system}

@@ -2,7 +2,6 @@ import { FULFORD_B_SECTIONS } from "@/lib/redtc/exam-tracks";
 import { REDTC_CHART_MODELS, REDTC_EXAM_TOPICS } from "@/lib/redtc/copy";
 
 const TOWER = { name: "REDTC", path: "/redtc" } as const;
-const MOBILE = { name: "REDMC", path: "/redmc" } as const;
 
 export type SeoLanding = {
   slug: string;
@@ -260,8 +259,8 @@ export const SEO_LANDINGS: SeoLanding[] = [
     related: [
       { href: "/redtc", label: "Tower Crane Red Seal practice tests" },
       { href: "/tower-crane-certification-bc", label: "BC certification path" },
-      { href: "/redmc/load-charts", label: "Mobile load charts" },
-      { href: "/redmc/rigging-charts", label: "Rigging charts" },
+      { href: "/redtc/rigging-charts", label: "Rigging charts" },
+      { href: "/sling", label: "Sling desk" },
     ],
   },
   {
@@ -354,131 +353,7 @@ export const SEO_LANDINGS: SeoLanding[] = [
     practiceLabel: "Practice the exams",
     related: [
       { href: "/tower-crane-certification-bc", label: "Certification path" },
-      { href: "/bc-mobile-crane-certification", label: "Mobile hours and path" },
       { href: "/wire/a-ticket-isnt-competency", label: "A ticket isn’t competency" },
-    ],
-  },
-  {
-    slug: "mobile-crane-red-seal-practice-test",
-    title: "Mobile Crane Red Seal Practice Test BC | REDMC",
-    description:
-      "Free BC Mobile Crane Operator and Red Seal exam practice covering load charts, rigging, calculations, crane setup, outriggers and WorkSafeBC regulations.",
-    kicker: "REDMC — RED SEAL IP",
-    crumb: "Red Seal practice test",
-    cluster: MOBILE,
-    kind: "practice",
-    h1: ["MOBILE CRANE", "RED SEAL", "PRACTICE."],
-    lede: "The Mobile Crane Operator Interprovincial exam is 110 questions on the 2021 RSOS. Closed book. 70% to pass. Practice it in REDMC — separate from the tower bank.",
-    facts: [
-      { label: "Official paper", value: "110", note: "Questions · 2021 RSOS" },
-      { label: "Time", value: "4:00", note: "Hours on the sitting" },
-      { label: "Pass", value: "70%", note: "Same as SkilledTradesBC" },
-    ],
-    sections: [
-      {
-        heading: "What this bank is",
-        body: "REDMC is Mobile Crane only. Questions are tagged to BC provisional, SkilledTradesBC Level 1 and Level 3, and the 110-question Interprovincial exam. The current practice bank is not a complete one-for-one copy of that 110-question paper. Explanations after you answer. Manufacturer load charts and BCACS rigging figures sit beside the papers as verified questions are added. Capacities are not invented.",
-      },
-      {
-        heading: "Tower stays in REDTC",
-        body: "If you need tower climbing, luffing charts, or the 100-question tower IP, that is REDTC. Do not mix the banks. The sitting will not.",
-      },
-    ],
-    faq: [
-      {
-        q: "Is the mobile IP 100 or 110 questions?",
-        a: "110, weighted to the 2021 Mobile Crane Operator RSOS. Tower Crane is 100 questions on the 2023 RSOS. Sit the matching Master Exam.",
-      },
-    ],
-    practiceHref: "/redmc/test/master",
-    practiceLabel: "Sit the Master Exam",
-    related: [
-      { href: "/redmc", label: "REDMC index" },
-      { href: "/bc-mobile-crane-certification", label: "BC certification path" },
-      { href: "/mobile-crane-load-chart-practice", label: "Load chart practice" },
-      { href: "/redmc/rigging-charts", label: "Rigging charts" },
-    ],
-  },
-  {
-    slug: "bc-mobile-crane-certification",
-    title: "BC Mobile Crane Certification — Path, Hours & Exams | REDMC",
-    description:
-      "How Mobile Crane Operator certification works in British Columbia: BC Crane Safety, Fulford provisional, Level 1–3 technical training, 4,980 hours, Level 1 and Level 3 SLEs, Red Seal IP.",
-    kicker: "BC CRANE SAFETY + SKILLEDTRADESBC",
-    crumb: "Certification in B.C.",
-    cluster: MOBILE,
-    kind: "guide",
-    h1: ["MOBILE CRANE", "CERTIFICATION", "IN B.C."],
-    lede: "Register with BC Crane Safety. Pass provisional theory. Complete Level 1, Level 2 and Level 3 technical training, pass the Level 1 and Level 3 SLEs, log 4,980 work-based hours, and pass the Red Seal and practical requirements. Compulsory trade from 5 July 2027.",
-    facts: [
-      { label: "WBT", value: "4,980", note: "Work-based hours" },
-      { label: "Operating", value: "1,600", note: "Hours on the hook" },
-      { label: "IP", value: "110", note: "Red Seal questions" },
-    ],
-    sections: [
-      {
-        heading: "The path",
-        body: "Register with BC Crane Safety, then enrol with SkilledTradesBC. Pass Fulford provisional theory so you can operate under a written supervision plan. Technical training is 12 weeks over three years: Level 1 210 hours, Level 2 140 hours, Level 3 70 hours. There is no separate Level 2 SLE. Level 1 SLE is required before Level 3 SLE and before the IP. 1,600 of the 4,980 hours are operating time, including 400 on specified lattice or greater-than-80 t hydraulic equipment.",
-      },
-      {
-        heading: "Practice in REDMC",
-        body: "REDMC holds the mobile questions, manufacturer RT/AT/crawler charts, and BCACS sling figures. Tower certification is a different trade — use REDTC for that.",
-      },
-    ],
-    faq: [
-      {
-        q: "When does Mobile Crane become compulsory in B.C.?",
-        a: "SkilledTradesBC: compulsory trade from 5 July 2027. Certification requirements from BC Crane Safety already apply. Confirm current rules with those bodies before you hire or dispatch.",
-      },
-    ],
-    practiceHref: "/redmc",
-    practiceLabel: "Open REDMC",
-    related: [
-      { href: "/mobile-crane-red-seal-practice-test", label: "Red Seal practice" },
-      { href: "/mobile-crane-load-chart-practice", label: "Load chart practice" },
-      { href: "/tower-crane-operator-hours-bc", label: "Tower hours (different trade)" },
-      { href: "/safety/training-competency", label: "Proven competency" },
-    ],
-  },
-  {
-    slug: "mobile-crane-load-chart-practice",
-    title: "Mobile Crane Load Chart Practice BC | REDMC",
-    description:
-      "Practice reading manufacturer mobile crane load charts — Grove, Tadano, Terex, Liebherr, Link-Belt, Manitowoc — plus BCACS rigging figures. Never interpolate.",
-    kicker: "REDMC — CHARTS",
-    crumb: "Load chart practice",
-    cluster: MOBILE,
-    kind: "practice",
-    h1: ["MOBILE", "LOAD CHARTS."],
-    lede: "Rough-terrain, all-terrain, lattice crawler. Outriggers, on-rubber, pick-and-carry, boom length, radius, deductions. The cab serial chart still wins on the job.",
-    facts: [
-      { label: "Cranes", value: "7", note: "Manufacturer PDFs" },
-      { label: "Chart Qs", value: "70", note: "Fulford-style LCR" },
-      { label: "Rigging", value: "3", note: "BCACS sling figures" },
-    ],
-    sections: [
-      {
-        heading: "Manufacturer charts",
-        body: "REDMC lists Grove RT880E, Tadano GR-800XL-4, Terex RT 670, Liebherr LTM 1100-5.3, Link-Belt 298 Series 2, Liebherr LR 1300 and Manitowoc 14000. Ten Fulford-style LCR questions per crane — gross, net, maximum radius, boom angle, jib, outrigger percent, counterweight and parts of line — written from cells on those PDFs. Capacities are never invented.",
-      },
-      {
-        heading: "Sling charts are separate",
-        body: "Chain, nylon web and wire-rope WLLs from the BCACS Crane Core figures booklet live under rigging charts. Training and assessment only. The sling tag and manufacturer rating win in the field.",
-      },
-    ],
-    faq: [
-      {
-        q: "Can I interpolate radius?",
-        a: "No. If the number is between rows, use the worse capacity. Same rule as the exam and as a competent operator.",
-      },
-    ],
-    practiceHref: "/redmc/load-charts",
-    practiceLabel: "Open load charts",
-    related: [
-      { href: "/redmc", label: "REDMC index" },
-      { href: "/bc-mobile-crane-certification", label: "BC certification path" },
-      { href: "/redmc/rigging-charts", label: "Rigging charts" },
-      { href: "/tower-crane-load-chart-practice", label: "Tower load charts" },
     ],
   },
 ];

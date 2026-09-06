@@ -10,19 +10,19 @@ export const SITE = {
   location: "British Columbia, Canada",
   tagline: "CRANE SAFETY SYSTEMS.",
   sub: "OPEN. USABLE. ACCOUNTABLE.",
-  dek: "This site is crane safety information for lifting work.",
+  dek: "This site is tower crane and rigging safety information for lifting work.",
   position: "The system behind the lift.",
   roles:
-    "Policies, procedures, hazard assessments, forms and crane binders for operators, riggers, signalpersons and supervisors.",
+    "Policies, procedures, hazard assessments, forms and crane binders for tower and self-erect operators, riggers, signalpersons and supervisors.",
   method:
     "Proven is the occupational health and safety management system. Written the way the work actually happens. Public so anyone on the lift can read it before the hook is loaded.",
   close:
     "If a procedure cannot be followed on a jobsite, it is not a procedure. It is theatre.",
-  title: "Crane Safety & Red Seal Practice BC | sin()",
+  title: "Tower Crane Safety & Red Seal Practice BC | sin()",
   description:
-    "Free Tower and Mobile Crane Red Seal practice for B.C. Procedures, FLHAs, crane binders and sling math. Public. No portal.",
+    "Free Tower Crane Red Seal practice for B.C. Self-erect, rigging, procedures, FLHAs and crane binders. Public. No portal.",
   descriptionLong:
-    "sin() is public crane safety information for lifting work in British Columbia.\n\nREDTC and REDMC are Tower Crane and Mobile Crane exam practice — Fulford, SkilledTradesBC, and the Interprovincial Red Seal. Tagged questions. Explanations after you answer. 70% to pass, same as the sitting.\n\nProven is the occupational health and safety program: policies, safe work procedures, hazard assessments, forms and crane binders. Written the way the work actually happens. Public so anyone on the lift can read it before the hook is loaded. No portal. No request form. No expiry date.\n\nThe Wire is writing about safety, rigging, cranes and people.\n\nWork is done to CSA Z150 / Z248, WorkSafeBC, BC Crane Safety, Technical Safety BC, applicable ASME B30 standards, manufacturer requirements and site policies. The stricter applicable requirement wins. Law always wins.\n\nIf a procedure cannot be followed on a jobsite, it is not a procedure. It is theatre.",
+    "sin() is public tower crane and rigging safety information for lifting work in British Columbia.\n\nREDTC is Tower Crane exam practice — Fulford, SkilledTradesBC, and the Interprovincial Red Seal. Flat-top, luffing and self-erecting machines. Tagged questions. Explanations after you answer. 70% to pass, same as the sitting.\n\nProven is the occupational health and safety program: policies, safe work procedures, hazard assessments, forms and tower and self-erect binders. Written the way the work actually happens. Public so anyone on the lift can read it before the hook is loaded. No portal. No request form. No expiry date.\n\nThe Wire is writing about safety, rigging, cranes and people.\n\nWork is done to CSA Z150 / Z248, WorkSafeBC, BC Crane Safety, Technical Safety BC, applicable ASME B30 standards, manufacturer requirements and site policies. The stricter applicable requirement wins. Law always wins.\n\nIf a procedure cannot be followed on a jobsite, it is not a procedure. It is theatre.",
   system: "PROVEN",
 } as const;
 
@@ -121,22 +121,22 @@ export const NAV_PRACTICE: NavItem[] = [
     title: "Tower Crane Red Seal practice test",
   },
   {
-    href: "/redmc/test",
-    label: "MOBILE TEST",
-    num: "02",
-    title: "Mobile Crane Red Seal practice test",
-  },
-  {
     href: "/redtc",
     label: "REDTC",
-    num: "03",
+    num: "02",
     title: "Tower Crane practice — Fulford, SkilledTradesBC, Red Seal",
   },
   {
-    href: "/redmc",
-    label: "REDMC",
+    href: "/redtc/load-charts",
+    label: "LOAD CHARTS",
+    num: "03",
+    title: "Tower and self-erect load chart practice",
+  },
+  {
+    href: "/redtc/rigging-charts",
+    label: "RIGGING",
     num: "04",
-    title: "Mobile Crane practice — Red Seal and manufacturer charts",
+    title: "Sling chart practice — chain, web, wire rope",
   },
 ];
 
@@ -157,7 +157,7 @@ export const NAV_LIFT: NavItem[] = [
     href: "/safety/binder",
     label: "CRANE BINDERS",
     num: "03",
-    title: "Tower, self-erect and mobile crane site binders",
+    title: "Tower and self-erect crane site binders",
   },
   {
     href: "/sling",
@@ -185,6 +185,12 @@ export const NAV_READ: NavItem[] = [
     label: "ABOUT",
     num: "02",
     title: "About the author",
+  },
+  {
+    href: "/philosophy",
+    label: "PHILOSOPHY",
+    num: "03",
+    title: "How this crane safety program is written",
   },
 ];
 

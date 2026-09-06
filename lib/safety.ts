@@ -2058,7 +2058,7 @@ export const FIND_NOW_GROUPS: { id: string; label: string; items: FindNowItem[] 
     items: [
       { href: "/safety/form/crane-pre-use", label: "CRANE PRE-USE", hint: "This machine", kind: "FRM" },
       { href: "/safety/form/tower-pre-use", label: "TOWER PRE-USE", hint: "Tower / luffer / Z248", kind: "FRM" },
-      { href: "/safety/binder", label: "CRANE BINDERS", hint: "Pick · mark · PDF", kind: "BND" },
+      { href: "/safety/binder", label: "CRANE BINDERS", hint: "Tower / self-erect", kind: "BND" },
     ],
   },
   {

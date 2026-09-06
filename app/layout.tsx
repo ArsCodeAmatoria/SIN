@@ -63,7 +63,7 @@ export const metadata: Metadata = {
   keywords: [
     "crane safety British Columbia",
     "tower crane Red Seal practice test",
-    "mobile crane Red Seal practice test",
+    "self-erecting tower crane",
     "WorkSafeBC crane",
     "WorkSafeBC rigging",
     "BC Crane Safety",

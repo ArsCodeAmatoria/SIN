@@ -78,10 +78,7 @@ export default function SlingDeskPage() {
           Sling selection SWP
         </Link>
         <Link className="btn btn-ghost" href="/redtc/rigging-charts">
-          Sling charts — REDTC
-        </Link>
-        <Link className="btn btn-ghost" href="/redmc/rigging-charts">
-          Sling charts — REDMC
+          Sling charts
         </Link>
       </div>
     </div>

@@ -1602,8 +1602,8 @@ export const ARTICLES: WireArticle[] = [
       },
       {
         type: "cta",
-        href: "/redmc/rigging-charts",
-        label: "SLING CHARTS — REDMC →",
+        href: "/redtc/rigging-charts",
+        label: "SLING CHARTS →",
       },
       {
         type: "cta",

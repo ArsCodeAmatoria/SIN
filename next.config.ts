@@ -83,6 +83,61 @@ const nextConfig: NextConfig = {
         destination: "/safety/binder/mobile",
         statusCode: 301,
       },
+      {
+        source: "/redmc",
+        destination: "/redtc",
+        statusCode: 301,
+      },
+      {
+        source: "/redmc/test",
+        destination: "/redtc/test",
+        statusCode: 301,
+      },
+      {
+        source: "/redmc/test/master",
+        destination: "/redtc/test/master",
+        statusCode: 301,
+      },
+      {
+        source: "/redmc/test/review",
+        destination: "/redtc/test/review",
+        statusCode: 301,
+      },
+      {
+        source: "/redmc/load-charts",
+        destination: "/redtc/load-charts",
+        statusCode: 301,
+      },
+      {
+        source: "/redmc/load-charts/:id",
+        destination: "/redtc/load-charts",
+        statusCode: 301,
+      },
+      {
+        source: "/redmc/rigging-charts",
+        destination: "/redtc/rigging-charts",
+        statusCode: 301,
+      },
+      {
+        source: "/redmc/rigging-charts/:id",
+        destination: "/redtc/rigging-charts/:id",
+        statusCode: 301,
+      },
+      {
+        source: "/mobile-crane-red-seal-practice-test",
+        destination: "/tower-crane-red-seal-practice-test",
+        statusCode: 301,
+      },
+      {
+        source: "/bc-mobile-crane-certification",
+        destination: "/tower-crane-certification-bc",
+        statusCode: 301,
+      },
+      {
+        source: "/mobile-crane-load-chart-practice",
+        destination: "/tower-crane-load-chart-practice",
+        statusCode: 301,
+      },
     ];
   },
 };
