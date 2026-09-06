@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { shortNumber } from "@/lib/ohs/doc";
 import { AUTHOR, SITE } from "@/lib/site";
 
 export const ORIGIN = SITE.url;
@@ -107,8 +108,40 @@ export function organizationLd() {
     telephone: SITE.phone,
     description: SITE.descriptionLong,
     areaServed: SITE.location,
-    logo: absUrl("/og.png"),
+    logo: {
+      "@type": "ImageObject",
+      url: absUrl("/logo.svg"),
+      width: 512,
+      height: 512,
+    },
     image: absUrl("/og.png"),
+  };
+}
+
+/** Doc number + job + BC. Proven pages, not the brand switchboard. */
+export function provenTitle(number: string, title: string): string {
+  const head = shortNumber(number).trim();
+  const job = title.replace(/\s+/g, " ").trim();
+  const labeled = /\bBC\b/.test(job) ? job : `${job} BC`;
+  return `${head} ${labeled} | PROVEN`.replace(/\s+/g, " ").trim();
+}
+
+export function faqPageLd(
+  url: string,
+  faq: { q: string; a: string }[],
+): Record<string, unknown> | null {
+  if (!faq.length) return null;
+  return {
+    "@type": "FAQPage",
+    "@id": `${url}#faq`,
+    mainEntity: faq.map((item) => ({
+      "@type": "Question",
+      name: item.q,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.a,
+      },
+    })),
   };
 }
 

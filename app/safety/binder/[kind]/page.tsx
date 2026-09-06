@@ -2,8 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { BinderWizard } from "@/components/binder/BinderWizard";
 import { BINDERS, getBinder } from "@/lib/ohs/binders";
-import { shortNumber } from "@/lib/ohs/doc";
-import { pageMeta } from "@/lib/seo";
+import { pageMeta, provenTitle } from "@/lib/seo";
 
 type Props = { params: Promise<{ kind: string }> };
 
@@ -16,7 +15,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const binder = getBinder(kind);
   if (!binder) return pageMeta({ title: "Crane Binder", description: "Site crane binder.", path: "/safety/binder" });
   return pageMeta({
-    title: `${shortNumber(binder.number)} ${binder.title}`,
+    title: provenTitle(binder.number, binder.title),
     description: binder.summary,
     path: `/safety/binder/${kind}`,
   });

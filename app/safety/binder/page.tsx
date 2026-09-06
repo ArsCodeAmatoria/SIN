@@ -5,9 +5,9 @@ import { BINDERS, BINDER_OFFICIAL } from "@/lib/ohs/binders";
 import { pageMeta } from "@/lib/seo";
 
 export const metadata: Metadata = pageMeta({
-  title: "Crane Binders",
+  title: "Tower & Self-Erect Crane Binders BC | PROVEN",
   description:
-    "Build a tower or self-erect site binder. Pick the machine, mark what you have, download the Proven PDF.",
+    "Build a tower or self-erect site binder in British Columbia. Pick the machine, mark what you have, download the Proven PDF.",
   path: "/safety/binder",
 });
 

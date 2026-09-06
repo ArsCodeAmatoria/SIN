@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { SafetyDocFrame } from "@/components/SafetyDocFrame";
 import { SafetyReportForm } from "@/components/SafetyReportForm";
 import { REPORTS, getReport } from "@/lib/ohs";
-import { pageMeta } from "@/lib/seo";
+import { pageMeta, provenTitle } from "@/lib/seo";
 import { SITE } from "@/lib/site";
 
 type Props = { params: Promise<{ kind: string }> };
@@ -17,7 +17,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const doc = getReport(kind);
   if (!doc) return pageMeta({ title: "Report", description: "Field report.", path: "/safety" });
   return pageMeta({
-    title: doc.title,
+    title: provenTitle(doc.number, doc.title),
     description: doc.summary,
     path: `/safety/report/${kind}`,
   });

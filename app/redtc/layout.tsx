@@ -5,8 +5,8 @@ import { pageMeta } from "@/lib/seo";
 const questions = allQuestions().length;
 
 export const metadata: Metadata = pageMeta({
-  title: `Tower Crane Red Seal Practice Test BC – ${questions.toLocaleString("en-CA")} Questions | REDTC`,
-  description: `Free Tower Crane Red Seal exam practice for B.C. with ${questions.toLocaleString("en-CA")} questions, Fulford Level B, SkilledTradesBC Level 1 & 2, manufacturer load charts, and BCACS sling charts.`,
+  title: `REDTC — Tower Crane Exam Bank BC | ${questions.toLocaleString("en-CA")} Questions`,
+  description: `The REDTC practice bank: ${questions.toLocaleString("en-CA")} tagged questions for Fulford Level B, SkilledTradesBC Level 1 & 2, and the Red Seal, plus manufacturer load charts and BCACS sling charts.`,
   path: "/redtc",
 });
 

@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { SafetyControlStamp } from "@/components/SafetyControl";
 import { SafetyDocFrame } from "@/components/SafetyDocFrame";
 import { SDS, getSds } from "@/lib/ohs";
-import { pageMeta } from "@/lib/seo";
+import { pageMeta, provenTitle } from "@/lib/seo";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -16,7 +16,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const doc = getSds(slug);
   if (!doc) return pageMeta({ title: "SDS", description: "Safety data sheet.", path: "/safety" });
   return pageMeta({
-    title: `${doc.number} ${doc.title}`,
+    title: provenTitle(doc.number, doc.title),
     description: doc.use,
     path: `/safety/sds/${slug}`,
   });

@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import { SafetyControlStamp } from "@/components/SafetyControl";
 import { SafetyDocFrame } from "@/components/SafetyDocFrame";
 import { CRANES, getCrane } from "@/lib/ohs/cranes";
-import { pageMeta } from "@/lib/seo";
+import { pageMeta, provenTitle } from "@/lib/seo";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -17,7 +17,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const doc = getCrane(slug);
   if (!doc) return pageMeta({ title: "Crane", description: "Crane chart and inspection pack.", path: "/safety" });
   return pageMeta({
-    title: `${doc.number} ${doc.title}`,
+    title: provenTitle(doc.number, doc.title),
     description: doc.summary,
     path: `/safety/crane/${slug}`,
   });

@@ -15,7 +15,7 @@ export type CabManifest = {
  * Not REDTC or the Wire. Not WorkSafeBC / BCCS PDFs.
  */
 export function cabUrls(): string[] {
-  const urls = new Set<string>(["/safety", "/sling", "/icon.svg"]);
+  const urls = new Set<string>(["/safety", "/sling", "/icon.svg", "/logo.svg"]);
   for (const item of safetyCatalog()) {
     if (item.href.startsWith("/")) urls.add(item.href);
   }

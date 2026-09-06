@@ -6,7 +6,7 @@ import { SafetyDocFrame } from "@/components/SafetyDocFrame";
 import { FORMS, getForm } from "@/lib/ohs";
 import type { DocLink } from "@/lib/ohs/types";
 import { getTemplate } from "@/lib/form-builder/templates";
-import { pageMeta } from "@/lib/seo";
+import { pageMeta, provenTitle } from "@/lib/seo";
 
 const TEMPLATE_ALIAS: Record<string, string> = {
   "rigging-inspection-form": "rigging-inspection",
@@ -33,7 +33,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const doc = getForm(slug);
   if (!doc) return pageMeta({ title: "Form", description: "Safety form.", path: "/safety" });
   return pageMeta({
-    title: `${doc.number} ${doc.title}`,
+    title: provenTitle(doc.number, doc.title),
     description: doc.summary,
     path: `/safety/form/${slug}`,
   });

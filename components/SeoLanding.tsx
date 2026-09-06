@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { absUrl, breadcrumbLd, jsonLdGraph, organizationLd, ORIGIN, websiteLd } from "@/lib/seo";
+import { absUrl, breadcrumbLd, faqPageLd, jsonLdGraph, organizationLd, ORIGIN, websiteLd } from "@/lib/seo";
 import type { SeoLanding } from "@/lib/seo-landings";
 import { SITE } from "@/lib/site";
 
@@ -64,11 +64,14 @@ export function SeoLandingPage({ page }: { page: SeoLanding }) {
       educationalRole: "crane operator candidate",
     };
   }
+  const faq = faqPageLd(url, page.faq);
+  if (faq) webpage.mainEntity = { "@id": `${url}#faq` };
   const schema = jsonLdGraph([
     organizationLd(),
     websiteLd(),
     { ...breadcrumbLd(crumbs), "@id": `${url}#breadcrumb` },
     webpage,
+    ...(faq ? [faq] : []),
   ]);
 
   return (
