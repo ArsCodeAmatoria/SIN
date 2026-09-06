@@ -3,7 +3,7 @@ import { STANDARDS } from "@/lib/site";
 import { safetyCatalog } from "./catalog";
 
 /** Bump when the service worker cache name changes. */
-export const CAB_VERSION = "1";
+export const CAB_VERSION = "2";
 
 export type CabManifest = {
   version: string;

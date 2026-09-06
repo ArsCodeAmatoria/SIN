@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Wordmark } from "@/components/Logo";
+import { SiteName, Wordmark } from "@/components/Logo";
 import { StandardMarks } from "@/components/StandardsList";
 import { SITE } from "@/lib/site";
 import { WIRE } from "@/lib/whoopwire";
@@ -16,7 +16,7 @@ const LINKS = [
 
 function StandardsLine() {
   return (
-    <p className="mono footer-std">
+    <p className="footer-std">
       <Link href="/safety#standards">Work done to</Link> CSA Z150 / Z248, WorkSafeBC,
       BC Crane Safety, Technical Safety BC, applicable ASME B30 standards, manufacturer
       requirements and site policies. Those marks identify the bodies — they
@@ -60,7 +60,9 @@ export function Footer({ marks = false }: { marks?: boolean }) {
       ) : null}
       <StandardsLine />
       <div className="footer-bot mono">
-        <span>© {new Date().getFullYear()} {SITE.legalName}</span>
+        <span className="footer-copy">
+          © {new Date().getFullYear()} <SiteName />
+        </span>
         <span>OPEN. USABLE. ACCOUNTABLE.</span>
       </div>
     </footer>
