@@ -13,6 +13,13 @@ const nextConfig: NextConfig = {
           { key: "Content-Type", value: "image/png" },
         ],
       },
+      {
+        source: "/ea5497ae4d184e49ba89e75b7d4c1cf7.txt",
+        headers: [
+          { key: "Content-Type", value: "text/plain; charset=utf-8" },
+          { key: "Cache-Control", value: "public, max-age=86400" },
+        ],
+      },
     ];
   },
   async redirects() {
