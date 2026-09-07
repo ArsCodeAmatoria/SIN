@@ -15,14 +15,11 @@ export const metadata: Metadata = pageMeta({
   path: "/",
 });
 
-const HERO_LIFT = [
+const HERO_DOORS = [
   { href: "/sling", label: "SLING", hint: "θ / tension / WLL" },
   { href: "/safety/form/flha", label: "FLHA", hint: "This shift" },
   { href: "/safety/binder", label: "BINDERS", hint: "Tower / self-erect" },
   { href: "/safety", label: "PROVEN", hint: "The program" },
-] as const;
-
-const HERO_PRACTICE = [
   {
     href: "/redtc/test",
     label: "Tower test",
@@ -51,35 +48,31 @@ export default function HomePage() {
     <>
       <section className="section section-lead home-hero" id="sin">
         <div className="wrap">
-          <p className="mono kicker">TOWER CRANE · BRITISH COLUMBIA</p>
+          <p className="mono kicker home-poster-rail">
+            <span>Tower Crane · British Columbia</span>
+            <span>Open · Usable · Accountable</span>
+          </p>
           <h1 className="display home-title">
-            Material for the
-            <br />
-            tower crew.
+            <span className="home-title-docs">Docs</span>
+            <span className="home-title-rest">for the Tower Crane Crew</span>
           </h1>
           <p className="lede mt">
             Rigging, procedures, forms and binders written to be used on the
             lift. Red Seal practice for the sitting. For operators, riggers and
             supervisors in British Columbia.
           </p>
-          <div className="home-jobs">
-            <nav className="home-hero-lift" aria-label="This lift">
-              {HERO_LIFT.map((item) => (
-                <Link href={item.href} key={item.href}>
-                  <strong className="display">{item.label}</strong>
-                  <em>{item.hint}</em>
-                </Link>
-              ))}
-            </nav>
-            <div className="home-practice">
-              {HERO_PRACTICE.map((item) => (
-                <Link href={item.href} key={item.href} title={item.title}>
-                  <strong className="display">{item.label}</strong>
-                  <em>{item.hint}</em>
-                </Link>
-              ))}
-            </div>
-          </div>
+          <nav className="home-hero-lift" aria-label="This lift">
+            {HERO_DOORS.map((item) => (
+              <Link
+                href={item.href}
+                key={item.href}
+                title={"title" in item ? item.title : undefined}
+              >
+                <strong className="display">{item.label}</strong>
+                <em>{item.hint}</em>
+              </Link>
+            ))}
+          </nav>
           <JibTrolley />
         </div>
       </section>
