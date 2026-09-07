@@ -29,6 +29,14 @@ function isActive(current: string | undefined, slug?: string) {
   return slug ? current === slug : !current;
 }
 
+const TASK_LINKS = [
+  { href: "/safety", label: "INDEX", slug: undefined as string | undefined },
+  { href: "/safety#now", label: "DO" },
+  { href: "/safety#find", label: "FIND" },
+  { href: "/safety/builder", label: "FORMS", slug: "safety-forms" },
+  { href: "/safety/binder", label: "BINDERS", slug: "crane-binders" },
+] as const;
+
 function NavLinks({
   current,
   onPick,
@@ -45,8 +53,13 @@ function NavLinks({
         aria-current={isActive(current) ? "page" : undefined}
         onClick={onPick}
       >
-        <span>00</span>
         INDEX
+      </Link>
+      <Link href="/safety#now" onClick={onPick}>
+        DO THE WORK
+      </Link>
+      <Link href="/safety#find" onClick={onPick}>
+        FIND
       </Link>
       {groups.map((group) => (
         <div className="doc-nav-group" key={group.id}>
@@ -60,8 +73,8 @@ function NavLinks({
               aria-current={isActive(current, s.slug) ? "page" : undefined}
               onClick={onPick}
             >
-              <span>{s.num}</span>
               {s.title}
+              <span>{s.num}</span>
             </Link>
           ))}
         </div>
@@ -78,7 +91,7 @@ export function SafetyNav() {
   const [desktop, setDesktop] = useState(false);
   const [offline, setOffline] = useState(false);
   const here = SAFETY.find((s) => s.slug === current);
-  const label = here ? `${here.num}  ${here.title}` : SITE.system;
+  const label = here ? here.title : SITE.system;
 
   useEffect(() => {
     const mq = window.matchMedia("(min-width: 1040px)");
@@ -129,29 +142,26 @@ export function SafetyNav() {
           </nav>
         </div>
       </details>
-      <nav ref={stripRef} className="doc-nav-scroll" aria-label="Safety sections">
-        <Link
-          href="/safety"
-          className={isActive(current) ? "active" : undefined}
-          aria-current={isActive(current) ? "page" : undefined}
-          aria-label="00 Index"
-        >
-          <span aria-hidden="true">00</span>
-          <span className="visually-hidden">00 Index</span>
-        </Link>
-        {SAFETY.map((s) => (
-          <Link
-            key={s.slug}
-            href={`/safety/${s.slug}`}
-            className={isActive(current, s.slug) ? "active" : undefined}
-            data-nav={s.slug === "crane-binders" ? "binder" : undefined}
-            aria-current={isActive(current, s.slug) ? "page" : undefined}
-            aria-label={`${s.num} ${s.title}`}
-          >
-            <span aria-hidden="true">{s.num}</span>
-            <span className="visually-hidden">{`${s.num} ${s.title}`}</span>
-          </Link>
-        ))}
+      <nav ref={stripRef} className="doc-nav-scroll" aria-label="Proven tasks">
+        {TASK_LINKS.map((item) => {
+          const slug = "slug" in item ? item.slug : undefined;
+          const active =
+            item.href === "/safety"
+              ? isActive(current)
+              : slug
+                ? isActive(current, slug)
+                : false;
+          return (
+            <Link
+              key={item.href}
+              href={item.href}
+              className={active ? "active" : undefined}
+              aria-current={active ? "page" : undefined}
+            >
+              {item.label}
+            </Link>
+          );
+        })}
       </nav>
     </aside>
   );

@@ -4,7 +4,10 @@ function isExamDesk(path: string) {
   return (
     path.startsWith("/redtc/test") ||
     path.startsWith("/redtc/load-charts") ||
-    path.startsWith("/redtc/rigging-charts")
+    path.startsWith("/redtc/rigging-charts") ||
+    path.startsWith("/redmc/test") ||
+    path.startsWith("/redmc/load-charts") ||
+    path.startsWith("/redmc/rigging-charts")
   );
 }
 

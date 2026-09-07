@@ -3,31 +3,23 @@
 import Link from "next/link";
 import { useMemo, useState } from "react";
 import { DocBadge } from "@/components/DocBadge";
+import { searchCatalog } from "@/lib/ohs/search";
 import type { CatalogHit } from "@/lib/ohs/catalog";
 
 export function SafetyFind({ catalog }: { catalog: CatalogHit[] }) {
   const [query, setQuery] = useState("");
-  const hits = useMemo(() => {
-    const q = query.trim().toLowerCase();
-    if (q.length < 2) return [];
-    return catalog
-      .filter((item) =>
-        `${item.kind} ${item.number} ${item.title} ${item.summary}`
-          .toLowerCase()
-          .includes(q)
-      )
-      .slice(0, 12);
-  }, [catalog, query]);
+  const hits = useMemo(() => searchCatalog(catalog, query), [catalog, query]);
+  const looking = query.trim().length >= 2;
 
   return (
-    <div className="safety-find">
+    <div className="safety-find" id="find">
       <label className="ohs-search">
-        <span className="mono steel">FIND A DOCUMENT</span>
+        <span className="mono steel">FIND</span>
         <input
           type="search"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
-          placeholder="FLHA, slings, heat, refuse, incident…"
+          placeholder="wind, powerline, FLHA, hook…"
           autoComplete="off"
         />
       </label>
@@ -40,15 +32,21 @@ export function SafetyFind({ catalog }: { catalog: CatalogHit[] }) {
               className={item.kind === "BINDER" ? "is-binder" : undefined}
             >
               <span className="ohs-lib-head">
-                <DocBadge number={item.number} />
+                <DocBadge
+                  kind={item.kind === "BINDER" ? "BND" : undefined}
+                  label={item.typeLabel}
+                />
               </span>
               <strong className="display">{item.title}</strong>
+              <em>
+                {item.number} · {item.summary}
+              </em>
             </Link>
           ))}
         </nav>
       ) : null}
-      {query.trim().length >= 2 && hits.length === 0 ? (
-        <p className="lede mt">Nothing matches. Try the number or the task.</p>
+      {looking && hits.length === 0 ? (
+        <p className="lede mt">Nothing matches. Try the task: wind, powerline, FLHA.</p>
       ) : null}
     </div>
   );

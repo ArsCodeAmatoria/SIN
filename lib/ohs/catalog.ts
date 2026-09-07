@@ -15,7 +15,25 @@ export type CatalogHit = {
   title: string;
   summary: string;
   kind: string;
+  typeLabel: string;
 };
+
+const TYPE_LABEL: Record<string, string> = {
+  SECTION: "STANDARD",
+  POLICY: "POLICY",
+  SWP: "SWP",
+  JHA: "JHA",
+  SJP: "SJP",
+  FORM: "FORM",
+  BINDER: "BINDER",
+  CRANE: "CRANE",
+  SDS: "SDS",
+  REPORT: "REPORT",
+};
+
+function hit(item: Omit<CatalogHit, "typeLabel">): CatalogHit {
+  return { ...item, typeLabel: TYPE_LABEL[item.kind] ?? item.kind };
+}
 
 export const POLICY_GROUP_ORDER = [
   "THE COMPANY",
@@ -141,89 +159,116 @@ export function sjpGroup(slug: string) {
 
 export function safetyCatalog(): CatalogHit[] {
   return [
-    ...SAFETY.map((item) => ({
-      href: `/safety/${item.slug}`,
-      number: item.num,
-      title: item.title,
-      summary: item.kicker,
-      kind: "SECTION",
-    })),
-    ...POLICIES.map((item) => ({
-      href: `/safety/policy/${item.slug}`,
-      number: item.number,
-      title: item.title,
-      summary: item.summary,
-      kind: "POLICY",
-    })),
-    ...SWPS.map((item) => ({
-      href: `/safety/swp/${item.slug}`,
-      number: item.number,
-      title: item.title,
-      summary: item.summary,
-      kind: "SWP",
-    })),
-    ...JHAS.map((item) => ({
-      href: `/safety/jha/${item.slug}`,
-      number: item.number,
-      title: item.title,
-      summary: item.summary,
-      kind: "JHA",
-    })),
-    ...SJPS.map((item) => ({
-      href: `/safety/sjp/${item.slug}`,
-      number: item.number,
-      title: item.title,
-      summary: item.summary,
-      kind: "SJP",
-    })),
-    {
+    ...SAFETY.map((item) =>
+      hit({
+        href: `/safety/${item.slug}`,
+        number: item.num,
+        title: item.title,
+        summary: item.kicker,
+        kind: "SECTION",
+      }),
+    ),
+    ...POLICIES.map((item) =>
+      hit({
+        href: `/safety/policy/${item.slug}`,
+        number: item.number,
+        title: item.title,
+        summary: item.summary,
+        kind: "POLICY",
+      }),
+    ),
+    ...SWPS.map((item) =>
+      hit({
+        href: `/safety/swp/${item.slug}`,
+        number: item.number,
+        title: item.title,
+        summary: item.summary,
+        kind: "SWP",
+      }),
+    ),
+    ...JHAS.map((item) =>
+      hit({
+        href: `/safety/jha/${item.slug}`,
+        number: item.number,
+        title: item.title,
+        summary: item.summary,
+        kind: "JHA",
+      }),
+    ),
+    ...SJPS.map((item) =>
+      hit({
+        href: `/safety/sjp/${item.slug}`,
+        number: item.number,
+        title: item.title,
+        summary: item.summary,
+        kind: "SJP",
+      }),
+    ),
+    hit({
       href: "/safety/builder",
       number: "PROVEN-FRM",
       title: "FORM BUILDER",
       summary: "Assemble, fill, PDF.",
       kind: "FORM",
-    },
-    {
+    }),
+    hit({
       href: "/safety/binder",
       number: "PROVEN-BND",
       title: "CRANE BINDERS",
       summary: "Tower, self-erect or mobile / crawler site binder.",
       kind: "BINDER",
-    },
-    ...BINDERS.map((item) => ({
-      href: `/safety/binder/${item.kind}`,
-      number: item.number,
-      title: item.title,
-      summary: item.summary,
-      kind: "BINDER",
-    })),
-    ...CRANES.map((item) => ({
-      href: `/safety/crane/${item.slug}`,
-      number: item.number,
-      title: item.title,
-      summary: item.summary,
-      kind: "CRANE",
-    })),
-    ...FORMS.map((item) => ({
-      href: `/safety/form/${item.slug}`,
-      number: item.number,
-      title: item.title,
-      summary: item.summary,
+    }),
+    hit({
+      href: "/sling",
+      number: "DESK",
+      title: "SLING-ANGLE DESK",
+      summary: "θ, tension, WLL from height and length.",
       kind: "FORM",
-    })),
-    ...SDS.map((item) => ({
-      href: `/safety/sds/${item.slug}`,
-      number: item.number,
-      title: item.title,
-      summary: item.use,
-      kind: "SDS",
-    })),
-    ...REPORTS.map((item) => ({
-      href: `/safety/report/${item.slug}`,
-      number: item.number,
-      title: item.title,
-      summary: item.summary,
-      kind: "REPORT",
-    })),
+    }),
+    ...BINDERS.map((item) =>
+      hit({
+        href: `/safety/binder/${item.kind}`,
+        number: item.number,
+        title: item.title,
+        summary: item.summary,
+        kind: "BINDER",
+      }),
+    ),
+    ...CRANES.map((item) =>
+      hit({
+        href: `/safety/crane/${item.slug}`,
+        number: item.number,
+        title: item.title,
+        summary: item.summary,
+        kind: "CRANE",
+      }),
+    ),
+    ...FORMS.map((item) =>
+      hit({
+        href: `/safety/form/${item.slug}`,
+        number: item.number,
+        title: item.title,
+        summary: item.summary,
+        kind: "FORM",
+      }),
+    ),
+    ...SDS.map((item) =>
+      hit({
+        href: `/safety/sds/${item.slug}`,
+        number: item.number,
+        title: item.title,
+        summary: item.use,
+        kind: "SDS",
+      }),
+    ),
+    ...REPORTS.map((item) =>
+      hit({
+        href: `/safety/report/${item.slug}`,
+        number: item.number,
+        title: item.title,
+        summary: item.summary,
+        kind: "REPORT",
+      }),
+    ),
   ];
 }

@@ -11,6 +11,7 @@ import { FormRenderer, missingRequired } from "@/components/form-builder/FormRen
 import {
   BLOCK_CATALOG,
   cloneBlock,
+  cloneForm,
   createBlock,
   downloadPdf,
   formToPdf,
@@ -121,6 +122,11 @@ export function BuilderApp({ initial }: { initial: FormDef }) {
     if (stored.id !== form.id) router.replace(`/safety/builder/${stored.id}`);
   }
 
+  function duplicate() {
+    const copy = saveLocalForm(cloneForm(form));
+    router.push(`/safety/builder/${copy.id}`);
+  }
+
   function onFillSubmit(e: React.FormEvent) {
     e.preventDefault();
     const miss = missingRequired(form, values);
@@ -172,6 +178,9 @@ export function BuilderApp({ initial }: { initial: FormDef }) {
         </div>
         <button type="button" className="btn btn-ghost" onClick={save}>
           SAVE
+        </button>
+        <button type="button" className="btn btn-ghost" onClick={duplicate}>
+          DUPLICATE THIS COPY
         </button>
         {mode !== "edit" ? (
           <>

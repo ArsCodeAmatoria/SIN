@@ -1,9 +1,8 @@
 import type { ReactNode } from "react";
 import Link from "next/link";
 import { DocBadge } from "@/components/DocBadge";
-import { ProvenName } from "@/components/ProvenMark";
+import { ProvenColophon, ProvenName } from "@/components/ProvenMark";
 import { shortNumber } from "@/lib/ohs/doc";
-import { SITE } from "@/lib/site";
 
 export function SafetyDocFrame({
   kicker,
@@ -47,10 +46,7 @@ export function SafetyDocFrame({
           </strong>
         </Link>
       </nav>
-      <p className="mono steel doc-colophon">
-        <ProvenName />
-        <span>{SITE.legalName}. Current version on this site.</span>
-      </p>
+      <ProvenColophon />
     </article>
   );
 }

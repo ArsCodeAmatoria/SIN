@@ -18,9 +18,9 @@ export const SITE = {
     "Proven is the occupational health and safety management system. Written the way the work actually happens. Public so anyone on the lift can read it before the hook is loaded.",
   close:
     "If a procedure cannot be followed on a jobsite, it is not a procedure. It is theatre.",
-  title: "Tower Crane Safety & Red Seal Practice BC | sin()",
+  title: "Tower Crane Crew Safety Material BC | sin()",
   description:
-    "Free Tower Crane Red Seal practice for B.C. Self-erect, rigging, procedures, FLHAs and crane binders. Public. No portal.",
+    "Tower crane and rigging material for the lift in British Columbia. Procedures, FLHAs, binders and sling math. Red Seal practice for the sitting. Public. No portal.",
   descriptionLong:
     "sin() is public tower crane and rigging safety information for lifting work in British Columbia.\n\nREDTC is Tower Crane exam practice — Fulford, SkilledTradesBC, and the Interprovincial Red Seal. Flat-top, luffing and self-erecting machines. Tagged questions. Explanations after you answer. 70% to pass, same as the sitting.\n\nProven is the occupational health and safety program: policies, safe work procedures, hazard assessments, forms and tower and self-erect binders. Written the way the work actually happens. Public so anyone on the lift can read it before the hook is loaded. No portal. No request form. No expiry date.\n\nThe Wire is writing about safety, rigging, cranes and people.\n\nWork is done to CSA Z150 / Z248, WorkSafeBC, BC Crane Safety, Technical Safety BC, applicable ASME B30 standards, manufacturer requirements and site policies. The stricter applicable requirement wins. Law always wins.\n\nIf a procedure cannot be followed on a jobsite, it is not a procedure. It is theatre.",
   system: "PROVEN",
@@ -148,10 +148,10 @@ export const NAV_LIFT: NavItem[] = [
     title: "Field level hazard assessment",
   },
   {
-    href: "/safety/builder",
-    label: "FORM BUILDER",
+    href: "/sling",
+    label: "SLING DESK",
     num: "02",
-    title: "Crane safety form builder — FLHA, lift plans and inspections",
+    title: "Sling angle, tension and WLL desk",
   },
   {
     href: "/safety/binder",
@@ -160,10 +160,10 @@ export const NAV_LIFT: NavItem[] = [
     title: "Tower and self-erect crane site binders",
   },
   {
-    href: "/sling",
-    label: "SLING DESK",
+    href: "/safety/builder",
+    label: "FORM BUILDER",
     num: "04",
-    title: "Sling angle, tension and WLL desk",
+    title: "Crane safety form builder — FLHA, lift plans and inspections",
   },
   {
     href: "/safety",
@@ -181,16 +181,16 @@ export const NAV_READ: NavItem[] = [
     title: "Crane safety and rigging articles",
   },
   {
-    href: "/about",
-    label: "ABOUT",
-    num: "02",
-    title: "About the author",
-  },
-  {
     href: "/philosophy",
     label: "PHILOSOPHY",
-    num: "03",
+    num: "02",
     title: "How this crane safety program is written",
+  },
+  {
+    href: "/about",
+    label: "ABOUT",
+    num: "03",
+    title: "About the author",
   },
 ];
 

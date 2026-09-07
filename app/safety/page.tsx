@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { CabLine } from "@/components/CabCopy";
 import { DocBadge } from "@/components/DocBadge";
-import { ProvenName } from "@/components/ProvenMark";
+import { ProvenColophon, ProvenName } from "@/components/ProvenMark";
 import { SafetyFind } from "@/components/SafetyFind";
 import { StandardsList } from "@/components/StandardsList";
 import { LIBRARY_KIND } from "@/lib/ohs/doc";
@@ -36,8 +36,11 @@ export default function SafetyIndexPage() {
         <CabLine where="proven" />
       </header>
 
+      <SafetyFind catalog={catalog} />
+
       <section id="now">
-        <p className="mono kicker">NEED IT NOW</p>
+        <p className="mono kicker">DO THE WORK</p>
+        <p className="lede">What are you trying to do. Not where it is filed.</p>
         {FIND_NOW_GROUPS.map((group) => (
           <div className="safety-now-group" key={group.id}>
             <p className="mono steel">{group.label}</p>
@@ -58,31 +61,36 @@ export default function SafetyIndexPage() {
         ))}
       </section>
 
-      <SafetyFind catalog={catalog} />
-
-      {groups.map((group) => (
-        <section key={group.id} className="safety-group">
-          <p className="mono kicker">{group.label}</p>
-          <nav className="safety-index" aria-label={group.label}>
-            {group.sections.map((s) => (
-              <Link
-                href={`/safety/${s.slug}`}
-                key={s.slug}
-                className={s.slug === "crane-binders" ? "is-binder" : undefined}
-              >
-                <span className="safety-index-head">
-                  <span className="mono steel">{s.num}</span>
-                  {s.library ? <DocBadge kind={LIBRARY_KIND[s.library]} /> : null}
-                </span>
-                <span>
-                  <strong>{s.title}</strong>
-                  <em>{s.kicker}</em>
-                </span>
-              </Link>
-            ))}
-          </nav>
-        </section>
-      ))}
+      <section id="standard">
+        <p className="mono kicker">READ THE STANDARD</p>
+        <p className="lede">
+          The program, in the order the work happens. Document numbers stay on
+          the page. They are not how you find it.
+        </p>
+        {groups.map((group) => (
+          <div key={group.id} className="safety-group">
+            <p className="mono kicker">{group.label}</p>
+            <nav className="safety-index" aria-label={group.label}>
+              {group.sections.map((s) => (
+                <Link
+                  href={`/safety/${s.slug}`}
+                  key={s.slug}
+                  className={s.slug === "crane-binders" ? "is-binder" : undefined}
+                >
+                  <span>
+                    <strong>{s.title}</strong>
+                    <em>{s.kicker}</em>
+                  </span>
+                  <span className="safety-index-meta">
+                    <span className="mono steel">{s.num}</span>
+                    {s.library ? <DocBadge kind={LIBRARY_KIND[s.library]} /> : null}
+                  </span>
+                </Link>
+              ))}
+            </nav>
+          </div>
+        ))}
+      </section>
 
       <p className="lede mt-2">
         Read it on a phone at the gate. Open once on a network and the pages
@@ -95,16 +103,11 @@ export default function SafetyIndexPage() {
         <p className="lede mt">
           Where these conflict, the stricter applicable requirement wins. Law
           always wins. The marks name the bodies. They are not an endorsement
-          of {SITE.name}.
+          of {SITE.system}.
         </p>
         <StandardsList />
       </div>
-      <p className="mono steel doc-colophon">
-        <ProvenName />
-        <span>
-          {SITE.legalName}. Current version on this site.
-        </span>
-      </p>
+      <ProvenColophon />
     </article>
   );
 }

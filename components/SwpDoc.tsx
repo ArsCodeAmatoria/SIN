@@ -1,7 +1,9 @@
 import Link from "next/link";
 import { ProcedureSteps } from "@/components/ProcedureSteps";
 import { SafetyControlStamp } from "@/components/SafetyControl";
+import { RelatedWork } from "@/components/RelatedWork";
 import type { DocLink, DocTable, Swp } from "@/lib/ohs";
+import { governedBy, recordsFor } from "@/lib/ohs/relations";
 
 function List({ title, items }: { title: string; items: string[] }) {
   return (
@@ -65,6 +67,10 @@ export function SwpDoc({ doc }: { doc: Swp }) {
   return (
     <div className="prose">
       <SafetyControlStamp number={doc.number} title={doc.title} />
+      <RelatedWork
+        governed={governedBy(`swp/${doc.slug}`)}
+        records={recordsFor(`swp/${doc.slug}`)}
+      />
       {(doc.links ?? []).map((link) => (
         <DocCta key={link.href + link.label} link={link} />
       ))}

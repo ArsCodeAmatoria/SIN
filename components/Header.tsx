@@ -10,9 +10,11 @@ import { NAV_LIFT, NAV_PRACTICE, NAV_READ, SITE, type NavItem } from "@/lib/site
 
 function OverlayLinks({
   items,
+  pathname,
   onPick,
 }: {
   items: NavItem[];
+  pathname: string;
   onPick: () => void;
 }) {
   return items.map((item) => (
@@ -21,7 +23,9 @@ function OverlayLinks({
       href={item.href}
       title={item.title}
       aria-label={item.title}
-      onClick={onPick}
+      onClick={() => {
+        if (pathname === item.href) onPick();
+      }}
     >
       <span className="overlay-num">{item.num}</span>
       {item.href === "/safety" ? (
@@ -77,17 +81,29 @@ export function Header() {
         aria-hidden={!open}
       >
         <div className="overlay-bands">
-          <nav className="overlay-list" aria-label="Practice">
-            <p className="mono overlay-kicker">PRACTICE</p>
-            <OverlayLinks items={NAV_PRACTICE} onPick={() => setOpen(false)} />
-          </nav>
           <nav className="overlay-list overlay-desk" aria-label="This lift">
             <p className="mono overlay-kicker">THIS LIFT</p>
-            <OverlayLinks items={NAV_LIFT} onPick={() => setOpen(false)} />
+            <OverlayLinks
+              items={NAV_LIFT}
+              pathname={pathname}
+              onPick={() => setOpen(false)}
+            />
           </nav>
-          <nav className="overlay-list overlay-read" aria-label="Read">
-            <p className="mono overlay-kicker">READ</p>
-            <OverlayLinks items={NAV_READ} onPick={() => setOpen(false)} />
+          <nav className="overlay-list overlay-read" aria-label="Learn">
+            <p className="mono overlay-kicker">LEARN</p>
+            <OverlayLinks
+              items={NAV_READ}
+              pathname={pathname}
+              onPick={() => setOpen(false)}
+            />
+          </nav>
+          <nav className="overlay-list" aria-label="Practice">
+            <p className="mono overlay-kicker">PRACTICE</p>
+            <OverlayLinks
+              items={NAV_PRACTICE}
+              pathname={pathname}
+              onPick={() => setOpen(false)}
+            />
           </nav>
         </div>
         <div className="overlay-foot mono">

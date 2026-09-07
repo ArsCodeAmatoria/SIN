@@ -3,7 +3,9 @@ import { notFound } from "next/navigation";
 import { PolicyIssue } from "@/components/PolicyIssue";
 import { SafetyControlStamp } from "@/components/SafetyControl";
 import { SafetyDocFrame } from "@/components/SafetyDocFrame";
+import { RelatedWork } from "@/components/RelatedWork";
 import { POLICIES, getPolicy } from "@/lib/ohs";
+import { governedBy } from "@/lib/ohs/relations";
 import { pageMeta, provenTitle } from "@/lib/seo";
 
 type Props = { params: Promise<{ slug: string }> };
@@ -38,6 +40,7 @@ export default async function PolicyPage({ params }: Props) {
     >
       <div className="prose">
         <SafetyControlStamp number={doc.number} title={doc.title} />
+        <RelatedWork governed={governedBy(`policy/${slug}`)} />
         {doc.download ? (
           <p className="doc-cta">
             {doc.download.external ? (

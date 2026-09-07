@@ -40,3 +40,13 @@ export function ProvenName({ className }: { className?: string }) {
     </span>
   );
 }
+
+export function ProvenColophon() {
+  return (
+    <p className="mono steel doc-colophon">
+      <span>
+        <ProvenName />. Current version on this site.
+      </span>
+    </p>
+  );
+}

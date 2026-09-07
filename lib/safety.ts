@@ -1349,12 +1349,25 @@ export const SAFETY: SafetySection[] = [
     title: "SWP LIBRARY",
     kicker: "Search the procedure. Do it in order.",
     intro:
-      "Safe Work Procedures for mobile crane setup, operation, communication, rigging, powerlines, critical lifts and taking damaged gear out of service. They are the method — numbered steps. Hazards and residual risk live in the JHA library.",
+      "Numbered methods for the lift. Crane, signals, rigging, the plan. Open the one for this work. Do the steps in order.",
     library: "swp",
     blocks: [
       {
+        type: "list",
+        items: [
+          "SWP — the method. Numbered steps. These pages.",
+          "JHA — the hazards for the same work. Not a second procedure.",
+          "SJP — this morning. This table, this deck, this serial.",
+        ],
+      },
+      {
         type: "p",
-        text: "WorkSafeBC requires written procedures for specified high-risk work (OHS Regulation B.C. Reg. 296/97). CCOHS describes an SWP as the step-by-step method. Proven SWPs are purpose, scope, procedure, competency, equipment, PPE, prohibited practices, emergency, documentation and the editions the Regulation names — CSA Z150-1998, CSA Z248-2004, ASME B30.5-2004, B30.22-2005. The matching JHA is the hazard analysis, not a second procedure.",
+        text: "If a step cannot be followed on this pad, stop. Do not invent a workaround on the hook.",
+      },
+      {
+        type: "cta",
+        href: "/safety/safe-work-procedures",
+        label: "04 — HOW AN SWP IS BUILT →",
       },
       {
         type: "cta",
@@ -1374,12 +1387,25 @@ export const SAFETY: SafetySection[] = [
     title: "JHA LIBRARY",
     kicker: "What can hurt you. What holds the risk.",
     intro:
-      "Job Hazard Analyses name the hazards, the consequence, and the control. They are not procedures. Do the work to the SWP. WorkSafeBC does not mandate a JHA form — the Act requires workers to know the hazards. This is that document for crane and rigging work.",
+      "Hazards for the lift. Crane, signals, rigging, the plan. Open the one for this work. Do the work to the SWP.",
     library: "jha",
     blocks: [
       {
+        type: "list",
+        items: [
+          "SWP — the method. Numbered steps.",
+          "JHA — the hazards for the same work. These pages.",
+          "SJP — this morning. This table, this deck, this serial.",
+        ],
+      },
+      {
         type: "p",
-        text: "CCOHS treats JHA and JSA as the same method: break the job into tasks, identify hazards at each task, select controls in hierarchy order — eliminate, substitute, engineer, administer, PPE last. Residual risk is named. If a stop condition exists, the job does not proceed. Each row carries a severity badge. Extreme is reserved for the no-recovery killers — people under the load, MAD, overturn, a table over the edge. High is serious injury or a dropped load. Moderate is lost time or a failed plan. A tag line wrap is high. A boom in the MAD is extreme. They are not the same badge. Workers Compensation Act s. 21(2)(b) and (e). OHS Regulation Parts 3, 4, 8, 11, 14 and 15.",
+        text: "Each row carries a badge. Extreme is no recovery — people under the load, MAD, a table over the edge. High is serious injury or a dropped load. They are not the same badge. If a stop is named, the job does not proceed.",
+      },
+      {
+        type: "cta",
+        href: "/safety/hazard-assessment",
+        label: "03 — HAZARD ASSESSMENT →",
       },
       {
         type: "cta",
@@ -1986,13 +2012,8 @@ export const SAFETY: SafetySection[] = [
 
 export const SAFETY_GROUPS = [
   {
-    id: "system",
-    label: "THE SYSTEM",
-    slugs: ["ohs-management-system"],
-  },
-  {
-    id: "work",
-    label: "THE METHOD",
+    id: "people",
+    label: "PEOPLE & RESPONSIBILITY",
     slugs: [
       "company-safety-policy",
       "responsibilities",
@@ -2001,36 +2022,41 @@ export const SAFETY_GROUPS = [
     ],
   },
   {
-    id: "lift",
-    label: "THE LIFT",
+    id: "plan",
+    label: "PLAN THE WORK",
     slugs: [
       "hazard-assessment",
-      "crane-operations",
-      "crane-binders",
-      "rigging",
-      "fall-protection",
       "safe-work-procedures",
       "safe-job-procedures",
-    ],
-  },
-  {
-    id: "wrong",
-    label: "WHEN IT GOES WRONG",
-    slugs: ["incident-reporting", "emergency-response"],
-  },
-  {
-    id: "library",
-    label: "THE LIBRARY",
-    slugs: [
-      "ohs-policies",
       "swp-library",
       "jha-library",
       "sjp-library",
+    ],
+  },
+  {
+    id: "lift",
+    label: "DO THE LIFT",
+    slugs: ["crane-operations", "rigging", "fall-protection", "crane-binders"],
+  },
+  {
+    id: "wrong",
+    label: "WHEN SOMETHING GOES WRONG",
+    slugs: ["incident-reporting", "emergency-response"],
+  },
+  {
+    id: "records",
+    label: "RECORDS & DOCUMENTS",
+    slugs: [
       "safety-forms",
-      "whmis-sds",
       "inspections",
+      "whmis-sds",
       "document-control",
     ],
+  },
+  {
+    id: "system",
+    label: "MANAGEMENT SYSTEM",
+    slugs: ["ohs-management-system", "ohs-policies"],
   },
 ] as const;
 

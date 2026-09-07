@@ -32,7 +32,7 @@ export {
 } from "./meta";
 export { BINDERS, getBinder, BINDER_OFFICIAL } from "./binders";
 export type { BinderDef, BinderItem, BinderKind } from "./binders";
-export { shortNumber, docKind, LIBRARY_KIND } from "./doc";
+export { shortNumber, docKind, LIBRARY_KIND, KIND_LABELS, controlTypeLabel } from "./doc";
 export type { DocKind } from "./doc";
 export { WSBC_33, PROGRAM_HIERARCHY } from "./system";
 export type { SystemRow } from "./system";
@@ -47,6 +47,9 @@ export {
   JHA_GROUP_ORDER,
   SJP_GROUP_ORDER,
 } from "./catalog";
+export { searchCatalog } from "./search";
+export { recordsFor, governedBy } from "./relations";
+export type { RelatedLink } from "./relations";
 export type {
   DocControl,
   Policy,

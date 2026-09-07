@@ -3,9 +3,11 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Blocks } from "@/components/Blocks";
 import { DocBadge } from "@/components/DocBadge";
+import { RelatedWork } from "@/components/RelatedWork";
 import { SafetyLibraryPanel } from "@/components/SafetyLibraryPanel";
-import { ProvenName } from "@/components/ProvenMark";
+import { ProvenColophon, ProvenName } from "@/components/ProvenMark";
 import { LIBRARY_KIND } from "@/lib/ohs/doc";
+import { recordsFor } from "@/lib/ohs/relations";
 import { SAFETY, getSafety } from "@/lib/safety";
 import { pageMeta, provenTitle } from "@/lib/seo";
 import { SITE } from "@/lib/site";
@@ -49,12 +51,13 @@ export default async function SafetySectionPage({ params }: Props) {
         </h1>
         <p className="lede mt">{section.intro}</p>
       </header>
+      <RelatedWork records={recordsFor(section.slug)} />
       <Blocks blocks={section.blocks} />
       {section.library ? <SafetyLibraryPanel kind={section.library} /> : null}
       <nav className="pager">
         {prev ? (
           <Link href={`/safety/${prev.slug}`}>
-            <span className="mono steel">PREV {prev.num}</span>
+            <span className="mono steel">PREV</span>
             <strong className="display">{prev.title}</strong>
           </Link>
         ) : (
@@ -67,7 +70,7 @@ export default async function SafetySectionPage({ params }: Props) {
         )}
         {next ? (
           <Link href={`/safety/${next.slug}`}>
-            <span className="mono steel">NEXT {next.num}</span>
+            <span className="mono steel">NEXT</span>
             <strong className="display">{next.title}</strong>
           </Link>
         ) : (
@@ -79,10 +82,7 @@ export default async function SafetySectionPage({ params }: Props) {
           </Link>
         )}
       </nav>
-      <p className="mono steel doc-colophon">
-        <ProvenName />
-        <span>{SITE.legalName}. Current version on this site.</span>
-      </p>
+      <ProvenColophon />
     </article>
   );
 }

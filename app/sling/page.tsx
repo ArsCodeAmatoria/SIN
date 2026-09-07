@@ -5,6 +5,7 @@ import { DeskPrintButton, SlingDesk } from "@/components/SlingDesk";
 import { JsonLd } from "@/components/SeoLanding";
 import { formatReviewed, LAST_REVIEWED } from "@/lib/reviewed";
 import { absUrl, breadcrumbLd, jsonLdGraph, organizationLd, pageMeta, websiteLd } from "@/lib/seo";
+import { SiteName } from "@/components/Logo";
 import { SITE } from "@/lib/site";
 
 export const metadata: Metadata = pageMeta({
@@ -41,7 +42,9 @@ export default function SlingDeskPage() {
         ])}
       />
       <header className="page-hero">
-        <p className="mono kicker">sin() — DESK</p>
+        <p className="mono kicker">
+          <SiteName /> — DESK
+        </p>
         <h1 className="display giant">
           SLING
           <br />

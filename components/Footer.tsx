@@ -20,7 +20,7 @@ function StandardsLine() {
       <Link href="/safety#standards">Work done to</Link> CSA Z150 / Z248, WorkSafeBC,
       BC Crane Safety, Technical Safety BC, applicable ASME B30 standards, manufacturer
       requirements and site policies. Those marks identify the bodies — they
-      are not a claim those organizations endorse {SITE.name}.
+      are not a claim those organizations endorse <SiteName />.
     </p>
   );
 }
@@ -28,7 +28,9 @@ function StandardsLine() {
 export function SiteColophon() {
   return (
     <p className="mono steel site-colophon">
-      <span>{SITE.legalName}. Current version on this site.</span>
+      <span>
+        <SiteName />. Current version on this site.
+      </span>
       <span>
         <Link href="/safety#standards">Work done to</Link> CSA Z150 / Z248,
         WorkSafeBC, BC Crane Safety and the rest — not an endorsement.

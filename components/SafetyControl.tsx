@@ -1,5 +1,6 @@
 import type { DocControl } from "@/lib/ohs";
 import { OHS_META } from "@/lib/ohs";
+import { controlTypeLabel } from "@/lib/ohs/doc";
 
 export function SafetyControl({
   doc,
@@ -11,15 +12,22 @@ export function SafetyControl({
   return (
     <dl className="ohs-control">
       <div>
+        <dt className="mono">TYPE</dt>
+        <dd className="display">{controlTypeLabel(doc.number)}</dd>
+      </div>
+      <div>
         <dt className="mono">DOCUMENT</dt>
         <dd className="display">{doc.number}</dd>
       </div>
       <div>
-        <dt className="mono">REVISION</dt>
+        <dt className="mono">STATUS</dt>
         <dd>
-          {doc.revision}{" "}
-          {current ? <span className="ohs-current">CURRENT</span> : null}
+          {current ? <span className="ohs-current">CURRENT</span> : "WORKING COPY"}
         </dd>
+      </div>
+      <div>
+        <dt className="mono">REVISION</dt>
+        <dd>{doc.revision}</dd>
       </div>
       <div>
         <dt className="mono">EFFECTIVE</dt>

@@ -3,7 +3,9 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { SafetyControlStamp } from "@/components/SafetyControl";
 import { SafetyDocFrame } from "@/components/SafetyDocFrame";
+import { RelatedWork } from "@/components/RelatedWork";
 import { FORMS, getForm } from "@/lib/ohs";
+import { governedBy } from "@/lib/ohs/relations";
 import type { DocLink } from "@/lib/ohs/types";
 import { getTemplate } from "@/lib/form-builder/templates";
 import { pageMeta, provenTitle } from "@/lib/seo";
@@ -97,6 +99,7 @@ export default async function FormPage({ params }: Props) {
     >
       <div className="prose">
         <SafetyControlStamp number={doc.number} title={doc.title} />
+        <RelatedWork governed={governedBy(`form/${slug}`)} />
         {ctas.map((link) => (
           <FormCta key={link.href + link.label} link={link} />
         ))}

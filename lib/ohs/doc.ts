@@ -14,6 +14,23 @@ export type DocKind = (typeof DOC_KINDS)[number];
 
 const KIND_SET = new Set<string>(DOC_KINDS);
 
+export const KIND_LABELS: Record<DocKind, string> = {
+  POL: "POLICY",
+  SWP: "SWP",
+  JHA: "JHA",
+  SJP: "SJP",
+  FRM: "FORM",
+  SDS: "SDS",
+  CRN: "CRANE",
+  BND: "BINDER",
+  RPT: "REPORT",
+};
+
+export function controlTypeLabel(number: string): string {
+  const kind = docKind(number);
+  return kind ? KIND_LABELS[kind] : "PROGRAM STANDARD";
+}
+
 export const LIBRARY_KIND: Record<string, DocKind> = {
   policy: "POL",
   swp: "SWP",
