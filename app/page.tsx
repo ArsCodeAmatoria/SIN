@@ -48,10 +48,7 @@ export default function HomePage() {
     <>
       <section className="section section-lead home-hero" id="sin">
         <div className="wrap">
-          <p className="mono kicker home-poster-rail">
-            <span>Tower Crane · British Columbia</span>
-            <span>Open · Usable · Accountable</span>
-          </p>
+          <p className="mono kicker">Tower Crane · British Columbia</p>
           <h1 className="display home-title">
             <span className="home-title-docs">Docs</span>
             <span className="home-title-rest">for the Tower Crane Crew</span>
