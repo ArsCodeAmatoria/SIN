@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { SiteName, Wordmark } from "@/components/Logo";
 import { StandardMarks } from "@/components/StandardsList";
-import { SITE } from "@/lib/site";
+import { SITE, SOCIALS } from "@/lib/site";
 import { WIRE } from "@/lib/whoopwire";
 
 const LINKS = [
@@ -53,6 +53,17 @@ export function Footer({ marks = false }: { marks?: boolean }) {
             </Link>
           ))}
           <a href={SITE.emailHref}>{SITE.email}</a>
+          {SOCIALS.map((item) => (
+            <a
+              key={item.href}
+              href={item.href}
+              title={item.title}
+              rel="me noopener noreferrer"
+              target="_blank"
+            >
+              {item.label}
+            </a>
+          ))}
         </nav>
       </div>
       {marks ? (

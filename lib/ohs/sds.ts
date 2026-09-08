@@ -84,6 +84,21 @@ export const SDS: Sds[] = [
     firstAid: "Rinse skin. Eyes: water, medical care if the product is solvent-based.",
     storage: "Pump bottles in the crew kit. Caps on.",
   },
+  {
+    slug: "degreaser",
+    title: "DEGREASER / PARTS CLEANER",
+    number: "PROVEN-SDS-008",
+    use: "Cleaning grease off tools, pins and the deck - not a sling cleaner, not a hand wash. The parts-washer solvent on this site is its own SDS if it is not this product.",
+    hazards: [
+      "Skin and eye irritation",
+      "Slippery residue if not rinsed",
+      "Solvent vapour and flash if the product is solvent-based",
+    ],
+    ppe: ["Gloves rated for the product", "Eye protection", "Ventilation in a closed shop"],
+    spill: "Contain. Absorb. Keep out of drains. Rags in a metal can.",
+    firstAid: "Skin: wash. Eyes: rinse. If solvent-based and inhaled: fresh air.",
+    storage: "Closed, labelled, off the walkway. Not in the cab as a drink bottle.",
+  },
 ];
 
 export function getSds(slug: string) {

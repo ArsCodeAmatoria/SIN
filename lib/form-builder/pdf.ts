@@ -1,6 +1,7 @@
 import { PDFDocument, StandardFonts, rgb, type PDFFont, type PDFPage } from "pdf-lib";
 import { SITE } from "@/lib/site";
 import { shortNumber } from "@/lib/ohs/doc";
+import { pdfSafe } from "@/lib/ohs/pdf-kit";
 import { type Issuer } from "@/lib/ohs/issuer";
 import type {
   FormValues,
@@ -45,7 +46,7 @@ async function ensureSpace(ctx: Ctx, need: number) {
 }
 
 function wrap(font: PDFFont, text: string, size: number, width: number) {
-  const words = text.split(/\s+/).filter(Boolean);
+  const words = pdfSafe(text).split(/\s+/).filter(Boolean);
   const lines: string[] = [];
   let line = "";
   for (const word of words) {
@@ -93,7 +94,7 @@ function drawHeader(ctx: Ctx, form: FormDef, completedBy: string, issuer?: Issue
     thickness: 1.5,
     color: INK,
   });
-  page.drawText(form.title, {
+  page.drawText(pdfSafe(form.title), {
     x: M,
     y: H - 62,
     size: 11,
@@ -102,7 +103,7 @@ function drawHeader(ctx: Ctx, form: FormDef, completedBy: string, issuer?: Issue
   });
   const issued = issuer?.name ? `  ·  ${issuer.name}` : "";
   const meta = `Rev ${form.revision}  ·  Effective ${form.effective}  ·  ${form.current ? "CURRENT VERSION" : "WORKING COPY"}  ·  ${completedBy || "Completed in field"}${issued}`;
-  page.drawText(meta, {
+  page.drawText(pdfSafe(meta), {
     x: M,
     y: H - 76,
     size: 7,
@@ -229,7 +230,7 @@ async function drawBlock(
   values: FormValues
 ) {
   await ensureSpace(ctx, 28);
-  ctx.page.drawText(block.title.toUpperCase(), {
+  ctx.page.drawText(pdfSafe(block.title.toUpperCase()), {
     x: M,
     y: ctx.y,
     size: 10,

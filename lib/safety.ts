@@ -1495,7 +1495,7 @@ export const SAFETY: SafetySection[] = [
     title: "WHMIS + SDS",
     kicker: "Only what crews actually meet.",
     intro:
-      "The SDS library is diesel, hydraulic oil, grease, penetrating oil, wire rope dressing, battery electrolyte and hand cleaner — products operators and riggers actually touch on a lift.",
+      "The SDS library is diesel, hydraulic oil, grease, penetrating oil, wire rope dressing, battery electrolyte, hand cleaner and shop degreaser — products operators and riggers actually touch on a lift. Manufacturer sheets for example products ship in the OH&S zip.",
     library: "sds",
     blocks: [
       {
@@ -1507,7 +1507,7 @@ export const SAFETY: SafetySection[] = [
         items: [
           "Workers have the right to know about products they use on the lift and on the carrier.",
           "Labels stay on. If a product is decanted, it is identified.",
-          "SDS for the products below are in this library — no login, no expiring link.",
+          "SDS for the products below are in this library — no login, no expiring link. Download the OH&S zip for manufacturer PDFs you can sleeve behind Tab 18.",
           "A product the site introduces is the site’s SDS. Ask before you use it.",
           "Spill, fire and first aid follow the SDS and the site emergency plan.",
         ],
@@ -2111,6 +2111,7 @@ export const FIND_NOW_GROUPS: { id: string; label: string; items: FindNowItem[] 
     id: "pdf",
     label: "MAKE A PDF",
     items: [
+      { href: "/safety/pack", label: "OH&S PACK", hint: "Zip of PDFs + SDS", kind: "FRM" },
       { href: "/safety/builder", label: "FORM BUILDER", hint: "Fill + PDF", kind: "FRM" },
     ],
   },

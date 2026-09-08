@@ -2,6 +2,7 @@ import { PDFDocument, StandardFonts, rgb, type PDFFont, type PDFPage } from "pdf
 import { SITE } from "../site";
 import { shortNumber } from "./doc";
 import { issuerHasBrand, issuerHasSign, type Issuer } from "./issuer";
+import { pdfSafe } from "./pdf-kit";
 import type { Policy } from "./types";
 
 const INK = rgb(16 / 255, 16 / 255, 16 / 255);
@@ -13,7 +14,7 @@ const M = 48;
 const BOTTOM = 56;
 
 function wrap(font: PDFFont, text: string, size: number, width: number) {
-  const words = text.split(/\s+/).filter(Boolean);
+  const words = pdfSafe(text).split(/\s+/).filter(Boolean);
   const lines: string[] = [];
   let line = "";
   for (const word of words) {
@@ -54,7 +55,7 @@ export async function policyToPdf(policy: Policy, issuer: Issuer) {
   }
 
   function text(s: string, x: number, size: number, f: PDFFont, color = INK) {
-    page.drawText(s, { x, y, size, font: f, color });
+    page.drawText(pdfSafe(s), { x, y, size, font: f, color });
   }
 
   if (issuer.logoDataUrl) {

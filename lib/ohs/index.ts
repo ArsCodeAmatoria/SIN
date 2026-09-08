@@ -4,6 +4,7 @@ export { JHAS, getJha } from "./jhas";
 export { SJPS, getSjp } from "./sjps";
 export { FORMS, FORM_GROUPS, getForm } from "./forms";
 export { SDS, getSds } from "./sds";
+export { MANUFACTURER_SDS, manufacturerSdsFor } from "./sds-manufacturer";
 export { REPORTS, getReport } from "./reports";
 export { CRANES, CRANE_GROUP_ORDER, getCrane } from "./cranes";
 export { INSPECTION_LOOP, INSPECTION_SCOPE } from "./inspections";

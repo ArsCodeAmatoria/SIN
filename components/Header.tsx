@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import { Wordmark } from "./Logo";
 import { ProvenName } from "./ProvenMark";
 import { ThemeSwitch } from "./ThemeSwitch";
-import { NAV_LIFT, NAV_PRACTICE, NAV_READ, SITE, type NavItem } from "@/lib/site";
+import { NAV_LIFT, NAV_PRACTICE, NAV_READ, SITE, SOCIALS, type NavItem } from "@/lib/site";
 
 function OverlayLinks({
   items,
@@ -108,7 +108,20 @@ export function Header() {
         </div>
         <div className="overlay-foot mono">
           <span>{SITE.location}</span>
-          <a href={SITE.emailHref}>{SITE.email}</a>
+          <nav className="overlay-foot-links" aria-label="Contact">
+            <a href={SITE.emailHref}>{SITE.email}</a>
+            {SOCIALS.map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                title={item.title}
+                rel="me noopener noreferrer"
+                target="_blank"
+              >
+                {item.label}
+              </a>
+            ))}
+          </nav>
         </div>
       </div>
     </>

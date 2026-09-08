@@ -1,5 +1,37 @@
 WHOOP downloadable packs.
 
+PROVEN-OHS-Rev01.zip  (generated at /safety/pack/download)
+  Whole Proven OH&S program as PDFs, filed to binder tabs 01-22.
+  Includes blank forms, field SDS cards, and manufacturer SDS in
+  public/downloads/sds/. Example products a tower / mobile crane crew
+  meets — not a claim those brands are on every site. The can wins.
+
+  shell-diesel-ulsd.pdf
+    Shell Trading Canada Diesel (ULSD).
+    https://www.epc.shell.com/DocumentManagement/BlobDocumentDownload?DocId=169895683
+  petro-canada-diesel-fuel.pdf
+    Petro-Canada / Suncor diesel fuel (seasonal, ULSD, dyed blends).
+    https://www.petro-canada.ca/en/business/sds
+  safety-kleen-aw-hydraulic-oil.pdf
+    Safety-Kleen / Kleen Performance Products AW hydraulic oils ISO 22-220.
+  chevron-ulti-plex-ep-grease.pdf
+    Chevron Ulti-Plex EP NLGI 1/2 grease.
+  wd-40-multi-use-aerosol.pdf
+    WD-40 Company Multi-Use Product Aerosol (Low VOC US GHS).
+    https://files.wd40.com/pdf/sds/mup/wd-40-multi-use-product-aerosol-low-voc-sds-us-ghs.pdf
+  wirelife-almasol-coating-grease-453.pdf
+    Lubrication Engineers 453 Wirelife Almasol coating grease.
+  surrette-battery-electrolyte.pdf
+    Surrette Battery Company (Nova Scotia) electrolyte / battery acid.
+    https://www.surrette.com/wp-content/uploads/2019/11/SDS-Battery_Acid.pdf
+  enersys-battery-electrolyte.pdf
+    EnerSys battery electrolyte.
+  gojo-original-pumice-hand-cleaner.pdf
+    GOJO Original Pumice Hand Cleaner. https://www.gojo.com/en/SDS
+  simple-green-all-purpose-cleaner.pdf
+    Sunshine Makers Simple Green All-Purpose Cleaner (shop cleaner example).
+    https://cdn.simplegreen.com/downloads/SDS_EN-US_SimpleGreenAllPurposeCleaner.pdf
+
 injury-management.zip
   BCCSA Injury Management resources for WHOOP-POL-022.
   Employer guide, employee PIM bulletin, sample forms, supplementary notes.

@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { SafetyControlStamp } from "@/components/SafetyControl";
 import { SafetyDocFrame } from "@/components/SafetyDocFrame";
 import { SDS, getSds } from "@/lib/ohs";
+import { manufacturerSdsFor } from "@/lib/ohs/sds-manufacturer";
 import { pageMeta, provenTitle } from "@/lib/seo";
 
 type Props = { params: Promise<{ slug: string }> };
@@ -59,6 +60,24 @@ export default async function SdsPage({ params }: Props) {
           This is a field card for the lift. The manufacturer SDS for the
           exact product on site wins if it is stricter or more specific.
         </p>
+        {manufacturerSdsFor(doc.slug).length ? (
+          <>
+            <h2>EXAMPLE MANUFACTURER SDS</h2>
+            <p>
+              Sleeve these until you swap in the sheet for the can on this
+              machine. Also in the{" "}
+              <a href="/safety/pack">OH&S zip</a>, Tab 18.
+            </p>
+            <ul className="bullets">
+              {manufacturerSdsFor(doc.slug).map((item) => (
+                <li key={item.file}>
+                  <a href={`/downloads/sds/${item.file}`}>{item.product}</a>
+                  {` — ${item.maker}. ${item.note}`}
+                </li>
+              ))}
+            </ul>
+          </>
+        ) : null}
       </div>
     </SafetyDocFrame>
   );

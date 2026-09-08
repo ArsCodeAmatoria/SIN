@@ -94,6 +94,14 @@ export default function AboutPage() {
         <a className="btn btn-ghost" href={SITE.emailHref}>
           {SITE.email}
         </a>
+        <a
+          className="btn btn-ghost"
+          href={SITE.facebook}
+          rel="me noopener noreferrer"
+          target="_blank"
+        >
+          Facebook
+        </a>
       </div>
     </div>
   );

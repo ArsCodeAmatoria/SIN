@@ -44,6 +44,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     loc("/about", undefined, "monthly", 0.6),
     loc("/philosophy", undefined, "yearly", 0.4),
     loc("/safety/builder", undefined, "weekly", 0.6),
+    loc("/safety/pack", undefined, "weekly", 0.7),
     ...landings,
     ...exams,
     ...proven,

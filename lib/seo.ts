@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { shortNumber } from "@/lib/ohs/doc";
-import { AUTHOR, SITE } from "@/lib/site";
+import { AUTHOR, SITE, SOCIALS } from "@/lib/site";
 
 export const ORIGIN = SITE.url;
 
@@ -106,6 +106,7 @@ export function organizationLd() {
     url: ORIGIN,
     email: SITE.email,
     telephone: SITE.phone,
+    sameAs: SOCIALS.map((item) => item.href),
     description: SITE.descriptionLong,
     areaServed: SITE.location,
     logo: {

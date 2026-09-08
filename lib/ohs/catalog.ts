@@ -205,6 +205,13 @@ export function safetyCatalog(): CatalogHit[] {
       }),
     ),
     hit({
+      href: "/safety/pack",
+      number: "PROVEN-OHS",
+      title: "OH&S PACK",
+      summary: "Whole program as a zip of PDFs. Binder tabs. Manufacturer SDS.",
+      kind: "FORM",
+    }),
+    hit({
       href: "/safety/builder",
       number: "PROVEN-FRM",
       title: "FORM BUILDER",

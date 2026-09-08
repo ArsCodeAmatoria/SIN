@@ -7,6 +7,7 @@ export const SITE = {
   phoneHref: "tel:+16044312000",
   email: "info@sin.ae.org",
   emailHref: "mailto:info@sin.ae.org",
+  facebook: "https://www.facebook.com/profile.php?id=61594130913267",
   location: "British Columbia, Canada",
   tagline: "CRANE SAFETY SYSTEMS.",
   sub: "OPEN. USABLE. ACCOUNTABLE.",
@@ -25,6 +26,14 @@ export const SITE = {
     "sin() is public tower crane and rigging safety information for lifting work in British Columbia.\n\nREDTC is Tower Crane exam practice — Fulford, SkilledTradesBC, and the Interprovincial Red Seal. Flat-top, luffing and self-erecting machines. Tagged questions. Explanations after you answer. 70% to pass, same as the sitting.\n\nProven is the occupational health and safety program: policies, safe work procedures, hazard assessments, forms and tower and self-erect binders. Written the way the work actually happens. Public so anyone on the lift can read it before the hook is loaded. No portal. No request form. No expiry date.\n\nThe Wire is writing about safety, rigging, cranes and people.\n\nWork is done to CSA Z150 / Z248, WorkSafeBC, BC Crane Safety, Technical Safety BC, applicable ASME B30 standards, manufacturer requirements and site policies. The stricter applicable requirement wins. Law always wins.\n\nIf a procedure cannot be followed on a jobsite, it is not a procedure. It is theatre.",
   system: "PROVEN",
 } as const;
+
+export const SOCIALS = [
+  {
+    href: SITE.facebook,
+    label: "FACEBOOK",
+    title: `${SITE.name} on Facebook`,
+  },
+] as const;
 
 export const AUTHOR = {
   name: "Kojin Fox",

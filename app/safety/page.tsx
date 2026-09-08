@@ -33,6 +33,11 @@ export default function SafetyIndexPage() {
           Open the form for this shift. Build the binder for this machine. Read
           the procedure before the hook is loaded. No portal. No expiry.
         </p>
+        <p className="mt-2">
+          <a className="btn btn-solid" href="/safety/pack">
+            DOWNLOAD THE OH&S ZIP
+          </a>
+        </p>
         <CabLine where="proven" />
       </header>
 

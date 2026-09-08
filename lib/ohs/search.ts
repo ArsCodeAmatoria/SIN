@@ -30,6 +30,7 @@ export const SEARCH_ALIASES: Record<string, string> = {
   "/safety/form/tower-pre-use":
     "tower luffer z248 weekly monthly hook inspection pre-use",
   "/safety/form/flha": "flra hazard assessment this shift start",
+  "/safety/pack": "zip download binder tabs sds whmis print pdf program",
   "/safety/form/lift-plan": "critical weather abort radius chart",
   "/safety/form/critical-lift-plan": "weather abort tandem plant public ego",
   "/safety/form/rigging-inspection-form":
